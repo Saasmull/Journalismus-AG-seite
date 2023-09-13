@@ -1,0 +1,46 @@
+h1{
+    width: 100%;
+    font-size: 2.8em;
+    text-align: center;
+}
+
+img.banner-image{
+    width: 100vw;
+    max-height: 50vh;
+    object-fit: cover;
+}
+
+p>img{
+    max-width: 100%;
+}
+
+p>.audio-player,p>audio[controls]{
+    display: block;
+    min-width: 250px;
+    width: 50%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2rem;
+    background-color: white;
+    box-shadow: 0 0 15px 1px rgba(0,0,0,0.5);
+}
+
+#content{
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width:780px) {
+    #content{
+        width: 65vw;
+    }
+}
+
+code{
+    display: inline-block;
+    white-space: pre;
+    max-width: 100%;
+    overflow: scroll;
+}
