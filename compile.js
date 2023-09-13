@@ -1,22 +1,45 @@
 const fs = require("fs");
 const {marked} = require("marked");
 
-const BASIC_TEMPLATE = fs.readFileSync("templates/basic.html","utf-8");
+const SITE_NAME = "Blog";
+const BASIC_TEMPLATE = fs.readFileSync("templates/basic.html","utf-8").replace("<!--SITENAME-->", SITE_NAME);
 
 function cleanDir(path){
     try{
-        fs.rmSync("root/assets",{recursive: true});
+        fs.rmSync(path,{recursive: true});
     }catch(e){}
     try{
-        fs.mkdirSync("root/assets");
+        fs.mkdirSync(path,{recursive: true});
     }catch(e){}
 }
 function setupRootDir(){
+    try{
+        fs.rmSync("root/index.html");
+    }catch(e){}
     cleanDir("root/author");
     cleanDir("root/article");
     cleanDir("root/assets");
     cleanDir("root/category");
     fs.cpSync("assets/","root/assets/",{recursive:true});
+}
+
+class Homepage{
+    constructor(){
+        this.categories = [];
+    }
+    addCategory(category){
+        this.categories.push(category);
+    }
+    renderHomepage(){
+        var categorySections = "<div class=\"category-container\">\n";
+        for(var i = 0;i < this.categories.length;i++){
+            categorySections += this.categories[i].renderCategorySection();
+        }
+        categorySections += "</div>\n";
+        var page = BASIC_TEMPLATE
+            .replace("<!--CONTENT-->",categorySections);
+        return page;
+    }
 }
 /**
  * @param {string} path Pfad der Kategorie
@@ -42,9 +65,31 @@ class Category{
     registerArticle(article){
         this.articles.push(article);
     }
+    renderCategorySection(){
+        var section = "<section class=\"category\">\n";
+        section += "<h2>" + this.metadata.title + "</h2>\n";
+        section += "<div class=\"card-container\">\n";
+        for(var i = 0;i < Math.min(this.articles.length,4);i++){
+            section += this.articles[i].renderCard();
+        }
+        section += "</div>\n</section>\n";
+        return section;
+    }
+
     renderCategoryPage(){
-        var articleCards = [];
-        var page = BASIC_TEMPLATE.replace("<!--CONTENT-->",)
+        var categoryHead = "<div class=\"category-head\">\n";
+        categoryHead += "<img class=\"banner-image\" src=\"" + this.metadata.banner + "\">\n";
+        categoryHead += "<h1>" + this.metadata.title + "</h1>\n";
+        categoryHead += "<p>" + this.metadata.description + "</p>\n";
+        categoryHead += "</div>\n";
+        var articleCards = "<div class=\"category-items\">\n";
+        for(var i = 0;i < this.articles.length;i++){
+            articleCards += this.articles[i].renderCard();
+        }
+        articleCards += "</div>\n";
+        var page = BASIC_TEMPLATE
+            .replace("<!--CONTENT-->",categoryHead+articleCards);
+        return page;
     }
 }
 
@@ -71,9 +116,10 @@ class Article{
     }
     renderCard(){
         var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
-        card += "<h3>" + this.metadata.title + "</h3>\n";
+        card += "<div class=\"banner\" style=\"background-image:url('" + this.metadata.banner + "')\"></div>\n";
+        card += "<div class=\"card-content\"><h3>" + this.metadata.title + "</h3>\n";
         card += "<p>" + this.metadata.description + "</p>\n";
-        card += "</a>\n</article>\n";
+        card += "</div></a>\n</article>\n";
         return card;
     }
     /**
@@ -130,12 +176,32 @@ class Article{
 }
 
 setupRootDir();
+/** @type {Homepage} */
+var homepage = new Homepage();
+
+/** @type {Category[]} */
+var categories = {};
+var categoriesDir = fs.readdirSync("categories");
+
+for(var i = 0;i < categoriesDir.length;i++){
+    categories[categoriesDir[i]] = new Category(categoriesDir[i]);
+}
+
 /** @type {Article[]} */
 var articles = [];
 var articlesDir = fs.readdirSync("articles");
+
 for(var i = 0;i < articlesDir.length;i++){
     articles.push(new Article(articlesDir[i]));
+    for(var j = 0;j < articles[i].metadata.categories.length;j++){
+        categories[articles[i].metadata.categories[j]].registerArticle(articles[i]);
+    }
     fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf-8");
 }
-console.log(articles);
-console.log(articles[0].renderArticlePage());
+
+for(var i = 0;i < categoriesDir.length;i++){
+    homepage.addCategory(categories[categoriesDir[i]]);
+    fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf-8");
+}
+
+fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");

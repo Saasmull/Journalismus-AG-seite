@@ -14,8 +14,10 @@ class AudioPlayer{
             muteButton:this.controls.querySelector(".mute"),
             volume:this.controls.querySelector(".volume")
         };
+        this.controlElements.muteButton.style.display = "none";
+        this.controlElements.volume.style.display = "none";
         this.controlElements.timeline.value = 0;
-        this.controlElements.timeline.max = this.audio.duration;
+        this.controlElements.timeline.step = 0.01;
         this.controlElements.playButton.addEventListener("click",()=>{
             if(this.audio.paused){
                 this.audio.play();
@@ -25,9 +27,10 @@ class AudioPlayer{
         });
         this.audio.addEventListener("timeupdate",()=>{
             this.controlElements.timeline.value = this.audio.currentTime;
+            this.controlElements.timeline.max = this.audio.duration;
             this.controlElements.timestamp.innerHTML = Math.floor(this.audio.currentTime)+"/"+Math.floor(this.audio.duration);
         })
-        this.controlElements.timeline.addEventListener("change",()=>{
+        this.controlElements.timeline.addEventListener("input",()=>{
             this.audio.currentTime = this.controlElements.timeline.value;
         })
     }
