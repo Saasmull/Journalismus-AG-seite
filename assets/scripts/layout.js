@@ -20,3 +20,10 @@ try{
     }
     );
 } catch(e) {}
+
+/*for(let i = 0;i < cardElements.length;i++){
+    cardElements[i].addEventListener("mouseover",(event)=>{
+        console.log(event);
+        cardElements[i].style.backgroundImage = "radial-gradient(circle,black 25%,transparent 100%)";
+    });
+}*/
