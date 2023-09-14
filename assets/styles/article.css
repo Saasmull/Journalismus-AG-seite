@@ -26,17 +26,12 @@ p>.audio-player,p>audio[controls]{
     box-shadow: 0 0 15px 1px rgba(0,0,0,0.5);
 }
 
-#content{
-    width: 95vw;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media screen and (min-width:780px) {
+@media screen and (max-width: 780px) {
     #content{
-        width: 65vw;
+        width: 90vw;
     }
 }
+
 
 code{
     display: inline-block;

@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles/main.css">
+    <script defer src="/assets/scripts/layout.js"></script>
     <!--METADATA-->
 </head>
 <body>
     <header>
         <a href="/">Blog</a>
         <nav>
-            <a href="/">Home</a>
-            <a href="/category/hbs.html">Unsere Schule</a>
-            <a href="/category/technik.html">Technik</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/category/hbs.html">Unsere Schule</a>
+            <a class="nav-link" href="/category/politik.html">Politik</a>
+            <a class="nav-link" href="/category/technik.html">Technik</a>
         </nav>
     </header>
     <main>
         <div class="category-head">
-<img class="banner-image" src="/assets/images/plenarsaal.jpg">
+<div class="banner-image" style="background-image:url('/assets/images/plenarsaal.jpg');"></div>
 <h1>Politik</h1>
 <p></p>
 </div>
@@ -26,10 +28,11 @@
 
     </main>
     <footer>
+        <hr>
         <nav>
-            <a href="/">Home</a>
-            <a href="/category/hbs.html">Unsere Schule</a>
-            <a href="/category/technik.html">Technik</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/category/hbs.html">Unsere Schule</a>
+            <a class="nav-link" href="/category/technik.html">Technik</a>
         </nav>
     </footer>
 </body>

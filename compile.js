@@ -31,7 +31,7 @@ class Homepage{
         this.categories.push(category);
     }
     renderHomepage(){
-        var categorySections = "<div class=\"category-container\">\n";
+        var categorySections = "<div id=\"content\" class=\"category-container\">\n";
         for(var i = 0;i < this.categories.length;i++){
             categorySections += this.categories[i].renderCategorySection();
         }
@@ -78,7 +78,7 @@ class Category{
 
     renderCategoryPage(){
         var categoryHead = "<div class=\"category-head\">\n";
-        categoryHead += "<img class=\"banner-image\" src=\"" + this.metadata.banner + "\">\n";
+        categoryHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
         categoryHead += "<h1>" + this.metadata.title + "</h1>\n";
         categoryHead += "<p>" + this.metadata.description + "</p>\n";
         categoryHead += "</div>\n";
@@ -116,7 +116,7 @@ class Article{
     }
     renderCard(){
         var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
-        card += "<div class=\"banner\" style=\"background-image:url('" + this.metadata.banner + "')\"></div>\n";
+        card += "<div class=\"banner\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
         card += "<div class=\"card-content\"><h3>" + this.metadata.title + "</h3>\n";
         card += "<p>" + this.metadata.description + "</p>\n";
         card += "</div></a>\n</article>\n";
@@ -170,7 +170,7 @@ class Article{
     renderArticlePage(){
         var page = BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
-            .replace("<!--CONTENT-->","<img class=\"banner-image\" src=\"" + this.metadata.banner + "\"><article><h1>" + this.metadata.title + "</h1><div id=\"content\">"+this.htmlContent+"</div></article>");
+            .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">"+this.htmlContent+"</div></article>");
         return page;
     }
 }
