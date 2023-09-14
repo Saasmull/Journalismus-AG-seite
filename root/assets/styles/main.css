@@ -55,6 +55,10 @@ header{
     box-shadow: var(--card-shadow);
 }
 
+.lum header{
+    background-color: var(--bg-color-2);
+}
+
 header>a{
     margin-right: auto;
     text-decoration: none;
