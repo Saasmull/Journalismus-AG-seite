@@ -1,8 +1,8 @@
 {
-    "title":"Artikel 2",
-    "description":"Testartikel",
-    "banner":"/assets/images/braunschweig.webp",
+    "title":"Natur in den Bergen",
+    "description":"Hier erfährst Du, warum die Natur in den Bergen natürlich ist. Jetzt bei Abend in den Alpen weiterlesen.",
+    "banner":"/assets/images/suisse.jpg",
     "published":"12.09.2023",
-    "categories":["hbs","technik"],
+    "categories":["hbs","technik","umwelt"],
     "authors":["sml"]
 }

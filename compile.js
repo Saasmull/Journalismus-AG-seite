@@ -109,6 +109,9 @@ class Article{
         if(fs.existsSync("articles/"+path+"/meta.json")){
             this.metadata = JSON.parse(fs.readFileSync("articles/"+path+"/meta.json","utf-8"));
         }
+        if(!this.metadata.banner){
+            this.metadata.banner = "/assets/images/default-banner.jpg";
+        }
         if(fs.existsSync("articles/"+path+"/index.md")){
             this.content = fs.readFileSync("articles/"+path+"/index.md","utf-8");
             this.htmlContent = marked.parse(this.content);

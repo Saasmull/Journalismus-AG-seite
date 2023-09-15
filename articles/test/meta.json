@@ -1,7 +1,7 @@
 {
-    "title":"Titeltext",
-    "description":"Testartikel",
-    "banner":"/assets/images/braunschweig.webp",
+    "title":"Warum ich ein Bug bin",
+    "description":"Bei mir hat man wohl vergessen, einen Link zu einem Vorschaubild einzufügen, deshalb lade ich dieses Standardbild - So einfach geht Bugfixing.",
+    "banner":"",
     "published":"12.09.2023",
     "categories":["hbs"],
     "authors":["sml"]
