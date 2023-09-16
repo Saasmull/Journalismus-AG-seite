@@ -1,6 +1,29 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const express = require("express");
+const app = express();
+
+const GENERATOR_FILE = fs.readFileSync("templates/generator.html","utf-8");
+
+function fileExists(data){
+    return fs.existsSync(data);
+}
+
+app.use("/bridge",function(req,res){
+    if(req.body.json){
+        var jsonData = JSON.parse(req.body.json);
+        switch(jsonData.call){
+            case "fileExists":
+                res.send(fileExists(jsonData.data));
+                break;
+        }
+    }
+});
+app.use("/",function(req,res){
+    res.send(GENERATOR_FILE);
+});
+app.listen(8081);
 
 function addZero(string,length){
     return ("0"+string).slice(-length);

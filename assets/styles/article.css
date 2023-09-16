@@ -10,8 +10,12 @@ img.banner-image{
     object-fit: cover;
 }
 
-p>img{
+p>img,p>video,p>iframe{
     max-width: 100%;
+}
+
+p>iframe{
+    width: 100%;
 }
 
 p>.audio-player,p>audio[controls]{
@@ -22,8 +26,8 @@ p>.audio-player,p>audio[controls]{
     margin-left: auto;
     margin-right: auto;
     border-radius: 2rem;
-    background-color: white;
-    box-shadow: 0 0 15px 1px rgba(0,0,0,0.5);
+    background-color: var(--bg-color-2);
+    box-shadow: var(--card-shadow);
 }
 
 @media screen and (max-width: 780px) {

@@ -15,10 +15,11 @@ window.addEventListener("resize",updateCardElements);
 
 try{
     var bannerImage = document.querySelector(".banner-image");
-    window.addEventListener("scroll",()=>{
-        bannerImage.style.backgroundPositionY = "calc(45% + " + (window.scrollY / 2) + "px)";
+    if(bannerImage){
+        window.addEventListener("scroll",function(){
+            bannerImage.style.backgroundPositionY = "calc(45% + " + (window.scrollY / 2) + "px)";
+        });
     }
-    );
 } catch(e) {}
 
 /*for(let i = 0;i < cardElements.length;i++){
