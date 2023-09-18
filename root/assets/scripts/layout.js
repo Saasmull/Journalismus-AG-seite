@@ -16,7 +16,7 @@ function pointerDown(event) {
         event.clientX = event.touches[0].clientX;
     }
     drawerDragOffset = event.clientX - drawerOffset;
-    isDrawerDragging = drawer.contains(event.target) || event.clientX < 50;
+    isDrawerDragging = drawer.contains(event.target) || event.clientX < 16;
     if(isDrawerDragging) {
         drawer.classList.remove("open");
         drawer.classList.remove("closed");
@@ -68,7 +68,7 @@ function toggleMenu(){
         drawerScrim.style.display = "none";
         setTimeout(function(){
             drawer.classList.add("closed");
-        });
+        },10);
     }
 }
 toggleMenu();

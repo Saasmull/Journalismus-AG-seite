@@ -317,6 +317,7 @@ h1{
         width: 210vw;
         height: 100vh;
         z-index: -1;
+        opacity: 0;
     }
     header>nav.closed>.scrim{
         display: none;
