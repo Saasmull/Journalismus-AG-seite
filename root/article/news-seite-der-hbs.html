@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles/main.css">
+    <link href="https://unpkg.com/css.gg@2.0.0/icons/css/chevron-right.css" rel="stylesheet">
     <script defer src="/assets/scripts/layout.js"></script>
     <title>Newsseite der HBS</title>
 <meta name="title" content="Newsseite der HBS">
@@ -74,27 +75,36 @@ templa longaeque Gorgonis tritis, Veneri.</p>
             <a class="nav-link" href="/category/hbs.html">Unsere Schule</a>
             <a class="nav-link" href="/category/technik.html">Technik</a>
         </nav>
-        <button id="toggle-theme">Dark/Light</button>
+        <input checked type="checkbox" id="toggle-theme" class="toggle-checkbox">
+        <label for="toggle-theme" class="toggle-label"></label>
     </footer>
     <script>
-        var currentTheme = matchMedia("(prefers-color-scheme: dark)").matches;
+        var themeButton = document.getElementById("toggle-theme");
+        var currentTheme = matchMedia("(prefers-color-scheme: light)").matches;
+
         if(localStorage.getItem("lum")!==null){
             currentTheme = localStorage.getItem("lum")==="on";
         }
-        function setLum(state){
+
+        function setLum(state,set){
             currentTheme = state;
             if(state){
                 document.documentElement.classList.add("lum");
                 localStorage.setItem("lum","on");
+                if(set){
+                    themeButton.checked = false;
+                }
             }else{
                 document.documentElement.classList.remove("lum");
                 localStorage.setItem("lum","off");
+                if(set){
+                    themeButton.checked = true;
+                }
             }
         }
-        setLum(currentTheme);
-        var themeButton = document.getElementById("toggle-theme");
-        themeButton.addEventListener("click",function(){
-            setLum(!currentTheme);
+        setLum(currentTheme,true);
+        themeButton.addEventListener("change",function(){
+            setLum(!currentTheme,false);
         })
     </script>
 </body>

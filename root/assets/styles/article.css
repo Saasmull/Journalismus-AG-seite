@@ -38,6 +38,7 @@ p>.audio-player,p>audio[controls]{
 
 
 code{
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
     display: inline-block;
     white-space: pre;
     max-width: 100%;
