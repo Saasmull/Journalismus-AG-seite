@@ -20,6 +20,9 @@ module.exports = class Category{
         if(fs.existsSync("categories/"+path+"/meta.json")){
             this.metadata = JSON.parse(fs.readFileSync("categories/"+path+"/meta.json","utf-8"));
         }
+        if(!this.metadata.banner){
+            this.metadata.banner = "/assets/images/default-banner.jpg";
+        }
     }
     /**
      * Fügt der Kategorie einen Artikel hinzu.
