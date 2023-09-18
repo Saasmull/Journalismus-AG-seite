@@ -1,6 +1,12 @@
 * {
     font-family: "Google Sans", "Roboto", "Noto Sans", "Segoe Ui", "Helvetica", sans-serif;
     box-sizing: border-box;
+    overscroll-behavior-x: none;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    -ms-scroll-chaining: none;
     /*transition: all 500ms;*/
     --bg-color-1: #121212;
     --bg-color-1-5: rgba(255, 255, 255, 0.06);
@@ -34,6 +40,21 @@ p>img,
     --border-radi-card-content: 14px;
     --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     filter: unset;
+}
+
+.no-select,.no-select *{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.no-drag,.no-drag *{
+    user-drag: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 body {
@@ -250,8 +271,51 @@ article.card:hover * {
     scroll-snap-type: x mandatory;
 }
 
-
+@media screen and (max-width: 780px) {
+    header>nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+    }
+    header>nav>.drawer{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-color-1);
+        height: 100vh;
+        width: 80vw;
+    }
+    header>nav>.drawer>a{
+        padding: 16px;
+    }
+    header>nav>.scrim{
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,0.5);
+        width: 210vw;
+        height: 100vh;
+        z-index: -1;
+    }
+    header>nav.closed>.scrim{
+        display: none;
+    }
+    header>nav.closed,header>nav.open{
+        transition: all 200ms;
+    }
+    header>.drawer-button{
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        font-size: inherit;
+    }
+}
 @media screen and (min-width:781px) {
+    header>.drawer-button{
+        display: none;
+    }
+
     #content {
         width: 60vw;
     }
@@ -318,7 +382,7 @@ article.card:hover * {
 
 
 .chevron-right {
-    border-width: 2px 2px 0 0;
+    border-width: 3px 3px 0 0;
     transform: rotateZ(45deg);
     width: 0.9ch;
     height: 0.9ch;

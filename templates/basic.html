@@ -9,13 +9,18 @@
     <!--METADATA-->
 </head>
 <body>
-    <header>
+    <header class="no-select no-drag">
         <a href="/"><!--SITENAME--></a>
+        <button onclick="toggleMenu()" class="drawer-button">&equiv;</button>
         <nav>
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/category/hbs.html">Unsere Schule</a>
-            <a class="nav-link" href="/category/politik.html">Politik</a>
-            <a class="nav-link" href="/category/technik.html">Technik</a>
+            <div class="drawer">
+                <div class="drawer-head"><!--SITENAME--></div>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/category/hbs.html">Unsere Schule</a>
+                <a class="nav-link" href="/category/politik.html">Politik</a>
+                <a class="nav-link" href="/category/technik.html">Technik</a>
+            </div>
+            <div class="scrim"></div>
         </nav>
     </header>
     <main>

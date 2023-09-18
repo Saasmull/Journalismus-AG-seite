@@ -21,7 +21,7 @@ module.exports = class Homepage{
     }
 
     renderHomepage(){
-        var categorySections = "<div id=\"content\" class=\"category-container\">\n";
+        var categorySections = "<div id=\"content\" class=\"no-select no-drag category-container\">\n";
         for(var i = 0;i < this.categories.length;i++){
             categorySections += this.categories[i].renderCategorySection();
         }
