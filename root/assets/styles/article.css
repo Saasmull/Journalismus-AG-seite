@@ -32,7 +32,7 @@ p>.audio-player,p>audio[controls]{
 
 @media screen and (max-width: 780px) {
     #content{
-        width: 90vw;
+        width: 90vw !important;
     }
 }
 

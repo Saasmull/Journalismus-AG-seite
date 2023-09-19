@@ -81,7 +81,7 @@ fs.writeFileSync("root/manifest.json",`{
     "name":"${CONFIG.SITE_NAME}",
     "short_name":"${CONFIG.SITE_NAME}",
     "description":"Hello",
-    "scope": "/index.html",
+    "scope": "/",
     "start_url": "/index.html",
     "id":"/index.html",
     "display":"standalone",
