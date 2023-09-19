@@ -77,3 +77,42 @@ for(var i = 0;i < categoriesDir.length;i++){
 }
 
 fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
+fs.writeFileSync("root/manifest.json",`{
+    "name":"${CONFIG.SITE_NAME}",
+    "short_name":"${CONFIG.SITE_NAME}",
+    "description":"Hello",
+    "scope": "/index.html",
+    "start_url": "/index.html",
+    "id":"/index.html",
+    "display":"standalone",
+    "display_override":["window-controls-overlay"],
+    "icons":[
+        {
+            "src":"/assets/images/icon.png",
+            "type":"image/png",
+            "sizes":"512x512",
+            "purpose": "any"
+        }
+    ],
+    "background_color": "#000000",
+    "theme_color": "#000000"
+}`,"utf-8");
+fs.writeFileSync("root/service-worker.js",`
+self.addEventListener("install", function (e){
+    e.waitUntil(
+        //Add here all the files which are needed that your PWA can run offline:
+        caches.open("static-test").then(cache => {
+            return cache.addAll([
+                "/index.html"
+            ]);
+        })
+    );
+})
+self.addEventListener("fetch", function (e){
+    e.respondWith(
+        caches.match(e.request).then(response => {
+            return response || fetch(e.request);
+        })
+    );
+})
+`,"utf-8");

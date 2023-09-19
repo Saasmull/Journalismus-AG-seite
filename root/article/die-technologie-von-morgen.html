@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/main.css">
-    <script defer src="/assets/scripts/layout.js"></script>
-    <title>Die Technologie von morgen: Innovationen, die die Welt verändern</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/assets/images/icon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="<title>Die Technologie von morgen: Innovationen, die die Welt verändern</title>
 <meta name="title" content="Die Technologie von morgen: Innovationen, die die Welt verändern">
 <meta property="og:title" content="Die Technologie von morgen: Innovationen, die die Welt verändern">
 <meta name="description" content="Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.">
@@ -13,7 +14,12 @@
 <meta property="og:image" content="/assets/images/fiber_optics.jpg"><script type="application/ld+json">
 {"@context":"http://schema.org","@type":"Article","headline":"Die Technologie von morgen: Innovationen, die die Welt verändern","description":"Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.","datePublished":"13.09.2023","thumbnailUrl":"/assets/images/fiber_optics.jpg","image":"/assets/images/fiber_optics.jpg","author":[{"@type":"Person","name":"sml"}],"keywords":["technik"]}
 </script>
-<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>
+<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="manifest" href="/manifest.json">
+    <script defer src="/assets/scripts/layout.js"></script>
+    <title>Blog Seite</title>
+    <!--METADATA-->
 </head>
 <body>
     <header class="no-select no-drag">
@@ -31,7 +37,7 @@
         </nav>
     </header>
     <main>
-        <div class="banner-image" style="background-image:url('/assets/images/fiber_optics.jpg');"></div><article><h1>Die Technologie von morgen: Innovationen, die die Welt verändern</h1><div id="content"><p>Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.</p>
+        <div class="banner-image" style="background-image:url('/assets/images/fiber_optics.jpg');"></div><article><h1>Die Technologie von morgen: Innovationen, die die Welt verändern</h1><div id="content">Von<p>Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.</p>
 <h2>Quantencomputing: Die nächste Stufe der Rechenleistung</h2>
 <p>In den letzten Jahren haben wir einen enormen Fortschritt im Bereich des Quantencomputings erlebt. Unternehmen wie IBM, Google und D-Wave haben Quantencomputer entwickelt, die in der Lage sind, komplexe Probleme in Rekordzeit zu lösen. Diese Technologie hat das Potenzial, die Bereiche der Verschlüsselung, der Materialwissenschaften und der medizinischen Forschung grundlegend zu verändern. Wir können in naher Zukunft mit bahnbrechenden Entdeckungen rechnen, die auf der unglaublichen Rechenleistung von Quantencomputern basieren.</p>
 <h2>5G-Revolution: Schnellere Verbindungen und das Internet der Dinge</h2>
@@ -89,7 +95,11 @@
         setLum(currentTheme,true);
         themeButton.addEventListener("change",function(){
             setLum(!currentTheme,false);
-        })
+        });
+
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js");
+        }
     </script>
 </body>
 </html>

@@ -25,6 +25,7 @@ module.exports = class Author {
      * @param {Article} article 
     */
     registerArticle(article) {
+        article.registerAuthor(this);
         this.articles.push(article);
     }
     renderAuthorPage(){

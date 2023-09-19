@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/main.css">
-    <script defer src="/assets/scripts/layout.js"></script>
-    <title>Landtag</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/assets/images/icon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="<title>Landtag</title>
 <meta name="title" content="Landtag">
 <meta property="og:title" content="Landtag">
 <meta name="description" content="Wir, die Radio-AG der HBS Braunschweig waren im Landtag bei landtag-online. Erfahre über unsere Erlebnisse im niedersäschsichen Landtag.">
@@ -13,7 +14,12 @@
 <meta property="og:image" content="/assets/images/plenarsaal.jpg"><script type="application/ld+json">
 {"@context":"http://schema.org","@type":"Article","headline":"Landtag","description":"Wir, die Radio-AG der HBS Braunschweig waren im Landtag bei landtag-online. Erfahre über unsere Erlebnisse im niedersäschsichen Landtag.","datePublished":"12.09.2023","thumbnailUrl":"/assets/images/plenarsaal.jpg","image":"/assets/images/plenarsaal.jpg","author":[{"@type":"Person","name":"sml"}],"keywords":["politik","hbs"]}
 </script>
-<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>
+<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="manifest" href="/manifest.json">
+    <script defer src="/assets/scripts/layout.js"></script>
+    <title>Blog Seite</title>
+    <!--METADATA-->
 </head>
 <body>
     <header class="no-select no-drag">
@@ -31,7 +37,7 @@
         </nav>
     </header>
     <main>
-        <div class="banner-image" style="background-image:url('/assets/images/plenarsaal.jpg');"></div><article><h1>Landtag</h1><div id="content"><p>Testartikel für die <em>Seite</em> <strong>fett</strong></p>
+        <div class="banner-image" style="background-image:url('/assets/images/plenarsaal.jpg');"></div><article><h1>Landtag</h1><div id="content">Von<p>Testartikel für die <em>Seite</em> <strong>fett</strong></p>
 <h2>Caesus moenibus scripta fidas</h2>
 <p>Lorem markdownum septem. Furibunda luce aniles nec partes sed mortis, repetitum
 adit nuper arce in. <strong>Se</strong> sub <a href="http://www.non-tot.org/ducetamen.html">somnus
@@ -109,7 +115,11 @@ templa longaeque Gorgonis tritis, Veneri.</p>
         setLum(currentTheme,true);
         themeButton.addEventListener("change",function(){
             setLum(!currentTheme,false);
-        })
+        });
+
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js");
+        }
     </script>
 </body>
 </html>

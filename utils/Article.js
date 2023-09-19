@@ -17,6 +17,7 @@ module.exports = class Article{
      */
     constructor(path){
         this.path = path;
+        this.authors = [];
         if(fs.existsSync("articles/"+path+"/meta.json")){
             this.metadata = JSON.parse(fs.readFileSync("articles/"+path+"/meta.json","utf-8"));
         }
@@ -27,6 +28,13 @@ module.exports = class Article{
             this.content = fs.readFileSync("articles/"+path+"/index.md","utf-8");
             this.htmlContent = marked.parse(this.content);
         }
+    }
+    /**
+     * 
+     * @param {Author} author 
+     */
+    registerAuthor(author){
+        this.authors.push(author);
     }
     renderCard(){
         var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
@@ -84,7 +92,8 @@ module.exports = class Article{
     renderArticlePage(){
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
-            .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">"+this.htmlContent+"</div></article>");
+            .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner +
+                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von"+this.htmlContent+"</div></article>");
         return page;
     }
 }
