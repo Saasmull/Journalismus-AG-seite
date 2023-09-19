@@ -2,13 +2,23 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="/assets/images/icon.png">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="<!--METADATA-->">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="<!--METADATA--&gt;">
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="manifest" href="/manifest.json">
+    <script>
+        if(!window.matchMedia){
+            window.matchMedia = function(mediaQuery){
+                return {
+                    "media":mediaQuery,
+                    "matches":false
+                };
+            };
+        }
+    </script>
     <script defer src="/assets/scripts/layout.js"></script>
     <title>Blog Seite</title>
     <!--METADATA-->

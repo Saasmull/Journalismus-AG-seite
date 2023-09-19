@@ -2,11 +2,26 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="/assets/images/icon.png">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="<title>Newsseite der HBS</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="<!--METADATA--&gt;">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if(!window.matchMedia){
+            window.matchMedia = function(mediaQuery){
+                return {
+                    "media":mediaQuery,
+                    "matches":false
+                };
+            };
+        }
+    </script>
+    <script defer src="/assets/scripts/layout.js"></script>
+    <title>Blog Seite</title>
+    <title>Newsseite der HBS</title>
 <meta name="title" content="Newsseite der HBS">
 <meta property="og:title" content="Newsseite der HBS">
 <meta name="description" content="Die Newsseite der Heinrich-Büssing-Schule Braunschweig. Viel Spaß beim lesen!">
@@ -14,12 +29,7 @@
 <meta property="og:image" content="/assets/images/handwerkskammer.jpg"><script type="application/ld+json">
 {"@context":"http://schema.org","@type":"Article","headline":"Newsseite der HBS","description":"Die Newsseite der Heinrich-Büssing-Schule Braunschweig. Viel Spaß beim lesen!","datePublished":"12.09.2023","thumbnailUrl":"/assets/images/handwerkskammer.jpg","image":"/assets/images/handwerkskammer.jpg","author":[{"@type":"Person","name":"sml"}],"keywords":["hbs","technik"]}
 </script>
-<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>">
-    <link rel="stylesheet" href="/assets/styles/main.css">
-    <link rel="manifest" href="/manifest.json">
-    <script defer src="/assets/scripts/layout.js"></script>
-    <title>Blog Seite</title>
-    <!--METADATA-->
+<link rel="stylesheet" href="/assets/styles/article.css"><script defer src="/assets/scripts/audio-player.js"></script>
 </head>
 <body>
     <header class="no-select no-drag">

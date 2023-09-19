@@ -3,9 +3,11 @@ var drawerScrim = document.querySelector("header>nav>.scrim");
 var isDrawerDragging = false;
 var drawerDragOffset = 0;
 var drawerOffset = 0;
+
 drawerScrim.addEventListener("click",function() {
     drawerOffset = -drawer.clientWidth;
     drawer.style.left = -drawer.clientWidth + "px";
+    //!TODO compat ClassList.prototype
     drawer.classList.remove("open");
     drawer.classList.add("closed");
     drawerScrim.style.display = "none";
@@ -120,3 +122,21 @@ try {
         cardElements[i].style.backgroundImage = "radial-gradient(circle,black 25%,transparent 100%)";
     });
 }*/
+/*
+document.addEventListener("wheel",function(event){
+    if(event.ctrlKey){
+        event.preventDefault();
+        return;
+    }
+},{passive:false});
+document.addEventListener("touchmove",function(event){
+    if(event.scale !== 1){
+        event.preventDefault();
+        return;
+    }
+},{passive:false});
+document.addEventListener("dblclick",function(event){
+    event.preventDefault();
+    return;
+},{passive:false});
+*/
