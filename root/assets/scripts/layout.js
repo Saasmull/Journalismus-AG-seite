@@ -136,7 +136,7 @@ document.addEventListener("keydown",function(event){
     }
 },{passive:false});
 document.addEventListener("touchmove",function(event){
-    if(event.scale !== 1){
+    if(event.scale !== undefined && event.scale !== 1){
         event.preventDefault();
         return;
     }
