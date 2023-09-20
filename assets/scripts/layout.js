@@ -122,7 +122,7 @@ try {
         cardElements[i].style.backgroundImage = "radial-gradient(circle,black 25%,transparent 100%)";
     });
 }*/
-/*
+
 document.addEventListener("wheel",function(event){
     if(event.ctrlKey){
         event.preventDefault();
@@ -139,4 +139,3 @@ document.addEventListener("dblclick",function(event){
     event.preventDefault();
     return;
 },{passive:false});
-*/
