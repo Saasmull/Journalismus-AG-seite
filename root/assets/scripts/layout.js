@@ -38,7 +38,6 @@ function pointerMove(event) {
 }
 
 function pointerUp() {
-    console.log("UP");
     if(isDrawerDragging) {
         if(drawerOffset >= drawer.clientWidth / -2) {
             drawerOffset = 0;

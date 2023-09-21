@@ -92,7 +92,6 @@ async function fetchArticles(){
         try{
             prevs = JSON.parse(localStorage["prevs"]);
         }catch(e){}
-        console.log(subs,prevs,data);
         for(var i = 0;i < subs.length;i++){
             var allArticles = data[subs[i]];
             var prevArticles = prevs[subs[i]];
@@ -106,9 +105,7 @@ async function fetchArticles(){
             }
         }
         localStorage["prevs"] = JSON.stringify(data);
-        console.log(localStorage);
     }catch(e){
-        console.log(e);
     }
 }
 

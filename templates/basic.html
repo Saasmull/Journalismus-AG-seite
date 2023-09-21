@@ -113,7 +113,6 @@
                 });
                 navigator.serviceWorker.addEventListener("message",function(event){
                     if(event.data.type === "syncLocalStorage"){
-                        console.log("syncing localStorage");
                         if(event.data.data){
                             console.log(event.data.data);
                             for(var key in event.data.data){
