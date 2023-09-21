@@ -78,7 +78,7 @@
             // Check if the Notification API is available in the browser
             if ("Notification" in window) {
                 // Request permission to show notifications
-                Notification.requestPermission().then((permission) => {
+                Notification.requestPermission().then(function(permission){
                     if (permission === "granted") {
                         // Permission has been granted, you can show notifications
                         //localStorage.setItem("subs","[\"sml\"]");
@@ -120,25 +120,20 @@
         });
 
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("service-worker.js");
+            navigator.serviceWorker.register("/service-worker.js");
             navigator.serviceWorker.ready.then(function(sW){
-                navigator.serviceWorker.oncontrollerchange = () => {
-                    console.log(
-                    "This page is now controlled by",
-                    navigator.serviceWorker.controller,
-                    );
-                };
-                navigator.serviceWorker.startMessages();
                 sW.active.postMessage({
                     type:"init"
                 });
-                console.log(navigator.serviceWorker,sW);
-                /*navigator.serviceWorker.controller.postMessage({
-                    type:"init"
-                });*/
                 navigator.serviceWorker.addEventListener("message",function(event){
-                    if(event.data.type === "getLocalStorage"){
-                        console.log("Syncing...");
+                    if(event.data.type === "syncLocalStorage"){
+                        console.log("syncing localStorage");
+                        if(event.data.data){
+                            console.log(event.data.data);
+                            for(var key in event.data.data){
+                                localStorage.setItem(key,event.data.data[key]);
+                            }
+                        }
                         sW.active.postMessage({
                             type:"localStorageData",
                             data:{...localStorage}

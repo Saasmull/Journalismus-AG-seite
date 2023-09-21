@@ -1,7 +1,8 @@
 {
     "sml":[
         {
-            "title":"Ich bin dumm"
+            "title":"Ich bin dumm",
+            "path":"abc"
         }
     ]
 }
