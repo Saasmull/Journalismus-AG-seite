@@ -55,6 +55,17 @@
         </div>
     </footer>
     <script>
+        var PATH = location.pathname.substr(8,location.pathname.length-13);
+        if(localStorage.getItem("subs")!==null){
+            try{
+                if(JSON.parse(localStorage.getItem("subs","[]")).includes(PATH)){
+                    var subscribeButton = document.getElementById("subscribe");
+                    subscribeButton.classList.add("subscribed");
+                    subscribeButton.innerText = "Abonniert";
+                }
+            }catch(e){}
+        }
+        
         function subscribeAuthor(path){
             var subs = JSON.parse(localStorage.getItem("subs"))||[];
             if(subs.indexOf(path) === -1){
@@ -76,6 +87,17 @@
             var subs = JSON.parse(localStorage.getItem("subs"))||[];
             subs.splice(subs.indexOf(path),1);
             localStorage.setItem("subs",JSON.stringify(subs));
+        }
+        function toggleSub(element){
+            if(element.classList.contains("subscribed")){
+                element.classList.remove("subscribed");
+                element.innerText = "Abonnieren";
+                unsubsscribeAuthor(element.getAttribute("data-path"));
+            }else{
+                element.classList.add("subscribed");
+                element.innerText = "Abonniert";
+                subscribeAuthor(element.getAttribute("data-path"));
+            }
         }
         var themeButton = document.getElementById("toggle-theme");
         var currentTheme = matchMedia("(prefers-color-scheme: light)").matches;
@@ -114,7 +136,6 @@
                 navigator.serviceWorker.addEventListener("message",function(event){
                     if(event.data.type === "syncLocalStorage"){
                         if(event.data.data){
-                            console.log(event.data.data);
                             for(var key in event.data.data){
                                 localStorage.setItem(key,event.data.data[key]);
                             }
@@ -122,6 +143,23 @@
                         sW.active.postMessage({
                             type:"localStorageData",
                             data:{...localStorage}
+                        })
+                    }else if(event.data.type === "setLocalStorageKey"){
+                        localStorage.setItem(event.data.data.key,event.data.data.value);
+                        sW.active.postMessage({
+                            type:"setLocalStorageKeyB",
+                            data:{
+                                key:event.data.data.key,
+                                value:event.data.data.value
+                            }
+                        })
+                    }else if(event.data.type === "getLocalStorageKey"){
+                        sW.active.postMessage({
+                            type:"getLocalStorageKeyB",
+                            data:{
+                                key:event.data.data.key,
+                                value:localStorage.getItem(event.data.data.key)
+                            }
                         })
                     }
                 })

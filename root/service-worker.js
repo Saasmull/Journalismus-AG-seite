@@ -44,13 +44,17 @@ self.addEventListener("notificationclick", function(event){
 self.addEventListener("message",function(event){
     if(event.data.type === "localStorageData"){
         localStorage = event.data.data;
+    }else if(event.data.type === "setLocalStorageKeyB"){
+        localStorage[event.data.data.key] = event.data.data.value;
+    }else if(event.data.type === "getLocalStorageKeyB"){
+        localStorage[event.data.data.key] = event.data.data.value;
     }else if(event.data.type === "init"){
         mainWindowId = event.source;
     }
 });
 
 function syncLocalStorage(){
-    try{
+    /*try{
         mainWindowId.postMessage({type:"syncLocalStorage",data:localStorage});
     }catch(e){
         self.clients.matchAll({type: "window",}).then(function(clients){
@@ -58,15 +62,38 @@ function syncLocalStorage(){
                 client.postMessage({type:"syncLocalStorage",data:localStorage});
             });
         });
+    }*/
+}
+function setLocalStorageKey(key,value){
+    try{
+        mainWindowId.postMessage({type:"setLocalStorageKey",data:{key,value}});
+    }catch(e){
+        self.clients.matchAll({type: "window",}).then(function(clients){
+            clients.forEach(function(client){
+                client.postMessage({type:"setLocalStorageKey",data:{key,value}});
+            });
+        });
     }
 }
-setInterval(syncLocalStorage,5000);
+function getLocalStorageKey(key){
+    try{
+        mainWindowId.postMessage({type:"getLocalStorageKey",data:{key}});
+    }catch(e){
+        self.clients.matchAll({type: "window",}).then(function(clients){
+            clients.forEach(function(client){
+                client.postMessage({type:"getLocalStorageKey",data:{key}});
+            });
+        });
+    }
+}
+//setInterval(syncLocalStorage,5000);
 
 async function hideNotifications(){
     try{
         var response = await fetch("/api/articles.json");
         var data = await response.json();
-        localStorage["prevs"] = JSON.stringify(data);
+        setLocalStorageKey("prevs", JSON.stringify(data));
+        //localStorage["prevs"] = JSON.stringify(data);
     }catch(e){}
 }
 hideNotifications();
@@ -86,13 +113,14 @@ async function fetchArticles(){
         var data = await response.json();
         var subs = [];
         try{
+            getLocalStorageKey("subs");
             subs = JSON.parse(localStorage["subs"]);
         }catch(e){}
         var prevs = [];
         try{
+            getLocalStorageKey("prevs");
             prevs = JSON.parse(localStorage["prevs"]);
         }catch(e){}
-        console.log(subs,prevs,data);
         for(var i = 0;i < subs.length;i++){
             var allArticles = data[subs[i]];
             var prevArticles = prevs[subs[i]];
@@ -105,10 +133,9 @@ async function fetchArticles(){
                 showArticleNotification(newArticles[j]);
             }
         }
-        localStorage["prevs"] = JSON.stringify(data);
-        console.log(localStorage);
+        setLocalStorageKey("prevs", JSON.stringify(data));
+        //localStorage["prevs"] = JSON.stringify(data);
     }catch(e){
-        console.log(e);
     }
 }
 

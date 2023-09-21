@@ -33,6 +33,7 @@ module.exports = class Author {
         authorHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
         authorHead += "<h1><div class=\"profile-image\" style=\"background-image:url('"
             + this.metadata.profile +"');\"></div>" + this.metadata.name + "</h1>\n";
+        authorHead += "<button id=\"subscribe\" data-path=\"" + this.path + "\" onclick=\"toggleSub(this);\">Abonnieren</button>\n";
         authorHead += "<div id=\"content\" style=\"margin-bottom:2rem;\">" + this.htmlDescription + "</div>\n";
         authorHead += "</div>\n";
         var articleCards = "<div class=\"category-items\">\n";

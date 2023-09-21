@@ -20,6 +20,7 @@
     --border-radi-card: 24px;
     --border-radi-card-content: 14px;
     --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --color-primary: #0078D4;
 }
 
 /*
@@ -53,6 +54,7 @@ p>img,
     --border-radi-card: 24px;
     --border-radi-card-content: 14px;
     --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --color-primary: #0078D4;
     filter: unset;
 }
 
@@ -303,6 +305,27 @@ article.card:hover * {
 
 h1{
     padding: 1rem;
+    margin-block: unset;
+}
+
+#subscribe{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: #fff;
+    background-color: var(--color-primary);
+    border-radius: 24px;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 500ms;
+    border: none;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0.5px 1px;
+    width: 300px;
+}
+
+#subscribe.subscribed{
+    background-color: #555;
 }
 
 .category-head>h1 {
@@ -378,6 +401,9 @@ h1{
         border: none;
         color: inherit;
         font-size: inherit;
+    }
+    #subscribe{
+        width: 90%;
     }
 }
 @media screen and (min-width:781px) {

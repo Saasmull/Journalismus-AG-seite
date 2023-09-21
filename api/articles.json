@@ -3,6 +3,10 @@
         {
             "title":"Ich bin dumm",
             "path":"abc"
+        },
+        {
+            "title":"Ich sehr bin dumm",
+            "path":"landtag"
         }
     ]
 }
