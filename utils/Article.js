@@ -98,7 +98,7 @@ module.exports = class Article{
             .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner +
                 "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(",")+
-                "&nbsp;&nbsp;Veröffentlicht "+this.metadata.published+"<br>"+this.htmlContent+"</div></article>");
+                "&nbsp;&nbsp;Veröffentlicht am "+this.metadata.published+"<br><br><br>"+this.htmlContent+"</div></article>");
         return page;
     }
 }

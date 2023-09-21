@@ -21,6 +21,7 @@
     --border-radi-card-content: 14px;
     --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     --color-primary: #0078D4;
+    --link-color: #36a7ff;
 }
 
 /*
@@ -36,7 +37,7 @@
     border-radius: 4px;
 }*/
 
-p>img,
+p img,
 .banner,
 .banner-image {
     filter: brightness(0.8) saturate(0.9);
@@ -55,6 +56,7 @@ p>img,
     --border-radi-card-content: 14px;
     --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     --color-primary: #0078D4;
+    --link-color: #00508e;
     filter: unset;
 }
 
@@ -90,6 +92,10 @@ body {
     touch-action: manipulation;
     user-scalable: no;
     -ms-touch-action: manipulation;
+}
+
+a{
+    color: var(--link-color);
 }
 
 header {
@@ -216,11 +222,11 @@ footer>div{
     max-width: 300px;
     height: 100vw;
     max-height: 370px;
-    transition: background-color 500ms;
+    transition: background-color 500ms, background-image 500ms;
 }
 
 .card:hover {
-    background-color: var(--bg-color-2-3);
+    //background-color: var(--bg-color-2-3);
 }
 
 article.card {
@@ -246,7 +252,11 @@ article.card>a {
     text-decoration: none;
     color: unset;
 }
-
+/*
+.category>h2>a{
+    color: var(--link-color);
+}
+*/
 article.card .banner {
     width: 100%;
     height: 55%;
@@ -460,7 +470,7 @@ h1{
 }
 
 .toggle-checkbox:checked+.toggle-label {
-    background-color: #0078D4;
+    background-color: var(--color-primary);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

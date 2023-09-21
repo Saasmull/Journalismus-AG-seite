@@ -115,12 +115,19 @@ try {
     }
 } catch(e) {}
 
-/*for(let i = 0;i < cardElements.length;i++){
-    cardElements[i].addEventListener("mouseover",(event)=>{
-        console.log(event);
-        cardElements[i].style.backgroundImage = "radial-gradient(circle,black 25%,transparent 100%)";
-    });
-}*/
+
+for(let i = 0;i < cardElements.length;i++){
+    cardElements[i].addEventListener("mousemove",function(event){
+        var rect = cardElements[i].getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        cardElements[i].style.backgroundImage = "radial-gradient(circle at " + x +
+        "px " + y + "px,var(--bg-color-1-5) 0%,transparent 80%)";
+    },true);
+    cardElements[i].addEventListener("mouseleave",function(event){
+        cardElements[i].style.backgroundImage = "";
+    },true);
+}
 
 document.addEventListener("wheel",function(event){
     if(event.ctrlKey){
