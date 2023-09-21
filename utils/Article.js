@@ -90,10 +90,15 @@ module.exports = class Article{
      * @returns {string} Quellcode der Artikelseite
      */
     renderArticlePage(){
+        var authorArray = [];
+        for(var i = 0;i < this.authors.length;i++){
+            authorArray.push("<a href=\"/author/" + this.authors[i].path + ".html\">" + this.authors[i].metadata.name + "</a>");
+        }
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner +
-                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von"+this.htmlContent+"</div></article>");
+                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(",")+
+                "&nbsp;&nbsp;Veröffentlicht "+this.metadata.published+"<br>"+this.htmlContent+"</div></article>");
         return page;
     }
 }

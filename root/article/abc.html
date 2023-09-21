@@ -47,7 +47,7 @@
         </nav>
     </header>
     <main>
-        <div class="banner-image" style="background-image:url('/assets/images/suisse.jpg');"></div><article><h1>Natur in den Bergen</h1><div id="content">Von<p>Testartikel für die <em>Seite</em> <strong>fett</strong></p>
+        <div class="banner-image" style="background-image:url('/assets/images/suisse.jpg');"></div><article><h1>Natur in den Bergen</h1><div id="content">Von <a href="/author/sml.html">Samuel</a>&nbsp;&nbsp;Veröffentlicht 12.09.2023<br><p>Testartikel für die <em>Seite</em> <strong>fett</strong></p>
 <h2>Caesus moenibus scripta fidas</h2>
 <p>Lorem markdownum septem. Furibunda luce aniles nec partes sed mortis, repetitum
 adit nuper arce in. <strong>Se</strong> sub <a href="http://www.non-tot.org/ducetamen.html">somnus
@@ -99,6 +99,28 @@ templa longaeque Gorgonis tritis, Veneri.</p>
         </div>
     </footer>
     <script>
+        function subscribeAuthor(path){
+            var subs = JSON.parse(localStorage.getItem("subs"))||[];
+            if(subs.indexOf(path) === -1){
+                subs.push(path);
+                localStorage.setItem("subs",JSON.stringify(subs));
+            }
+            // Check if the Notification API is available in the browser
+            if ("Notification" in window) {
+                // Request permission to show notifications
+                Notification.requestPermission().then((permission) => {
+                    if (permission === "granted") {
+                        // Permission has been granted, you can show notifications
+                        //localStorage.setItem("subs","[\"sml\"]");
+                    }
+                });
+            }
+        }
+        function unsubsscribeAuthor(path){
+            var subs = JSON.parse(localStorage.getItem("subs"))||[];
+            subs.splice(subs.indexOf(path),1);
+            localStorage.setItem("subs",JSON.stringify(subs));
+        }
         var themeButton = document.getElementById("toggle-theme");
         var currentTheme = matchMedia("(prefers-color-scheme: light)").matches;
 
@@ -129,6 +151,31 @@ templa longaeque Gorgonis tritis, Veneri.</p>
 
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("service-worker.js");
+            navigator.serviceWorker.ready.then(function(sW){
+                navigator.serviceWorker.oncontrollerchange = () => {
+                    console.log(
+                    "This page is now controlled by",
+                    navigator.serviceWorker.controller,
+                    );
+                };
+                navigator.serviceWorker.startMessages();
+                sW.active.postMessage({
+                    type:"init"
+                });
+                console.log(navigator.serviceWorker,sW);
+                /*navigator.serviceWorker.controller.postMessage({
+                    type:"init"
+                });*/
+                navigator.serviceWorker.addEventListener("message",function(event){
+                    if(event.data.type === "getLocalStorage"){
+                        console.log("Syncing...");
+                        sW.active.postMessage({
+                            type:"localStorageData",
+                            data:{...localStorage}
+                        })
+                    }
+                })
+            })
         }
     </script>
 </body>

@@ -22,11 +22,14 @@ function setupRootDir(){
     try{
         fs.rmSync("root/index.html");
     }catch(e){}
+    cleanDir("root/api");
     cleanDir("root/author");
     cleanDir("root/article");
     cleanDir("root/assets");
     cleanDir("root/category");
+    fs.cpSync("api/","root/api/",{recursive:true});
     fs.cpSync("assets/","root/assets/",{recursive:true});
+    fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
 }
 
 setupRootDir();
@@ -97,22 +100,3 @@ fs.writeFileSync("root/manifest.json",`{
     "background_color": "#000000",
     "theme_color": "#000000"
 }`,"utf-8");
-fs.writeFileSync("root/service-worker.js",`
-self.addEventListener("install", function (e){
-    e.waitUntil(
-        //Add here all the files which are needed that your PWA can run offline:
-        caches.open("static-test").then(cache => {
-            return cache.addAll([
-                "/index.html"
-            ]);
-        })
-    );
-})
-self.addEventListener("fetch", function (e){
-    e.respondWith(
-        caches.match(e.request).then(response => {
-            return response || fetch(e.request);
-        })
-    );
-})
-`,"utf-8");
