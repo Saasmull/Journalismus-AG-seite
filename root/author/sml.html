@@ -102,10 +102,12 @@
         var PATH = location.pathname.substr(8,location.pathname.length-13);
         if(localStorage.getItem("subs")!==null){
             try{
-                if(JSON.parse(localStorage.getItem("subs","[]")).includes(PATH)){
+                if(JSON.parse(localStorage.getItem("subs").indexOf(PATH)) !== -1){
                     var subscribeButton = document.getElementById("subscribe");
-                    subscribeButton.classList.add("subscribed");
-                    subscribeButton.innerText = "Abonniert";
+                    if(subscribeButton){
+                        subscribeButton.classList.add("subscribed");
+                        subscribeButton.innerHTML = "Abonniert";
+                    }
                 }
             }catch(e){}
         }
@@ -135,16 +137,16 @@
         function toggleSub(element){
             if(element.classList.contains("subscribed")){
                 element.classList.remove("subscribed");
-                element.innerText = "Abonnieren";
+                element.innerHTML = "Abonnieren";
                 unsubsscribeAuthor(element.getAttribute("data-path"));
             }else{
                 element.classList.add("subscribed");
-                element.innerText = "Abonniert";
+                element.innerHTML = "Abonniert";
                 subscribeAuthor(element.getAttribute("data-path"));
             }
         }
         var themeButton = document.getElementById("toggle-theme");
-        var currentTheme = matchMedia("(prefers-color-scheme: light)").matches;
+        var currentTheme = matchMedia?matchMedia("(prefers-color-scheme: light)").matches:false;
 
         if(localStorage.getItem("lum")!==null){
             currentTheme = localStorage.getItem("lum")==="on";
