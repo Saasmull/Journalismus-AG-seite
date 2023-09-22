@@ -225,9 +225,11 @@ footer>div{
     transition: background-color 500ms, background-image 500ms;
 }
 
+/*
 .card:hover {
-    //background-color: var(--bg-color-2-3);
+    background-color: var(--bg-color-2-3);
 }
+*/
 
 article.card {
     /*background-color: white;*/
@@ -318,6 +320,18 @@ h1{
     margin-block: unset;
 }
 
+button{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    background-size: 100%;
+    transition: background-color 500ms, background-size 800ms, background-image 800ms;
+    background-image: radial-gradient(circle at 50px 50px,rgba(255,250,250,0) 0%,transparent 80%);
+}
+
 #subscribe{
     margin-left: auto;
     margin-right: auto;
@@ -327,7 +341,6 @@ h1{
     border-radius: 24px;
     padding: 8px 16px;
     text-decoration: none;
-    transition: background-color 500ms;
     border: none;
     font-size: 18px;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0.5px 1px;

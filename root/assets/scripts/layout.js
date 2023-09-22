@@ -16,6 +16,7 @@ drawerScrim.addEventListener("click",function() {
 function pointerDown(event) {
     if(event.touches) {
         event.clientX = event.touches[0].clientX;
+        event.clientY = event.touches[0].clientY;
     }
     drawerDragOffset = event.clientX - drawerOffset;
     isDrawerDragging = drawer.contains(event.target) || event.clientX < 20;
@@ -23,12 +24,20 @@ function pointerDown(event) {
         drawer.classList.remove("open");
         drawer.classList.remove("closed");
         drawerScrim.style.display = "block";
+    }else if(event.target.tagName === "BUTTON"){
+        var rect = event.target.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        event.target.style.backgroundSize = "500%";
+        event.target.style.backgroundImage = "radial-gradient(circle at " + x + "px " +
+            y + "px,rgba(255,250,250,0.2) 50%,transparent 60%)";
     }
 }
 
 function pointerMove(event) {
     if(event.touches) {
         event.clientX = event.touches[0].clientX;
+        event.clientY = event.touches[0].clientY;
     }
     if(isDrawerDragging) {
         drawerOffset = Math.min(0,event.clientX - Math.abs(drawerDragOffset));
@@ -37,7 +46,7 @@ function pointerMove(event) {
     }
 }
 
-function pointerUp() {
+function pointerUp(event) {
     if(isDrawerDragging) {
         if(drawerOffset >= drawer.clientWidth / -2) {
             drawerOffset = 0;
@@ -53,6 +62,10 @@ function pointerUp() {
             drawerScrim.style.display = "none";
         }
         isDrawerDragging = false;
+    }else if(event.target.tagName === "BUTTON"){
+        event.target.style.backgroundImage =
+            "radial-gradient(circle at 50% 50%,rgba(255,250,250,0) 500%,transparent 500%)";
+        event.target.style.backgroundSize = "100%";
     }
 }
 
