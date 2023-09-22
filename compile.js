@@ -1,10 +1,20 @@
 const fs = require("fs");
 const CONFIG = require("./utils/config");
+const {marked} = require("marked");
+
+marked.use({
+    renderer:{
+        image:function(href,title,text){
+            return "<img loading=\"lazy\" src=\"" + href + "\" title=\"" + title + "\" alt=\"" + text + "\">";
+        }
+    }
+})
 
 const Article = require("./utils/Article");
 const Author = require("./utils/Author");
 const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
+const RssFeed = require("./utils/RssFeed");
 
 /*
 const SITE_NAME = "Blog";
@@ -36,6 +46,9 @@ setupRootDir();
 /** @type {Homepage} */
 var homepage = new Homepage();
 
+/** @type {RssFeed} */
+var rssFeed = new RssFeed(CONFIG.SITE_NAME,CONFIG.SITE_ROOT,CONFIG.DESCRIPTION);
+
 
 /** @type {Author[]} */
 var authors = {};
@@ -61,6 +74,7 @@ var articlesDir = fs.readdirSync("articles");
 
 for(var i = 0;i < articlesDir.length;i++){
     articles.push(new Article(articlesDir[i]));
+    rssFeed.articles.push(articles[i]);
     for(var j = 0;j < articles[i].metadata.authors.length;j++){
         authors[articles[i].metadata.authors[j]].registerArticle(articles[i]);
     }
@@ -79,6 +93,7 @@ for(var i = 0;i < categoriesDir.length;i++){
     fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf-8");
 }
 
+fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
 fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
 fs.writeFileSync("root/manifest.json",`{
     "name":"${CONFIG.SITE_NAME}",

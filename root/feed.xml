@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
+<title>Blog</title>
+<link>http://localhost:8080</link>
+<description>Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!</description>
+<language>de-de</language>
+<copyright>Blog</copyright>
+<item>
+<title>Natur in den Bergen</title>
+<link>http://localhost:8080/article/abc.html</link>
+<description>Hier erfährst Du, warum die Natur in den Bergen natürlich ist. Jetzt bei Abend in den Alpen weiterlesen.</description>
+</item>
+<item>
+<title>Die Technologie von morgen: Innovationen, die die Welt verändern</title>
+<link>http://localhost:8080/article/die-technologie-von-morgen.html</link>
+<description>Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.</description>
+</item>
+<item>
+<title>Landtag</title>
+<link>http://localhost:8080/article/landtag.html</link>
+<description>Wir, die Radio-AG der HBS Braunschweig waren im Landtag bei landtag-online. Erfahre über unsere Erlebnisse im niedersäschsichen Landtag.</description>
+</item>
+<item>
+<title>Newsseite der HBS</title>
+<link>http://localhost:8080/article/news-seite-der-hbs.html</link>
+<description>Die Newsseite der Heinrich-Büssing-Schule Braunschweig. Viel Spaß beim lesen!</description>
+</item>
+<item>
+<title>Warum ich ein Bug bin</title>
+<link>http://localhost:8080/article/test.html</link>
+<description>Bei mir hat man wohl vergessen, einen Link zu einem Vorschaubild einzufügen, deshalb lade ich dieses Standardbild - So einfach geht Bugfixing.</description>
+</item>
+</channel>
+</rss>
