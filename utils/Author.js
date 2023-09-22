@@ -15,6 +15,8 @@ module.exports = class Author {
         if(!this.metadata.banner){
             this.metadata.banner = "/assets/images/default-banner.jpg";
         }
+        this.description = "";
+        this.htmlDescription = "";
         if(fs.existsSync("authors/" + path + "/index.md")) {
             this.description = fs.readFileSync("authors/" + path + "/index.md","utf-8");
             this.htmlDescription = marked.parse(this.description);
