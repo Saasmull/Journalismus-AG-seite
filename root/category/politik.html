@@ -145,7 +145,7 @@
             navigator.serviceWorker.register("/service-worker.js");
             navigator.serviceWorker.ready.then(function(sW){
                 sW.active.postMessage({
-                    type:"init"
+                    "type":"init"
                 });
                 navigator.serviceWorker.addEventListener("message",function(event){
                     if(event.data.type === "syncLocalStorage"){
@@ -155,24 +155,24 @@
                             }
                         }
                         sW.active.postMessage({
-                            type:"localStorageData",
-                            data:{...localStorage}
+                            "type":"localStorageData",
+                            "data":{...localStorage}
                         })
                     }else if(event.data.type === "setLocalStorageKey"){
                         localStorage.setItem(event.data.data.key,event.data.data.value);
                         sW.active.postMessage({
-                            type:"setLocalStorageKeyB",
-                            data:{
-                                key:event.data.data.key,
-                                value:event.data.data.value
+                            "type":"setLocalStorageKeyB",
+                            "data":{
+                                "key":event.data.data.key,
+                                "value":event.data.data.value
                             }
                         })
                     }else if(event.data.type === "getLocalStorageKey"){
                         sW.active.postMessage({
-                            type:"getLocalStorageKeyB",
-                            data:{
-                                key:event.data.data.key,
-                                value:localStorage.getItem(event.data.data.key)
+                            "type":"getLocalStorageKeyB",
+                            "data":{
+                                "key":event.data.data.key,
+                                "value":localStorage.getItem(event.data.data.key)
                             }
                         })
                     }

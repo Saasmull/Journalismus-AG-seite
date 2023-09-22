@@ -147,20 +147,20 @@ document.addEventListener("wheel",function(event){
         event.preventDefault();
         return;
     }
-},{passive:false});
+},{"passive":false});
 document.addEventListener("keydown",function(event){
     if(event.ctrlKey && (event.key === "+" || event.key === "-")){
         event.preventDefault();
         return;
     }
-},{passive:false});
+},{"passive":false});
 document.addEventListener("touchmove",function(event){
     if(event.scale !== undefined && event.scale !== 1){
         event.preventDefault();
         return;
     }
-},{passive:false});
+},{"passive":false});
 document.addEventListener("dblclick",function(event){
     event.preventDefault();
     return;
-},{passive:false});
+},{"passive":false});
