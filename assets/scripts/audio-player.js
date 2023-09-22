@@ -4,7 +4,7 @@ function AudioPlayer(audio){
     this.audio = audio;
     this.controls = document.createElement("div");
     this.controls.classList.add("audio-player");
-    this.controls.innerHTML = "<button class=\"play\">Play</button><input class=\"timeline\" type=\"range\"><span class=\"timestamp\">0:00/0:00</span><button class=\"mute\">Mute</button><input class=\"volume\" type=\"range\">";
+    this.controls.innerHTML = "<button class=\"play\">Play</button><input aria-label=\"Zu Zeitpunkt springen\" class=\"timeline\" type=\"range\"><span class=\"timestamp\">0:00/0:00</span><button class=\"mute\">Mute</button><input class=\"volume\" type=\"range\">";
     //!TODO compat insertBefore
     this.audio.parentElement.insertBefore(this.controls,this.audio);
     this.controlElements = {

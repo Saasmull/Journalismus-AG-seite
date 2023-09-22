@@ -34,7 +34,7 @@ ubi [proles](http://corporemihi.io/), fecit cecidit amantem servata.
 Tollere sum volvere infans torpetis premeret conspectum terra. Membra dona rogat
 cum: foret nam petens, neve et extrema.
 
-![bs](/assets/images/braunschweig.webp)
+![bs](/assets/images/suisse-comp.webp)
 
 Mecum fore per. Pectore dicta inferiusque licuit **autumni buxoque humo**
 columnae fallitis Herse, **ut sumptas facies** genu fraude.
