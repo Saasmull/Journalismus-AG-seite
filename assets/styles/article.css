@@ -10,6 +10,10 @@ img.banner-image{
     object-fit: cover;
 }
 
+p video{
+    width: 100%;
+}
+
 p img,p video,p iframe,figure img{
     max-width: 100%;
 }
