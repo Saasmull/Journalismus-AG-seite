@@ -18,6 +18,7 @@ module.exports = class RssFeed{
         xml += "<title>" + article.metadata.title + "</title>\n";
         xml += "<link>" + CONFIG.SITE_ROOT + "/article/" + article.path + ".html</link>\n";
         xml += "<description>" + article.metadata.description + "</description>\n";
+        xml += "<media:thumbnail url=\"" + article.metadata.banner + "\">\n";
         xml += "</item>";
         return xml;
     }
