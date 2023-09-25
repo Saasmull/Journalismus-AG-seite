@@ -87,6 +87,7 @@ module.exports = class Article{
             jsonLD.author.push({
                 "@type":"Person",
                 "name":this.authors[i].metadata.name,
+                "alternateName":this.authors[i].metadata.abbr,
                 "url":"/author/"+this.authors[i].path+".html"
             });
         }

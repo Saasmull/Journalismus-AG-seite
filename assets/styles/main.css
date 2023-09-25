@@ -159,7 +159,7 @@ header>a {
     transition: all 500ms;
 }
 
-.nav-link:hover {
+.nav-link:hover h3{
     text-decoration: underline;
 }
 
@@ -311,7 +311,7 @@ article.card .card-content>p {
     -webkit-line-clamp: 3;
 }
 
-article.card:hover * {
+article.card:hover h3 {
     text-decoration: underline;
 }
 
