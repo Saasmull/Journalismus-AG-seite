@@ -1,6 +1,23 @@
 const fs = require("fs");
 const CONFIG = require("./utils/config");
 const {marked} = require("marked");
+const postcss = require("postcss");
+const plugins = [
+    require("postcss-custom-properties")({
+        preserve: true
+    }),
+    require("autoprefixer")({
+        browsers:"> 0.0000001%"
+    }),
+    require("postcss-minify")()
+    //require("cssnano")(),
+    //require("postcss-color")
+];
+const CleanCSS = require("clean-css");
+var cs = new CleanCSS({
+    compatibility:"ie7",
+    level: 2
+});
 
 marked.use({
     renderer:{
@@ -40,6 +57,14 @@ function setupRootDir(){
     fs.cpSync("api/","root/api/",{recursive:true});
     fs.cpSync("assets/","root/assets/",{recursive:true});
     fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
+    postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf-8"),{
+        from:undefined
+    }).then(function(res){
+        var css = res.css//cs.minify(res.css).styles;
+        console.log(css)
+        fs.writeFileSync("root/assets/styles/main.css",
+        css,"utf-8");
+    });
 }
 
 setupRootDir();

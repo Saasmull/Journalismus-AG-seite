@@ -1,4 +1,4 @@
-* {
+:root, * {
     font-family: "Google Sans", "Roboto", "Noto Sans", "Segoe Ui", "Helvetica", sans-serif;
     box-sizing: border-box;
     overscroll-behavior-x: none;
@@ -62,17 +62,10 @@ p img,
 
 .no-select,.no-select *{
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .no-drag,.no-drag *{
     user-drag: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
 }
 
 html{
@@ -148,6 +141,7 @@ header {
 header>a {
     margin-right: auto;
     text-decoration: none;
+    display: block;
     color: var(--text-color-1);
 }
 
@@ -243,6 +237,7 @@ article.card {
     overflow: hidden;
     flex: 0 0 auto;
     scroll-snap-align: center;
+    transition: all 500ms;
 }
 
 article.card>a {
@@ -252,7 +247,7 @@ article.card>a {
 
 .category>h2>a, article.card * {
     text-decoration: none;
-    color: unset;
+    color: var(--text-color-1);
 }
 /*
 .category>h2>a{
@@ -287,7 +282,7 @@ article.card.wide {
 
 article.card.wide .banner {
     width: 33%;
-    max-height: unset;
+    max-height: none;
     height: 100%;
 }
 
@@ -309,6 +304,10 @@ article.card .card-content>h3 {
 
 article.card .card-content>p {
     -webkit-line-clamp: 3;
+}
+
+article.card:hover{
+    transform: scale(1.01);
 }
 
 article.card:hover h3 {
@@ -444,7 +443,7 @@ button{
 
     .card-container>.card {
         flex: 1 0 30%;
-        max-width: unset;
+        max-width: none;
     }
 }
 
@@ -519,4 +518,8 @@ button{
     background-color: var(--bg-color-1-5);
     vertical-align: sub;
     margin-right: 10px;
+}
+
+div{
+    user-select: none;
 }
