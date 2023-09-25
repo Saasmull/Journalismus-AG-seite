@@ -37,5 +37,11 @@
 <description>Bei mir hat man wohl vergessen, einen Link zu einem Vorschaubild einzufügen, deshalb lade ich dieses Standardbild - So einfach geht Bugfixing.</description>
 <media:thumbnail url="/assets/images/default-banner-comp.webp">
 </item>
+<item>
+<title>Warum eine FritzBox kein Router ist</title>
+<link>http://localhost:8080/article/warum-eine-fritzbox-kein-router-ist.html</link>
+<description>In vielen deutschen Haushalten ist die FritzBox ein allgegenwärtiger Begleiter, der für Internetverbindung und Heimnetzwerkverwaltung sorgt. Doch trotz ihres weit verbreiteten Einsatzes ranken sich einige Missverständnisse um die FritzBox, insbesondere in Bezug auf ihre Rolle als Router. In diesem Artikel werden wir die Gründe erläutern, warum eine FritzBox eigentlich kein Router im herkömmlichen Sinne ist.</description>
+<media:thumbnail url="/assets/images/default-banner-comp.webp">
+</item>
 </channel>
 </rss>

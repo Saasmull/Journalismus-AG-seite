@@ -2,6 +2,7 @@ const fs = require("fs");
 const {marked} = require("marked");
 
 const CONFIG = require("./config");
+const utils = require("./functions");
 const Category = require("./Category");
 
 /**
@@ -70,16 +71,23 @@ module.exports = class Article{
             "@type": "Article",
             "headline": this.metadata.title,
             "description": this.metadata.description,
-            "datePublished": this.metadata.published,
+            "datePublished": utils.date2ISO(this.metadata.published),
             "thumbnailUrl": this.metadata.banner,
             "image": this.metadata.banner,
             "author":[],
             "keywords": this.metadata.categories
         }
-        for(var i = 0;i < this.metadata.authors.length;i++){
+        /*for(var i = 0;i < this.metadata.authors.length;i++){
             jsonLD.author.push({
                 "@type":"Person",
                 "name":this.metadata.authors[i]
+            });
+        }*/
+        for(var i = 0;i < this.authors.length;i++){
+            jsonLD.author.push({
+                "@type":"Person",
+                "name":this.authors[i].metadata.name,
+                "url":"/author/"+this.authors[i].path+".html"
             });
         }
         metaString += "<script type=\"application/ld+json\">\n";
