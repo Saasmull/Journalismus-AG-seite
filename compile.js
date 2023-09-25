@@ -13,11 +13,6 @@ const plugins = [
     //require("cssnano")(),
     //require("postcss-color")
 ];
-const CleanCSS = require("clean-css");
-var cs = new CleanCSS({
-    compatibility:"ie7",
-    level: 2
-});
 
 marked.use({
     renderer:{
