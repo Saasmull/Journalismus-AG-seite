@@ -1,6 +1,6 @@
 {
-    "name":"Blog",
-    "short_name":"Blog",
+    "name":"Journalismus-AG",
+    "short_name":"Journalismus-AG",
     "description":"Hello",
     "scope": "/",
     "start_url": "/index.html",

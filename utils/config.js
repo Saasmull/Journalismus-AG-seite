@@ -2,7 +2,7 @@
 const fs = require("fs");
 
 const CONFIG = module.exports = {
-    SITE_NAME:"Blog",
+    SITE_NAME:"Journalismus-AG",
     DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!",
     SITE_ROOT:"http://localhost:8080"
 };

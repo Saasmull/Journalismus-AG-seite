@@ -102,7 +102,7 @@ module.exports = class Article{
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner +
-                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(",")+
+                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(", ")+
                 "&nbsp;&nbsp;Veröffentlicht am <time>"+this.metadata.published+"</time><br><br><br>"+this.htmlContent+"</div></article>");
         return page;
     }

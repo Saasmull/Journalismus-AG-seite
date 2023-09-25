@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-<title>Blog</title>
+<title>Journalismus-AG</title>
 <link>http://localhost:8080</link>
 <description>Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!</description>
 <language>de-de</language>
-<copyright>Blog</copyright>
+<copyright>Journalismus-AG</copyright>
 <item>
 <title>Natur in den Bergen</title>
 <link>http://localhost:8080/article/abc.html</link>
