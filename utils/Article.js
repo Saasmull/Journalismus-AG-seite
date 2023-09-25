@@ -30,12 +30,17 @@ module.exports = class Article{
         }
     }
     /**
-     * 
+     * Registriert einen Autor
      * @param {Author} author 
      */
     registerAuthor(author){
         this.authors.push(author);
     }
+
+    /**
+     * Rendert die Karte des Artikels
+     * @returns {string} 
+     */
     renderCard(){
         var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
         card += "<div class=\"banner\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";

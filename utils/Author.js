@@ -5,6 +5,13 @@ const CONFIG = require("./config");
 const Category = require("./Category");
 const Article = require("./Article");
 
+/**
+ * @param {string} path Der Pfad des Autors
+ * @param {Article[]} articles Alle Artikel, die der Autor verfasst hat
+ * @param {Object} metadata Die Metadaten des Autors
+ * @param {string} description Die Markdown-Beschreibung des Autors
+ * @param {string} htmlDescription Die HTML-Beschreibung des Autors
+ */
 module.exports = class Author {
     constructor(path) {
         this.path = path;
@@ -23,13 +30,17 @@ module.exports = class Author {
         }
     }
     /**
-     * Fügt der Kategorie einen Artikel hinzu.
+     * Fügt dem Autor einen Artikel hinzu.
      * @param {Article} article 
     */
     registerArticle(article) {
         article.registerAuthor(this);
         this.articles.push(article);
     }
+    /**
+     * Rendert die Autorseite
+     * @returns {string} Der HTML-Code der Autorseite
+     */
     renderAuthorPage(){
         var authorHead = "<div class=\"category-head\">\n";
         authorHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
