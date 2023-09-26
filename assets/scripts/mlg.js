@@ -82,13 +82,17 @@ class MlgMeme{
         this.element.style.filter = "none";
         this.element.style.backdropFilter = "none";
         this.src = data.image;
-        this.element.src = data.image;
+        if(this.src){
+            this.element.src = data.image;
+        }
         document.body.appendChild(this.element);
     }
     setMemeData(data){
         this.audio.src = data.audio;
         this.src = data.image;
-        this.element.src = data.image;
+        if(this.src){
+            this.element.src = data.image;
+        }
     }
     play(){
         try{
