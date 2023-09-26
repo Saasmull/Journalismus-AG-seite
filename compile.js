@@ -1,27 +1,30 @@
 const fs = require("fs");
 const CONFIG = require("./utils/config");
+const utils = require("./utils/functions");
 const {marked} = require("marked");
 const postcss = require("postcss");
 const UglifyJS = require("uglify-js");
+
 const plugins = [
     require("postcss-custom-properties")({
         preserve: true
     }),
     require("autoprefixer")({
-        browsers:"> 0.0000001%"
-    }),
-    require("postcss-minify")()
-    //require("cssnano")(),
-    //require("postcss-color")
+        overrideBrowserslist:"> 0.0000001%"
+    })
 ];
+
+if(CONFIG.MINIFY){
+    plugins.push(require("postcss-minify")());
+}
 
 marked.use({
     renderer:{
         image:function(href,title,text){
-            return "<img loading=\"lazy\" src=\"" + href + "\" title=\"" + title + "\" alt=\"" + text + "\">";
+            return "<img loading=\"lazy\" src=\"" + utils.str(href) + "\" title=\"" + utils.str(title) + "\" alt=\"" + utils.str(text) + "\">";
         }
     }
-})
+});
 
 const Article = require("./utils/Article");
 const Author = require("./utils/Author");
@@ -29,19 +32,17 @@ const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
 const RssFeed = require("./utils/RssFeed");
 
-/*
-const SITE_NAME = "Blog";
-const BASIC_TEMPLATE = fs.readFileSync("templates/basic.html","utf-8").replace("<!--SITENAME-->", SITE_NAME);
-*/
-function minifyJs(string){
-    return UglifyJS.minify(string,{
-        mangle:{
-            toplevel:true
-        }
-    }).code;
-}
-function minifyJsFile(path){
-    fs.writeFileSync(path,minifyJs(fs.readFileSync(path,"utf-8")),"utf-8");
+if(CONFIG.MINIFY){
+    function minifyJs(string){
+        return UglifyJS.minify(string,{
+            mangle:{
+                toplevel:true
+            }
+        }).code;
+    }
+    function minifyJsFile(path){
+        fs.writeFileSync(path,minifyJs(fs.readFileSync(path,"utf-8")),"utf-8");
+    }
 }
 function cleanDir(path){
     try{
@@ -66,13 +67,15 @@ function setupRootDir(){
     postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf-8"),{
         from:undefined
     }).then(function(res){
-        var css = res.css//cs.minify(res.css).styles;
-        console.log(css)
+        var css = res.css;
+        //console.log(css);
         fs.writeFileSync("root/assets/styles/main.css",
         css,"utf-8");
     });
-    minifyJsFile("root/assets/scripts/layout.js");
-    minifyJsFile("root/service-worker.js");
+    if(CONFIG.MINIFY){
+        minifyJsFile("root/assets/scripts/layout.js");
+        minifyJsFile("root/service-worker.js");
+    }
 }
 
 setupRootDir();
@@ -128,10 +131,10 @@ for(var i = 0;i < categoriesDir.length;i++){
 
 fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
 fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
-fs.writeFileSync("root/manifest.json",JSON.stringify(JSON.parse(`{
-    "name":"${CONFIG.SITE_NAME}",
-    "short_name":"${CONFIG.SITE_NAME}",
-    "description":"${CONFIG.DESCRIPTION}",
+fs.writeFileSync("root/manifest.json",JSON.stringify({
+    "name":CONFIG.SITE_NAME,
+    "short_name":CONFIG.SITE_NAME,
+    "description":CONFIG.DESCRIPTION,
     "scope": "/",
     "start_url": "/index.html",
     "id":"/index.html",
@@ -147,4 +150,4 @@ fs.writeFileSync("root/manifest.json",JSON.stringify(JSON.parse(`{
     ],
     "background_color": "#000000",
     "theme_color": "#000000"
-}`)),"utf-8");
+},null,(CONFIG.MINIFY?"":"\t")),"utf-8");
