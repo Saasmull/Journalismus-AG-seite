@@ -219,6 +219,22 @@ window.addEventListener("resize",function() {
 
 window.addEventListener("DOMContentLoaded",function(){
     var bgImages = document.querySelectorAll("[data-bg-img]");
+    /*for(var i = 0;i < bgImages.length;i++){
+        var b = new Image();
+        b.src = bgImages[i].dataset.bgImg;
+        b.addEventListener("loadeddata",function(event){
+            var imgs = document.querySelectorAll("[data-bg-img=\""+event.target.src+"\"]");
+            for(var j = 0;j < imgs.length;j++){
+                imgs[j].style.opacity = 1;
+                imgs[j].style.backdropFilter = "invert(0)";
+                imgs[j].style.backgroundImage =
+                    "url('" + event.target.src + "')";
+                if(observer){
+                    observer.unobserve(imgs[j]);
+                }
+            }
+        });
+    }*/
     if("IntersectionObserver" in window){
         function handleIntersection(entries){
             for(var i = 0;i < entries.length;i++){
@@ -240,10 +256,10 @@ window.addEventListener("DOMContentLoaded",function(){
         }
     }else{
         for(var i = 0;i < bgImages.length;i++){
-            bgImages[i].style.backgroundImage =
-                "url('" + bgImages[i].dataset.bgImg + "')";
             bgImages[i].style.opacity = 1;
             bgImages[i].style.backdropFilter = "invert(0)";
+            bgImages[i].style.backgroundImage =
+                "url('" + bgImages[i].dataset.bgImg + "')";
         }
     }  
 })
@@ -269,7 +285,7 @@ try {
     if(bannerImage) {
         window.addEventListener("scroll",function(){
             var scrolled = window.scrollY || window.pageYOffset;
-            bannerImage.style.backgroundPositionY = "calc(45% + " + (scrolled / 2) + "px)";
+            bannerImage.style.backgroundPositionY = "calc(45% + " + (scrolled / 3) + "px)";
         });
     }
 } catch(e) {}
