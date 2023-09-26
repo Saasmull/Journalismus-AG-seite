@@ -128,7 +128,7 @@ for(var i = 0;i < categoriesDir.length;i++){
 
 fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
 fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
-fs.writeFileSync("root/manifest.json",`{
+fs.writeFileSync("root/manifest.json",JSON.stringify(JSON.parse(`{
     "name":"${CONFIG.SITE_NAME}",
     "short_name":"${CONFIG.SITE_NAME}",
     "description":"Hello",
@@ -147,4 +147,4 @@ fs.writeFileSync("root/manifest.json",`{
     ],
     "background_color": "#000000",
     "theme_color": "#000000"
-}`,"utf-8");
+}`)),"utf-8");
