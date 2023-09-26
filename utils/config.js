@@ -19,7 +19,9 @@ const CONFIG = module.exports = {
      * a{color:red}
      * ```
      * gemacht werden soll.*/
-    MINIFY:true
+    MINIFY:true,
+    /** @type {boolean} Wenn aktiviert, werden z.B. die Kompilierugslogs genauer. */
+    DEBUG:false
 };
 
 /** @type {string} Die Grundstruktur der Seiten */
