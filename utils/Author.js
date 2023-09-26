@@ -43,9 +43,9 @@ module.exports = class Author {
      */
     renderAuthorPage(){
         var authorHead = "<div class=\"category-head\">\n";
-        authorHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
-        authorHead += "<h1><div class=\"profile-image\" style=\"background-image:url('"
-            + this.metadata.profile +"');\"></div>" + this.metadata.name + "</h1>\n";
+        authorHead += "<div class=\"banner-image\" data-bg-img=\"" + this.metadata.banner + "\"></div>\n";
+        authorHead += "<h1><div class=\"profile-image\" data-bg-img=\""
+            + this.metadata.profile +"\"></div>" + this.metadata.name + "</h1>\n";
         authorHead += "<button id=\"subscribe\" data-path=\"" + this.path + "\" onclick=\"toggleSub(this);\">Abonnieren</button>\n";
         authorHead += "<div id=\"content\" style=\"margin-bottom:2rem;\">" + this.htmlDescription + "</div>\n";
         authorHead += "</div>\n";

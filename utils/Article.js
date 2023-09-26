@@ -44,7 +44,7 @@ module.exports = class Article{
      */
     renderCard(){
         var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
-        card += "<div class=\"banner\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
+        card += "<div class=\"banner\" data-bg-img=\"" + this.metadata.banner + "\"></div>\n";
         card += "<div class=\"card-content\"><h3>" + this.metadata.title + "</h3>\n";
         card += "<p>" + this.metadata.description + "</p>\n";
         card += "</div></a>\n</article>\n";
@@ -110,8 +110,8 @@ module.exports = class Article{
         }
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
-            .replace("<!--CONTENT-->","<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner +
-                "');\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(", ")+
+            .replace("<!--CONTENT-->","<div class=\"banner-image\" data-bg-img=\"" + this.metadata.banner +
+                "\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(", ")+
                 "&nbsp;&nbsp;Veröffentlicht am <time>"+this.metadata.published+"</time><br><br><br>"+this.htmlContent+"</div></article>");
         return page;
     }

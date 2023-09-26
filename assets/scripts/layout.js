@@ -1,3 +1,116 @@
+var PATH = location.pathname.substr(8,location.pathname.length-13);
+if(localStorage.getItem("subs")!==null){
+    try{
+        if(JSON.parse(localStorage.getItem("subs").indexOf(PATH)) !== -1){
+            var subscribeButton = document.getElementById("subscribe");
+            if(subscribeButton){
+                subscribeButton.classList.add("subscribed");
+                subscribeButton.innerHTML = "Abonniert";
+            }
+        }
+    }catch(e){}
+}
+
+function subscribeAuthor(path){
+    var subs = JSON.parse(localStorage.getItem("subs"))||[];
+    if(subs.indexOf(path) === -1){
+        subs.push(path);
+        localStorage.setItem("subs",JSON.stringify(subs));
+    }
+    // Check if the Notification API is available in the browser
+    if ("Notification" in window) {
+        // Request permission to show notifications
+        Notification.requestPermission().then(function(permission){
+            if (permission === "granted") {
+                // Permission has been granted, you can show notifications
+                //localStorage.setItem("subs","[\"sml\"]");
+            }
+        });
+    }
+}
+function unsubsscribeAuthor(path){
+    var subs = JSON.parse(localStorage.getItem("subs"))||[];
+    subs.splice(subs.indexOf(path),1);
+    localStorage.setItem("subs",JSON.stringify(subs));
+}
+function toggleSub(element){
+    if(element.classList.contains("subscribed")){
+        element.classList.remove("subscribed");
+        element.innerHTML = "Abonnieren";
+        unsubsscribeAuthor(element.getAttribute("data-path"));
+    }else{
+        element.classList.add("subscribed");
+        element.innerHTML = "Abonniert";
+        subscribeAuthor(element.getAttribute("data-path"));
+    }
+}
+var themeButton = document.getElementById("toggle-theme");
+var currentTheme = matchMedia?matchMedia("(prefers-color-scheme: light)").matches:false;
+
+if(localStorage.getItem("lum")!==null){
+    currentTheme = localStorage.getItem("lum")==="on";
+}
+
+function setLum(state,set){
+    currentTheme = state;
+    if(state){
+        document.documentElement.classList.add("lum");
+        localStorage.setItem("lum","on");
+        if(set){
+            themeButton.checked = false;
+        }
+    }else{
+        document.documentElement.classList.remove("lum");
+        localStorage.setItem("lum","off");
+        if(set){
+            themeButton.checked = true;
+        }
+    }
+}
+setLum(currentTheme,true);
+themeButton.addEventListener("change",function(){
+    setLum(!currentTheme,false);
+});
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js");
+    navigator.serviceWorker.ready.then(function(sW){
+        sW.active.postMessage({
+            "type":"init"
+        });
+        navigator.serviceWorker.addEventListener("message",function(event){
+            if(event.data.type === "syncLocalStorage"){
+                if(event.data.data){
+                    for(var key in event.data.data){
+                        localStorage.setItem(key,event.data.data[key]);
+                    }
+                }
+                sW.active.postMessage({
+                    "type":"localStorageData",
+                    "data":eval("{...localStorage}")
+                })
+            }else if(event.data.type === "setLocalStorageKey"){
+                localStorage.setItem(event.data.data.key,event.data.data.value);
+                sW.active.postMessage({
+                    "type":"setLocalStorageKeyB",
+                    "data":{
+                        "key":event.data.data.key,
+                        "value":event.data.data.value
+                    }
+                })
+            }else if(event.data.type === "getLocalStorageKey"){
+                sW.active.postMessage({
+                    "type":"getLocalStorageKeyB",
+                    "data":{
+                        "key":event.data.data.key,
+                        "value":localStorage.getItem(event.data.data.key)
+                    }
+                })
+            }
+        })
+    })
+}
+
 var drawer = document.querySelector("header>nav");
 var drawerScrim = document.querySelector("header>nav>.scrim");
 var isDrawerDragging = false;
@@ -104,6 +217,35 @@ window.addEventListener("resize",function() {
     }
 });
 
+window.addEventListener("DOMContentLoaded",function(){
+    var bgImages = document.querySelectorAll("[data-bg-img]");
+    if("IntersectionObserver" in window){
+        function handleIntersection(entries){
+            console.log(entries,entries.length);
+            for(var i = 0;i < entries.length;i++){
+                console.log(entries[i])
+                if(entries[i].isIntersecting){
+                    entries[i].target.style.backgroundImage =
+                        "url('" + entries[i].target.dataset.bgImg + "')";
+                    observer.unobserve(entries[i].target);
+                }
+            }
+        }
+        var observer = new IntersectionObserver(
+            handleIntersection,
+            {"rootMargin":"100px"}
+        );
+        for(var i = 0;i < bgImages.length;i++){
+            observer.observe(bgImages[i]);
+        }
+    }else{
+        for(var i = 0;i < bgImages.length;i++){
+            bgImages[i].style.backgroundImage =
+                "url('" + bgImages[i].dataset.bgImg + "')";
+                    
+        }
+    }  
+})
 var cardElements = document.querySelectorAll("article.card");
 
 function updateCardElements() {
@@ -131,18 +273,20 @@ try {
     }
 } catch(e) {}
 
-
-for(let i = 0;i < cardElements.length;i++){
-    cardElements[i].addEventListener("mousemove",function(event){
-        var rect = cardElements[i].getBoundingClientRect();
+function addHoverEffect(element){
+    element.addEventListener("mousemove",function(event){
+        var rect = element.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
-        cardElements[i].style.backgroundImage = "radial-gradient(circle at " + x +
+        element.style.backgroundImage = "radial-gradient(circle at " + x +
         "px " + y + "px,var(--bg-color-1-5) 0%,transparent 80%)";
     },true);
-    cardElements[i].addEventListener("mouseleave",function(){
-        cardElements[i].style.backgroundImage = "";
+    element.addEventListener("mouseleave",function(){
+        element.style.backgroundImage = "";
     },true);
+}
+for(var i = 0;i < cardElements.length;i++){
+    addHoverEffect(cardElements[i]);
 }
 
 document.addEventListener("wheel",function(event){

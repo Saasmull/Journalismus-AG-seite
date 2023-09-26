@@ -2,6 +2,7 @@ const fs = require("fs");
 const CONFIG = require("./utils/config");
 const {marked} = require("marked");
 const postcss = require("postcss");
+const UglifyJS = require("uglify-js");
 const plugins = [
     require("postcss-custom-properties")({
         preserve: true
@@ -32,6 +33,16 @@ const RssFeed = require("./utils/RssFeed");
 const SITE_NAME = "Blog";
 const BASIC_TEMPLATE = fs.readFileSync("templates/basic.html","utf-8").replace("<!--SITENAME-->", SITE_NAME);
 */
+function minifyJs(string){
+    return UglifyJS.minify(string,{
+        mangle:{
+            toplevel:true
+        }
+    }).code;
+}
+function minifyJsFile(path){
+    fs.writeFileSync(path,minifyJs(fs.readFileSync(path,"utf-8")),"utf-8");
+}
 function cleanDir(path){
     try{
         fs.rmSync(path,{recursive: true});
@@ -60,6 +71,8 @@ function setupRootDir(){
         fs.writeFileSync("root/assets/styles/main.css",
         css,"utf-8");
     });
+    minifyJsFile("root/assets/scripts/layout.js");
+    minifyJsFile("root/service-worker.js");
 }
 
 setupRootDir();
