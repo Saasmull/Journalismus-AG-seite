@@ -221,10 +221,10 @@ window.addEventListener("DOMContentLoaded",function(){
     var bgImages = document.querySelectorAll("[data-bg-img]");
     if("IntersectionObserver" in window){
         function handleIntersection(entries){
-            console.log(entries,entries.length);
             for(var i = 0;i < entries.length;i++){
-                console.log(entries[i])
                 if(entries[i].isIntersecting){
+                    entries[i].target.style.opacity = 1;
+                    entries[i].target.style.backdropFilter = "invert(0)";
                     entries[i].target.style.backgroundImage =
                         "url('" + entries[i].target.dataset.bgImg + "')";
                     observer.unobserve(entries[i].target);
@@ -242,7 +242,8 @@ window.addEventListener("DOMContentLoaded",function(){
         for(var i = 0;i < bgImages.length;i++){
             bgImages[i].style.backgroundImage =
                 "url('" + bgImages[i].dataset.bgImg + "')";
-                    
+            bgImages[i].style.opacity = 1;
+            bgImages[i].style.backdropFilter = "invert(0)";
         }
     }  
 })

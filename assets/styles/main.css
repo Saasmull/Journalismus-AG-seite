@@ -24,6 +24,12 @@
     --link-color: #36a7ff;
 }
 
+[data-bg-img]{
+    opacity: 0.5;
+    backdrop-filter: invert(0.25);
+    transition: all 1s;
+}
+
 /*
 *::-webkit-scrollbar{
     width: 8px;
@@ -41,7 +47,7 @@ p img,
 .banner,
 .banner-image {
     filter: brightness(0.8) saturate(0.9);
-    background-color: var(--bg-color-1-5);
+    //background-color: var(--bg-color-1-5);
 }
 
 .lum * {
