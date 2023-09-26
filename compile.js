@@ -131,7 +131,7 @@ fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
 fs.writeFileSync("root/manifest.json",JSON.stringify(JSON.parse(`{
     "name":"${CONFIG.SITE_NAME}",
     "short_name":"${CONFIG.SITE_NAME}",
-    "description":"Hello",
+    "description":"${CONFIG.DESCRIPTION}",
     "scope": "/",
     "start_url": "/index.html",
     "id":"/index.html",
