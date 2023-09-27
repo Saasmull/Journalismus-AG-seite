@@ -19,7 +19,7 @@ const CONFIG = module.exports = {
      * a{color:red}
      * ```
      * gemacht werden soll.*/
-    MINIFY:false,
+    MINIFY:true,
     /** @type {boolean} Wenn aktiviert, werden z.B. die Kompilierugslogs genauer. */
     DEBUG:false
 };
