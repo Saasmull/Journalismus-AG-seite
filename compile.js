@@ -6,18 +6,20 @@ const postcss = require("postcss");
 const UglifyJS = require("uglify-js");
 
 const rdl = require("readline");
+/*
 const rl = rdl.createInterface({
     input: process.stdin,
     output: process.stdout
-});
+});*/
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-
+/*
 var lineBuffer = [];
 var spinnerStates = ['◜','◠','◝','◞','◡','◟'];
 
 function writeLineBuffer(){
-    var string = "\r"+lineBuffer.join("\x1b[0m    \n")+ "\x1b[0m";
+    rdl.clearScreenDown(process.stdout);
+    var string = "\r"+lineBuffer.join("\x1b[0m     \n")+ "\x1b[0m";
     for(var i = 0;i < spinnerStates.length;i++){
         string = string.replaceAll(spinnerStates[i], "\x1b[32m"+spinnerStates[i]+"\x1b[34m");
     }
@@ -25,9 +27,14 @@ function writeLineBuffer(){
     rdl.moveCursor(process.stdout, 10, -lineBuffer.length+1);
 }
 var msg = "Lade Konfigurationen...";
-
+function warn(text){
+    var lastItem = lineBuffer[lineBuffer.length-1];
+    lineBuffer[lineBuffer.length-1] = text;
+    lineBuffer.push(lastItem);
+    writeLineBuffer();
+}
 async function setSpinnerText(text){
-    await sleep(10);
+    await sleep(2000);
     if(lineBuffer.length > 0){
         lineBuffer[lineBuffer.length-1] = msg;
     }
@@ -56,6 +63,11 @@ if(!CONFIG.DEBUG){
         lineBuffer[lineBuffer.length-1] = spinnerStates[index] + lastItem.slice(1);
         writeLineBuffer();
     },50);
+}*/
+var Log = require("./utils/StatusLog");
+var log = new Log();
+async function setSpinnerText(text){
+    await log.setSpinnerText(text);
 }
 const plugins = [
     require("postcss-custom-properties")({
@@ -114,10 +126,18 @@ async function setupRootDir(){
     cleanDir("root/article");
     cleanDir("root/assets");
     cleanDir("root/category");
-    await setSpinnerText("Kopiere API-Dateien...");
-    fs.cpSync("api/","root/api/",{recursive:true});
-    await setSpinnerText("Kopiere Asset-Dateien...");
-    fs.cpSync("assets/","root/assets/",{recursive:true});
+    async function copyFiles(from,to,statusText){
+        try{
+            await setSpinnerText(statusText);
+            fs.cpSync(from,to,{recursive:true});
+        }catch(e){
+            log.warn("Kopieren fehlgeschlagen. Versuche neu..");
+            await sleep(500);
+            await copyFiles(from,to,statusText);
+        }
+    }
+    await copyFiles("api/","root/api","Kopiere API-Dateien...");
+    await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
     fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
     await setSpinnerText("Kompiliere CSS-Dateien...");
     if(CONFIG.MINIFY){
@@ -183,10 +203,18 @@ setupRootDir().then(async function(){
         articles.push(new Article(articlesDir[i]));
         rssFeed.articles.push(articles[i]);
         for(var j = 0;j < articles[i].metadata.authors.length;j++){
-            authors[articles[i].metadata.authors[j]].registerArticle(articles[i]);
+            if(articles[i].metadata.authors[j] in authors){
+                authors[articles[i].metadata.authors[j]].registerArticle(articles[i]);
+            }else{
+                log.warn("Der Autor \""+articles[i].metadata.authors[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
+            }
         }
         for(var j = 0;j < articles[i].metadata.categories.length;j++){
-            categories[articles[i].metadata.categories[j]].registerArticle(articles[i]);
+            if(articles[i].metadata.categories[j] in categories){
+                categories[articles[i].metadata.categories[j]].registerArticle(articles[i]);
+            }else{
+                log.warn("Die Kategorie \""+articles[i].metadata.categories[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
+            }
         }
         fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf-8");
     }
@@ -235,8 +263,5 @@ setupRootDir().then(async function(){
     },null,(CONFIG.MINIFY?"":"\t")),"utf-8");
 
     setSpinnerText("Fertig!");
-    await sleep(500);
-    rdl.moveCursor(process.stdout, 0, lineBuffer.length);
-    rl.close();
-    process.exit(0);
+    log.stop();
 });

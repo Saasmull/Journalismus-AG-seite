@@ -3,6 +3,12 @@ const Category = require("./Category");
 const Article = require("./Article");
 
 module.exports = class RssFeed{
+    /**
+     * Erstellt einen neuen RSS-Feed
+     * @param {string} title Der Titel des RSS-Feeds
+     * @param {string} link Der Pfad zum RSS-Feed
+     * @param {string} description Die Beschreibung des Feed
+     */
     constructor(title,link,description){
         this.title = title;
         this.link = link;
@@ -10,8 +16,9 @@ module.exports = class RssFeed{
         this.articles = [];
     }
     /**
-     * 
+     * Rendert einen Artikel als RSS-Feed-Item
      * @param {Article} article Der zu rendernde Artikel
+     * @returns {string} Der XML-Code des RSS-Items
      */
     renderItem(article){
         var xml = "<item>\n";
@@ -22,6 +29,10 @@ module.exports = class RssFeed{
         xml += "</item>";
         return xml;
     }
+    /**
+     * Rendert den RSS-Feed
+     * @returns {string} Der XML-Code des RSS-Feeds
+     */
     renderFeed(){
         var xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         xml += "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n";
