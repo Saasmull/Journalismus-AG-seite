@@ -83,6 +83,8 @@ if(CONFIG.MINIFY){
 }
 
 marked.use({
+    gfm:true,
+    pedantic:false,
     renderer:{
         image:function(href,title,text){
             return "<img loading=\"lazy\" src=\"" + utils.str(href) + "\" title=\"" + utils.str(title) + "\" alt=\"" + utils.str(text) + "\">";
