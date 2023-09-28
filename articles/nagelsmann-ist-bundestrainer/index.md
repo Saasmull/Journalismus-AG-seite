@@ -1,4 +1,4 @@
-**Julian Nagelsmann wird die A-Nationalmannschaft der Männer zur Europameisterschaft 2024 führen. Dies gab der Deutsche Fußball-Bund am 22.09.2023 bekannt. Er übernimmt das Amt von Hansi Flick, der in seiner kurzen Zeit als Bundestrainer keinen Erfolg hatte.**
+**Julian Nagelsmann wird die A-Nationalmannschaft der Männer zur Europameisterschaft 2024 führen. Dies gab der Deutsche Fußball-Bund am Freitag, den 22.09.2023 bekannt. Er übernimmt das Amt von Hansi Flick, der in seiner kurzen Zeit als Bundestrainer keinen Erfolg hatte.**
 
 Bei seiner neuen Station wird Nagelsmann künftig mit Ex-Nationalspieler Sandro Wagner zusammenarbeiten. Der ehemalige Trainer der Spielvereinigung Unterhaching wird sein neuer Co-Trainer. Neben Wagner wird auch Benjamin Glück das Amt des Co-Trainers bekleiden. Glück begleitete Nagelsmann auch bei seinen vorherigen Stationen mit Erfolg. Leipzig und Hoffenheim führten sie in die Champions League und mit dem FC Bayern gewannen sie die Deutsche Meisterschaft. 
  
