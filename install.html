@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node.js Installation</title>
+    <style>
+        /* Resetten der Standard-Stile */
+body, h1, h2, h3, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basis-Stile für die Seite */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Überschriften-Stile */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Absatz-Stile */
+p {
+    margin-bottom: 15px;
+}
+
+/* Link-Stile */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Unsortierte Listen */
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* Sortierte Listen */
+ol {
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+/* Listenpunkt-Stile */
+li {
+    margin-bottom: 5px;
+}
+
+/* Einfacher Container für Inhalt */
+.content-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header-Stile */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Footer-Stile */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+    </style>
+</head>
+<body class="container">
+    <h1>Setup</h1>
+    <h2>Installation von node.js</h2>
+    <p>Laden Sie Node.js von <a href="https://nodejs.dev/en/">nodejs.dev</a> runter.</p>
+
+    <h2>Installation von GitHub Desktop</h2>
+    <p>Laden Sie sich GitHub Desktop von <a href="https://desktop.github.com/">GitHub</a> runter.</p>
+
+
+    <h2>Detaillierte Installation von node.js</h2>
+    
+    <h3>Schritt 1: Node.js herunterladen</h3>
+    <p>Öffnen Sie Ihren Webbrowser und besuchen Sie die offizielle Node.js-Website.</p>
+    <p>URL: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></p>
+    <p>Klicken Sie auf den "LTS"-Download-Button, um die empfohlene stabile 64-bit Version herunterzuladen.</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/node.js-installer-file-download-.png" alt="Node.js Download Page" />
+
+    <h3>Schritt 2: Installation starten</h3>
+    <p>Nachdem der Download abgeschlossen ist, öffnen Sie die heruntergeladene Installationsdatei (z.B., "node-vxx.x.x-x64.msi").</p>
+    <p>Wenn Sie eine Benutzerkontensteuerung (UAC)-Warnung erhalten, bestätigen Sie, dass Sie die Änderungen zulassen möchten.</p>
+
+    <h3>Schritt 3: Installationsassistent</h3>
+    <p>Der Node.js-Installationsassistent wird geöffnet. Klicken Sie auf "Next" (Weiter).</p>
+    <p>Lesen Sie die Lizenzvereinbarung und akzeptieren Sie sie. Klicken Sie erneut auf "Next".</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/accept-node-js-license-agreement.png" alt="Node.js Installation Wizard" />
+    <p>Wählen Sie das Installationsverzeichnis aus (standardmäßig ist dies in Ordnung). Klicken Sie auf "Next".</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/select-node.js-installation-folder.png" alt="Node.js Installation Wizard" />
+    <p>Wählen Sie die gewünschten Komponenten aus (normalerweise können Sie die Standardeinstellungen belassen) und klicken Sie auf "Next".</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/node.js-custom-setup-option-.png" alt="Node.js Installation Wizard" />
+    <p>Wählen Sie das Startmenü-Ordner oder lassen Sie die Standardeinstellungen unverändert. Klicken Sie auf "Next".</p>
+    <p>Wählen Sie die Option "Automatisch" für die PATH-Variable, damit Node.js global verfügbar ist. Klicken Sie auf "Next".</p>
+    <p>Klicken Sie auf "Install" (Installieren), um die Installation zu starten.</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/begin-node.js-installation.png" alt="Node.js Installation Wizard" />
+
+    <h3>Schritt 4: Installation abschließen</h3>
+    <p>Der Installationsassistent wird den Vorgang abschließen. Klicken Sie auf "Finish" (Fertigstellen), um die Installation abzuschließen.</p>
+    <img src="https://kinsta.com/wp-content/uploads/2021/09/finish-Node.js-installation-on-windows.png" alt="Node.js Installation Wizard" />
+
+    <h2>Schritt 5: Überprüfen der Installation</h2>
+    <p>Öffnen Sie die Eingabeaufforderung (CMD) und geben Sie den folgenden Befehl ein:</p>
+    <code>node -v</code>
+    <p>Sie sollten die installierte Node.js-Version angezeigt bekommen.</p>
+    <p>Geben Sie auch den folgenden Befehl ein, um die npm-Version (Node Package Manager) zu überprüfen:</p>
+    <code>npm -v</code>
+</body>
+</html>
