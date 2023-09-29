@@ -8,4 +8,4 @@ Insgesamt sind es 17 Schriftsteller:innen, welche dem Unternehmen „systematisc
 
 ## Auch New York Times klagte bereits 
 
-Die US-Amerikanische Zeitung „New York Times“ teilte bereits im vergangenen Monat mit, dass man eine „potenziell tödliche Klage“ gegen das Unternehmen OpenAI prüfe. ChatGPT sei in der Lage, Fragen auf Grundlage der ursprünglichen Berichterstattung zu beantworten. Dies würde die Nutzung des Mediums der NY-Times überflüssig machen. Sollte ein US-Richter feststellen, dass ChatGPt illegal Texte kopiert, müsste die Firma OpenAI jegliche Daten löschen und eine enorme Geldstrafe bezahlen. 
+Die US-Amerikanische Zeitung „New York Times“ teilte bereits im vergangenen Monat mit, dass man eine „potenziell tödliche Klage“ gegen das Unternehmen OpenAI prüfe. ChatGPT sei in der Lage, Fragen auf Grundlage der ursprünglichen Berichterstattung zu beantworten. Dies würde die Nutzung des Mediums der NY-Times überflüssig machen. Sollte ein US-Gericht feststellen, dass ChatGPt illegal Texte kopiert, müsste die Firma OpenAI jegliche Daten löschen und eine enorme Geldstrafe bezahlen. 
