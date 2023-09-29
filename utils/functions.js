@@ -6,6 +6,6 @@ module.exports = {
         return (new Date(...date)).toISOString().split('T')[0];
     },
     str:function str(string){
-        return (string+"")||"";
+        return (typeof string === "string"?string:(string?string+"":""));
     }
 }

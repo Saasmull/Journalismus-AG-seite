@@ -87,7 +87,7 @@ marked.use({
     pedantic:false,
     renderer:{
         image:function(href,title,text){
-            return "<img loading=\"lazy\" src=\"" + utils.str(href) + "\" title=\"" + utils.str(title) + "\" alt=\"" + utils.str(text) + "\">";
+            return "<figure><img loading=\"lazy\" src=\"" + utils.str(href) + "\" title=\"" + utils.str(title) + "\" alt=\"" + utils.str(text) + "\"><figcaption>"+utils.str(text)+"</figcaption></figure>";
         }
     }
 });
