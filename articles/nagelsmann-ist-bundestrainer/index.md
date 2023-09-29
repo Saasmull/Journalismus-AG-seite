@@ -6,11 +6,11 @@ Bei seiner neuen Station wird Nagelsmann künftig mit Ex-Nationalspieler Sandro 
 
 ## Völler: ”Nagelsmann war unser absoluter Wunschkandidat." 
  
-Nagelsmann selbst habe große Lust auf die Aufgabe, besonders weil im nächsten Jahr die Heim-EM ansteht. Sowas käme, laut Nagelsmann, nur alle paar Jahrzehnte vor. Nach den Blamagen bei den letzten Turnieren, habe die Nationalmannschaft etwas zu beweisen. Dazu sagte er:
+Nagelsmann selbst habe große Lust auf die Aufgabe, besonders weil im nächsten Jahr die Heim-EM ansteht. Sowas käme, laut Nagelsmann, nur alle paar Jahrzehnte vor. Nach den Blamagen bei den vergangenen Turnieren, habe die Nationalmannschaft etwas zu beweisen. Dazu sagte er:
 
 > ”Wir werden ein eingeschworener Haufen sein!”
 
-Rudi Völler, DFB-Sportdirektor, fügte an, dass Nagelsmann der absolute Wunschkandidat gewesen wäre. Er habe bereits bewiesen, dass er eine Mannschaft, sowie ein komplettes Umfeld mitreißen und motivieren könne.  
+Rudi Völler, DFB-Sportdirektor, fügte an, dass Nagelsmann der absolute Wunschkandidat gewesen wäre. Er habe bereits bewiesen, dass er eine Mannschaft und ein komplettes Umfeld mitreißen und motivieren könne.  
  
 ## ”Ein Vertrag ist nicht immer das, was drin steht.” 
  
