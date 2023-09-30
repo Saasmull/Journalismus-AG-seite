@@ -46,8 +46,14 @@
 <item>
 <title>Probebehälter von OSIRIS-REx zurück auf der Erde</title>
 <link>http://localhost:8080/article/osiris-rex-wieder-auf-erde.html</link>
-<description>7 Jahre nach dem Start - Proben von Bennu nun auf der Erde gelandet</description>
+<description>7 Jahre nach dem Start - Die Proben von Bennu sind nun auf der Erde gelandet.</description>
 <media:thumbnail url="https://www.nasa.gov/wp-content/uploads/2023/09/53158965091-aeb5064b60-k.jpg">
+</item>
+<item>
+<title>Der neue Raspberry Pi 5 ist da!</title>
+<link>http://localhost:8080/article/raspberry-pi-5.html</link>
+<description>Der neue Raspberry Pi 5 ist da! Mit 8GB RAM und 2,4GHz Quadcore CPU ab 80€ ist er der perfekte Mini-Computer. Wir zeigen hier alle Neuerungen.</description>
+<media:thumbnail url="https://www.raspberrypi.com/app/uploads/2023/09/45e129f7-036b-42e3-bb8c-7c7d87195956.png">
 </item>
 <item>
 <title>Warum ich ein Bug bin</title>

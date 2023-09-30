@@ -22,14 +22,19 @@ p img,p video,p iframe,figure img{
     max-height: 70vh;
 }
 
+p iframe{
+    width: 100%;
+}
+
+iframe.yt-player{
+    max-height: unset;
+}
+
 figure figcaption{
     text-align: center;
     font-style: italic;
 }
 
-p iframe{
-    width: 100%;
-}
 
 p .audio-player,p audio[controls]{
     display: block;

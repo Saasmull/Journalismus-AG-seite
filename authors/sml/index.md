@@ -1,5 +1,5 @@
 Hallo, ich bin Samuel und bin seit 2022 auf dem Technischen Gymnasium der Heinrich-Büssing-Schule.
-<style>
+<!--style>
     @keyframes rainbow-bg{
 		100%,0%{
 			background-color: rgb(255,0,0);
@@ -80,4 +80,4 @@ Hallo, ich bin Samuel und bin seit 2022 auf dem Technischen Gymnasium der Heinri
 *{
     animation: rainbow-bg 200ms linear infinite, rainbow 1.5s linear infinite;
 }
-</style>
+</!--style-->

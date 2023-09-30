@@ -35,7 +35,7 @@ module.exports = class Category{
         var section = "<section class=\"category\">\n";
         section += "<h2><a href=\"/category/" + this.path + ".html\">" + this.metadata.title + "&nbsp;<i class=\"chevron-right\"></i></a></h2>\n";
         section += "<div class=\"card-container\">\n";
-        for(var i = 0;i < Math.min(this.articles.length,4);i++){
+        for(var i = 0;i < Math.min(this.articles.length,10);i++){
             section += this.articles[i].renderCard();
         }
         section += "</div>\n</section>\n";
