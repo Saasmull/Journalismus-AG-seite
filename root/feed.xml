@@ -14,7 +14,7 @@
 <media:thumbnail url="/assets/images/suisse-comp.webp">
 </item>
 <item>
-<title>„Es ist zwingend erforderlich, dass wir diesem Diebstahl Einhalt gebieten“: ChatGPT verklagt!</title>
+<title>„Es ist zwingend erforderlich, dass wir diesem Diebstahl Einhalt gebieten“ - ChatGPT verklagt</title>
 <link>http://localhost:8080/article/chatgpt-verklagt.html</link>
 <description>Wegen der Verletzung ihres geistigen Eigentums, verklagten zahlreiche Bestseller-Autor*innen die Firma OpenAI, welche hinter dem Chatbot ChatGPT steckt. Ein Kläger von ihnen ist Game of Thrones-Erschaffer George R. R. Martin.</description>
 <media:thumbnail url="https://static.vecteezy.com/system/resources/previews/019/945/918/original/chat-gpt-technology-isometric-background-free-vector.jpg">
@@ -42,6 +42,12 @@
 <link>http://localhost:8080/article/news-seite-der-hbs.html</link>
 <description>Die Newsseite der Heinrich-Büssing-Schule Braunschweig. Viel Spaß beim lesen!</description>
 <media:thumbnail url="/assets/images/handwerkskammer-comp.webp">
+</item>
+<item>
+<title>Probebehälter von OSIRIS-REx zurück auf der Erde</title>
+<link>http://localhost:8080/article/osiris-rex-wieder-auf-erde.html</link>
+<description>7 Jahre nach dem Start - Proben von Bennu nun auf der Erde gelandet</description>
+<media:thumbnail url="https://www.nasa.gov/wp-content/uploads/2023/09/53158965091-aeb5064b60-k.jpg">
 </item>
 <item>
 <title>Warum ich ein Bug bin</title>
