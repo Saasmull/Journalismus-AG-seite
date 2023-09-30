@@ -36,4 +36,6 @@ Der Raspberry Pi 5 wird keinen AUX-Anschluss für z.B. Kopfhörer haben, weil de
 
 Allen im allen gibt es sehr viele Neuerungen beim Raspberry Pi 5, wodurch er noch mehr als PC taugt. Schade nur, dass es keinen Aux-Anschluss mehr gibt. Auch die Preis-Leistung ist überzeugend.
 
+Quelle: [raspberrypi.com](https://www.raspberrypi.com/news/introducing-raspberry-pi-5/)
+
 
