@@ -8,12 +8,6 @@
 <language>de-de</language>
 <copyright>Journalismus-AG</copyright>
 <item>
-<title>Natur in den Bergen</title>
-<link>http://localhost:8080/article/abc.html</link>
-<description>Hier erfährst Du, warum die Natur in den Bergen natürlich ist. Jetzt bei Abend in den Alpen weiterlesen.</description>
-<media:thumbnail url="/assets/images/suisse-comp.webp">
-</item>
-<item>
 <title>„Es ist zwingend erforderlich, dass wir diesem Diebstahl Einhalt gebieten“ - ChatGPT verklagt</title>
 <link>http://localhost:8080/article/chatgpt-verklagt.html</link>
 <description>Wegen der Verletzung ihres geistigen Eigentums, verklagten zahlreiche Bestseller-Autor*innen die Firma OpenAI, welche hinter dem Chatbot ChatGPT steckt. Ein Kläger von ihnen ist Game of Thrones-Erschaffer George R. R. Martin.</description>
@@ -24,12 +18,6 @@
 <link>http://localhost:8080/article/die-technologie-von-morgen.html</link>
 <description>Die rasante Entwicklung der Technologie hat in den letzten Jahren die Welt in vielerlei Hinsicht transformiert. Von der Kommunikation bis zur Medizin, von der Raumfahrt bis zur künstlichen Intelligenz haben technologische Durchbrüche unser tägliches Leben und die Zukunftsaussichten der Menschheit maßgeblich beeinflusst. In diesem Artikel werfen wir einen Blick auf einige der neuesten Innovationen und Entwicklungen, die unsere Welt weiter verändern werden.</description>
 <media:thumbnail url="/assets/images/fiber_optics.jpg">
-</item>
-<item>
-<title>Landtag</title>
-<link>http://localhost:8080/article/landtag.html</link>
-<description>Wir, die Radio-AG der HBS Braunschweig waren im Landtag bei landtag-online. Erfahre über unsere Erlebnisse im niedersäschsichen Landtag.</description>
-<media:thumbnail url="/assets/images/plenarsaal-comp.webp">
 </item>
 <item>
 <title>“Wir werden ein eingeschworener Haufen sein!” - Nagelsmann führt DFB-Team zur Heim-EM</title>
@@ -66,12 +54,6 @@
 <link>http://localhost:8080/article/schueler-aus-braunschweig-und-der-hammelsprung-im-landtag.html</link>
 <description>Wir haben den Landtag besucht und Politiker interviewt.</description>
 <media:thumbnail url="https://www.online-redaktionen.de/static/images/bilder/1_tag_mit_unserer_patin_annette_schuetze_auf_der_besu_-900001205-10058-11.webp?20230620235400">
-</item>
-<item>
-<title>Warum ich ein Bug bin</title>
-<link>http://localhost:8080/article/test.html</link>
-<description>Bei mir hat man wohl vergessen, einen Link zu einem Vorschaubild einzufügen, deshalb lade ich dieses Standardbild - So einfach geht Bugfixing.</description>
-<media:thumbnail url="/assets/images/default-banner-comp.webp">
 </item>
 <item>
 <title>Warum eine FritzBox kein Router ist</title>
