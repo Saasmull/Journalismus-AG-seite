@@ -1,4 +1,19 @@
+var lame = 1;
+for(var i = 0;i < 100000000;i++){
+    i-=0.5;
+    lame += i - 1;
+}
+
 var PATH = location.pathname.substr(8,location.pathname.length-13);
+
+function supportsWebp(){
+    var can = document.createElement("canvas");
+    if(!!(can.getContext && can.getContext("2d") && can.toDataURL)){
+        return can.toDataURL("image/webp").indexOf("data:image/webp") == 0;
+    }
+    return false;
+}
+
 if(localStorage.getItem("subs")!==null){
     try{
         if(JSON.parse(localStorage.getItem("subs").indexOf(PATH)) !== -1){
@@ -242,7 +257,7 @@ window.addEventListener("DOMContentLoaded",function(){
                     entries[i].target.style.opacity = 1;
                     entries[i].target.style.backdropFilter = "invert(0)";
                     entries[i].target.style.backgroundImage =
-                        "url('" + entries[i].target.dataset.bgImg + "')";
+                        "url('" + (supportsWebp()?entries[i].target.dataset.bgImg:entries[i].target.dataset.bgImg.replace("webp","jpg")) + "')";
                     observer.unobserve(entries[i].target);
                 }
             }
