@@ -1,7 +1,7 @@
-Im Klimawandel zählt jede Fläche, die Pflanzen und Tieren einen Lebensraum bietet. Die gute Nachricht: Auch Gebäude können ein Biotop sein - genauer gesagt, bepflanzte Dächer von Wohngebäuden, Gartenhütten, Garagen, Carports und Mülltonnenboxen. Und sogar das Dach eines Vogelhäuschens lässt sich begrünen.
+**Im Klimawandel zählt jede Fläche, die Pflanzen und Tieren einen Lebensraum bietet. Die gute Nachricht: Auch Gebäude können ein Biotop sein genauer gesagt, bepflanzte Dächer von Wohngebäuden, Gartenhütten, Garagen, Carports und Mülltonnenboxen. Und sogar das Dach eines Vogelhäuschens lässt sich begrünen.**
 
 
-Wer Dächer begrünt, schafft sogenannte Trittsteinbiotope. In Ortschaften sind viele und oft auch große Flächen versiegelt. Viele Tiere, darunter insbesondere Insekten, können aber keine weiten Entfernungen auf sich nehmen, um von einer größeren grünen Fläche zur nächsten zu gelangen. Begrünte Dächer funktionieren dann wie Trittsteine, die die Abstände verkürzen.
+**Wer Dächer begrünt, schafft sogenannte Trittsteinbiotope. In Ortschaften sind viele und oft auch große Flächen versiegelt. Viele Tiere, darunter insbesondere Insekten, können aber keine weiten Entfernungen auf sich nehmen, um von einer größeren grünen Fläche zur nächsten zu gelangen. Begrünte Dächer funktionieren dann wie Trittsteine, die die Abstände verkürzen.**
 
 ## Warum grüne Dächer wichtig sind
 
@@ -17,9 +17,9 @@ Wer Dächer begrünt, schafft sogenannte Trittsteinbiotope. In Ortschaften sind 
 
 Bei der Dachbegrünung gibt es zwei Formen: die extensive und die intensive Variante.
 
-    Extensive Dachbegrünung: Diese erreicht eine Höhe zwischen 8 und 15 Zentimetern und eignet sich gut für Dächer von Fahrradunterständen, Mülltonnenboxen, Briefkästen und Vogelhäusern. Hier wird eine Abdichtung ähnlich einer Teichfolie auf das Dach gelegt, gefolgt von einer Schutzlage, einer Dränageschicht, einem Filtervlies, Substrat und schließlich den Pflanzen. Ein Substrat für extensive Begrünungen besteht aus Blähschiefer, Blähton und Bims.
+- Extensive Dachbegrünung: Diese erreicht eine Höhe zwischen 8 und 15 Zentimetern und eignet sich gut für Dächer von Fahrradunterständen, Mülltonnenboxen, Briefkästen und Vogelhäusern. Hier wird eine Abdichtung ähnlich einer Teichfolie auf das Dach gelegt, gefolgt von einer Schutzlage, einer Dränageschicht, einem Filtervlies, Substrat und schließlich den Pflanzen. Ein Substrat für extensive Begrünungen besteht aus Blähschiefer, Blähton und Bims.
 
-    Intensive Dachbegrünung: Diese Variante erreicht eine Höhe zwischen 25 und 100 Zentimetern und ermöglicht den Anbau von Sträuchern und Bäumen. Sie erfordert einen aufwändigeren Aufbau und mehr Pflege.
+- Intensive Dachbegrünung: Diese Variante erreicht eine Höhe zwischen 25 und 100 Zentimetern und ermöglicht den Anbau von Sträuchern und Bäumen. Sie erfordert einen aufwändigeren Aufbau und mehr Pflege.
 
 ## Welche Pflanzen eignen sich?
 
