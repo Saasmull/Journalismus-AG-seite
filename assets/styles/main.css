@@ -27,7 +27,7 @@
 [data-bg-img]{
     opacity: 0.5;
     backdrop-filter: invert(0.25);
-    //transition: all 1.5s;
+    /*transition: all 1.5s;*/
 }
 
 /*
