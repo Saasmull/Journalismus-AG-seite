@@ -26,6 +26,12 @@
 <media:thumbnail url="/assets/images/fiber_optics.jpg">
 </item>
 <item>
+<title>Grüne Dächer: Ein Beitrag zum Klimaschutz</title>
+<link>http://localhost:8080/article/gruene-daecher.html</link>
+<description>Im Klimawandel zählt jede Fläche, die Pflanzen und Tieren einen Lebensraum bietet. Die gute Nachricht: Auch Gebäude können ein Biotop sein genauer gesagt, bepflanzte Dächer von Wohngebäuden, Gartenhütten, Garagen, Carports und Mülltonnenboxen. Und sogar das Dach eines Vogelhäuschens lässt sich begrünen.</description>
+<media:thumbnail url="https://www.ndr.de/ratgeber/garten/dachbegruenung110_v-fullhd.jpg">
+</item>
+<item>
 <title>“Wir werden ein eingeschworener Haufen sein!” - Nagelsmann führt DFB-Team zur Heim-EM</title>
 <link>http://localhost:8080/article/nagelsmann-ist-bundestrainer.html</link>
 <description>Julian Nagelsmann wird die A-Nationalmannschaft der Männer zur Europameisterschaft 2024 führen. Dies gab der Deutsche Fußball-Bund am 22.09.2023 bekannt. Er übernimmt das Amt von Hansi Flick, der in seiner kurzen Zeit als Bundestrainer keinen Erfolg hatte.</description>
@@ -53,7 +59,7 @@
 <title>Protest von Greenpeace-Aktivisten gegen umstrittenes Gasförderprojekt</title>
 <link>http://localhost:8080/article/protest-von-greenpeace-aktivisten-gegen-umstrittenes-gasförderprojekt.html</link>
 <description>Am vergangenen Donnerstag haben Aktivisten von Greenpeace für Aufsehen gesorgt, indem sie das Dach der Uniper-Zentrale in Düsseldorf erklommen und dort gegen ein kontroverses Gasförderprojekt vor der Westküste Australiens protestierten.</description>
-<media:thumbnail url="/assets/images/default-banner-comp.webp">
+<media:thumbnail url="https://www1.wdr.de/nachrichten/rheinland/protest-uniper-duesseldorf-100~_v-gseapremiumxl.jpg">
 </item>
 <item>
 <title>Der neue Raspberry Pi 5 ist da!</title>
