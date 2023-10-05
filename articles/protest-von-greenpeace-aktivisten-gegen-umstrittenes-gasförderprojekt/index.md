@@ -13,3 +13,5 @@ Besonders brisant ist die Tatsache, dass deutsche Steuergelder die finanzielle G
 Jutta Dönges, die Finanzchefin von Uniper, verteidigte die Zusammenarbeit mit Woodside bei der Hauptversammlung des Unternehmens. Sie betonte, dass die australischen Behörden das Projekt geprüft und unter bestimmten Auflagen genehmigt hätten. Zudem nehme Uniper Einwendungen und Bedenken sehr ernst und bespreche diese regelmäßig sowohl mit Nichtregierungsorganisationen als auch mit den Fachleuten von Woodside.
 
 Der Protest der Greenpeace-Aktivisten auf dem Dach der Uniper-Zentrale zeigt einmal mehr die wachsende Besorgnis und den Widerstand gegen umstrittene Projekte im Bereich der fossilen Brennstoffe und deren potenzielle Auswirkungen auf die Umwelt. Die Debatte über die Rolle von Unternehmen und Regierungen bei solchen Vorhaben wird zweifellos weiterhin im Fokus stehen.
+
+Quelle: dpa-info.com, dpa:231005-99-446819/2
