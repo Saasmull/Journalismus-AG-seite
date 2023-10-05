@@ -28,4 +28,4 @@ In dem Interview äußerte sich Tim Cook auch zu Vorwürfen, Apple mache es Kund
 
 Apple hat sich ehrgeizige Ziele in Bezug auf Umweltfreundlichkeit und Nachhaltigkeit gesetzt und zeigt, dass es bereit ist, die Herausforderungen des Klimawandels und der Umweltbelastung aktiv anzugehen. Diese Bemühungen werden nicht nur von Umweltschutzorganisationen geschätzt, sondern sind auch ein wichtiger Schritt in Richtung einer nachhaltigeren Zukunft.
 
-Quelle: dpa-infocom, dpa:231004-99-431199/6
+Quelle: dpa
