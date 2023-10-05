@@ -38,3 +38,5 @@ Vögeln, Insekten und anderen Tieren auf dem grünen Dach kann man noch mehr bie
 Wenn Sie größere Dächer, wie beispielsweise von Garagen und Wohnhäusern, bepflanzen möchten, sollten Sie von einem Statiker überprüfen lassen, ob die Konstruktion die zusätzliche Last von Pflanzen, Regenwasser und Schnee tragen kann. Ab einer Dachneigung von zehn Grad ist eine sogenannte Schubsicherung erforderlich, um das Abrutschen der Vegetation zu verhindern.
 
 Eine Dachbegrünung ist nicht nur eine ästhetische Verbesserung, sondern auch ein aktiver Beitrag zum Umweltschutz und zur Verbesserung des Stadtklimas. Mit der richtigen Pflege und finanzieller Unterstützung können grüne Dächer dazu beitragen, unsere Städte nachhaltiger und lebenswerter zu gestalten.
+
+Quelle: dpa
