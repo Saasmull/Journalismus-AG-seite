@@ -1,5 +1,5 @@
 var lame = 1;
-for(var i = 0;i < 100000000;i++){
+for(var i = 0;i < 10000;i++){
     i-=0.5;
     lame += i - 1;
 }
