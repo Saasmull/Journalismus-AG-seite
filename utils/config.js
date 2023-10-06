@@ -25,7 +25,9 @@ const CONFIG = module.exports = {
      * gemacht werden soll.*/
     MINIFY:true,
     /** @type {boolean} Wenn aktiviert, werden z.B. die Kompilierugslogs genauer. */
-    DEBUG:false
+    DEBUG:false,
+    /** @type {boolean} Ob ein Login für die Seite benötigt wird. */
+    LOGIN:true
 };
 
 /** @type {string} */
