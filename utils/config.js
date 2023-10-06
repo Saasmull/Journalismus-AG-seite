@@ -35,8 +35,8 @@ const CONFIG = module.exports = {
 };
 
 if(CONFIG.MINIFY){
-    CONFIG.BREAK = "\n";
-    CONFIG.INDENT = "   ";
+    CONFIG.BREAK = "";
+    CONFIG.INDENT = "";
 }
 if(CONFIG.IS_SERVER){
     CONFIG.PORT = 187;
