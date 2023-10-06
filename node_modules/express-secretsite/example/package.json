@@ -1,0 +1,7 @@
+{
+  "name": "express-secretsite-example",
+  "version": "0.0.1",
+  "devDependencies": {
+    "express": "^4.13.4"
+  }
+}
