@@ -4,6 +4,12 @@ for(var i = 0;i < 100000000;i++){
     lame += i - 1;
 }
 
+var WK = (function(){
+    if(window.CSS && CSS.supports){
+        return CSS.supports("(-webkit-touch-callout:none)");
+    }
+})();
+
 var PATH = location.pathname.substr(8,location.pathname.length-13);
 
 function supportsWebp(){

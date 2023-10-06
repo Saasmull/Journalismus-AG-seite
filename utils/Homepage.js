@@ -32,7 +32,7 @@ class HomepageMetadata{
         return jsonLD;
     }
     renderMetaTags(){
-        var metaString = "";
+        var metaString = "<meta name=\"google-site-verification\" content=\"HFT40NWeuYNZW3VWHz6SN6CtrmF9_Jk05t5OI1lzhGc\" />\n";
         //title
         metaString += "<title>" + this.title + "</title>\n";
         metaString += "<meta name=\"title\" content=\"" + this.title + "\">\n";

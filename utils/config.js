@@ -24,6 +24,10 @@ const CONFIG = module.exports = {
     DEBUG:false
 };
 
+/** @type {string} */
+CONFIG.BREAK = "\n";//CONFIG.MINIFY?"":"\n";
+/** @type {string} */
+CONFIG.INDENT = "   ";//CONFIG.MINIFY?"":"   ";
 /** @type {string} Die Grundstruktur der Seiten */
 CONFIG.BASIC_TEMPLATE = fs
     .readFileSync("templates/basic.html","utf-8")

@@ -21,12 +21,12 @@ module.exports = class RssFeed{
      * @returns {string} Der XML-Code des RSS-Items
      */
     renderItem(article){
-        var xml = "<item>\n";
-        xml += "<title>" + article.metadata.title + "</title>\n";
-        xml += "<link>" + CONFIG.SITE_ROOT + "/article/" + article.path + ".html</link>\n";
-        xml += "<description>" + article.metadata.description + "</description>\n";
-        xml += "<media:thumbnail url=\"" + article.metadata.banner + "\">\n";
-        xml += "</item>";
+        var xml = CONFIG.INDENT + "<item>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + CONFIG.INDENT + "<title>" + article.metadata.title + "</title>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + CONFIG.INDENT + "<link>" + CONFIG.SITE_ROOT + "/article/" + article.path + ".html</link>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + CONFIG.INDENT + "<description>" + article.metadata.description + "</description>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + CONFIG.INDENT + "<media:thumbnail url=\"" + article.metadata.banner + "\">" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "</item>";
         return xml;
     }
     /**
@@ -34,19 +34,19 @@ module.exports = class RssFeed{
      * @returns {string} Der XML-Code des RSS-Feeds
      */
     renderFeed(){
-        var xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        xml += "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n";
-        xml += "<channel>\n";
-        xml += "<atom:link href=\"" + CONFIG.SITE_ROOT + "/feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>\n";
-        xml += "<title>" + this.title + "</title>\n";
-        xml += "<link>" + this.link + "</link>\n";
-        xml += "<description>" + this.description + "</description>\n";
-        xml += "<language>de-de</language>\n";
-        xml += "<copyright>" + CONFIG.SITE_NAME + "</copyright>\n";
+        var xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + CONFIG.BREAK;
+        xml += "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<channel>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<atom:link href=\"" + CONFIG.SITE_ROOT + "/feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<title>" + this.title + "</title>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<link>" + this.link + "</link>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<description>" + this.description + "</description>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<language>de-de</language>" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + "<copyright>" + CONFIG.SITE_NAME + "</copyright>" + CONFIG.BREAK;
         for(var i = 0;i < this.articles.length;i++){
-            xml += this.renderItem(this.articles[i]) + "\n";
+            xml += this.renderItem(this.articles[i]) + "" + CONFIG.BREAK;
         }
-        xml += "</channel>\n";
+        xml += CONFIG.INDENT + "</channel>" + CONFIG.BREAK;
         xml += "</rss>";
         return xml;
     }
