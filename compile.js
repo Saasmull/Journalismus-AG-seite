@@ -4,71 +4,16 @@ const utils = require("./utils/functions");
 const {marked} = require("marked");
 const postcss = require("postcss");
 const UglifyJS = require("uglify-js");
-
 const rdl = require("readline");
-/*
-const rl = rdl.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});*/
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-/*
-var lineBuffer = [];
-var spinnerStates = ['◜','◠','◝','◞','◡','◟'];
 
-function writeLineBuffer(){
-    rdl.clearScreenDown(process.stdout);
-    var string = "\r"+lineBuffer.join("\x1b[0m     \n")+ "\x1b[0m";
-    for(var i = 0;i < spinnerStates.length;i++){
-        string = string.replaceAll(spinnerStates[i], "\x1b[32m"+spinnerStates[i]+"\x1b[34m");
-    }
-    process.stdout.write(string);
-    rdl.moveCursor(process.stdout, 10, -lineBuffer.length+1);
-}
-var msg = "Lade Konfigurationen...";
-function warn(text){
-    var lastItem = lineBuffer[lineBuffer.length-1];
-    lineBuffer[lineBuffer.length-1] = text;
-    lineBuffer.push(lastItem);
-    writeLineBuffer();
-}
-async function setSpinnerText(text){
-    await sleep(2000);
-    if(lineBuffer.length > 0){
-        lineBuffer[lineBuffer.length-1] = msg;
-    }
-    msg = text;
-    if(CONFIG.DEBUG){
-        console.log(text);
-        return;
-    }
-    lineBuffer.push("  "+text);
-    writeLineBuffer();
-}
-
-setSpinnerText(msg);
-if(!CONFIG.DEBUG){
-    setInterval(function(){
-        const spinnerOffset = 0;
-        if(lineBuffer.length === 0){
-            return;
-        }
-        var lastItem = lineBuffer[lineBuffer.length-1];
-        var index = spinnerStates.indexOf(lastItem[spinnerOffset]);
-        index++;
-        if(index >= spinnerStates.length){
-            index = 0;
-        }
-        lineBuffer[lineBuffer.length-1] = spinnerStates[index] + lastItem.slice(1);
-        writeLineBuffer();
-    },50);
-}*/
 var Log = require("./utils/StatusLog");
 var log = new Log();
 async function setSpinnerText(text){
     await log.setSpinnerText(text);
 }
+
 const plugins = [
     require("postcss-custom-properties")({
         preserve: true
