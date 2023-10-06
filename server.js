@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const sec = require("express-basic-auth");
 
+app.use("/service-worker.js",express.static(__dirname+"/root/service-worker.js"));
+app.use("/manifest.json",express.static(__dirname+"/root/manifest.json"));
 app.use(sec({
     users:{
         "user_journalismusag":"vD6)1w3Bt*w<"
