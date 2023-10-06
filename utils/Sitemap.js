@@ -1,6 +1,7 @@
 
 module.exports = class Sitemap{
-    constructor(){
+    constructor(root){
+        this.root = root;
         this.sites = [];
     }
     addSite(site){
@@ -12,8 +13,10 @@ module.exports = class Sitemap{
         for(var i = 0;i < this.sites.length;i++){
             sitemap += "<url>\n";
             sitemap += "<loc>" + this.sites[i] + "</loc>\n";
+            sitemap += "<lastmod>" + new Date().toISOString() + "</lastmod>\n";
             sitemap += "</url>\n";
         }
         sitemap += "</urlset>";
+        return sitemap;
     }
 }

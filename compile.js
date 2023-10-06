@@ -42,6 +42,7 @@ const Author = require("./utils/Author");
 const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
 const RssFeed = require("./utils/RssFeed");
+const Sitemap = require("./utils/Sitemap");
 
 if(CONFIG.MINIFY){
     function minifyJs(string){
@@ -113,6 +114,10 @@ setupRootDir().then(async function(){
     /** @type {RssFeed} */
     var rssFeed = new RssFeed(CONFIG.SITE_NAME,CONFIG.SITE_ROOT,CONFIG.DESCRIPTION);
 
+    /** @type {Sitemap} */
+    var sitemap = new Sitemap(CONFIG.SITE_ROOT);
+    sitemap.addSite("/index.html");
+
     await setSpinnerText("Lade Autoren...");
     /** @type {Author[]} */
     var authors = {};
@@ -122,6 +127,7 @@ setupRootDir().then(async function(){
         if(CONFIG.DEBUG){
             await setSpinnerText("Lade Autor \"" + authorsDir[i] + "\"...");
         }
+        sitemap.addSite("/author/"+authorsDir[i]+".html");
         authors[authorsDir[i]] = new Author(authorsDir[i]);
     }
 
@@ -134,6 +140,7 @@ setupRootDir().then(async function(){
         if(CONFIG.DEBUG){
             await setSpinnerText("Lade Kategorie \"" + categoriesDir[i] + "\"...");
         }
+        sitemap.addSite("/category/"+categoriesDir[i]+".html");
         categories[categoriesDir[i]] = new Category(categoriesDir[i]);
     }
 
@@ -147,6 +154,7 @@ setupRootDir().then(async function(){
         if(CONFIG.DEBUG){
             await setSpinnerText("Rendere Artikel \"" + articlesDir[i] + "\"...");
         }
+        sitemap.addSite("/article/"+articlesDir[i]+".html");
         articles.push(new Article(articlesDir[i]));
         rssFeed.articles.push(articles[i]);
         for(var j = 0;j < articles[i].metadata.authors.length;j++){
@@ -182,6 +190,9 @@ setupRootDir().then(async function(){
         homepage.addCategory(categories[categoriesDir[i]]);
         fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf-8");
     }
+    
+    await setSpinnerText("Rendere Sitemap...");
+    fs.writeFileSync("root/sitemap.xml",sitemap.renderSitemap(),"utf-8");
 
     await setSpinnerText("Rendere RSS-Feed...");
     fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
