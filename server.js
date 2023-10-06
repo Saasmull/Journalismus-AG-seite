@@ -1,5 +1,6 @@
+const CONFIG = require("./utils/config");
 const express = require("express");
 const app = express();
 
 app.use("/",express.static(__dirname+"/root"));
-app.listen(8080);
+app.listen(CONFIG.PORT);

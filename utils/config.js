@@ -1,13 +1,17 @@
-
+const os = require("os");
 const fs = require("fs");
 
 const CONFIG = module.exports = {
+    /** @type {boolean} Ob der Code auf dem Server läuft. */
+    IS_SERVER:(os.hostname()==="sponsor01"),
+    /** @type {number} Der Port auf dem der Node.js-Server läuft. */
+    PORT:8080,
     /** @type {string} Der Website-Name*/
     SITE_NAME:"Journalismus-AG",
     /**@type {string} Die Beschreibung der Website. Sie wird in den `<meta>`-Tags und im JSON-LD fürs SEO genutzt.*/
     DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!",
     /** @type {string} Der URL-Pfad zur Homepage. Ohne Schrägstrich am Ende */
-    SITE_ROOT:"https://journalismus.ag",
+    SITE_ROOT:"http://localhost:8080",
     /** @type {boolean} Ob alle Dateien verkleinert werden sollen. Z.B. ob aus
      * ```css
      * a{
@@ -28,6 +32,10 @@ const CONFIG = module.exports = {
 CONFIG.BREAK = "\n";//CONFIG.MINIFY?"":"\n";
 /** @type {string} */
 CONFIG.INDENT = "   ";//CONFIG.MINIFY?"":"   ";
+if(CONFIG.IS_SERVER){
+    CONFIG.PORT = 187;
+    CONFIG.SITE_ROOT = "https://journalismus.ag";
+}
 /** @type {string} Die Grundstruktur der Seiten */
 CONFIG.BASIC_TEMPLATE = fs
     .readFileSync("templates/basic.html","utf-8")
