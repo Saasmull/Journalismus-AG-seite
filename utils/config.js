@@ -27,13 +27,17 @@ const CONFIG = module.exports = {
     /** @type {boolean} Wenn aktiviert, werden z.B. die Kompilierugslogs genauer. */
     DEBUG:false,
     /** @type {boolean} Ob ein Login für die Seite benötigt wird. */
-    LOGIN:true
+    LOGIN:true,
+    /** @type {string} */
+    BREAK:"\n",
+    /** @type {string} */
+    INDENT:"   "
 };
 
-/** @type {string} */
-CONFIG.BREAK = "\n";//CONFIG.MINIFY?"":"\n";
-/** @type {string} */
-CONFIG.INDENT = "   ";//CONFIG.MINIFY?"":"   ";
+if(CONFIG.MINIFY){
+    CONFIG.BREAK = "\n";
+    CONFIG.INDENT = "   ";
+}
 if(CONFIG.IS_SERVER){
     CONFIG.PORT = 187;
     CONFIG.SITE_ROOT = "https://journalismus.ag";

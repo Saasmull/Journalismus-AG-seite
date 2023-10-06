@@ -218,7 +218,7 @@ setupRootDir().then(async function(){
         ],
         "background_color": "#000000",
         "theme_color": "#000000"
-    },null,(CONFIG.MINIFY?"":"\t")),"utf-8");
+    },null,CONFIG.INDENT),"utf-8");
 
     setSpinnerText("Fertig!");
     log.stop();
