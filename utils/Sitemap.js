@@ -13,7 +13,7 @@ module.exports = class Sitemap{
         for(var i = 0;i < this.sites.length;i++){
             sitemap += "<url>\n";
             sitemap += "<loc>" + this.sites[i] + "</loc>\n";
-            sitemap += "<lastmod>" + new Date().toISOString() + "</lastmod>\n";
+            sitemap += "<lastmod>" + new Date().toISOString().split("T")[0] + "</lastmod>\n";
             sitemap += "</url>\n";
         }
         sitemap += "</urlset>";
