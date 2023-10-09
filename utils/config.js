@@ -9,7 +9,7 @@ const CONFIG = module.exports = {
     /** @type {string} Der Website-Name*/
     SITE_NAME:"Journalismus-AG",
     /**@type {string} Die Beschreibung der Website. Sie wird in den `<meta>`-Tags und im JSON-LD fürs SEO genutzt.*/
-    DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!",
+    DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule von der Journalismus AG!",
     /** @type {string} Der URL-Pfad zur Homepage. Ohne Schrägstrich am Ende */
     SITE_ROOT:"http://localhost:8080",
     /** @type {boolean} Ob alle Dateien verkleinert werden sollen. Z.B. ob aus
