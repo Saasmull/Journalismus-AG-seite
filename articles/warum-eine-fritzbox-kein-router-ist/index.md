@@ -23,6 +23,18 @@ Der WLAN-Zugriffspunkt erlaubt die kabellose Verbindung von Geräten mit dem Swi
 
 Die FritzBox hat noch einige Funktionen mehr, die z.B. die Telefonkommunikation über die FritzBox ermöglichen.
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4345167794535171"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4345167794535171"
+     data-ad-slot="3774023272"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Wie heißt eine FritzBox korrekt?
 
 In der Netzwerktechnik wird eine FritzBox Multifunktionsrouter genannt, da sie nicht nur ein einfacher Router ist, sondern noch viel mehr Funktionen hat.

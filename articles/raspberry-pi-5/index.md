@@ -26,6 +26,18 @@ Durch den neuen BCM2712 Chip wird jetzt LPDDRX 4 unterstützt, wodurch eine höh
 
 Es werden durch die neue Grafikkarte beim Raspberry Pi 5 zwei 4k-Monitore mit jeweils 60Hz unterstützt. Auch Vulkan 3.0 soll unterstützt werden.
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4345167794535171"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4345167794535171"
+     data-ad-slot="3774023272"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### Änderungen der Anschlüsse
 
 Der Raspberry Pi 5 wird keinen AUX-Anschluss für z.B. Kopfhörer haben, weil der durch einen CAM/DISP-Steckplatz ersetzt wurde. Der Ethernet-Anschluss wurde mit dem <span title="Power over Ethernet">PoE</span>-HAT wurde nach unten links gebracht. Es soll beime Pi 5 eine <span title="Echtzeit-Uhr">Real time clock</span> geben. Zusätzlich soll es nun einen ARM debug- und einen UART-, einen RTC-Batterie und einen PWM-Anchluss geben.
