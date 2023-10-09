@@ -113,8 +113,8 @@ module.exports = class Article{
             .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->","<div class=\"banner-image\" data-bg-img=\"" + this.metadata.banner +
                 "\"></div><article itemscope itemtype=\"http://schema.org/Article\"><h1 itemprop=\"headline\">" +
-                this.metadata.title + "</h1><div id=\"content\"><p itemprop=\"author\" itemscope itemtype=\"http://schema.org/Person\">Von " + authorArray.join(", ") +
-                "</p>&nbsp;&nbsp;<time itemprop=\"datePublished\" datetime=\"" + utils.date2ISO(this.metadata.published) +
+                this.metadata.title + "</h1><div id=\"content\"><span itemprop=\"author\" itemscope itemtype=\"http://schema.org/Person\">Von " + authorArray.join(", ") +
+                "</span>&nbsp;&nbsp;<time itemprop=\"datePublished\" datetime=\"" + utils.date2ISO(this.metadata.published) +
                 "\">Veröffentlicht am "+this.metadata.published+"</time><br><br><br><div itemprop=\"articleBody\">"+this.htmlContent+"</div></div></article>");
         return page;
     }
