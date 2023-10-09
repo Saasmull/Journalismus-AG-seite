@@ -10,6 +10,28 @@
     <link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="/feed.xml" />
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="manifest" href="/manifest.json">
+    <!--[if IE]>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+        header{
+            display: table;
+        }
+        header>a{
+            display: table-cell;
+            //margin-right: 0;
+        }
+        header>nav{
+            margin-left: auto;
+            display: table;
+        }
+        article.wide.card{
+            max-width: 98%;
+        }
+        body{
+            color:white;
+        }
+    </style>
+    <![endif]-->
     <script>
         if(!window.matchMedia){
             window.matchMedia = function(mediaQuery){

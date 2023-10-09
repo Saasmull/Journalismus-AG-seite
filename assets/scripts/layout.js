@@ -4,11 +4,10 @@ for(var i = 0;i < 10000;i++){
     lame += i - 1;
 }
 
-var WK = (function(){
-    if(window.CSS && CSS.supports){
-        return CSS.supports("(-webkit-touch-callout:none)");
-    }
-})();
+var WK = !!window.onwebkitmouseforceup || !!window.SVGTRefElement;
+if(WK){
+    console.warn("Es könnte in Safari etwas verbuggt werden...");
+}
 
 var PATH = location.pathname.substr(8,location.pathname.length-13);
 
@@ -256,31 +255,30 @@ window.addEventListener("DOMContentLoaded",function(){
             }
         });
     }*/
-    if("IntersectionObserver" in window){
-        function handleIntersection(entries){
-            for(var i = 0;i < entries.length;i++){
-                if(entries[i].isIntersecting){
-                    entries[i].target.style.opacity = 1;
-                    entries[i].target.style.backdropFilter = "invert(0)";
-                    entries[i].target.style.backgroundImage =
-                        "url('" + (supportsWebp()?entries[i].target.dataset.bgImg:entries[i].target.dataset.bgImg.replace("webp","jpg")) + "')";
-                    observer.unobserve(entries[i].target);
+    if("Image" in window && "dataset" in HTMLElement.prototype){
+        var imgTs = {};
+        for(var i = 0;i < bgImages.length;i++){
+            if(!imgTs[bgImages[i].dataset.bgImg]){
+                imgTs[bgImages[i].dataset.bgImg] = new Image();
+                imgTs[bgImages[i].dataset.bgImg].decoding = "async";
+                imgTs[bgImages[i].dataset.bgImg].src = bgImages[i].dataset.bgImg;
+                imgTs[bgImages[i].dataset.bgImg].dataset.bgImg = bgImages[i].dataset.bgImg;
+                imgTs[bgImages[i].dataset.bgImg].onload = function(e){
+                    var loadedImgs = document.querySelectorAll("[data-bg-img=\""+e.target.dataset.bgImg+"\"]");
+                    for(var i = 0;i < loadedImgs.length;i++){
+                        loadedImgs[i].style.opacity = 1;
+                        loadedImgs[i].style.backdropFilter = "invert(0)";
+                        loadedImgs[i].style.backgroundImage = "url('" + e.target.dataset.bgImg + "')";
+                    }
                 }
             }
-        }
-        var observer = new IntersectionObserver(
-            handleIntersection,
-            {"rootMargin":"100px"}
-        );
-        for(var i = 0;i < bgImages.length;i++){
-            observer.observe(bgImages[i]);
         }
     }else{
         for(var i = 0;i < bgImages.length;i++){
             bgImages[i].style.opacity = 1;
             bgImages[i].style.backdropFilter = "invert(0)";
             bgImages[i].style.backgroundImage =
-                "url('" + bgImages[i].dataset.bgImg + "')";
+                "url('" + bgImages[i].getAttribute("data-bg-img") + "')";
         }
     }  
 })

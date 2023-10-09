@@ -178,8 +178,8 @@ header .nav-link:hover {
 
 div.banner-image {
     width: 100vw;
-    height: 50vh;
-    max-height: 500px;
+    min-height: 35vw;
+    height: 400px;
     background-position-x: center;
     background-position-y: calc(45% + 1px);
     background-size: cover;

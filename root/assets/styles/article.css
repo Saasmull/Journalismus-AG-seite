@@ -1,7 +1,18 @@
+/*
+main>article{
+    position: relative;
+    bottom: 9vw;
+    background-image: linear-gradient(transparent 0%, var(--bg-color-1) 2em);
+}*/
+
 h1{
     width: 100%;
     font-size: 2.8em;
     text-align: center;
+}
+
+h2,h3,h4,h5,h6{
+    margin-top: 50px;
 }
 
 img.banner-image{

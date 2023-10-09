@@ -26,8 +26,18 @@ const CONFIG = module.exports = {
     MINIFY:true,
     /** @type {boolean} Wenn aktiviert, werden z.B. die Kompilierugslogs genauer. */
     DEBUG:false,
-    /** @type {boolean} Ob ein Login für die Seite benötigt wird. */
-    LOGIN:true,
+    /** 
+     * @typedef {Object} LoginConfig
+     * @property {boolean} ON Ob ein Login für die Seite benötigt wird.
+     * @property {string} USERNAME Der Nutzername des Logins.
+     * @property {string} PASSWORD Das Passwort des Logins.
+     */
+    /** @type {LoginConfig} Die Login-Konfiguration. */
+    LOGIN:{
+        ON:true,
+        USERNAME:"user_journalismusag",
+        PASSWORD:"vD6)1w3Bt*w<"
+    },
     /** @type {string} */
     BREAK:"\n",
     /** @type {string} */
