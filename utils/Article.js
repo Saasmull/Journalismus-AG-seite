@@ -43,10 +43,11 @@ module.exports = class Article{
      * @returns {string} 
      */
     renderCard(){
-        var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\">\n";
+        var card = "<article class=\"card\">\n<a href=\"/article/" + this.path + ".html\" itemscope itemtype=\"http://schema.org/Article\">\n";
         card += "<div class=\"banner\" data-bg-img=\"" + this.metadata.banner + "\"></div>\n";
-        card += "<div class=\"card-content\"><h3>" + this.metadata.title + "</h3>\n";
-        card += "<p>" + this.metadata.description + "</p>\n";
+        card += "<div class=\"card-content\"><h3 itemprop=\"headline\">" + this.metadata.title + "</h3>\n";
+        card += "<p itemprop=\"description\">" + this.metadata.description + "</p>\n";
+        card += "<meta itemprop=\"image\" content=\"" + this.metadata.description + "\">\n";
         card += "</div></a>\n</article>\n";
         return card;
     }
@@ -106,13 +107,15 @@ module.exports = class Article{
     renderArticlePage(){
         var authorArray = [];
         for(var i = 0;i < this.authors.length;i++){
-            authorArray.push("<a href=\"/author/" + this.authors[i].path + ".html\">" + this.authors[i].metadata.name + "</a>");
+            authorArray.push("<a href=\"/author/" + this.authors[i].path + ".html\" itemprop=\"name\">" + this.authors[i].metadata.name + "</a>");
         }
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->","<div class=\"banner-image\" data-bg-img=\"" + this.metadata.banner +
-                "\"></div><article><h1>" + this.metadata.title + "</h1><div id=\"content\">Von "+authorArray.join(", ")+
-                "&nbsp;&nbsp;Veröffentlicht am <time>"+this.metadata.published+"</time><br><br><br>"+this.htmlContent+"</div></article>");
+                "\"></div><article itemscope itemtype=\"http://schema.org/Article\"><h1 itemprop=\"headline\">" +
+                this.metadata.title + "</h1><div id=\"content\"><p itemprop=\"author\" itemscope itemtype=\"http://schema.org/Person\">Von " + authorArray.join(", ") +
+                "</p>&nbsp;&nbsp;<time itemprop=\"datePublished\" datetime=\"" + utils.date2ISO(this.metadata.published) +
+                "\">Veröffentlicht am "+this.metadata.published+"</time><br><br><br><div itemprop=\"articleBody\">"+this.htmlContent+"</div></div></article>");
         return page;
     }
 }
