@@ -8,17 +8,17 @@ Mit dem kleinen Probenbehälter, welcher um die 250 g Probengestein von der Ober
 
 ![Gelandete Probenkapsel der OSIRIS-REx Mission in Utah - Quelle NASA](https://blogs.nasa.gov/osiris-rex/wp-content/uploads/sites/261/2023/09/OREx_capsule_chute-1024x682.jpg)
 
-Gesammelt wurden die Proben über den "Touch-And-Go Sample Acquisition Mechanism". Sprich, die Sonde flog auf den Asteroiden zu und sein Proben Kollektor kollidierte gezielt mit dem Asteroiden.
-Sind die Proben gesammelt, werden die Proben mit unter Druck gesetzten Stickstoff gelagert und die Sonde verlässt wieder den Einflussbereich des Asteroiden.
+Gesammelt wurden die Proben über den "Touch-And-Go Sample Acquisition Mechanism". Sprich, die Sonde flog auf den Asteroiden zu und sein Probenkollektor kollidierte gezielt mit dem Asteroiden.
+Sind die Proben gesammelt, werden die Proben mit unter Druck gesetztem Stickstoff gelagert und die Sonde verlässt wieder den Einflussbereich des Asteroiden.
 
 ## Was mit den Proben jetzt passiert
-Laut [NASA](https://nasa.gov) wurden die Proben zunächst in einen vorübergehenden Reinraum gebracht. Gleichzeitig wurden vom Lande platzt Bodenproben gesammelt, um mögliche Kontaminierung zu identifizieren.
-Inzwischen befindet sich die Kapsel mit Probe im Kennedy Space Center in finalen Reinraum zur weiteren Erforschung des Ursprungs des Sonnensystems, wie wir es heute kennen.
+Laut [NASA](https://nasa.gov) wurden die Proben zunächst in einen vorübergehenden Reinraum gebracht. Gleichzeitig wurden vom Landeplatz Bodenproben gesammelt, um mögliche Kontaminierung zu identifizieren.
+Inzwischen befindet sich die Kapsel mit Probe im Kennedy Space Center im finalen Reinraum zur weiteren Erforschung des Ursprungs des Sonnensystems, wie wir es heute kennen.
 
 ![Speziallisten von Lockheed Martin entfernen den Deckel des Probenbehälters - Quelle NASA](https://blogs.nasa.gov/osiris-rex/wp-content/uploads/sites/261/2023/09/jsc2023e054550-768x614.jpg)
 
 ## Die Zukunft der Sonde 
-Doch die Mission von OSIRIS-REx ist noch lange nicht vorbei, denn: Sie setzt ihre Reise fort, unter dem Namen OSIRIS-APEX soll die Sonde den Asteroiden mit dem Namen "Apophis" besuche und erforschen.
+Doch die Mission von OSIRIS-REx ist noch lange nicht vorbei, denn: Sie setzt ihre Reise fort, unter dem Namen OSIRIS-APEX soll die Sonde den Asteroiden mit dem Namen "Apophis" besuchen und erforschen.
 
 
 Quelle [NASA](https://nasa.gov)
