@@ -4,6 +4,7 @@ const app = express();
 const sec = require("express-basic-auth");
 const child_process = require("child_process");
 const { escape } = require("querystring");
+const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 
 var compileProcess = child_process.exec("node ./compile.js",{
     windowsHide:true
@@ -15,6 +16,11 @@ compileProcess.on("exit",function(){
 })
 
 function startServer(){
+    app.use("/",function(req,res,next){
+        app.disable("x-powered-by");
+        res.setHeader("X-Powered-By","CMS "+CONFIG.SITE_NAME+" "+v);
+        next();
+    })
     if(CONFIG.LOGIN.ON && 0){
         app.use("/service-worker.js",express.static(__dirname+"/root/service-worker.js"));
         app.use("/manifest.json",express.static(__dirname+"/root/manifest.json"));
@@ -35,6 +41,9 @@ function startServer(){
         console.log("Der Server läuft auf Port \""+CONFIG.PORT+"\".");
         console.log("URL: "+url.toString());
     });
+    app.use("/",function(req,res){
+        res.status(404).sendFile(__dirname+"/root/error404.html");
+    })
     server.on("error",function(err){
         switch(err.code){
             case "EADDRINUSE":

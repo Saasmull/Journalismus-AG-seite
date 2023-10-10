@@ -41,6 +41,7 @@ const Article = require("./utils/Article");
 const Author = require("./utils/Author");
 const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
+const ErrorPage = require("./utils/ErrorPage");
 const RssFeed = require("./utils/RssFeed");
 const Sitemap = require("./utils/Sitemap");
 
@@ -198,6 +199,8 @@ setupRootDir().then(async function(){
     fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
     await setSpinnerText("Rendere Homepage...");
     fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
+    await setSpinnerText("Rendere Fehlerseite...");
+    fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf-8");
     await setSpinnerText("Rendere Webmanifest...");
     fs.writeFileSync("root/manifest.json",JSON.stringify({
         "name":CONFIG.SITE_NAME,

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/assets/images/icon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="google-adsense-account" content="ca-pub-4345167794535171">
+    <link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="/feed.xml" />
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="manifest" href="/manifest.json">
+    <!--[if IE]>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+        header{
+            display: table;
+        }
+        header>a{
+            display: table-cell;
+            //margin-right: 0;
+        }
+        header>nav{
+            margin-left: auto;
+            display: table;
+        }
+        article.wide.card{
+            max-width: 98%;
+        }
+        body{
+            color:white;
+        }
+    </style>
+    <![endif]-->
+    <script>
+        if(!window.matchMedia){
+            window.matchMedia = function(mediaQuery){
+                return {
+                    "media":mediaQuery,
+                    "matches":false
+                };
+            };
+        }
+    </script>
+    <script defer src="/assets/scripts/layout.js"></script>
+    <title>Error 404</title>
+</head>
+<body style="font-family: sans-serif;">
+    <header class="disabled-no-select no-drag">
+        <a href="/">Journalismus-AG</a>
+        <button onclick="toggleMenu()" class="drawer-button">&equiv;</button>
+        <nav style="left: -20000px;">
+            <div class="drawer">
+                <div class="drawer-head"><!--SITENAME--></div>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/category/politik.html">Politik</a>
+                <a class="nav-link" href="/category/technik.html">Technik</a>
+                <a class="nav-link" href="/category/umwelt.html">Umwelt</a>
+                <a class="nav-link" href="/category/sport.html">Sport</a>
+            </div>
+            <div class="scrim" style="left: -20000px,"></div>
+        </nav>
+    </header>
+    <main>
+        <h1 style="text-align:center;margin:auto;">Error 404</h1><iframe style="height:72vh;" src="https://games.crazygames.com/en_US/drift-boss/index.html"></iframe>
+    </main>
+    <footer>
+        <hr>
+        <nav>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/category/politik.html">Politik</a>
+            <a class="nav-link" href="/category/technik.html">Technik</a>
+            <a class="nav-link" href="/category/umwelt.html">Umwelt</a>
+            <a class="nav-link" href="/category/sport.html">Sport</a>
+        </nav>
+        <div>
+            <span>Hell-/Dunkelmodus</span>
+            <input title="Hell-/Dunkelmodus wechseln" checked type="checkbox" id="toggle-theme" class="toggle-checkbox">
+            <label for="toggle-theme" class="toggle-label"></label>
+        </div>
+    </footer>
+    <!--script src="/assets/scripts/mlg.js"></script-->
+</body>
+</html>
