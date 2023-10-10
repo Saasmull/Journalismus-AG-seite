@@ -1,5 +1,6 @@
 const fs = require("fs");
 const {marked} = require("marked");
+const utils = require("./functions");
 
 const CONFIG = require("./config");
 const Category = require("./Category");
@@ -36,6 +37,7 @@ module.exports = class Author {
     registerArticle(article) {
         article.registerAuthor(this);
         this.articles.push(article);
+        this.articles = utils.sortArticles(this.articles);
     }
     /**
      * Rendert die Autorseite

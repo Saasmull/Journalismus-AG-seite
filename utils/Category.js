@@ -1,5 +1,6 @@
 const fs = require("fs");
 const {marked} = require("marked");
+const utils = require("./functions");
 
 const CONFIG = require("./config");
 const Article = require("./Article");
@@ -30,6 +31,7 @@ module.exports = class Category{
      */
     registerArticle(article){
         this.articles.push(article);
+        this.articles = utils.sortArticles(this.articles);
     }
     renderCategorySection(){
         var section = "<section class=\"category\">\n";

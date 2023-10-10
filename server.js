@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const sec = require("express-basic-auth");
 const child_process = require("child_process");
-const { escape } = require("querystring");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 
 var compileProcess = child_process.exec("node ./compile.js",{
