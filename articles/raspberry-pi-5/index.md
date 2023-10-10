@@ -26,7 +26,7 @@ Durch den neuen BCM2712 Chip wird jetzt LPDDRX 4 unterstützt, wodurch eine höh
 
 Es werden durch die neue Grafikkarte beim Raspberry Pi 5 zwei 4k-Monitore mit jeweils 60Hz unterstützt. Auch Vulkan 3.0 soll unterstützt werden.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4345167794535171"
+<!--script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4345167794535171"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
@@ -36,7 +36,7 @@ Es werden durch die neue Grafikkarte beim Raspberry Pi 5 zwei 4k-Monitore mit je
      data-ad-slot="3774023272"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script-->
 
 ### Änderungen der Anschlüsse
 
