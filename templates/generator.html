@@ -1,11 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator</title>
-</head>
-<body>
-    <script></script>
-</body>
-</html>
+<style>
+    #tabs{
+        display: flex;
+    }
+    .tablink{
+        flex-grow: 1;
+    }
+    .tablink.activeTab{
+        background-color: red;
+    }
+    .tabcontent{
+        height: 100%;
+    }
+    main{
+        height: calc(100vh - 11.5rem);
+    }
+</style>
+<div id="tabs">
+    <button class="tablink activeTab" id="Artikel">Artikel</button>
+    <button class="tablink" id="Kategorien">Kategorien</button>
+    <button class="tablink" id="Dateien">Dateien</button>
+    <button class="tablink" id="Debugging">Debugging</button>
+    <button class="tablink" id="Einstellungen">Einstellungen</button>
+</div>
+<div class="tabcontent" id="ArtikelTab">Artikel</div>
+<div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
+<div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
+<script>
+    var tablinks = document.querySelectorAll(".tablink");
+    var tabcontents = document.querySelectorAll(".tabcontent");
+    for(var i = 0;i < tablinks.length;i++){
+        tablinks[i].addEventListener("click",function(e){
+            openTab(e.target.id);
+        })
+    }
+    function openTab(tab){
+        for(var i = 0;i < tablinks.length;i++){
+            tablinks[i].classList.remove("activeTab");
+        }
+        for(var i = 0;i < tabcontents.length;i++){
+            tabcontents[i].style.display = "none";
+        }
+        document.getElementById(tab).classList.add("activeTab");
+        document.getElementById(tab+"Tab").style.display = "block";
+    }
+    function date2ISO(string){
+        var date = string.split(".").reverse().map(str => parseInt(str, 10));
+        date[1]--;
+        date[2]++;
+        return (new Date(...date)).toISOString().split('T')[0];
+    }
+    function sortArticles(array) {
+        return array.sort(function(a, b){
+          const dateA = new Date(date2ISO(a.metadata.published));
+          const dateB = new Date(date2ISO(b.metadata.published));
+          
+          // Compare the dates in descending order
+          if (dateA > dateB) return -1;
+          if (dateA < dateB) return 1;
+          
+          return 0; // Dates are equal
+        });
+    }
+    class ArticleItem{
+        constructor(id,data){
+            this.id = id;
+            this.data = data;
+            this.el = document.createElement("div");
+            this.el.innerHTML = `<span>${data.title}</span>`;
+        }
+    }
+    class Articles{
+        constructor(){
+            this.articles = [];
+            this.el = document.createElement("div");
+        }
+        addArticle(article){
+            if(!this.existsArticle(article)){
+                this.articles.push(article);
+            }
+        }
+        existsArticle(article){
+            for(var i of this.articles){
+                if(i.id === article.id){
+                    return true;
+                }
+            }
+            return false;
+        }
+        appendTo(element){
+            element.appendChild(this.el);
+        }
+        render(){
+            for(var i of this.articles){
+                this.el.appendChild(i.el);
+            }
+        }
+
+    }
+    function callAPI(command,data,responseType,callback){
+        var fd = new FormData();
+        fd.append("action",command);
+        var req = new XMLHttpRequest();
+        req.open("POST","/al",true);
+        req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        req.responseType = responseType;
+        req.onload = function(ev){
+            if(typeof callback ==="function"){
+                callback(ev.target.response);
+            }
+        }
+        if(typeof data === "undefined" || data === null || data === undefined){
+            data = undefined;
+        }
+        if(["string","number","boolean"].includes(typeof data) ||
+        (!["null","undefined"].includes(typeof data) && [Object,Array].includes(data.constructor))){
+            data = JSON.stringify(data);
+        }
+        req.send("action="+command+(data?"&data="+encodeURIComponent(data+""):""));
+    }
+    var art = new Articles();
+    art.appendTo(document.querySelector("#ArtikelTab"));
+    callAPI("LeseArtikelListe",null,"json",function(d){
+        for(var i of d){
+            callAPI("LeseArtikelMetadaten",i,"json",function(data){
+                art.addArticle(new ArticleItem(...data));
+                art.render();
+            });
+        }
+        console.log(d);
+    });
+    art.render();
+</script>

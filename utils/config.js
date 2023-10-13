@@ -38,6 +38,8 @@ const CONFIG = module.exports = {
         USERNAME:"user_journalismusag",
         PASSWORD:"vD6)1w3Bt*w<"
     },
+    /** @type {boolean} Ob das Admin-Backend an ist. */
+    ADMIN_BACKEND:false,
     /** @type {string} */
     BREAK:"\n",
     /** @type {string} */
@@ -56,3 +58,7 @@ if(CONFIG.IS_SERVER){
 CONFIG.BASIC_TEMPLATE = fs
     .readFileSync("templates/basic.html","utf-8")
     .replace("<!--SITENAME-->", CONFIG.SITE_NAME);
+
+/** @type {string} Die Grundstruktur der Aminseite */
+CONFIG.ADMIN_TEMPLATE = CONFIG.BASIC_TEMPLATE
+    .replace("<!--CONTENT-->",fs.readFileSync("templates/generator.html","utf-8"));
