@@ -29,12 +29,14 @@ const CONFIG = module.exports = {
     /** 
      * @typedef {Object} LoginConfig
      * @property {boolean} ON Ob ein Login für die Seite benötigt wird.
+     * @property {boolean} OFF_ON_LOCALHOST Ob das Login auf localhost deaktiviert wird.
      * @property {string} USERNAME Der Nutzername des Logins.
      * @property {string} PASSWORD Das Passwort des Logins.
      */
     /** @type {LoginConfig} Die Login-Konfiguration. */
     LOGIN:{
         ON:true,
+        OFF_ON_LOCALHOST:true,
         USERNAME:"user_journalismusag",
         PASSWORD:"vD6)1w3Bt*w<"
     },
@@ -62,3 +64,5 @@ CONFIG.BASIC_TEMPLATE = fs
 /** @type {string} Die Grundstruktur der Aminseite */
 CONFIG.ADMIN_TEMPLATE = CONFIG.BASIC_TEMPLATE
     .replace("<!--CONTENT-->",fs.readFileSync("templates/generator.html","utf-8"));
+
+CONFIG.LOGIN.ON = CONFIG.LOGIN.ON && (!CONFIG.LOGIN.OFF_ON_LOCALHOST || (CONFIG.LOGIN.OFF_ON_LOCALHOST && CONFIG.IS_SERVER));

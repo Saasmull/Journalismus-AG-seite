@@ -82,7 +82,7 @@ function startServer(){
             }
         })
     }
-    if(CONFIG.LOGIN.ON && 0){
+    if(CONFIG.LOGIN.ON){
         app.use("/service-worker.js",express.static(__dirname+"/root/service-worker.js"));
         app.use("/manifest.json",express.static(__dirname+"/root/manifest.json"));
         app.use(sec({
@@ -116,7 +116,6 @@ function startServer(){
             case "EADDRINUSE":
                 console.error("\x1b[91m[FEHLER]\x1b[0m",
                     "Die Adresse ist bereits in Nutzung. Wahrscheinlich nutzt ein anderer Prozess den Port "+CONFIG.PORT+".");
-                    server.
                 break;
             default:
                 console.error("\x1b[91m[FEHLER]\x1b[0m",err);
