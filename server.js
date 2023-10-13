@@ -42,7 +42,6 @@ function startServer(){
             switch(req.method){
                 case "POST":
                     if(req.cookies.auth === "is"){
-                        console.log(req.body);
                         switch(req.body.action){
                             case "LeseArtikelListe":
                                 res.json([...fs.readdirSync("articles")]);
@@ -54,7 +53,6 @@ function startServer(){
                                 ]);
                                 break;
                             default:
-                                console.log("A")
                                 res.send(CONFIG.ADMIN_TEMPLATE);
                                 break;
                         }
@@ -74,7 +72,6 @@ function startServer(){
                 default:
                     if(req.cookies.auth === "is"){
                         res.send(CONFIG.ADMIN_TEMPLATE);
-                        console.log("B")
                     }else{
                         res.send(createAuthSite(""));
                     }

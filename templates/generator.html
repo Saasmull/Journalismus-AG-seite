@@ -10,9 +10,63 @@
     }
     .tabcontent{
         height: 100%;
+        overflow: auto;
     }
     main{
         height: calc(100vh - 11.5rem);
+    }
+    .articles{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .articles>*{
+        height: 40vh;
+        max-width: 400px;
+        display: inline-flex;
+        flex-direction: column;
+        max-height: 500px;
+        width: 40vw;
+        margin: 1rem;
+        background-color: var(--bg-color-1-5);
+        border-radius: var(--border-radi-card);
+        padding: 2rem;
+    }
+    .list-col{
+        height: 20px;
+        overflow: hidden;
+    }
+    .list-col.long{
+        height: 8ch;
+    }
+    .tabcontent button{
+        margin: 0.2rem auto;
+        display: block;
+        color: #fff;
+        background-color: #0078D4;
+        background-color: var(--color-primary);
+        border-radius: 24px;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: none;
+        font-size: 18px;
+        -webkit-box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
+        box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
+        width: 300px;
+        height: auto;
+    }
+    button.first{
+        margin-top: auto;
+    }
+    #editor-window{
+        position: fixed;
+        inset: 0;
+        background-color: var(--bg-color-1);
+        z-index: 1000;
+    }
+    #editor-window.closed{
+        display: none;
     }
 </style>
 <div id="tabs">
@@ -22,10 +76,26 @@
     <button class="tablink" id="Debugging">Debugging</button>
     <button class="tablink" id="Einstellungen">Einstellungen</button>
 </div>
-<div class="tabcontent" id="ArtikelTab">Artikel</div>
+<div class="tabcontent" id="ArtikelTab"></div>
 <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
 <div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
+<div id="editor-window" class="closed">
+    <div class="editor-window-titlebar">
+        <div class="editor-window-titlebar">Title</div>
+        <button class="editor-window-close">X</button>
+    </div>
+    <div class="editor-window-content"></div>
+</div>
 <script>
+    function loadMetadataEditor(id,metadata){
+        var content = `<input type="text" value="${metadata.title||""}"><br>
+        <input type="text" value="${id||""}"><br>
+        <textarea>${metadata.description||""}</textarea>`;
+        document.querySelector(".editor-window-content").innerHTML = content;
+    }
+    function toggleEditor(){
+        document.querySelector("#editor-window").classList.toggle("closed");
+    }
     var tablinks = document.querySelectorAll(".tablink");
     var tabcontents = document.querySelectorAll(".tabcontent");
     for(var i = 0;i < tablinks.length;i++){
@@ -66,13 +136,21 @@
             this.id = id;
             this.data = data;
             this.el = document.createElement("div");
-            this.el.innerHTML = `<span>${data.title}</span>`;
+            this.el.classList.add("list-row");
+            this.el.classList.add("card");
+            this.el.innerHTML = `<span class="list-col short">${data.title}</span>
+            <a class="list-col short" href="/article/${this.id}.html">/article/${this.id}.html</a>
+            <span class="list-col long">${this.data.description}</span>
+            <span class="list-col short">${this.data.authors.join(",")}</span>
+            <button class="list-col short first">Metadaten bearbeiten</button>
+            <button class="list-col short">Inhalt bearbeiten</button>`;
         }
     }
     class Articles{
         constructor(){
             this.articles = [];
             this.el = document.createElement("div");
+            this.el.classList.add("articles");
         }
         addArticle(article){
             if(!this.existsArticle(article)){
@@ -95,7 +173,6 @@
                 this.el.appendChild(i.el);
             }
         }
-
     }
     function callAPI(command,data,responseType,callback){
         var fd = new FormData();
@@ -124,10 +201,10 @@
         for(var i of d){
             callAPI("LeseArtikelMetadaten",i,"json",function(data){
                 art.addArticle(new ArticleItem(...data));
+                loadMetadataEditor(...data);
                 art.render();
             });
         }
-        console.log(d);
+        art.render();
     });
-    art.render();
 </script>
