@@ -58,12 +58,12 @@ module.exports = class Article{
     renderMetaTags(){
         var metaString = "";
         //title
-        metaString += "<title>" + this.metadata.title + "</title>\n";
-        metaString += "<meta name=\"title\" content=\"" + this.metadata.title + "\">\n";
-        metaString += "<meta property=\"og:title\" content=\"" + this.metadata.title + "\">\n";
+        metaString += "<title>" + utils.rmvEntities(this.metadata.title) + "</title>\n";
+        metaString += "<meta name=\"title\" content=\"" + utils.rmvEntities(this.metadata.title) + "\">\n";
+        metaString += "<meta property=\"og:title\" content=\"" + utils.rmvEntities(this.metadata.title) + "\">\n";
         //description
-        metaString += "<meta name=\"description\" content=\"" + this.metadata.description + "\">\n";
-        metaString += "<meta property=\"og:description\" content=\"" + this.metadata.description + "\">\n";
+        metaString += "<meta name=\"description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
+        metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
         //banner
         metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
         //json-ld
@@ -93,7 +93,7 @@ module.exports = class Article{
             });
         }
         metaString += "<script type=\"application/ld+json\">\n";
-        metaString += JSON.stringify(jsonLD) + "\n";
+        metaString += utils.rmvEntities(JSON.stringify(jsonLD)) + "\n";
         metaString += "</script>\n";
         //stylesheet
         metaString += "<link rel=\"stylesheet\" href=\"/assets/styles/article.css\">";

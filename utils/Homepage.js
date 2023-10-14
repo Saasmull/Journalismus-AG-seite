@@ -2,6 +2,7 @@ const fs = require("fs");
 const {marked} = require("marked");
 
 const CONFIG = require("./config");
+const utils = require("./functions");
 const Category = require("./Category");
 const Article = require("./Article");
 
@@ -34,17 +35,17 @@ class HomepageMetadata{
     renderMetaTags(){
         var metaString = "<meta name=\"google-site-verification\" content=\"HFT40NWeuYNZW3VWHz6SN6CtrmF9_Jk05t5OI1lzhGc\" />\n";
         //title
-        metaString += "<title>" + this.title + "</title>\n";
-        metaString += "<meta name=\"title\" content=\"" + this.title + "\">\n";
-        metaString += "<meta property=\"og:title\" content=\"" + this.title + "\">\n";
+        metaString += "<title>" + utils.rmvEntities(this.title) + "</title>\n";
+        metaString += "<meta name=\"title\" content=\"" + utils.rmvEntities(this.title) + "\">\n";
+        metaString += "<meta property=\"og:title\" content=\"" + utils.rmvEntities(this.title) + "\">\n";
         //description
-        metaString += "<meta name=\"description\" content=\"" + this.description + "\">\n";
-        metaString += "<meta property=\"og:description\" content=\"" + this.description + "\">\n";
+        metaString += "<meta name=\"description\" content=\"" + utils.rmvEntities(this.description) + "\">\n";
+        metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.description) + "\">\n";
         //banner
         //metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
         //json-ld
         metaString += "<script type=\"application/ld+json\">\n";
-        metaString += JSON.stringify(this.renderJsonLd()) + "\n";
+        metaString += utils.rmvEntities(JSON.stringify(this.renderJsonLd())) + "\n";
         metaString += "</script>\n";
         return metaString;
     }

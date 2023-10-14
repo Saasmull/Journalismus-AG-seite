@@ -4,7 +4,7 @@ Bei seiner neuen Station wird Nagelsmann künftig mit Ex-Nationalspieler Sandro 
  
 ![2 Co-Trainer](https://www.sportbuzzer.de/resizer/5FCCMFE09Qh3EMPiVRy9YLJ6gtU=/894x503/filters:quality(70):format(webp)/cloudfront-eu-central-1.images.arcpublishing.com/madsack/2P55YP5QJVA4BIK3S5PLQX56QU.jpg) 
 
-## Völler: ”Nagelsmann war unser absoluter Wunschkandidat." 
+## Völler: ”Nagelsmann war unser absoluter Wunsch&shy;kandidat." 
  
 Nagelsmann selbst habe große Lust auf die Aufgabe, besonders weil im nächsten Jahr die Heim-EM ansteht. Sowas käme, laut Nagelsmann, nur alle paar Jahrzehnte vor. Nach den Blamagen bei den vergangenen Turnieren, habe die Nationalmannschaft etwas zu beweisen. Dazu sagte er:
 

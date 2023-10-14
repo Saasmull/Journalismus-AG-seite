@@ -12,13 +12,13 @@ In einem Interview mit der Deutschen Presse-Agentur betonte Cook, dass die Umwel
 
 Cook hob hervor, dass die Umweltpolitik von Apple keineswegs Marketing-Taktiken oder sogenanntes Greenwashing beinhalte, sondern auf echter, harter Arbeit basiere.
 
-## Anerkennung von Umweltschutzorganisationen
+## Anerkennung von Umweltschutz&shy;organisationen
 
 Die Bemühungen von Apple im Bereich Umweltschutz werden auch von Umweltschutzorganisationen anerkannt. Laut einer Untersuchung des Thinktanks New Climate Institute und der Umweltorganisation Carbon Market Watch erzielte Apple die besten Noten hinter der dänischen Reederei Maersk und deutlich vor anderen großen Konzernen wie Amazon, Volkswagen, Mercedes-Benz, Deutscher Telekom und Samsung.
 
 Apple hat bereits in den letzten Jahren erhebliche Fortschritte gemacht, um seine Umweltauswirkungen zu reduzieren. Beispielsweise bestehen 30 Prozent der Bauteile der Apple Watch aus recycelten Materialien, und das Unternehmen plant, bis zum nächsten Jahr alle Kunststoffe aus den Verpackungen zu entfernen.
 
-## Nachhaltigkeit in der Produktherstellung
+## Nachhaltigkeit in der Produkt&shy;herstellung
 
 Neben der Reduzierung des CO2-Ausstoßes liegt ein Schwerpunkt von Apple auf der nachhaltigen Nutzung von Rohstoffen. Beim neuen iPhone 15 wird beispielsweise Kobalt zu 100 Prozent aus Recyclingmaterial gewonnen, und das Gehäuse besteht zu 75 Prozent aus recyceltem Aluminium. Diese Maßnahmen sollen die Recyclingquoten erhöhen und die Umweltauswirkungen der Produktion minimieren.
 

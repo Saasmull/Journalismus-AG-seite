@@ -18,11 +18,11 @@ Der Pi 5 soll zudem einen 2,4GHz-Vierkern-Prozessor bekommen. Die Fertigungsgrö
 
 ![Browserbenchmarks von Raspberry Pi 4 und 5. Man kann deutlich sehen, dass der Pi 5 doppelt so viel Leistung hat.](https://hackster.imgix.net/uploads/attachments/1634130/image_GR53VqQozl.png?auto=compress%2Cformat&w=740&h=555&fit=max)
 
-### Der schnellere Arbeitsspeicher
+### Der schnellere Arbeits&shy;speicher
 
 Durch den neuen BCM2712 Chip wird jetzt LPDDRX 4 unterstützt, wodurch eine höhere Arbeitsspeicherfrequenz von 4267GHz unterszützt wird. Vom Raspberry Pi 5 soll eine 4GB- und eine 8GB-Variante geben. Eine 1GB- und 2GB-Variante wie beim Pi 4 soll es nicht geben.
 
-### Bessere Grafikkarte
+### Bessere Grafik&shy;karte
 
 Es werden durch die neue Grafikkarte beim Raspberry Pi 5 zwei 4k-Monitore mit jeweils 60Hz unterstützt. Auch Vulkan 3.0 soll unterstützt werden.
 

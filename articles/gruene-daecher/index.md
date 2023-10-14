@@ -9,11 +9,11 @@
 
 "Mit einer Dachbegrünung kommt nicht nur natürliche Abwechslung in die Innenstädte, sondern sie wirkt dem Aufheizen des Klimas in den Sommermonaten entgegen", erklärt Annika Dobbers, Referentin des Projekts "Mehr Grün am Haus" der Verbraucherzentrale NRW. Während ein übliches Garagendach bei sonnigem Sommerwetter gut 80 Grad Celsius heiß werden kann, sind es mit Begrünung nur 30 Grad. Mit der niedrigeren Temperatur verringert sich die Gefahr von Hitzeschäden an der Dachkonstruktion - und das Klima innerhalb und außerhalb des Gebäudes verbessert sich. Zudem kühlt nachts die Umgebungsluft schneller ab.
 
-## 2. Regenspeicher
+## 2. Regen&shy;speicher
 
 "Gleichzeitig ist eine Dachbegrünung stets ein Feinstaubfilter und ein guter Speicher für Regenwasser", sagt Dobbers. Letzteres ist besonders wichtig bei Dauer- und Starkregen, um die Belastung der Kanäle und Überflutungen zu verhindern. Die Pflanzen tragen außerdem dazu bei, Alltagslärm innerhalb und außerhalb des Gebäudes zu reduzieren.
 
-## Die Varianten der Dachbegrünung
+## Die Varianten der Dach&shy;begrünung
 
 Bei der Dachbegrünung gibt es zwei Formen: die extensive und die intensive Variante.
 
@@ -31,7 +31,7 @@ Damit sich die Pflanzendecke schnell schließt, sollten Dachgärtner diese anfä
 
 Eine Dachbegrünung ist mit Aufwand verbunden, auch finanziell. Um Anreize für mehr Gründächer zu schaffen, haben Bund, Länder und Städte Förderprogramme aufgelegt. Zum Beispiel gibt es im Rahmen der Bundesförderung für effiziente Gebäude einen BAFA-Zuschuss für die Dachsanierung mit Gründach. Auch die KfW bietet Förderkredite mit Tilgungszuschuss für Sanierungen, die eine Dachbegrünung beinhalten. Informationen zu möglicher finanzieller Unterstützung sind bei den öffentlichen Stellen in Kommunen und Ländern erhältlich.
 
-## Natürlichen Lebensraum für Tiere schaffen
+## Natür&shy;lichen Lebens&shy;raum für Tiere schaffen
 
 Vögeln, Insekten und anderen Tieren auf dem grünen Dach kann man noch mehr bieten: Kleine Haufen Totholz und nicht bepflanzte Sandstellen bieten Unterschlupf, und Wasserstellen stillen den Durst der Tiere.
 

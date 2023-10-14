@@ -19,5 +19,8 @@ module.exports = {
     },      
     str:function str(string){
         return (typeof string === "string"?string:(string?string+"":""));
+    },
+    rmvEntities(string){
+        return string.replaceAll("&shy;","");
     }
 }
