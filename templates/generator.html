@@ -86,12 +86,24 @@
     </div>
     <div class="editor-window-content"></div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor-Editor.min.js"></script>
 <script>
     function loadMetadataEditor(id,metadata){
-        var content = `<input type="text" value="${metadata.title||""}"><br>
+        var content = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
         <input type="text" value="${id||""}"><br>
-        <textarea>${metadata.description||""}</textarea>`;
+        <textarea>${metadata.description||""}</textarea></div>
+        <div class="tmce"></div>`;
         document.querySelector(".editor-window-content").innerHTML = content;
+        var ed = new toastui.Editor({
+            el:".tmce",
+            initialValue:`
+# Title
+
+Hello
+
+ - Yes`
+        });
     }
     function toggleEditor(){
         document.querySelector("#editor-window").classList.toggle("closed");
@@ -198,13 +210,14 @@
     var art = new Articles();
     art.appendTo(document.querySelector("#ArtikelTab"));
     callAPI("LeseArtikelListe",null,"json",function(d){
-        for(var i of d){
-            callAPI("LeseArtikelMetadaten",i,"json",function(data){
+        //for(var i of d){
+            callAPI("LeseArtikelMetadaten",d[0],"json",function(data){
                 art.addArticle(new ArticleItem(...data));
                 loadMetadataEditor(...data);
                 art.render();
             });
-        }
+        //}
         art.render();
     });
+    toggleEditor();
 </script>
