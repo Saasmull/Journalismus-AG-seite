@@ -86,24 +86,17 @@
     </div>
     <div class="editor-window-content"></div>
 </div>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor-Editor.min.js"></script>
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor-Editor.min.js"></script-->
 <script>
     function loadMetadataEditor(id,metadata){
         var content = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
         <input type="text" value="${id||""}"><br>
         <textarea>${metadata.description||""}</textarea></div>
-        <div class="tmce"></div>`;
+        <div class="tmce"></div>
+        <textarea class="md-edit"></textarea>`;
         document.querySelector(".editor-window-content").innerHTML = content;
-        var ed = new toastui.Editor({
-            el:".tmce",
-            initialValue:`
-# Title
-
-Hello
-
- - Yes`
-        });
+        document.querySelector(".md-edit").value = "HELLO";
     }
     function toggleEditor(){
         document.querySelector("#editor-window").classList.toggle("closed");

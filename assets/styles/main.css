@@ -509,6 +509,7 @@ button{
     position: absolute;
     inset: 0;
     border-radius: var(--border-radi-card-content);
+    background-color: transparent;
 }
 
 /* Style the container (label) */
