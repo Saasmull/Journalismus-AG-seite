@@ -27,11 +27,12 @@
     outline-color: var(--focus-ring-color) !important;
 }
 
-*:focus-visible{
+:focus-visible{
     outline: solid 2px var(--focus-ring-color);
     outline: solid 2px Highlight;
     outline: solid 2px -webkit-focus-ring-color;
 }
+
 [data-bg-img]{
     opacity: 0.5;
     backdrop-filter: invert(0.25);
@@ -233,8 +234,6 @@ footer>*{
 footer>div{
     margin: 10px auto;
     width: fit-content;
-    padding: 6px;
-    appearance: checkbox;
     border-radius: var(--border-radi-card);
     padding: 12px 6px 8px;
     position: relative;
@@ -507,9 +506,14 @@ button{
     display: block;
     appearance: none;
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     inset: 0;
-    border-radius: var(--border-radi-card-content);
     background-color: transparent;
+    border: none;
+    border-radius: var(--border-radi-card-content);
 }
 
 /* Style the container (label) */
