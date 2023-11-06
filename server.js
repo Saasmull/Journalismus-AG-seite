@@ -43,6 +43,12 @@ function startServer(){
                 case "POST":
                     if(req.cookies.auth === "is"){
                         switch(req.body.action){
+                            case "LeseNutzerRechte":
+                                res.json({
+                                    dev:true,
+                                    admin:true
+                                });
+                                break;
                             case "LeseArtikelListe":
                                 res.json([...fs.readdirSync("articles")]);
                                 break;
@@ -51,6 +57,15 @@ function startServer(){
                                     JSON.parse(req.body.data),
                                     JSON.parse(fs.readFileSync("articles/"+JSON.parse(req.body.data)+"/meta.json","utf-8"))
                                 ]);
+                                break;
+                            case "LeseArtikelInhalt":
+                                res.send(
+                                    fs.readFileSync("articles/"+JSON.parse(req.body.data)+"/index.md","utf-8")
+                                );
+                                break;
+                            case "SchreibeArtikelInhalt":
+                                fs.writeFileSync("articles/"+JSON.parse(req.body.data).id+"/index.md",JSON.parse(req.body.data).content,"utf-8");
+                                res.end();
                                 break;
                             default:
                                 res.send(CONFIG.ADMIN_TEMPLATE);
@@ -102,6 +117,7 @@ function startServer(){
     app.use("/",function(err,req,res,next){
         if(err){
             // Handle error
+            console.log(err)
         }
         next();
     })

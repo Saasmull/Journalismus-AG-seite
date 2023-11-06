@@ -1,19 +1,31 @@
 <style>
     #tabs{
+        position: sticky;
         display: flex;
+        top: 55px;
+        background-color: var(--bg-color-1);
     }
     .tablink{
+        border: none;
+        margin-top: 2px;
+        padding: 8px;
+        color: var(--text-color-1);
+        background-color: transparent;
         flex-grow: 1;
+        box-shadow: inset 0 -2px 0 0 var(--text-color-1);
     }
     .tablink.activeTab{
-        background-color: red;
+        background-color: var(--bg-color-1-5);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        box-shadow: inset 0 -2px 0 0 var(--color-primary);
     }
     .tabcontent{
         height: 100%;
         overflow: auto;
     }
     main{
-        height: calc(100vh - 11.5rem);
+        //height: calc(100vh - 12.4rem);
     }
     .articles{
         display: flex;
@@ -28,6 +40,7 @@
         flex-direction: column;
         max-height: 500px;
         width: 40vw;
+        min-width: 280px;
         margin: 1rem;
         background-color: var(--bg-color-1-5);
         border-radius: var(--border-radi-card);
@@ -54,6 +67,7 @@
         -webkit-box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
         box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
         width: 300px;
+        max-width: 100%;
         height: auto;
     }
     button.first{
@@ -68,17 +82,50 @@
     #editor-window.closed{
         display: none;
     }
+    .editor-window-titlebar{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .editor-window-close{
+        border: none;
+        background-color: red;
+        color: #fff;
+    }
+    .editor-window-content{
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 50px;
+    }
+    .editor-window-content>.md-edit{
+        width: 100%;
+        height: 100%;
+        resize: none;
+        border: none;
+        outline: none;
+    }
 </style>
 <div id="tabs">
     <button class="tablink activeTab" id="Artikel">Artikel</button>
     <button class="tablink" id="Kategorien">Kategorien</button>
     <button class="tablink" id="Dateien">Dateien</button>
+    <button class="tablink" id="Neu">Neu</button>
     <button class="tablink" id="Debugging">Debugging</button>
     <button class="tablink" id="Einstellungen">Einstellungen</button>
 </div>
 <div class="tabcontent" id="ArtikelTab"></div>
 <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
 <div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
+<div class="tabcontent" id="NeuTab" style="display: none;">
+    <button>Artikel erstellen</button>
+    <button>Kategorie erstellen</button>
+</div>
+<div class="tabcontent" id="DebuggingTab" style="display: none;">Debugging</div>
+<div class="tabcontent" id="EinstellungenTab" style="display: none;">Einstellungen</div>
 <div id="editor-window" class="closed">
     <div class="editor-window-titlebar">
         <div class="editor-window-titlebar">Title</div>
@@ -90,17 +137,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor-Editor.min.js"></script-->
 <script>
     function loadMetadataEditor(id,metadata){
-        var content = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
+        var editorContent = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
         <input type="text" value="${id||""}"><br>
         <textarea>${metadata.description||""}</textarea></div>
-        <div class="tmce"></div>
-        <textarea class="md-edit"></textarea>`;
-        document.querySelector(".editor-window-content").innerHTML = content;
-        document.querySelector(".md-edit").value = "HELLO";
+        <div class="tmce"></div>`;
+        document.querySelector(".editor-window-content").innerHTML = editorContent;
+    }
+    function loadContentEditor(id,content){
+        var editorContent = `<textarea class="md-edit"></textarea>`;
+        document.querySelector(".editor-window-content").innerHTML = editorContent;
+        document.querySelector(".md-edit").value = content;
+        document.querySelector(".md-edit").addEventListener("keyup",function(ev){
+            callAPI("SchreibeArtikelInhalt",{id:id,content:ev.target.value});
+        })
     }
     function toggleEditor(){
         document.querySelector("#editor-window").classList.toggle("closed");
     }
+    document.querySelector("button.editor-window-close").addEventListener("click",toggleEditor);
     var tablinks = document.querySelectorAll(".tablink");
     var tabcontents = document.querySelectorAll(".tabcontent");
     for(var i = 0;i < tablinks.length;i++){
@@ -138,6 +192,7 @@
     }
     class ArticleItem{
         constructor(id,data){
+            var glob = this;
             this.id = id;
             this.data = data;
             this.el = document.createElement("div");
@@ -147,8 +202,18 @@
             <a class="list-col short" href="/article/${this.id}.html">/article/${this.id}.html</a>
             <span class="list-col long">${this.data.description}</span>
             <span class="list-col short">${this.data.authors.join(",")}</span>
-            <button class="list-col short first">Metadaten bearbeiten</button>
-            <button class="list-col short">Inhalt bearbeiten</button>`;
+            <button class="action-edit-metadata list-col short first">Metadaten bearbeiten</button>
+            <button class="action-edit-content list-col short">Inhalt bearbeiten</button>`;
+            this.el.querySelector("button.action-edit-metadata").addEventListener("click",function(){
+                loadMetadataEditor(glob.id,glob.data);
+                toggleEditor();
+            });
+            this.el.querySelector("button.action-edit-content").addEventListener("click",function(){
+                callAPI("LeseArtikelInhalt",glob.id,null,function(content){
+                    loadContentEditor(glob.id,content);
+                    toggleEditor();
+                });
+            });
         }
     }
     class Articles{
@@ -203,14 +268,18 @@
     var art = new Articles();
     art.appendTo(document.querySelector("#ArtikelTab"));
     callAPI("LeseArtikelListe",null,"json",function(d){
-        //for(var i of d){
-            callAPI("LeseArtikelMetadaten",d[0],"json",function(data){
+        for(var i of d){
+            callAPI("LeseArtikelMetadaten",i,"json",function(data){
                 art.addArticle(new ArticleItem(...data));
-                loadMetadataEditor(...data);
+                //loadMetadataEditor(...data);
                 art.render();
             });
-        //}
+        }
         art.render();
     });
-    toggleEditor();
+    callAPI("LeseNutzerRechte",null,"json",function(data){
+        if(!data.dev){
+            document.querySelector("#Debugging").style.display = "none";
+        }
+    });
 </script>
