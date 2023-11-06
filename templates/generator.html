@@ -4,6 +4,9 @@
         display: flex;
         top: 55px;
         background-color: var(--bg-color-1);
+        overflow-x: scroll;
+        scrollbar-width: none;
+        scrollbar-gutter: stable;
     }
     .tablink{
         border: none;
@@ -108,6 +111,14 @@
         border: none;
         outline: none;
     }
+
+    .line-graph{
+        background-color: red;
+    }
+    .line-graph>*{
+        width: 20px;
+        background-color: white;
+    }
 </style>
 <div id="tabs">
     <button class="tablink activeTab" id="Artikel">Artikel</button>
@@ -124,7 +135,23 @@
     <button>Artikel erstellen</button>
     <button>Kategorie erstellen</button>
 </div>
-<div class="tabcontent" id="DebuggingTab" style="display: none;">Debugging</div>
+<div class="tabcontent" id="DebuggingTab" style="display: none;">
+    <div class="server-debug-panel">
+        <div>
+            <span class="node-v">node.js: -.-.-</span>
+            <span class="jag-v">jag: -.-.-</span>
+            <span class="hostname"></span>
+            <span class="arch">x64</span>
+            <span class="os-platform"></span>
+        </div>
+        <div>
+            <div class="cpu-usage">
+                <h3>CPU Usage</h3>
+                <div class="line-graph"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="tabcontent" id="EinstellungenTab" style="display: none;">Einstellungen</div>
 <div id="editor-window" class="closed">
     <div class="editor-window-titlebar">
@@ -278,8 +305,31 @@
         art.render();
     });
     callAPI("LeseNutzerRechte",null,"json",function(data){
-        if(!data.dev){
+        if(data.dev){
+            startServerDebug();
+        }else{
             document.querySelector("#Debugging").style.display = "none";
         }
     });
+    function startServerDebug(){
+        var eventSource = new EventSource("/dbg-api");
+
+        eventSource.onmessage = (event) => {
+            var data = JSON.parse(event.data);
+            console.log(data);
+            document.querySelector(".server-debug-panel .node-v").innerText = "node.js: "+data.versions.node;
+            document.querySelector(".server-debug-panel .jag-v").innerText = "jag: "+data.versions.jag;
+            document.querySelector(".server-debug-panel .hostname").innerText = data.stats.hostname;
+            document.querySelector(".server-debug-panel .arch").innerText = data.stats.arch;
+            document.querySelector(".server-debug-panel .os-platform").innerText = data.stats.os + " " + data.stats.platform;
+            var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
+            cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
+            //document.querySelector(".server-debug-panel").innerHTML = event.data;
+        };
+
+        eventSource.onerror = (error) => {
+            console.error('EventSource failed:', error);
+            eventSource.close();
+        };
+    }
 </script>

@@ -1,5 +1,6 @@
 const CONFIG = require("./utils/config");
 const fs = require("fs");
+const os = require("os");
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
@@ -20,6 +21,24 @@ compileProcess.on("exit",function(){
     startServer();
 })
 
+
+function cpuUsagePercent(){
+    const cpuInfo = os.cpus();
+    let totalUsage = 0;
+    let totalIdle = 0;
+    
+    cpuInfo.forEach((core) => {
+      totalUsage += core.times.user + core.times.nice + core.times.sys;
+      totalIdle += core.times.idle;
+    });
+  
+    const total = totalUsage + totalIdle;
+    const percentUsage = ((totalUsage - totalIdle) / total) * 100;
+    
+    return percentUsage;
+};
+
+
 function createAuthSite(errorMessage){
     return CONFIG.BASIC_TEMPLATE.replace("<!--CONTENT-->",`
     <h1>Login</h1>
@@ -38,6 +57,34 @@ function startServer(){
         next();
     })
     if(CONFIG.ADMIN_BACKEND){
+        app.get("/dbg-api",function(req,res){
+            res.setHeader("Content-Type", "text/event-stream");
+            res.setHeader("Cache-Control", "no-cache");
+            res.setHeader("Connection", "keep-alive");
+            var data = {
+                versions:{
+                    node:process.versions.node,
+                    jag:v
+                },
+                stats:{
+                    platform:process.platform,
+                    arch:os.arch(),
+                    type:os.type(),
+                    uptime:os.uptime(),
+                    hostname:os.hostname,
+                    cpuUsage:cpuUsagePercent(),
+                    cpus:os.cpus(),
+                    memoryUsage:process.memoryUsage,
+                }
+            };
+            const update = () => {
+                res.write(`data: ${JSON.stringify(data)}\n\n`);
+            };
+            const intID = setInterval(update,1000);
+            req.on("close",() => {
+                clearInterval(intID);
+            });
+        });
         app.all("/al",function(req,res){
             switch(req.method){
                 case "POST":
