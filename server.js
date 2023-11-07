@@ -74,7 +74,7 @@ function startServer(){
                     hostname:os.hostname,
                     cpuUsage:cpuUsagePercent(),
                     cpus:os.cpus(),
-                    memoryUsage:process.memoryUsage,
+                    memoryUsage:process.memoryUsage(),
                 }
             };
             const update = () => {

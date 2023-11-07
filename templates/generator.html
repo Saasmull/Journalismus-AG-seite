@@ -113,29 +113,31 @@
     }
 
     .line-graph{
+        position: relative;
         background-color: red;
+        min-height: 200px;
+        min-width: 200px;
     }
     .line-graph>*{
-        width: 20px;
         background-color: white;
     }
 </style>
 <div id="tabs">
-    <button class="tablink activeTab" id="Artikel">Artikel</button>
+    <button class="tablink" id="Artikel">Artikel</button>
     <button class="tablink" id="Kategorien">Kategorien</button>
     <button class="tablink" id="Dateien">Dateien</button>
     <button class="tablink" id="Neu">Neu</button>
-    <button class="tablink" id="Debugging">Debugging</button>
+    <button class="tablink activeTab" id="Debugging">Debugging</button>
     <button class="tablink" id="Einstellungen">Einstellungen</button>
 </div>
-<div class="tabcontent" id="ArtikelTab"></div>
+<div class="tabcontent" id="ArtikelTab" style="display: none;"></div>
 <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
 <div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
 <div class="tabcontent" id="NeuTab" style="display: none;">
     <button>Artikel erstellen</button>
     <button>Kategorie erstellen</button>
 </div>
-<div class="tabcontent" id="DebuggingTab" style="display: none;">
+<div class="tabcontent" id="DebuggingTab">
     <div class="server-debug-panel">
         <div>
             <span class="node-v">node.js: -.-.-</span>
@@ -145,8 +147,8 @@
             <span class="os-platform"></span>
         </div>
         <div>
-            <div class="cpu-usage">
-                <h3>CPU Usage</h3>
+            <div class="mem-usage">
+                <h3>Mem Usage</h3>
                 <div class="line-graph"></div>
             </div>
         </div>
@@ -162,6 +164,7 @@
 </div>
 <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.3/tui-editor-Editor.min.js"></script-->
+<script src="/assets/scripts/graph.js"></script>
 <script>
     function loadMetadataEditor(id,metadata){
         var editorContent = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
@@ -313,17 +316,20 @@
     });
     function startServerDebug(){
         var eventSource = new EventSource("/dbg-api");
+        var memUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
+        var memGraph = new LineGraph(memUsage);
 
         eventSource.onmessage = (event) => {
             var data = JSON.parse(event.data);
-            console.log(data);
+            console.log(data,memGraph,memUsage);
             document.querySelector(".server-debug-panel .node-v").innerText = "node.js: "+data.versions.node;
             document.querySelector(".server-debug-panel .jag-v").innerText = "jag: "+data.versions.jag;
             document.querySelector(".server-debug-panel .hostname").innerText = data.stats.hostname;
             document.querySelector(".server-debug-panel .arch").innerText = data.stats.arch;
             document.querySelector(".server-debug-panel .os-platform").innerText = data.stats.os + " " + data.stats.platform;
-            var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
-            cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
+            memGraph.addData((data.stats.memoryUsage.heapUsed/data.stats.memoryUsage.heapTotal)*100);
+            //var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
+            //cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
             //document.querySelector(".server-debug-panel").innerHTML = event.data;
         };
 
