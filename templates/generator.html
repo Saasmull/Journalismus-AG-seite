@@ -115,6 +115,11 @@
         display: flex;
         flex-direction: row;
     }
+    .usages h3{
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 5px;
+    }
     .line-graph{
         width: 150px;
         height: 20px;
@@ -161,11 +166,15 @@
         </div>
         <div class="usages">
             <div class="mem-usage">
-                <h3>Mem Usage</h3>
+                <h3>Memory</h3>
+                <div class="line-graph"></div>
+            </div>
+            <div class="cpu-usage">
+                <h3>CPU</h3>
                 <div class="line-graph"></div>
             </div>
         </div>
-        <iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe>
+        <!--iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe-->
     </div>
 </div>
 <div class="tabcontent" id="EinstellungenTab" style="display: none;">Einstellungen</div>
@@ -331,7 +340,9 @@
     function startServerDebug(){
         var eventSource = new EventSource("/dbg-api");
         var memUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
+        var cpuUsage = document.querySelector(".server-debug-panel .cpu-usage .line-graph");
         var memGraph = new LineGraph(memUsage);
+        var cpuGraph = new LineGraph(cpuUsage);
 
         eventSource.onmessage = (event) => {
             var data = JSON.parse(event.data);
@@ -345,6 +356,9 @@
             document.querySelector(".server-debug-panel .mem-usage h3").innerText =
                 "Memory " + Math.round(memP) + "%";
             memGraph.addData(100-memP);
+            document.querySelector(".server-debug-panel .cpu-usage h3").innerText =
+                "CPU " + Math.round(data.stats.cpuLoad) + "%";
+            cpuGraph.addData(100-data.stats.cpuLoad);
             //var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
             //cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
             //document.querySelector(".server-debug-panel").innerHTML = event.data;

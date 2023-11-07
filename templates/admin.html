@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <style>
+        :root, * {
+            font-family: "Google Sans", "Roboto", "Noto Sans", "Segoe Ui", "Helvetica", sans-serif;
+            box-sizing: border-box;
+            overscroll-behavior-x: none;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            -ms-scroll-chaining: none;
+            -webkit-touch-callout: none;
+            /*transition: all 500ms;*/
+            --bg-color-1: #121212;
+            --bg-color-1-5: rgba(255, 255, 255, 0.06);
+            --bg-color-2: rgba(255, 255, 255, 0.12);
+            --bg-color-2-3: rgba(255, 255, 255, 0.16);
+            --bg-color-header: #333;
+            --text-color-1: #fff;
+            --text-color-2: rgba(255, 255, 255, 0.7);
+            --text-color-disabled: rgba(255, 255, 255, 0.5);
+            --border-radi-card: 24px;
+            --border-radi-card-content: 14px;
+            --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            --color-primary: #0078D4;
+            --link-color: #36a7ff;
+            --focus-ring-color: var(--color-primary);
+            outline: 0;
+            outline-color: var(--focus-ring-color) !important;
+        }
+        
+        .lum * {
+            --bg-color-1: #eee;
+            --bg-color-1-5: #efefef;
+            --bg-color-2: #fff;
+            --bg-color-header: #0078D4;
+            --text-color-1: #000;
+            --text-color-2: rgba(255, 255, 255, 0.7);
+            --text-color-disabled: rgba(255, 255, 255, 0.5);
+            --border-radi-card: 24px;
+            --border-radi-card-content: 14px;
+            --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            --color-primary: #0078D4;
+            --link-color: #00508e;
+            filter: unset;
+        }
+
+        .no-select,.no-select *{
+            user-select: none;
+        }
+
+        .no-drag,.no-drag *{
+            user-drag: none;
+        }
+
+        html{
+            max-width: 100vw;
+            width: 100%;
+            overflow-x: hidden;
+            touch-action: pan-x pan-y;
+        }
+
+        body {
+            background-color: var(--bg-color-1);
+            color: var(--text-color-1);
+            margin: 0;
+            touch-action: manipulation;
+            user-scalable: no;
+            -ms-touch-action: manipulation;
+        }
+
+
+
+        #tabs{
+            position: fixed;
+            top: 50px;
+            left: 0;
+            bottom: 0;
+            background-color: var(--bg-color-1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 15px 1px black;
+            width: 200px;
+        }
+        .tablink{
+            border: none;
+            margin-top: 2px;
+            padding: 8px;
+            color: var(--text-color-1);
+            background-color: transparent;
+            flex-grow: 1;
+            box-shadow: inset 0 -2px 0 0 var(--text-color-1);
+        }
+        .tablink.activeTab{
+            background-color: var(--bg-color-1-5);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: inset 0 -2px 0 0 var(--color-primary);
+        }
+
+
+
+        header{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 50px;
+            box-shadow: 0 0 15px 1px black;
+            background-color: var(--bg-color-1);
+            z-index: 20;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+
+        .tabcontent{
+            position: absolute;
+            top: 50px;
+            left: 200px;
+            height: 100%;
+        }
+        .articles,.usages{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .articles>*,.usages>*{
+            height: 40vh;
+            max-width: 400px;
+            display: inline-flex;
+            flex-direction: column;
+            max-height: 500px;
+            width: 40vw;
+            min-width: 280px;
+            margin: 1rem;
+            background-color: var(--bg-color-1-5);
+            border-radius: var(--border-radi-card);
+            padding: 2rem;
+        }
+        .list-col{
+            height: 20px;
+            overflow: hidden;
+        }
+        .list-col.long{
+            height: 8ch;
+        }
+        .tabcontent button{
+            margin: 0.2rem auto;
+            display: block;
+            color: #fff;
+            background-color: #0078D4;
+            background-color: var(--color-primary);
+            border-radius: 24px;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+            -webkit-box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
+            box-shadow: rgba(0,0,0,0.18) 0px 2px 4px,rgba(0,0,0,0.15) 0px 0.5px 1px;
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+        }
+        button.first{
+            margin-top: auto;
+        }
+        #editor-window{
+            position: fixed;
+            inset: 0;
+            background-color: var(--bg-color-1);
+            z-index: 1000;
+        }
+        #editor-window.closed{
+            display: none;
+        }
+        .editor-window-titlebar{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        .editor-window-close{
+            border: none;
+            background-color: red;
+            color: #fff;
+        }
+        .editor-window-content{
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 50px;
+        }
+        .editor-window-content>.md-edit{
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            outline: none;
+        }
+
+
+
+
+        .usages{
+            display: flex;
+            flex-direction: row;
+        }
+        .usages h3{
+            margin: 0;
+        }
+        .line-graph{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            /border-left: 1px solid var(--text-color-1);
+        }
+        .line-graph>*{
+            background-color: var(--color-primary);
+        }
+        .line-graph>*::after{
+            content: "";
+            width: 100%;
+            height: 300%;
+            background-image: linear-gradient(to bottom,var(--color-primary),transparent);
+            position: absolute;
+            top: 1px;
+            left: 0;
+        }
+    </style>
+    <div id="tabs">
+        <button class="tablink" id="Artikel">Artikel</button>
+        <button class="tablink" id="Kategorien">Kategorien</button>
+        <button class="tablink" id="Dateien">Dateien</button>
+        <button class="tablink" id="Neu">Neu</button>
+        <button class="tablink activeTab" id="Debugging">Debugging</button>
+        <button class="tablink" id="Einstellungen">Einstellungen</button>
+    </div>
+    <header>
+        <div>Login</div>
+    </header>
+    <div class="tabcontent" id="ArtikelTab" style="display: none;"></div>
+    <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
+    <div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
+    <div class="tabcontent" id="NeuTab" style="display: none;">
+        <button>Artikel erstellen</button>
+        <button>Kategorie erstellen</button>
+    </div>
+    <div class="tabcontent" id="DebuggingTab">
+        <div class="server-debug-panel">
+            <div>
+                <span class="node-v">node.js: -.-.-</span>
+                <span class="jag-v">jag: -.-.-</span>
+                <span class="hostname"></span>
+                <span class="arch">x64</span>
+                <span class="os-platform"></span>
+            </div>
+            <div class="usages">
+                <div class="card mem-usage">
+                    <h3>Memory</h3>
+                    <div class="line-graph"></div>
+                </div>
+                <div class="card cpu-usage">
+                    <h3>CPU</h3>
+                    <div class="line-graph"></div>
+                </div>
+            </div>
+            <!--iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe-->
+        </div>
+    </div>
+    <div class="tabcontent" id="EinstellungenTab" style="display: none;">Einstellungen</div>
+    <div id="editor-window" class="closed">
+        <div class="editor-window-titlebar">
+            <div class="editor-window-titlebar">Title</div>
+            <button class="editor-window-close">X</button>
+        </div>
+        <div class="editor-window-content"></div>
+    </div>
+    <script src="/assets/scripts/graph.js"></script>
+    <script src="/assets/scripts/admin.js"></script>
+</body>
+</html>

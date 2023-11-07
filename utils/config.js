@@ -62,7 +62,7 @@ CONFIG.BASIC_TEMPLATE = fs
     .replace("<!--SITENAME-->", CONFIG.SITE_NAME);
 
 /** @type {string} Die Grundstruktur der Aminseite */
-CONFIG.ADMIN_TEMPLATE = CONFIG.BASIC_TEMPLATE
+CONFIG.ADMIN_TEMPLATE = fs.readFileSync("templates/admin.html","utf-8") || CONFIG.BASIC_TEMPLATE
     .replace("<!--CONTENT-->",fs.readFileSync("templates/generator.html","utf-8"));
 
 CONFIG.LOGIN.ON = CONFIG.LOGIN.ON && (!CONFIG.LOGIN.OFF_ON_LOCALHOST || (CONFIG.LOGIN.OFF_ON_LOCALHOST && CONFIG.IS_SERVER));

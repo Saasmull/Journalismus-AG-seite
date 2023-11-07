@@ -6,6 +6,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const sec = require("express-basic-auth");
 const child_process = require("child_process");
+const si = require("systeminformation");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 
 app.use(cookieParser({}));
@@ -64,7 +65,7 @@ function startServer(){
             res.setHeader("Content-Type", "text/event-stream");
             res.setHeader("Cache-Control", "no-cache");
             res.setHeader("Connection", "keep-alive");
-            const update = () => {
+            const update = async () => {
                 var data = {
                     versions:{
                         node:process.versions.node,
@@ -78,6 +79,8 @@ function startServer(){
                         hostname:os.hostname,
                         cpuUsage:cpuUsagePercent(),
                         cpus:os.cpus(),
+                        mem:await si.mem(),
+                        cpuLoad:(await si.currentLoad()).currentLoad,
                         memoryTotal:os.totalmem(),
                         memoryFree:os.freemem(),
                         memoryUsage:process.memoryUsage(),

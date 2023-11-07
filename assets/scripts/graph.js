@@ -9,7 +9,7 @@ class LineGraph{
             min: 0,
             max: 100
         };
-        this.maxDataPoints = 15;
+        this.maxDataPoints = 25;
         this.dataset = Array(this.maxDataPoints).fill(null);
     }
     addData(data){

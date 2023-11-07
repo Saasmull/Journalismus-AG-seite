@@ -19,6 +19,7 @@
     "postcss": "^8.4.30",
     "postcss-custom-properties": "^13.3.2",
     "postcss-minify": "^1.1.0",
+    "systeminformation": "^5.21.15",
     "uglify-js": "^3.17.4"
   }
 }
