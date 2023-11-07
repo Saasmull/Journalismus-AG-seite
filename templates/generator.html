@@ -111,16 +111,29 @@
         border: none;
         outline: none;
     }
-
+    .usages{
+        display: flex;
+        flex-direction: row;
+    }
     .line-graph{
+        width: 150px;
+        height: 20px;
         position: relative;
-        background-color: red;
-        min-height: 200px;
-        min-width: 200px;
+        overflow: hidden;
+        border-left: 1px solid var(--text-color-1);
     }
     .line-graph>*{
-        background-color: white;
+        background-color: var(--text-color-1);
     }
+    /*.line-graph>*::after{
+        content: "";
+        width: 100%;
+        height: 200%;
+        background-image: linear-gradient(to bottom,red,transparent);
+        position: absolute;
+        top: 1px;
+        left: 0;
+    }*/
 </style>
 <div id="tabs">
     <button class="tablink" id="Artikel">Artikel</button>
@@ -146,12 +159,13 @@
             <span class="arch">x64</span>
             <span class="os-platform"></span>
         </div>
-        <div>
+        <div class="usages">
             <div class="mem-usage">
                 <h3>Mem Usage</h3>
                 <div class="line-graph"></div>
             </div>
         </div>
+        <iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe>
     </div>
 </div>
 <div class="tabcontent" id="EinstellungenTab" style="display: none;">Einstellungen</div>
@@ -327,7 +341,10 @@
             document.querySelector(".server-debug-panel .hostname").innerText = data.stats.hostname;
             document.querySelector(".server-debug-panel .arch").innerText = data.stats.arch;
             document.querySelector(".server-debug-panel .os-platform").innerText = data.stats.os + " " + data.stats.platform;
-            memGraph.addData((data.stats.memoryUsage.heapUsed/data.stats.memoryUsage.heapTotal)*100);
+            var memP = ((data.stats.memoryTotal - data.stats.memoryFree)/data.stats.memoryTotal)*100;
+            document.querySelector(".server-debug-panel .mem-usage h3").innerText =
+                "Memory " + Math.round(memP) + "%";
+            memGraph.addData(100-memP);
             //var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
             //cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
             //document.querySelector(".server-debug-panel").innerHTML = event.data;

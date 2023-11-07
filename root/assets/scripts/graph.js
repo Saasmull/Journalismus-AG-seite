@@ -9,11 +9,11 @@ class LineGraph{
             min: 0,
             max: 100
         };
-        this.maxDataPoints = 50;
+        this.maxDataPoints = 15;
         this.dataset = Array(this.maxDataPoints).fill(null);
     }
     addData(data){
-        this.dataset.push(Math.random()*100);
+        this.dataset.push(data);
         if(this.dataset.length > this.maxDataPoints){
             this.dataset.shift();
         }
@@ -44,9 +44,8 @@ class LineGraph{
             line.style.width = length + "px";
             line.style.height = "1px";
             line.style.transform = "rotate("+angle+"rad)";
-            //line.style.transformOrigin = "0% 0%";
-            line.style.marginLeft = (length/2) + "px";
-            line.style.marginTop = "-0.5px";
+            line.style.transformOrigin = "0% 0%";
+            //line.style.boxShadow = "0 2px 3px 0 var(--color-primary)";
             this.element.appendChild(line);
         }
     }

@@ -6,7 +6,12 @@ self.addEventListener("install", function (event){
         //Add here all the files which are needed that your PWA can run offline:
         caches.open("static-test").then(function(cache){
             return cache.addAll([
-                "/index.html"
+                "/index.html",
+                "/assets/styles/article.css",
+                "/assets/styles/main.css",
+                "/assets/scripts/audio-player.js",
+                "/assets/scripts/layout.js",
+                "/assets/scripts/graph.js",
             ]);
         })
     );

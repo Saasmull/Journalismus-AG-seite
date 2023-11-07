@@ -12,11 +12,14 @@ app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-var compileProcess = child_process.exec("node ./compile.js",{
-    windowsHide:true
-},function(err,stdout,stderr){
-    console.log(err,stdout,stderr);
-});
+function compile(){
+    return child_process.exec("node ./compile.js",{
+        windowsHide:true
+    },function(err,stdout,stderr){
+        console.log(err,stdout,stderr);
+    });
+}
+var compileProcess = compile();
 compileProcess.on("exit",function(){
     startServer();
 })
@@ -61,23 +64,25 @@ function startServer(){
             res.setHeader("Content-Type", "text/event-stream");
             res.setHeader("Cache-Control", "no-cache");
             res.setHeader("Connection", "keep-alive");
-            var data = {
-                versions:{
-                    node:process.versions.node,
-                    jag:v
-                },
-                stats:{
-                    platform:process.platform,
-                    arch:os.arch(),
-                    type:os.type(),
-                    uptime:os.uptime(),
-                    hostname:os.hostname,
-                    cpuUsage:cpuUsagePercent(),
-                    cpus:os.cpus(),
-                    memoryUsage:process.memoryUsage(),
-                }
-            };
             const update = () => {
+                var data = {
+                    versions:{
+                        node:process.versions.node,
+                        jag:v
+                    },
+                    stats:{
+                        platform:process.platform,
+                        arch:os.arch(),
+                        type:os.type(),
+                        uptime:os.uptime(),
+                        hostname:os.hostname,
+                        cpuUsage:cpuUsagePercent(),
+                        cpus:os.cpus(),
+                        memoryTotal:os.totalmem(),
+                        memoryFree:os.freemem(),
+                        memoryUsage:process.memoryUsage(),
+                    }
+                };
                 res.write(`data: ${JSON.stringify(data)}\n\n`);
             };
             const intID = setInterval(update,1000);
@@ -113,6 +118,7 @@ function startServer(){
                             case "SchreibeArtikelInhalt":
                                 fs.writeFileSync("articles/"+JSON.parse(req.body.data).id+"/index.md",JSON.parse(req.body.data).content,"utf-8");
                                 res.end();
+                                compile();
                                 break;
                             default:
                                 res.send(CONFIG.ADMIN_TEMPLATE);

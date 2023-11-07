@@ -36,7 +36,7 @@ module.exports = class RssFeed{
      */
     renderFeed(){
         var xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + CONFIG.BREAK;
-        xml += "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">" + CONFIG.BREAK;
+        xml += "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\"  xmlns:media=\"http://search.yahoo.com/mrss/\">" + CONFIG.BREAK;
         xml += CONFIG.INDENT + "<channel>" + CONFIG.BREAK;
         xml += CONFIG.INDENT + "<atom:link href=\"" + CONFIG.SITE_ROOT + "/feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>" + CONFIG.BREAK;
         xml += CONFIG.INDENT + "<title>" + this.title + "</title>" + CONFIG.BREAK;
