@@ -26,7 +26,7 @@ module.exports = class RssFeed{
         xml += CONFIG.INDENT + CONFIG.INDENT + "<title>" + utils.rmvEntities(article.metadata.title) + "</title>" + CONFIG.BREAK;
         xml += CONFIG.INDENT + CONFIG.INDENT + "<link>" + CONFIG.SITE_ROOT + "/article/" + article.path + ".html</link>" + CONFIG.BREAK;
         xml += CONFIG.INDENT + CONFIG.INDENT + "<description>" + utils.rmvEntities(article.metadata.description) + "</description>" + CONFIG.BREAK;
-        xml += CONFIG.INDENT + CONFIG.INDENT + "<media:thumbnail url=\"" + article.metadata.banner + "\">" + CONFIG.BREAK;
+        xml += CONFIG.INDENT + CONFIG.INDENT + "<media:thumbnail url=\"" + article.metadata.banner + "\"/>" + CONFIG.BREAK;
         xml += CONFIG.INDENT + "</item>";
         return xml;
     }
