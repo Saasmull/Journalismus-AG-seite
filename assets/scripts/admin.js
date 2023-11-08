@@ -137,6 +137,7 @@ function callAPI(command,data,responseType,callback){
             callback(ev.target.response);
         }
     }
+    req.onloadend = alert;
     if(typeof data === "undefined" || data === null || data === undefined){
         data = undefined;
     }
