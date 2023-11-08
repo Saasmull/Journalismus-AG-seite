@@ -165,7 +165,7 @@ callAPI("LeseNutzerRechte",null,"json",function(data){
     }
 });
 function loadLogs(){
-    callAPI("LeseLogs",null,null,function(data){
+    callAPI("LeseLogs",null,"text",function(data){
         data = "[\n"+data.replaceAll("\n",",\n");
         data = data.substring(0,data.length-2)+"\n]";
         var logs = JSON.parse(data);
