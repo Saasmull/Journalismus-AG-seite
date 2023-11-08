@@ -132,6 +132,7 @@ function callAPI(command,data,responseType,callback){
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     req.responseType = responseType;
     req.onload = function(ev){
+        alert("Got result");
         if(typeof callback ==="function"){
             callback(ev.target.response);
         }
@@ -144,6 +145,7 @@ function callAPI(command,data,responseType,callback){
         data = JSON.stringify(data);
     }
     req.send("action="+command+(data?"&data="+encodeURIComponent(data+""):""));
+    alert("Sent");
 }
 var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
