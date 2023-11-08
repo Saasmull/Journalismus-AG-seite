@@ -29,9 +29,46 @@ if(CONFIG.MINIFY){
     plugins.push(require("postcss-minify")());
 }
 
+const graphExt = {
+    name:"graph",
+    level:"block",
+    start(src){
+        return src.match(/graph/)?.index;
+    },
+    tokenizer(src, tokens){
+        var rule = /^graph(\["[A-z0-9.,\- ]+",([0-9.]+,)*[0-9.]+\])/;
+        var match = rule.exec(src);
+        if(match){
+            var data = JSON.parse(match[1]);
+            return {
+            type:"graph",
+            raw:match[0],
+            title:data.shift(),
+            dataset:data
+            };
+        }
+    },
+    renderer(token){
+        console.log(token);
+        var id = token.title.replaceAll(" ","-").toLowerCase();
+        return `<div id="${id}" style="margin:32px 0;"><h3 style="margin:0 16px;">${token.title}</h3><div style="min-height:200px;height:25vw;position:relative;width:100%;" class="line-graph"></div></div>
+<script src="/assets/scripts/graph.js"></script>
+<script>
+(function(){
+    var graphEl = document.querySelector("#${id}>.line-graph");
+    if(LineGraph){
+        var graph = new LineGraph(graphEl,${token.dataset.length});
+        graph.addData([${token.dataset.join(",")}]);
+    }
+})();
+</script>`;
+    }   
+};
+
 marked.use({
     gfm:true,
     pedantic:false,
+    extensions:[graphExt],
     renderer:{
         image:function(href,title,text){
             return "<figure><img loading=\"lazy\" src=\"" + utils.str(href) + "\" title=\"" + utils.str(title) + "\" alt=\"" + utils.str(text) + "\"><figcaption>"+utils.str(text)+"</figcaption></figure>";
