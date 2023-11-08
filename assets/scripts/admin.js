@@ -1,3 +1,7 @@
+onerror = function(ev){
+    alert(JSON.stringify(ev));
+}
+
 function loadMetadataEditor(articleItem,id,metadata){
     var editorContent = `<div class="metadata-editor"><input class="m-title" type="text" value="${metadata.title||""}"><br>
     <input class="m-id" type="text" value="${id||""}"><br>
