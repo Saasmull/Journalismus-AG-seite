@@ -1,7 +1,7 @@
 onerror = function(ev){
-    alert(JSON.stringify(ev));
+    //console.log(JSON.stringify(ev));
 }
-alert("F Start");
+
 function loadMetadataEditor(articleItem,id,metadata){
     var editorContent = `<div class="metadata-editor"><input class="m-title" type="text" value="${metadata.title||""}"><br>
     <input class="m-id" type="text" value="${id||""}"><br>
@@ -125,7 +125,6 @@ class Articles{
     }
 }
 function callAPI(command,data,responseType,callback){
-    alert("Start");
     var fd = new FormData();
     fd.append("action",command);
     var req = new XMLHttpRequest();
@@ -133,12 +132,10 @@ function callAPI(command,data,responseType,callback){
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     req.responseType = responseType;
     req.onload = function(ev){
-        alert("Got result");
         if(typeof callback ==="function"){
             callback(ev.target.response);
         }
     }
-    req.onloadend = alert;
     if(typeof data === "undefined" || data === null || data === undefined){
         data = undefined;
     }
@@ -147,16 +144,12 @@ function callAPI(command,data,responseType,callback){
         data = JSON.stringify(data);
     }
     req.send("action="+command+(data?"&data="+encodeURIComponent(data+""):""));
-    alert("Sent");
 }
 var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
-alert("Appended");
 callAPI("LeseArtikelListe",null,"json",function(d){
-    alert("Read");
     for(var i of d){
         callAPI("LeseArtikelMetadaten",i,"json",function(data){
-            alert("Read "+i);
             art.addArticle(new ArticleItem(...data));
             //loadMetadataEditor(...data);
             art.render();
