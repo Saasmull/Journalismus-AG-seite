@@ -13,6 +13,12 @@ class LineGraph{
         this.dataset = Array(this.maxDataPoints).fill(null);
     }
     addData(data){
+        if(typeof data !== "number"){
+            for(var i = 0;i < data.length;i++){
+                this.addData(data[i]);
+            }
+            return;
+        }
         this.dataset.push(data);
         if(this.dataset.length > this.maxDataPoints){
             this.dataset.shift();
