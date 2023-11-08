@@ -30,15 +30,30 @@ class LineGraph{
                 continue;
             }
             var x1 = i*(width/(this.maxDataPoints-1));
-            var y1 = (data/this.yAxis.max)*height;
+            var y1 = ((this.yAxis.max-data)/this.yAxis.max)*height;
             var x2 = (i+1)*(width/(this.maxDataPoints-1));
-            var y2 = (this.dataset[i+1]/this.yAxis.max)*height;
+            var y2 = ((this.yAxis.max-this.dataset[i+1])/this.yAxis.max)*height;
             var length = Math.sqrt(Math.pow(x2 - x1,2)+Math.pow(y2 - y1,2));
             var angle = Math.atan2(y2 - y1,x2 - x1);
+
+            var area = document.createElement("div");
+            area.classList.add("area");
+            area.style.position = "absolute";
+            area.style.backgroundImage =
+                "linear-gradient(to bottom, var(--color-primary) 70%, transparent)";
+            area.style.left = x1 + "px";
+            area.style.top = "0";
+            area.style.width = x2 - x1 + "px";
+            area.style.height = height + "px";
+            area.style.transformOrigin = "0% 0%";
+            area.style.clipPath = "polygon(0 " + (y1+1) + "px, 100% " + (y2+1) + "px, 100% 100%, 0 100%)";
+            area.style.opacity = "0.2";
+            this.element.appendChild(area);
+
             var line = document.createElement("div");
             line.classList.add("line");
             line.style.position = "absolute";
-            //line.style.backgroundColor = "black";
+            line.style.backgroundColor = "var(--color-primary)";
             line.style.left = x1 + "px";
             line.style.top = y1 + "px";
             line.style.width = length + "px";

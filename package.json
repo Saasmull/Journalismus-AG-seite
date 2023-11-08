@@ -16,6 +16,8 @@
     "express-basic-auth": "^1.2.1",
     "inquirer": "^8.0.0",
     "marked": "^9.0.0",
+    "pino": "^8.16.1",
+    "pino-http": "^8.5.1",
     "postcss": "^8.4.30",
     "postcss-custom-properties": "^13.3.2",
     "postcss-minify": "^1.1.0",

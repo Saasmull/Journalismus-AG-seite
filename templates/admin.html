@@ -129,15 +129,16 @@
             position: absolute;
             top: 50px;
             left: 200px;
-            height: 100%;
+            height: calc(100% - 50px);
+            width: calc(100% - 200px);
         }
-        .articles,.usages{
+        .articles,.server-debug-panel{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-evenly;
         }
-        .articles>*,.usages>*{
+        .articles>*,.server-debug-panel>*{
             height: 40vh;
             max-width: 400px;
             display: inline-flex;
@@ -216,11 +217,10 @@
 
 
 
-        .usages{
-            display: flex;
-            flex-direction: row;
+        .server-debug-panel{
+            width: 100%;
         }
-        .usages h3{
+        .server-debug-panel h3{
             margin: 0;
         }
         .line-graph{
@@ -230,7 +230,7 @@
             overflow: hidden;
             /border-left: 1px solid var(--text-color-1);
         }
-        .line-graph>*{
+        /*.line-graph>*{
             background-color: var(--color-primary);
         }
         .line-graph>*::after{
@@ -241,7 +241,35 @@
             position: absolute;
             top: 1px;
             left: 0;
+        }*/
+        .server-debug-panel .logs>.options{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            overflow-x: auto;
+            height: 45px;
         }
+        .server-debug-panel .logs>.options>span{
+            min-width: 75px;
+        }
+        .server-debug-panel .logs>.lines{
+            overflow: auto;
+            height: 100%;
+        }
+        .logs .fatal,.logs .error{
+            color: red;
+        }
+        .logs .warn{
+            color: yellow;
+        }
+        .logs .info{
+            color: cornflowerblue;
+        }
+        .logs .http{
+            color: green;
+        }
+
     </style>
     <div id="tabs">
         <button class="tablink" id="Artikel">Artikel</button>
@@ -264,21 +292,40 @@
     <div class="tabcontent" id="DebuggingTab">
         <div class="server-debug-panel">
             <div>
+                <h3>System</h3>
                 <span class="node-v">node.js: -.-.-</span>
                 <span class="jag-v">jag: -.-.-</span>
                 <span class="hostname"></span>
                 <span class="arch">x64</span>
                 <span class="os-platform"></span>
             </div>
-            <div class="usages">
-                <div class="card mem-usage">
-                    <h3>Memory</h3>
-                    <div class="line-graph"></div>
+            <div class="card mem-usage">
+                <h3>Memory</h3>
+                <div class="line-graph"></div>
+            </div>
+            <div class="card cpu-usage">
+                <h3>CPU</h3>
+                <div class="line-graph"></div>
+            </div>
+            <div class="card heap-usage">
+                <h3>Heap</h3>
+                <div class="line-graph"></div>
+            </div>
+            <div class="card heap-size">
+                <h3>Heap Size</h3>
+                <div class="line-graph"></div>
+            </div>
+            <div class="logs">
+                <h3>Logs</h3>
+                <div class="options">
+                    <span><label for="http-show">HTTP</label><input checked type="checkbox" name="HTTP" id="http-show"></span>
+                    <span><label for="fatal-show">FATAL</label><input checked type="checkbox" name="FATAL" id="fatal-show"></span>
+                    <span><label for="error-show">ERROR</label><input checked type="checkbox" name="ERROR" id="error-show"></span>
+                    <span><label for="warn-show">WARN</label><input checked type="checkbox" name="WARN" id="warn-show"></span>
+                    <span><label for="info-show">INFO</label><input checked type="checkbox" name="INFO" id="info-show"></span>
+                    <span><label for="debug-show">DEBUG</label><input checked type="checkbox" name="DEBUG" id="debug-show"></span>
                 </div>
-                <div class="card cpu-usage">
-                    <h3>CPU</h3>
-                    <div class="line-graph"></div>
-                </div>
+                <div class="lines"></div>
             </div>
             <!--iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe-->
         </div>

@@ -8,7 +8,17 @@ const sec = require("express-basic-auth");
 const child_process = require("child_process");
 const si = require("systeminformation");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
+const pino = require("pino");
+const pinoHttp = require("pino-http");
 
+if(!fs.existsSync("./logs")){
+    fs.mkdirSync("./logs");
+}
+const logger = pino({},"./logs/server.log");
+
+app.use(pinoHttp({
+    logger
+}));
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -24,23 +34,6 @@ var compileProcess = compile();
 compileProcess.on("exit",function(){
     startServer();
 })
-
-
-function cpuUsagePercent(){
-    const cpuInfo = os.cpus();
-    let totalUsage = 0;
-    let totalIdle = 0;
-    
-    cpuInfo.forEach((core) => {
-      totalUsage += core.times.user + core.times.nice + core.times.sys;
-      totalIdle += core.times.idle;
-    });
-  
-    const total = totalUsage + totalIdle;
-    const percentUsage = ((totalUsage - totalIdle) / total) * 100;
-    
-    return percentUsage;
-};
 
 
 function createAuthSite(errorMessage){
@@ -77,7 +70,6 @@ function startServer(){
                         type:os.type(),
                         uptime:os.uptime(),
                         hostname:os.hostname,
-                        cpuUsage:cpuUsagePercent(),
                         cpus:os.cpus(),
                         mem:await si.mem(),
                         cpuLoad:(await si.currentLoad()).currentLoad,
@@ -103,6 +95,9 @@ function startServer(){
                                     dev:true,
                                     admin:true
                                 });
+                                break;
+                            case "LeseLogs":
+                                res.send(fs.readFileSync("logs/server.log","utf8"));
                                 break;
                             case "LeseArtikelListe":
                                 res.json([...fs.readdirSync("articles")]);
@@ -161,6 +156,17 @@ function startServer(){
         })); 
     }
     app.use("/",express.static(__dirname+"/root"));
+    app.use("/",function(err,req,res,next){
+        if(err){
+            // Handle error
+            console.log(err);
+            logger.error(err);
+        }
+        next();
+    })
+    app.use("/",function(req,res){
+        res.status(404).sendFile(__dirname+"/root/error404.html");
+    })
     var server = app.listen(CONFIG.PORT,function(){
         var url = new URL(CONFIG.SITE_ROOT);
         if(CONFIG.LOGIN.ON){
@@ -169,17 +175,8 @@ function startServer(){
         }
         console.log("Der Server läuft auf Port \""+CONFIG.PORT+"\".");
         console.log("URL: "+url.toString());
+        logger.info("Der Server läuft auf Port \""+CONFIG.PORT+"\".");
     });
-    app.use("/",function(err,req,res,next){
-        if(err){
-            // Handle error
-            console.log(err)
-        }
-        next();
-    })
-    app.use("/",function(req,res){
-        res.status(404).sendFile(__dirname+"/root/error404.html");
-    })
     server.on("error",function(err){
         switch(err.code){
             case "EADDRINUSE":

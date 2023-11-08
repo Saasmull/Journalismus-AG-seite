@@ -146,16 +146,121 @@ callAPI("LeseNutzerRechte",null,"json",function(data){
         document.querySelector("#Debugging").style.display = "none";
     }
 });
+function loadLogs(){
+    callAPI("LeseLogs",null,null,function(data){
+        data = "[\n"+data.replaceAll("\n",",\n");
+        data = data.substring(0,data.length-2)+"\n]";
+        console.log(data);
+        var logs = JSON.parse(data);
+        function log2HTML(log){
+            var levels = {
+                60:"FATAL",
+                50:"ERROR",
+                40:"WARN",
+                30:"INFO",
+                20:"DEBUG",
+                10:"TRACE"
+            };
+            return `<div class="log-entry">
+            <span class="date">${(new Date(log.time).valueOf())}</span>&nbsp;
+            <span class="level ${(levels[log.level]||"USERLVL").toLowerCase()}">[${(levels[log.level]||"USERLVL")}]</span>&nbsp;
+            ${(log.req?
+                "<span class=\"http\">HTTP "+log.req.method+"</span> "+log.req.url+" "+log.res.statusCode+"&nbsp;":
+                "<span class=\"message\">"+log.msg+"</span>"
+            )}
+            </div>`;
+        }
+        for(var i of logs){
+            document.querySelector(".server-debug-panel .logs .lines").innerHTML += log2HTML(i);
+        }
+        document.querySelector("#http-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".http")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+        document.querySelector("#fatal-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".fatal")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+        document.querySelector("#error-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".error")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+        document.querySelector("#warn-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".warn")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+        document.querySelector("#info-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".info")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+        document.querySelector("#debug-show").addEventListener("input", function(ev){
+            var logs = document.querySelectorAll(".server-debug-panel .logs .lines .log-entry");
+            for(var i of logs){
+                if(i.querySelector(".debug")){
+                    if(ev.target.checked){
+                        i.style.display = "block";
+                    }else{
+                        i.style.display = "none";
+                    }
+                }
+            }
+        });
+    });
+}
 function startServerDebug(){
+    loadLogs();
     var eventSource = new EventSource("/dbg-api");
     var memUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
     var cpuUsage = document.querySelector(".server-debug-panel .cpu-usage .line-graph");
+    var heapUsage = document.querySelector(".server-debug-panel .heap-usage .line-graph");
+    var heapSize = document.querySelector(".server-debug-panel .heap-size .line-graph");
     var memGraph = new LineGraph(memUsage);
     var cpuGraph = new LineGraph(cpuUsage);
+    var heapGraph = new LineGraph(heapUsage);
+    var heapSizeGraph = new LineGraph(heapSize);
 
     eventSource.onmessage = (event) => {
         var data = JSON.parse(event.data);
-        console.log(data,memGraph,memUsage);
         document.querySelector(".server-debug-panel .node-v").innerText = "node.js: "+data.versions.node;
         document.querySelector(".server-debug-panel .jag-v").innerText = "jag: "+data.versions.jag;
         document.querySelector(".server-debug-panel .hostname").innerText = data.stats.hostname;
@@ -164,10 +269,17 @@ function startServerDebug(){
         var memP = ((data.stats.memoryTotal - data.stats.memoryFree)/data.stats.memoryTotal)*100;
         document.querySelector(".server-debug-panel .mem-usage h3").innerText =
             "Memory " + Math.round(memP) + "%";
-        memGraph.addData(100-memP);
+        memGraph.addData(memP);
         document.querySelector(".server-debug-panel .cpu-usage h3").innerText =
             "CPU " + Math.round(data.stats.cpuLoad) + "%";
-        cpuGraph.addData(100-data.stats.cpuLoad);
+        cpuGraph.addData(data.stats.cpuLoad);
+        document.querySelector(".server-debug-panel .heap-usage h3").innerText =
+            "Heap " + Math.round(data.stats.memoryUsage.heapUsed/data.stats.memoryUsage.heapTotal*100) + "%";
+        heapGraph.addData(data.stats.memoryUsage.heapUsed/data.stats.memoryUsage.heapTotal*100);
+        document.querySelector(".server-debug-panel .heap-size h3").innerText =
+            "Heap Size " + Math.round(data.stats.memoryUsage.heapTotal/1024/1024) + "MB";
+        heapSizeGraph.addData(data.stats.memoryUsage.heapTotal/200000000*100);
+        console.log(data.stats.memoryUsage.heapTotal/(data.stats.memoryTotal/50)*100,(data.stats.memoryTotal/50));
         //var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
         //cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
         //document.querySelector(".server-debug-panel").innerHTML = event.data;
