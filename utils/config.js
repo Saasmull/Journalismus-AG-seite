@@ -41,7 +41,7 @@ const CONFIG = module.exports = {
         PASSWORD:"vD6)1w3Bt*w<"
     },
     /** @type {boolean} Ob das Admin-Backend an ist. */
-    ADMIN_BACKEND:false,
+    ADMIN_BACKEND:true,
     /** @type {string} */
     BREAK:"\n",
     /** @type {string} */
@@ -68,4 +68,4 @@ CONFIG.ADMIN_TEMPLATE = fs.readFileSync("templates/admin.html","utf-8") || CONFI
 CONFIG.LOGIN.ON = CONFIG.LOGIN.ON && (!CONFIG.LOGIN.OFF_ON_LOCALHOST || (CONFIG.LOGIN.OFF_ON_LOCALHOST && CONFIG.IS_SERVER));
 
 //TEMP
-CONFIG.ADMIN_BACKEND = !CONFIG.IS_SERVER;
+//CONFIG.ADMIN_BACKEND = !CONFIG.IS_SERVER;

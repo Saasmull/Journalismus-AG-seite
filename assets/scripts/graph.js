@@ -17,7 +17,6 @@ class LineGraph{
         if(this.dataset.length > this.maxDataPoints){
             this.dataset.shift();
         }
-        console.log(this)
         this.render();
     }
     render(){
@@ -56,7 +55,8 @@ class LineGraph{
             line.style.backgroundColor = "var(--color-primary)";
             line.style.left = x1 + "px";
             line.style.top = y1 + "px";
-            line.style.width = length + "px";
+            line.style.width = length + 1 + "px";
+            line.style.borderRadius = "2px";
             line.style.height = "1px";
             line.style.transform = "rotate("+angle+"rad)";
             line.style.transformOrigin = "0% 0%";

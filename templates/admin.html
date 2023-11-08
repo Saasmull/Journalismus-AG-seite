@@ -95,13 +95,14 @@
             padding: 8px;
             color: var(--text-color-1);
             background-color: transparent;
-            flex-grow: 1;
-            box-shadow: inset 0 -2px 0 0 var(--text-color-1);
+            /*flex-grow: 1;
+            box-shadow: inset 0 -2px 0 0 var(--text-color-1);*/
         }
         .tablink.activeTab{
             background-color: var(--bg-color-1-5);
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
+            text-decoration: underline var(--color-primary);
             box-shadow: inset 0 -2px 0 0 var(--color-primary);
         }
 
@@ -197,6 +198,7 @@
             border: none;
             background-color: red;
             color: #fff;
+            padding: 5px 15px;
         }
         .editor-window-content{
             display: block;
@@ -253,7 +255,8 @@
         .server-debug-panel .logs>.options>span{
             min-width: 75px;
         }
-        .server-debug-panel .logs>.lines{
+        .server-debug-panel .logs>.lines,
+        .server-debug-panel .config-vars>.lines{
             overflow: auto;
             height: 100%;
         }
@@ -270,6 +273,32 @@
             color: green;
         }
 
+        .config-vars details{
+            display: inline-block;
+        }
+        .config-vars details>*{
+            display: inline;
+            margin-left: 5px;
+        }
+        .config-vars details>summary::before{
+            content: "\25B8";
+            display: inline-block;
+            cursor: pointer;
+            width: 18px;
+        }
+        .config-vars details[open]>summary::before{
+            content: "\25BE";
+        }
+        .config-vars .boolean{
+            color: orange;
+        }
+        .config-vars .number{
+            color: cornflowerblue;
+        }
+        .config-vars .string{
+            color: green;
+        }
+
     </style>
     <div id="tabs">
         <button class="tablink" id="Artikel">Artikel</button>
@@ -281,6 +310,9 @@
     </div>
     <header>
         <div>Login</div>
+        <div><form method="POST">
+            <input type="submit" value="Ausloggen" name="action">
+        </form></div>
     </header>
     <div class="tabcontent" id="ArtikelTab" style="display: none;"></div>
     <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
@@ -325,6 +357,10 @@
                     <span><label for="info-show">INFO</label><input checked type="checkbox" name="INFO" id="info-show"></span>
                     <span><label for="debug-show">DEBUG</label><input checked type="checkbox" name="DEBUG" id="debug-show"></span>
                 </div>
+                <div class="lines"></div>
+            </div>
+            <div class="config-vars">
+                <h3>Config</h3>
                 <div class="lines"></div>
             </div>
             <!--iframe src="https://app.pm2.io/bucket/6548db372fe7b911fd3df133/backend/overview/servers"></iframe-->

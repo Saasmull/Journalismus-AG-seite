@@ -14,6 +14,8 @@ async function setSpinnerText(text){
     await log.setSpinnerText(text);
 }
 
+const onlyUpdate = process.argv.includes("--only-update");
+
 const plugins = [
     require("postcss-custom-properties")({
         preserve: true
@@ -45,7 +47,7 @@ const ErrorPage = require("./utils/ErrorPage");
 const RssFeed = require("./utils/RssFeed");
 const Sitemap = require("./utils/Sitemap");
 
-if(CONFIG.MINIFY){
+if(CONFIG.MINIFY && !onlyUpdate){
     function minifyJs(string){
         return UglifyJS.minify(string,{
             mangle:{
@@ -66,44 +68,46 @@ function cleanDir(path){
     }catch(e){}
 }
 async function setupRootDir(){
-    await setSpinnerText("Leere root-Verzeichnis...");
-    try{
-        fs.rmSync("root/index.html");
-    }catch(e){}
-    cleanDir("root/api");
-    cleanDir("root/author");
-    cleanDir("root/article");
-    cleanDir("root/assets");
-    cleanDir("root/category");
-    async function copyFiles(from,to,statusText){
+    if(!onlyUpdate){
+        await setSpinnerText("Leere root-Verzeichnis...");
         try{
-            await setSpinnerText(statusText);
-            fs.cpSync(from,to,{recursive:true});
-        }catch(e){
-            log.warn("Kopieren fehlgeschlagen. Versuche neu..");
-            await sleep(500);
-            await copyFiles(from,to,statusText);
+            fs.rmSync("root/index.html");
+        }catch(e){}
+        cleanDir("root/api");
+        cleanDir("root/author");
+        cleanDir("root/article");
+        cleanDir("root/assets");
+        cleanDir("root/category");
+        async function copyFiles(from,to,statusText){
+            try{
+                await setSpinnerText(statusText);
+                fs.cpSync(from,to,{recursive:true});
+            }catch(e){
+                log.warn("Kopieren fehlgeschlagen. Versuche neu..");
+                await sleep(500);
+                await copyFiles(from,to,statusText);
+            }
         }
-    }
-    await copyFiles("api/","root/api","Kopiere API-Dateien...");
-    await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
-    fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
-    await setSpinnerText("Kompiliere CSS-Dateien...");
-    if(CONFIG.MINIFY){
-        await setSpinnerText("Komprimiere CSS-Dateien...");
-    }
-    postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf-8"),{
-        from:undefined
-    }).then(function(res){
-        var css = res.css;
-        //console.log(css);
-        fs.writeFileSync("root/assets/styles/main.css",
-        css,"utf-8");
-    });
-    if(CONFIG.MINIFY){
-        await setSpinnerText("Komprimiere JS-Dateien...");
-        minifyJsFile("root/assets/scripts/layout.js");
-        minifyJsFile("root/service-worker.js");
+        await copyFiles("api/","root/api","Kopiere API-Dateien...");
+        await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
+        fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
+        await setSpinnerText("Kompiliere CSS-Dateien...");
+        if(CONFIG.MINIFY){
+            await setSpinnerText("Komprimiere CSS-Dateien...");
+        }
+        postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf-8"),{
+            from:undefined
+        }).then(function(res){
+            var css = res.css;
+            //console.log(css);
+            fs.writeFileSync("root/assets/styles/main.css",
+            css,"utf-8");
+        });
+        if(CONFIG.MINIFY){
+            await setSpinnerText("Komprimiere JS-Dateien...");
+            minifyJsFile("root/assets/scripts/layout.js");
+            minifyJsFile("root/service-worker.js");
+        }
     }
 }
 
@@ -199,29 +203,31 @@ setupRootDir().then(async function(){
     fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
     await setSpinnerText("Rendere Homepage...");
     fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
-    await setSpinnerText("Rendere Fehlerseite...");
-    fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf-8");
-    await setSpinnerText("Rendere Webmanifest...");
-    fs.writeFileSync("root/manifest.json",JSON.stringify({
-        "name":CONFIG.SITE_NAME,
-        "short_name":CONFIG.SITE_NAME,
-        "description":CONFIG.DESCRIPTION,
-        "scope": "/",
-        "start_url": "/index.html",
-        "id":"/index.html",
-        "display":"standalone",
-        "display_override":["window-controls-overlay"],
-        "icons":[
-            {
-                "src":"/assets/images/icon.png",
-                "type":"image/png",
-                "sizes":"512x512",
-                "purpose": "any"
-            }
-        ],
-        "background_color": "#000000",
-        "theme_color": "#000000"
-    },null,CONFIG.INDENT),"utf-8");
+    if(!onlyUpdate){
+        await setSpinnerText("Rendere Fehlerseite...");
+        fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf-8");
+        await setSpinnerText("Rendere Webmanifest...");
+        fs.writeFileSync("root/manifest.json",JSON.stringify({
+            "name":CONFIG.SITE_NAME,
+            "short_name":CONFIG.SITE_NAME,
+            "description":CONFIG.DESCRIPTION,
+            "scope": "/",
+            "start_url": "/index.html",
+            "id":"/index.html",
+            "display":"standalone",
+            "display_override":["window-controls-overlay"],
+            "icons":[
+                {
+                    "src":"/assets/images/icon.png",
+                    "type":"image/png",
+                    "sizes":"512x512",
+                    "purpose": "any"
+                }
+            ],
+            "background_color": "#000000",
+            "theme_color": "#000000"
+        },null,CONFIG.INDENT),"utf-8");
+    }
 
     setSpinnerText("Fertig!");
     log.stop();

@@ -1,9 +1,16 @@
-function loadMetadataEditor(id,metadata){
-    var editorContent = `<div class="metadata-editor"><input type="text" value="${metadata.title||""}"><br>
-    <input type="text" value="${id||""}"><br>
-    <textarea>${metadata.description||""}</textarea></div>
+function loadMetadataEditor(articleItem,id,metadata){
+    var editorContent = `<div class="metadata-editor"><input class="m-title" type="text" value="${metadata.title||""}"><br>
+    <input class="m-id" type="text" value="${id||""}"><br>
+    <textarea class="m-description">${metadata.description||""}</textarea></div>
     <div class="tmce"></div>`;
     document.querySelector(".editor-window-content").innerHTML = editorContent;
+    document.querySelector(".metadata-editor").addEventListener("keyup",function(ev){
+        metadata.title = document.querySelector(".metadata-editor .m-title").value;
+        metadata.description = document.querySelector(".metadata-editor .m-description").value;
+        articleItem.data = metadata;
+        articleItem.render();
+        callAPI("SchreibeArtikelMetadaten",{id:id,metadata:metadata});
+    })
 }
 function loadContentEditor(id,content){
     var editorContent = `<textarea class="md-edit"></textarea>`;
@@ -13,12 +20,15 @@ function loadContentEditor(id,content){
         callAPI("SchreibeArtikelInhalt",{id:id,content:ev.target.value});
     })
 }
-function toggleEditor(){
-    document.querySelector("#editor-window").classList.toggle("closed");
-}
 document.querySelector("button.editor-window-close").addEventListener("click",toggleEditor);
 var tablinks = document.querySelectorAll(".tablink");
 var tabcontents = document.querySelectorAll(".tabcontent");
+function toggleEditor(){
+    document.querySelector("#editor-window").classList.toggle("closed");
+    for(var i of tabcontents){
+        i.style.overflow = document.querySelector("#editor-window").classList.contains("closed")?"":"hidden";
+    }
+}
 for(var i = 0;i < tablinks.length;i++){
     tablinks[i].addEventListener("click",function(e){
         openTab(e.target.id);
@@ -60,14 +70,18 @@ class ArticleItem{
         this.el = document.createElement("div");
         this.el.classList.add("list-row");
         this.el.classList.add("card");
-        this.el.innerHTML = `<span class="list-col short">${data.title}</span>
+        this.render();
+    }
+    render(){
+        var glob = this;
+        this.el.innerHTML = `<span class="list-col short">${this.data.title}</span>
         <a class="list-col short" href="/article/${this.id}.html">/article/${this.id}.html</a>
         <span class="list-col long">${this.data.description}</span>
         <span class="list-col short">${this.data.authors.join(",")}</span>
         <button class="action-edit-metadata list-col short first">Metadaten bearbeiten</button>
         <button class="action-edit-content list-col short">Inhalt bearbeiten</button>`;
         this.el.querySelector("button.action-edit-metadata").addEventListener("click",function(){
-            loadMetadataEditor(glob.id,glob.data);
+            loadMetadataEditor(glob,glob.id,glob.data);
             toggleEditor();
         });
         this.el.querySelector("button.action-edit-content").addEventListener("click",function(){
@@ -150,7 +164,6 @@ function loadLogs(){
     callAPI("LeseLogs",null,null,function(data){
         data = "[\n"+data.replaceAll("\n",",\n");
         data = data.substring(0,data.length-2)+"\n]";
-        console.log(data);
         var logs = JSON.parse(data);
         function log2HTML(log){
             var levels = {
@@ -247,8 +260,27 @@ function loadLogs(){
         });
     });
 }
+function loadConfig(){
+    var configEl = document.querySelector(".server-debug-panel .config-vars .lines");
+    callAPI("LeseConfig",null,"json",function(data){
+        function addKey(key,value){
+            var el = document.createElement("details");
+            el.innerHTML = "<summary class=\"key\"></summary><span class=\"value\"></span>";
+            el.querySelector(".key").innerText = key;
+            el.querySelector(".value").innerText = JSON.stringify(value,null,3);
+            el.querySelector(".value").classList.add(typeof value);
+            configEl.appendChild(el);
+            configEl.innerHTML += "<br>";
+        }
+        for(var i in data){
+            addKey(i,data[i]);
+        }
+    })
+
+}
 function startServerDebug(){
     loadLogs();
+    loadConfig();
     var eventSource = new EventSource("/dbg-api");
     var memUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
     var cpuUsage = document.querySelector(".server-debug-panel .cpu-usage .line-graph");
@@ -279,7 +311,6 @@ function startServerDebug(){
         document.querySelector(".server-debug-panel .heap-size h3").innerText =
             "Heap Size " + Math.round(data.stats.memoryUsage.heapTotal/1024/1024) + "MB";
         heapSizeGraph.addData(data.stats.memoryUsage.heapTotal/200000000*100);
-        console.log(data.stats.memoryUsage.heapTotal/(data.stats.memoryTotal/50)*100,(data.stats.memoryTotal/50));
         //var cpuUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
         //cpuUsage.innerHTML += "<div style=\"height:" + (100 - data.stats.cpuUsagePercent) + "%\"></div>";
         //document.querySelector(".server-debug-panel").innerHTML = event.data;
@@ -287,6 +318,5 @@ function startServerDebug(){
 
     eventSource.onerror = (error) => {
         console.error('EventSource failed:', error);
-        eventSource.close();
     };
 }

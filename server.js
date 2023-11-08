@@ -1,6 +1,7 @@
 const CONFIG = require("./utils/config");
 const fs = require("fs");
 const os = require("os");
+const crypto = require("crypto");
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
@@ -10,6 +11,7 @@ const si = require("systeminformation");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 const pino = require("pino");
 const pinoHttp = require("pino-http");
+
 
 if(!fs.existsSync("./logs")){
     fs.mkdirSync("./logs");
@@ -23,8 +25,8 @@ app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-function compile(){
-    return child_process.exec("node ./compile.js",{
+function compile(onlyUpdate){
+    return child_process.exec("node ./compile.js"+(onlyUpdate?" --only-update":""),{
         windowsHide:true
     },function(err,stdout,stderr){
         console.log(err,stdout,stderr);
@@ -54,6 +56,14 @@ function startServer(){
         next();
     })
     if(CONFIG.ADMIN_BACKEND){
+        var sessions = [];
+        try{
+            sessions = fs.readFileSync(".sessions","utf8").split("\n");
+            sessions.shift();
+            sessions.pop();
+        }catch(e){
+            fs.writeFileSync(".sessions","keys\n","utf8");
+        }
         app.get("/dbg-api",function(req,res){
             res.setHeader("Content-Type", "text/event-stream");
             res.setHeader("Cache-Control", "no-cache");
@@ -88,7 +98,17 @@ function startServer(){
         app.all("/al",function(req,res){
             switch(req.method){
                 case "POST":
-                    if(req.cookies.auth === "is"){
+                    if(req.body.action === "Ausloggen"){
+                        if(req.cookies.auth){
+                            var i = sessions.indexOf(req.cookies.auth);
+                            if(i != -1){
+                                sessions.splice(i,1);
+                                fs.writeFileSync(".sessions","keys\n"+sessions.join("\n")+"\n","utf8");
+                            }
+                            res.clearCookie("auth");
+                        }
+                        res.send(createAuthSite(""));
+                    }else if(req.cookies.auth && sessions.includes(req.cookies.auth)){
                         switch(req.body.action){
                             case "LeseNutzerRechte":
                                 res.json({
@@ -98,6 +118,9 @@ function startServer(){
                                 break;
                             case "LeseLogs":
                                 res.send(fs.readFileSync("logs/server.log","utf8"));
+                                break;
+                            case "LeseConfig":
+                                res.json(CONFIG);
                                 break;
                             case "LeseArtikelListe":
                                 res.json([...fs.readdirSync("articles")]);
@@ -113,18 +136,29 @@ function startServer(){
                                     fs.readFileSync("articles/"+JSON.parse(req.body.data)+"/index.md","utf-8")
                                 );
                                 break;
+                            case "SchreibeArtikelMetadaten":
+                                fs.writeFileSync("articles/"+JSON.parse(req.body.data).id+"/meta.json",JSON.stringify(JSON.parse(req.body.data).metadata),"utf-8");
+                                res.end();
+                                compile(true);
+                                break;
                             case "SchreibeArtikelInhalt":
                                 fs.writeFileSync("articles/"+JSON.parse(req.body.data).id+"/index.md",JSON.parse(req.body.data).content,"utf-8");
                                 res.end();
-                                compile();
+                                compile(true);
                                 break;
                             default:
                                 res.send(CONFIG.ADMIN_TEMPLATE);
                                 break;
                         }
                     }else if(req.body.action === "Einloggen"){
-                        if(req.body.user === "a" && req.body.password === "a"){
-                            res.cookie("auth","is");
+                        if(req.body.user === "jag" &&
+                            crypto.pbkdf2Sync(req.body.password,"jag",1000,64,"sha512")
+                            .toString("hex") === "77b6eed9d6ad2cac6abed6b80d750da587e7bddda99461fc5066dd089"+
+                            "299803eb0d716e5bcd0e1f3b84b89aba887e9ef8ec07f407211ec2210e6f4561dda72d2"){
+                            var cookie = crypto.randomUUID();
+                            sessions.push(cookie);
+                            fs.writeFileSync(".sessions","keys\n"+sessions.join("\n")+"\n","utf8");
+                            res.cookie("auth",cookie);
                             res.send(CONFIG.ADMIN_TEMPLATE);
                             return;
                         }else{
@@ -136,7 +170,7 @@ function startServer(){
                     break;
                 case "GET":
                 default:
-                    if(req.cookies.auth === "is"){
+                    if(sessions.includes(req.cookies.auth)){
                         res.send(CONFIG.ADMIN_TEMPLATE);
                     }else{
                         res.send(createAuthSite(""));
