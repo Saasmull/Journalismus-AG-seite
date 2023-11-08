@@ -125,6 +125,7 @@ class Articles{
     }
 }
 function callAPI(command,data,responseType,callback){
+    alert("Start");
     var fd = new FormData();
     fd.append("action",command);
     var req = new XMLHttpRequest();
@@ -150,6 +151,7 @@ function callAPI(command,data,responseType,callback){
 }
 var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
+alert("Appended");
 callAPI("LeseArtikelListe",null,"json",function(d){
     alert("Read");
     for(var i of d){
