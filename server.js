@@ -112,7 +112,7 @@ function startServer(){
                         switch(req.body.action){
                             case "LeseNutzerRechte":
                                 res.json({
-                                    dev:true,
+                                    dev:false,
                                     admin:true
                                 });
                                 break;

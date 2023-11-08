@@ -301,11 +301,11 @@
 
     </style>
     <div id="tabs">
-        <button class="tablink" id="Artikel">Artikel</button>
+        <button class="tablink activeTab" id="Artikel">Artikel</button>
         <button class="tablink" id="Kategorien">Kategorien</button>
         <button class="tablink" id="Dateien">Dateien</button>
         <button class="tablink" id="Neu">Neu</button>
-        <button class="tablink activeTab" id="Debugging">Debugging</button>
+        <button class="tablink" id="Debugging">Debugging</button>
         <button class="tablink" id="Einstellungen">Einstellungen</button>
     </div>
     <header>
@@ -314,14 +314,14 @@
             <input type="submit" value="Ausloggen" name="action">
         </form></div>
     </header>
-    <div class="tabcontent" id="ArtikelTab" style="display: none;"></div>
+    <div class="tabcontent" id="ArtikelTab"></div>
     <div class="tabcontent" id="KategorienTab" style="display: none;">Kategorien</div>
     <div class="tabcontent" id="DateienTab" style="display: none;">Dateien</div>
     <div class="tabcontent" id="NeuTab" style="display: none;">
         <button>Artikel erstellen</button>
         <button>Kategorie erstellen</button>
     </div>
-    <div class="tabcontent" id="DebuggingTab">
+    <div class="tabcontent" id="DebuggingTab" style="display: none;">
         <div class="server-debug-panel">
             <div>
                 <h3>System</h3>
