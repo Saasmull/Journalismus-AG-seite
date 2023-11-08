@@ -148,8 +148,10 @@ function callAPI(command,data,responseType,callback){
 var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
 callAPI("LeseArtikelListe",null,"json",function(d){
+    alert("Read");
     for(var i of d){
         callAPI("LeseArtikelMetadaten",i,"json",function(data){
+            alert("Read "+i);
             art.addArticle(new ArticleItem(...data));
             //loadMetadataEditor(...data);
             art.render();
