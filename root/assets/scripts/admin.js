@@ -305,6 +305,7 @@ function startServerDebug(){
     eventSource.onmessage = (event) => {
         eventQueue.push(JSON.parse(event.data));
     };
+    
     setInterval(function(){
         if(eventQueue.length === 0){
             return;
@@ -328,7 +329,7 @@ function startServerDebug(){
         document.querySelector(".server-debug-panel .heap-size h3").innerText =
             "Heap Size " + Math.round(data.stats.memoryUsage.heapTotal/1024/1024) + "MB";
         heapSizeGraph.addData(data.stats.memoryUsage.heapTotal/200000000*100);
-    },700);
+    },1200);
 
     eventSource.onerror = (error) => {
         console.error('EventSource failed:', error);

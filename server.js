@@ -65,13 +65,13 @@ function startServer(){
         }catch(e){
             fs.writeFileSync(".sessions","keys\n","utf8");
         }
-        app.get("/dbg-api",async function(req,res){
+        app.get("/dbg-api",function(req,res){
             res.writeHead(200,{
                 "Content-Type":"text/event-stream",
                 "Cache-Control":"no-cache",
                 "Connection":"keep-alive"
             });
-            const update = async () => {
+            const update = () => {
                 var data = {
                     versions:{
                         node:process.versions.node,
@@ -85,7 +85,7 @@ function startServer(){
                         hostname:os.hostname(),
                         //cpus:os.cpus(),
                         //mem:await si.mem(),
-                        cpuLoad:(await si.currentLoad()).currentLoad,
+                        //cpuLoad:(await si.currentLoad()).currentLoad,
                         memoryTotal:os.totalmem(),
                         memoryFree:os.freemem(),
                         memoryUsage:process.memoryUsage(),
