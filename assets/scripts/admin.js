@@ -148,7 +148,7 @@ function callAPI(command,data,responseType,callback){
 var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
 callAPI("LeseArtikelListe",null,"json",function(d){
-    for(var i of d){
+    for(let i of d){
         setTimeout(function(){
             callAPI("LeseArtikelMetadaten",i,"json",function(data){
                 art.addArticle(new ArticleItem(...data));
