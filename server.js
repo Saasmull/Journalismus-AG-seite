@@ -17,12 +17,11 @@ if(!fs.existsSync("./logs")){
     fs.mkdirSync("./logs");
 }
 const logger = pino({},"./logs/server.log");
+const httpLogger = pinoHttp({
+    logger:logger
+});
 
-app.use(pinoHttp({
-    logger:logger,
-    //Ignore all responses with status code 200
-    autoLogging:false
-}));
+app.use(httpLogger);
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -119,7 +118,11 @@ function startServer(){
                                 });
                                 break;
                             case "LeseLogs":
-                                res.send(fs.readFileSync("logs/server.log","utf8"));
+                                var logs = fs.readFileSync("logs/server.log","utf8");
+                                if(logs.includes("\n")){
+                                    logs = logs.split("\n").slice(-100).join("\n");
+                                }
+                                res.send(logs);
                                 break;
                             case "LeseConfig":
                                 res.json(CONFIG);
