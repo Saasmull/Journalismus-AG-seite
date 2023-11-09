@@ -66,9 +66,11 @@ function startServer(){
             fs.writeFileSync(".sessions","keys\n","utf8");
         }
         app.get("/dbg-api",async function(req,res){
-            res.setHeader("Content-Type", "text/event-stream");
-            res.setHeader("Cache-Control", "no-cache");
-            res.setHeader("Connection", "keep-alive");
+            res.writeHead(200,{
+                "Content-Type":"text/event-stream",
+                "Cache-Control":"no-cache",
+                "Connection":"keep-alive"
+            });
             const update = async () => {
                 var data = {
                     versions:{
