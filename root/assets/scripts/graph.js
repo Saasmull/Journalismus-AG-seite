@@ -1,14 +1,16 @@
-function LineGraph(element,maxDataPoints=25){
+function LineGraph(element,maxDataPoints,xAxis,yAxis){
     this.element = element;
+    xAxis = xAxis || {};
     this.xAxis = {
-        label: ""
+        "label": xAxis.label || ""
     };
+    yAxis = yAxis || {};
     this.yAxis = {
-        label: "",
-        min: 0,
-        max: 100
+        "label": yAxis.label || "",
+        "min": yAxis.min || 0,
+        "max": yAxis.max || 100
     };
-    this.maxDataPoints = maxDataPoints;
+    this.maxDataPoints = maxDataPoints || 25;
     this.dataset = Array(this.maxDataPoints);
     for(var i = 0;i < this.maxDataPoints;i++){
         this.dataset[i] = null;

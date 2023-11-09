@@ -130,7 +130,7 @@ function callAPI(command,data,responseType,callback){
     var req = new XMLHttpRequest();
     req.open("POST","/al",true);
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    req.responseType = responseType;
+    req.responseType = responseType || "text";
     req.onload = function(ev){
         if(typeof callback ==="function"){
             callback(ev.target.response);
@@ -159,7 +159,7 @@ callAPI("LeseArtikelListe",null,"json",function(d){
 });
 callAPI("LeseNutzerRechte",null,"json",function(data){
     if(data.dev){
-        startServerDebug();
+        setTimeout(startServerDebug,1500);
     }else{
         document.querySelector("#Debugging").style.display = "none";
     }

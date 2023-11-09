@@ -159,7 +159,7 @@ callAPI("LeseArtikelListe",null,"json",function(d){
 });
 callAPI("LeseNutzerRechte",null,"json",function(data){
     if(data.dev){
-        startServerDebug();
+        setTimeout(startServerDebug,1500);
     }else{
         document.querySelector("#Debugging").style.display = "none";
     }
