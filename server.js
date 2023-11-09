@@ -93,7 +93,7 @@ function startServer(){
                 };
                 res.write(`data: ${JSON.stringify(data)}\n\n`);
             };
-            const intID = setInterval(update,700);
+            const intID = setInterval(update,1000);
             req.on("close",() => {
                 clearInterval(intID);
             });
