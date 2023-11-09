@@ -81,7 +81,7 @@ function startServer(){
                         uptime:os.uptime(),
                         hostname:os.hostname,
                         cpus:os.cpus(),
-                        mem:await si.mem(),
+                        //mem:await si.mem(),
                         cpuLoad:(await si.currentLoad()).currentLoad,
                         memoryTotal:os.totalmem(),
                         memoryFree:os.freemem(),
