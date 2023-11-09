@@ -302,10 +302,10 @@ function startServerDebug(){
     var heapGraph = new LineGraph(heapUsage);
     var heapSizeGraph = new LineGraph(heapSize);
 
-    eventSource.onmessage = (event) => {
+    eventSource.onmessage = async (event) => {
         eventQueue.push(JSON.parse(event.data));
     };
-    
+
     setInterval(function(){
         if(eventQueue.length === 0){
             return;

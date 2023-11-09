@@ -11,6 +11,7 @@ const si = require("systeminformation");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 const pino = require("pino");
 const pinoHttp = require("pino-http");
+const {up} = require("inquirer/lib/utils/readline");
 
 
 if(!fs.existsSync("./logs")){
@@ -65,13 +66,13 @@ function startServer(){
         }catch(e){
             fs.writeFileSync(".sessions","keys\n","utf8");
         }
-        app.get("/dbg-api",function(req,res){
+        app.get("/dbg-api",async function(req,res){
             res.writeHead(200,{
                 "Content-Type":"text/event-stream",
                 "Cache-Control":"no-cache",
                 "Connection":"keep-alive"
             });
-            const update = () => {
+            const update = async() => {
                 var data = {
                     versions:{
                         node:process.versions.node,
@@ -85,7 +86,7 @@ function startServer(){
                         hostname:os.hostname(),
                         //cpus:os.cpus(),
                         //mem:await si.mem(),
-                        //cpuLoad:(await si.currentLoad()).currentLoad,
+                        cpuLoad:(await si.currentLoad()).currentLoad,
                         memoryTotal:os.totalmem(),
                         memoryFree:os.freemem(),
                         memoryUsage:process.memoryUsage(),
@@ -93,7 +94,11 @@ function startServer(){
                 };
                 res.write(`data: ${JSON.stringify(data)}\n\n`);
             };
-            const intID = setInterval(update,1000);
+            update();
+            let intID = 0;
+            setTimeout(()=>{
+                intID = setInterval(update,1200);
+            },200);
             req.on("close",() => {
                 clearInterval(intID);
             });
