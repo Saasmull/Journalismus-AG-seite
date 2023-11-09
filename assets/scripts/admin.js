@@ -291,8 +291,6 @@ function startServerDebug(){
     loadLogs();
     loadConfig();
     var eventSource = new EventSource("/dbg-api");
-    var lastArrive = Date.now();
-    var eventQueue = [];
     var memUsage = document.querySelector(".server-debug-panel .mem-usage .line-graph");
     var cpuUsage = document.querySelector(".server-debug-panel .cpu-usage .line-graph");
     var heapUsage = document.querySelector(".server-debug-panel .heap-usage .line-graph");
@@ -303,14 +301,6 @@ function startServerDebug(){
     var heapSizeGraph = new LineGraph(heapSize);
 
     eventSource.onmessage = (event) => {
-        /*eventQueue.push(JSON.parse(event.data));
-    };
-
-    setInterval(function(){
-        if(eventQueue.length === 0){
-            return;
-        }
-        data = eventQueue.shift();*/
         var data = JSON.parse(event.data);
         document.querySelector(".server-debug-panel .node-v").innerText = "node.js: "+data.versions.node;
         document.querySelector(".server-debug-panel .jag-v").innerText = "jag: "+data.versions.jag;
@@ -330,7 +320,7 @@ function startServerDebug(){
         document.querySelector(".server-debug-panel .heap-size h3").innerText =
             "Heap Size " + Math.round(data.stats.memoryUsage.heapTotal/1024/1024) + "MB";
         heapSizeGraph.addData(data.stats.memoryUsage.heapTotal/200000000*100);
-    }//,1200);
+    };
 
     eventSource.onerror = (error) => {
         console.error('EventSource failed:', error);

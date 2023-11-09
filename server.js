@@ -97,10 +97,7 @@ function startServer(){
                 res.write(`data: ${JSON.stringify(data)}\n\n`);
             };
             update();
-            let intID = 0;
-            setTimeout(()=>{
-                intID = setInterval(update,800);
-            },200);
+            let intID = setInterval(update,500);
             req.on("close",() => {
                 clearInterval(intID);
             });
