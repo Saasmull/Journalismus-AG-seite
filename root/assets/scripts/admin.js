@@ -149,11 +149,13 @@ var art = new Articles();
 art.appendTo(document.querySelector("#ArtikelTab"));
 callAPI("LeseArtikelListe",null,"json",function(d){
     for(var i of d){
-        callAPI("LeseArtikelMetadaten",i,"json",function(data){
-            art.addArticle(new ArticleItem(...data));
-            //loadMetadataEditor(...data);
-            art.render();
-        });
+        setTimeout(function(){
+            callAPI("LeseArtikelMetadaten",i,"json",function(data){
+                art.addArticle(new ArticleItem(...data));
+                //loadMetadataEditor(...data);
+                art.render();
+            })
+        },i*500);
     }
     art.render();
 });
