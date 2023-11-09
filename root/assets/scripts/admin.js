@@ -295,10 +295,10 @@ function startServerDebug(){
     var cpuUsage = document.querySelector(".server-debug-panel .cpu-usage .line-graph");
     var heapUsage = document.querySelector(".server-debug-panel .heap-usage .line-graph");
     var heapSize = document.querySelector(".server-debug-panel .heap-size .line-graph");
-    var memGraph = new LineGraph(memUsage,100);
-    var cpuGraph = new LineGraph(cpuUsage,100);
-    var heapGraph = new LineGraph(heapUsage,100);
-    var heapSizeGraph = new LineGraph(heapSize,100);
+    var memGraph = new LineGraph(memUsage,75);
+    var cpuGraph = new LineGraph(cpuUsage,75);
+    var heapGraph = new LineGraph(heapUsage,75);
+    var heapSizeGraph = new LineGraph(heapSize,75);
 
     eventSource.onmessage = (event) => {
         var data = JSON.parse(event.data);
