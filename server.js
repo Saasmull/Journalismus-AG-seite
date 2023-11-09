@@ -19,7 +19,9 @@ if(!fs.existsSync("./logs")){
 const logger = pino({},"./logs/server.log");
 
 app.use(pinoHttp({
-    logger
+    logger:logger,
+    //Ignore all responses with status code 200
+    autoLogging:false
 }));
 app.use(cookieParser({}));
 app.use(express.json());
