@@ -80,8 +80,8 @@ function startServer(){
                         arch:os.arch(),
                         type:os.type(),
                         uptime:os.uptime(),
-                        hostname:os.hostname,
-                        cpus:os.cpus(),
+                        hostname:os.hostname(),
+                        //cpus:os.cpus(),
                         //mem:await si.mem(),
                         cpuLoad:(await si.currentLoad()).currentLoad,
                         memoryTotal:os.totalmem(),
@@ -91,7 +91,7 @@ function startServer(){
                 };
                 res.write(`data: ${JSON.stringify(data)}\n\n`);
             };
-            const intID = setInterval(update,1000);
+            const intID = setInterval(update,700);
             req.on("close",() => {
                 clearInterval(intID);
             });
