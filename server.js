@@ -73,6 +73,7 @@ function startServer(){
                 "Connection":"keep-alive",
                 "Transfer-Encoding": "chunked"
             });
+            res.flushHeaders();
             const update = async() => {
                 var data = {
                     versions:{
