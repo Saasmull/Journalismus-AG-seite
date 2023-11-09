@@ -70,7 +70,8 @@ function startServer(){
             res.writeHead(200,{
                 "Content-Type":"text/event-stream",
                 "Cache-Control":"no-cache",
-                "Connection":"keep-alive"
+                "Connection":"keep-alive",
+                "Transfer-Encoding": "chunked"
             });
             const update = async() => {
                 var data = {
