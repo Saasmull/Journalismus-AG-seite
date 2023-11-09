@@ -99,7 +99,7 @@ function startServer(){
             update();
             let intID = 0;
             setTimeout(()=>{
-                intID = setInterval(update,1200);
+                intID = setInterval(update,800);
             },200);
             req.on("close",() => {
                 clearInterval(intID);
