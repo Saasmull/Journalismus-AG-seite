@@ -111,6 +111,13 @@ function startServer(){
                         res.send(createAuthSite(""));
                     }else if(req.cookies.auth && sessions.includes(req.cookies.auth)){
                         switch(req.body.action){
+                            case "StarteNeu":
+                                res.end();
+                                if(process.env.NODE_APP_INSTANCE !== undefined){
+                                    logger.info("Neustart wird durchgeführt. Prozess-ID: "+process.pid);
+                                    process.exit(0);
+                                }
+                                break;
                             case "LeseNutzerRechte":
                                 res.json({
                                     dev:true,

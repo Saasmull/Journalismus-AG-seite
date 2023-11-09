@@ -162,6 +162,9 @@ callAPI("LeseArtikelListe",null,"json",function(d){
 callAPI("LeseNutzerRechte",null,"json",function(data){
     if(data.dev){
         setTimeout(startServerDebug,1500);
+        document.getElementById("restart-server").addEventListener("click",function(){
+            callAPI("StarteNeu",null,"text");
+        });
     }else{
         document.querySelector("#Debugging").style.display = "none";
     }
