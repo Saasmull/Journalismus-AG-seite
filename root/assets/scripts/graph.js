@@ -105,5 +105,5 @@ LineGraph.prototype.render = function(){
     var self = this;
     setTimeout(function(){
         self.render();
-    },500);
+    },1000);
 }
