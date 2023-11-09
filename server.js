@@ -52,6 +52,29 @@ function createAuthSite(errorMessage){
 }
 
 function startServer(){
+    var serverData = up
+    async function updateServerData(){
+        serverData = {
+            versions:{
+                node:process.versions.node,
+                jag:v
+            },
+            stats:{
+                platform:process.platform,
+                arch:os.arch(),
+                type:os.type(),
+                uptime:os.uptime(),
+                hostname:os.hostname(),
+                //cpus:os.cpus(),
+                //mem:await si.mem(),
+                cpuLoad:(await si.currentLoad()).currentLoad,
+                memoryTotal:os.totalmem(),
+                memoryFree:os.freemem(),
+                memoryUsage:process.memoryUsage(),
+            }
+        };
+    };
+    setInterval(updateServerData,500);
     app.use("/",function(req,res,next){
         app.disable("x-powered-by");
         res.setHeader("X-Powered-By","CMS "+CONFIG.SITE_NAME+" "+v);
@@ -75,29 +98,9 @@ function startServer(){
             });
             res.flushHeaders();
             const update = async() => {
-                var data = {
-                    versions:{
-                        node:process.versions.node,
-                        jag:v
-                    },
-                    stats:{
-                        platform:process.platform,
-                        arch:os.arch(),
-                        type:os.type(),
-                        uptime:os.uptime(),
-                        hostname:os.hostname(),
-                        //cpus:os.cpus(),
-                        //mem:await si.mem(),
-                        cpuLoad:(await si.currentLoad()).currentLoad,
-                        memoryTotal:os.totalmem(),
-                        memoryFree:os.freemem(),
-                        memoryUsage:process.memoryUsage(),
-                    }
-                };
-                res.write(`data: ${JSON.stringify(data)}\n\n`);
+                res.write(`data: ${JSON.stringify(serverData)}\n\n`);
             };
-            update();
-            let intID = setInterval(update,200);
+            let intID = setInterval(update,500);
             req.on("close",() => {
                 clearInterval(intID);
             });
