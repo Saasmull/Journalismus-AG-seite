@@ -239,9 +239,11 @@ if("querySelector" in document){
 
     window.addEventListener("DOMContentLoaded",function(){
         pwa = matchMedia("(display-mode: standalone)").matches;
-        matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
-            pwa = ev.matches;
-        });
+        if("MediaQueryListEvent" in window){
+            matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
+                pwa = ev.matches;
+            });
+        }
         var bgImages = document.querySelectorAll("[data-bg-img]");
         /*for(var i = 0;i < bgImages.length;i++){
             var b = new Image();
