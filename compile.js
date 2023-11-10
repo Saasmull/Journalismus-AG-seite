@@ -4,7 +4,6 @@ const utils = require("./utils/functions");
 const {marked} = require("marked");
 const postcss = require("postcss");
 const UglifyJS = require("uglify-js");
-const rdl = require("readline");
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -81,6 +80,7 @@ const Author = require("./utils/Author");
 const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
 const ErrorPage = require("./utils/ErrorPage");
+const ImprintPage = require("./utils/ImprintPage");
 const RssFeed = require("./utils/RssFeed");
 const Sitemap = require("./utils/Sitemap");
 
@@ -93,7 +93,7 @@ if(CONFIG.MINIFY && !onlyUpdate){
         }).code;
     }
     function minifyJsFile(path){
-        fs.writeFileSync(path,minifyJs(fs.readFileSync(path,"utf-8")),"utf-8");
+        fs.writeFileSync(path,minifyJs(fs.readFileSync(path,"utf8")),"utf8");
     }
 }
 function cleanDir(path){
@@ -132,13 +132,13 @@ async function setupRootDir(){
         if(CONFIG.MINIFY){
             await setSpinnerText("Komprimiere CSS-Dateien...");
         }
-        postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf-8"),{
+        postcss(plugins).process(fs.readFileSync("root/assets/styles/main.css","utf8"),{
             from:undefined
         }).then(function(res){
             var css = res.css;
             //console.log(css);
             fs.writeFileSync("root/assets/styles/main.css",
-            css,"utf-8");
+            css,"utf8");
         });
         if(CONFIG.MINIFY){
             await setSpinnerText("Komprimiere JS-Dateien...");
@@ -213,7 +213,7 @@ setupRootDir().then(async function(){
                 log.warn("Die Kategorie \""+articles[i].metadata.categories[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
             }
         }
-        fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf-8");
+        fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
     }
 
     await setSpinnerText("Rendere Autor-Seiten...");
@@ -221,7 +221,7 @@ setupRootDir().then(async function(){
         if(CONFIG.DEBUG){
             await setSpinnerText("Rendere Autor \"" + authorsDir[i] + "\"...");
         }
-        fs.writeFileSync("root/author/"+authors[authorsDir[i]].path+".html",authors[authorsDir[i]].renderAuthorPage(),"utf-8");
+        fs.writeFileSync("root/author/"+authors[authorsDir[i]].path+".html",authors[authorsDir[i]].renderAuthorPage(),"utf8");
     }
 
     await setSpinnerText("Rendere Kategorie-Seiten...");
@@ -230,19 +230,21 @@ setupRootDir().then(async function(){
             await setSpinnerText("Rendere Kategorie \"" + categoriesDir[i] + "\"...");
         }
         homepage.addCategory(categories[categoriesDir[i]]);
-        fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf-8");
+        fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf8");
     }
     
     await setSpinnerText("Rendere Sitemap...");
-    fs.writeFileSync("root/sitemap.xml",sitemap.renderSitemap(),"utf-8");
+    fs.writeFileSync("root/sitemap.xml",sitemap.renderSitemap(),"utf8");
 
     await setSpinnerText("Rendere RSS-Feed...");
-    fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf-8");
+    fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf8");
     await setSpinnerText("Rendere Homepage...");
-    fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf-8");
+    fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf8");
     if(!onlyUpdate){
         await setSpinnerText("Rendere Fehlerseite...");
-        fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf-8");
+        fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf8");
+        await setSpinnerText("Rendere Impressum...");
+        fs.writeFileSync("root/imprint.html",(new ImprintPage()).render(),"utf8")
         await setSpinnerText("Rendere Webmanifest...");
         fs.writeFileSync("root/manifest.json",JSON.stringify({
             "name":CONFIG.SITE_NAME,
@@ -263,7 +265,7 @@ setupRootDir().then(async function(){
             ],
             "background_color": "#000000",
             "theme_color": "#000000"
-        },null,CONFIG.INDENT),"utf-8");
+        },null,CONFIG.INDENT),"utf8");
     }
 
     setSpinnerText("Fertig!");
