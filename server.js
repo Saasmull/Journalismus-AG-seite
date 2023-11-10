@@ -11,7 +11,7 @@ const si = require("systeminformation");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 const pino = require("pino");
 const pinoHttp = require("pino-http");
-const {up} = require("inquirer/lib/utils/readline");
+const compression = require("compression");
 
 
 if(!fs.existsSync("./logs")){
@@ -26,6 +26,7 @@ app.use(httpLogger);
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(compression());
 
 function compile(onlyUpdate){
     return child_process.exec("node ./compile.js"+(onlyUpdate?" --only-update":""),{
@@ -51,7 +52,7 @@ function createAuthSite(errorMessage){
 }
 
 function startServer(){
-    var serverData = up
+    var serverData = updateServerData();
     async function updateServerData(){
         serverData = {
             versions:{
@@ -80,7 +81,7 @@ function startServer(){
         next();
     })
     if(CONFIG.ADMIN_BACKEND){
-        var sessions = [];
+        let sessions = [];
         try{
             sessions = fs.readFileSync(".sessions","utf8").split("\n");
             sessions.shift();
