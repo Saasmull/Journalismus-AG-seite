@@ -239,6 +239,12 @@ footer>div{
     position: relative;
 }
 
+@media screen and (min-width:0\0) {
+    footer>div{
+        display: none;
+    }
+}
+
 footer>nav{
     display: flex;
     justify-content: center;
