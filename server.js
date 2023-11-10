@@ -34,8 +34,7 @@ function compile(onlyUpdate){
         console.log(err,stdout,stderr);
     });
 }
-var compileProcess = compile();
-compileProcess.on("exit",function(){
+compile().on("exit",function(){
     startServer();
 })
 
