@@ -35,13 +35,13 @@ const CONFIG = module.exports = {
      */
     /** @type {LoginConfig} Die Login-Konfiguration. */
     LOGIN:{
-        ON:true,
+        ON:false,
         OFF_ON_LOCALHOST:true,
         USERNAME:"user_journalismusag",
         PASSWORD:"vD6)1w3Bt*w<"
     },
     /** @type {boolean} Ob das Admin-Backend an ist. */
-    ADMIN_BACKEND:true,
+    ADMIN_BACKEND:false,
     /** @type {string} */
     BREAK:"\n",
     /** @type {string} */
