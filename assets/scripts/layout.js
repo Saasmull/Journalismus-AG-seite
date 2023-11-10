@@ -238,6 +238,7 @@ if("querySelector" in document){
     });
 
     window.addEventListener("DOMContentLoaded",function(){
+        pwa = matchMedia("(display-mode: standalone)").matches;
         matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
             pwa = ev.matches;
         });
