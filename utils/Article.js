@@ -66,6 +66,8 @@ module.exports = class Article{
         metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
         //banner
         metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
+        //logo
+        metaString += "<link rel=\"icon\" type=\"image/png\" href=\"" + CONFIG.LOGO + "\">";
         //json-ld
         var jsonLD = {
             "@context": "http://schema.org",

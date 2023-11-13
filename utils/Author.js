@@ -60,7 +60,8 @@ module.exports = class Author {
             .replace("<!--METADATA-->",
             "<link rel=\"stylesheet\" href=\"/assets/styles/article.css\">" +
             "<script defer src=\"/assets/scripts/audio-player.js\"></script>" +
-            "<title>Autor "+this.metadata.name+"</title>")
+            "<title>Autor "+this.metadata.name+"</title>" +
+            "<link rel=\"icon\" type=\"image/png\" href=\"" + CONFIG.LOGO + "\">")
             .replace("<!--CONTENT-->",authorHead+articleCards);
         return page;
     }

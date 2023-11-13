@@ -22,6 +22,7 @@ class HomepageMetadata{
             "url":CONFIG.SITE_ROOT,
             "name":CONFIG.SITE_NAME,
             "description":CONFIG.DESCRIPTION,
+            "logo":CONFIG.LOGO,
             "publisher":{
                 "@type": "NewsMediaOrganization",
                 "@id":CONFIG.SITE_ROOT+"/index.html",
@@ -43,6 +44,8 @@ class HomepageMetadata{
         metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.description) + "\">\n";
         //banner
         //metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
+        //logo
+        metaString += "<link rel=\"icon\" type=\"image/png\" href=\"" + CONFIG.LOGO + "\">";
         //json-ld
         metaString += "<script type=\"application/ld+json\">\n";
         metaString += utils.rmvEntities(JSON.stringify(this.renderJsonLd())) + "\n";
