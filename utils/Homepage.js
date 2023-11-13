@@ -86,7 +86,7 @@ module.exports = class Homepage{
         categorySections += "</div>\n";
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",this.metaTags.renderMetaTags())
-            .replace("<!--CONTENT-->",categorySections);
+            .replace("<!--CONTENT-->",fs.readFileSync("templates/homepage-top.html","utf8")+categorySections);
         return page;
     }
 }
