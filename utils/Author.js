@@ -59,7 +59,8 @@ module.exports = class Author {
         var page = CONFIG.BASIC_TEMPLATE
             .replace("<!--METADATA-->",
             "<link rel=\"stylesheet\" href=\"/assets/styles/article.css\">" +
-            "<script defer src=\"/assets/scripts/audio-player.js\"></script>")
+            "<script defer src=\"/assets/scripts/audio-player.js\"></script>" +
+            "<title>Autor "+this.metadata.name+"</title>")
             .replace("<!--CONTENT-->",authorHead+articleCards);
         return page;
     }
