@@ -18,3 +18,5 @@ Nervosität ist natürlich auch ein großes Thema gewesen. Zum Beispiel als ich 
 Im Groben und Ganzen hat mich dieses Projekt dazu ermutigt weiter damit zu machen und der Journalismus-AG beizutreten.
 
 **Jonas:** Die Arbeit dort hat sehr viel Spaß gemacht. Mein Highlight der drei Tage im Landtag war das Interview mit Umweltminister Christian Meyer. Dazu haben wir gelernt wie viel Arbeit man als Journalist erledigen muss. Außerdem war die Live-Sendung sehr stressig. Insgesamt waren es drei sehr gelungene Tage. Ich würde jederzeit nochmal an diesem Projekt teilnehmen.
+
+Mehr können Sie auf der [https://buessing.schule/news/politikunterricht-konkret](Seite unserer Schule) nachlesen.
