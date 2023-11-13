@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const sec = require("express-basic-auth");
 const child_process = require("child_process");
 const si = require("systeminformation");
+const favicon = require("serve-favicon");
 const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 const pino = require("pino");
 const pinoHttp = require("pino-http");
@@ -23,6 +24,7 @@ const httpLogger = pinoHttp({
 });
 
 app.use(httpLogger);
+app.use(favicon("assets/images/logo.ico"));
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
