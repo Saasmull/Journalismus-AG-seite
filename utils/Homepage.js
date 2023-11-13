@@ -22,12 +22,12 @@ class HomepageMetadata{
             "url":CONFIG.SITE_ROOT,
             "name":CONFIG.SITE_NAME,
             "description":CONFIG.DESCRIPTION,
-            "logo":CONFIG.LOGO,
             "publisher":{
                 "@type": "NewsMediaOrganization",
                 "@id":CONFIG.SITE_ROOT+"/index.html",
                 "name": this.title,
                 "url":CONFIG.SITE_ROOT,
+                "logo":CONFIG.LOGO,
                 "description": this.description
             }
         }
