@@ -355,6 +355,7 @@ article.card .card-content>h3 {
 
 article.card .card-content>h3 {
     -webkit-line-clamp: 2;
+    min-height: 4.2ch;
 }
 
 article.card .card-content>p {
