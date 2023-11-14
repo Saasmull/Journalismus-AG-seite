@@ -1,4 +1,5 @@
-/*var localStorage = {};
+if(!(["localhost","127.0.0.1"].includes(location.hostname))){
+var localStorage = {};
 var mainWindowId = 0;
 
 self.addEventListener("install", function (event){
@@ -67,7 +68,7 @@ function syncLocalStorage(){
                 client.postMessage({type:"syncLocalStorage",data:localStorage});
             });
         });
-    }*//*
+    }*/
 }
 function setLocalStorageKey(key,value){
     try{
@@ -145,4 +146,4 @@ async function fetchArticles(){
 }
 
 setInterval(fetchArticles,1000 * 10);
-/**/
+}
