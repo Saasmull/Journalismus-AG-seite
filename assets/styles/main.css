@@ -177,6 +177,11 @@ header>a {
     transition: background-color 500ms;
 }
 
+.nav-link>svg{
+    fill: var(--text-color-1);
+    margin-top: 4px;
+}
+
 .nav-link:hover h3{
     text-decoration: underline;
 }
