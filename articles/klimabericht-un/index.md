@@ -16,10 +16,10 @@ Der UN-Generalsekretär schlägt Alarm. Die Vereinten Nationen seien nun in der 
 
 ## Klimagipfel in Dubai
 
-Der Klimagipfel COP28 in Dubai soll bei der Bewältigung der Klimakrise der entscheidene Wendepunkt sein. Dies müsse der Ort sein, "an dem die Lücke bei den Klimaambitionen dringend geschlossen werden kann." Das Treffen findet vom 30. November bis zum 12. Dezember statt. Neben mehr als 140 Staatsoberhäuptern und hochrangigen Regierungsvertretern werden in Dubai mindestens 70.000 Teilnehmerinnen und Teilnehmer erwartet.
+Der Klimagipfel COP28 in Dubai soll bei der Bewältigung der Klimakrise der entscheidende Wendepunkt sein. Dies müsse der Ort sein, "an dem die Lücke bei den Klimaambitionen dringend geschlossen werden kann." Das Treffen findet vom 30. November bis zum 12. Dezember statt. Neben mehr als 140 Staatsoberhäuptern und hochrangigen Regierungsvertretern werden in Dubai mindestens 70.000 Teilnehmerinnen und Teilnehmer erwartet.
 
 ## Meinung des Autors
 
-Deutschland ist ein Symbolbild der Klimakatastrophe. Während in einem Lager der menschengemachte Klinawandel geleugnet wird, wird er in anderen Parteien verharmlost. Rechte Parolen nehmen dabei überhand. Dazu wird auf heilsbringende Zukunftstechnologien gewartet, jedoch wird dabei nicht realisiert, dass es jetzt Zeit zum Handeln ist. Auch die aktuelle angebliche "Migrationskrise" wird in Zukunft vom Klimawandel befeuert werden. Viele Menschen werden dabei ihr Land wegen zu hoher Temperaturen verlassen müssen. Diese werden schlussendlich in Europa landen. Doch anstatt endlich zu handeln nehmen rechte Parolen in Deutschland immer weiter zu.
+Deutschland ist ein Symbolbild der Klimakatastrophe. Während in einem Lager der menschengemachte Klimawandel geleugnet wird, wird er in anderen Parteien verharmlost. Rechte Parolen nehmen dabei überhand. Dazu wird auf heilsbringende Zukunftstechnologien gewartet, jedoch wird dabei nicht realisiert, dass es jetzt Zeit zum Handeln ist. Auch die aktuelle angebliche "Migrationskrise" wird in Zukunft vom Klimawandel befeuert werden. Viele Menschen werden dabei ihr Land wegen zu hohen Temperaturen verlassen müssen. Diese werden schlussendlich in Europa landen. Doch anstatt endlich zu handeln, nimmt der Rechtspopulismus in Deutschland immer weiter zu.
 
 Quelle: Synthesis Bericht der UN
