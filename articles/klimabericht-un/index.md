@@ -1,4 +1,4 @@
-**Aus einer neuen Analyse der Vereinten Nationen sticht heraus, dass die Klimaschutzpläne der Länder weit davon entfernt sind, dass 1,5 Grad Ziel zu erreichen. Generalsekretär Guterres reagiert besorgt.**
+**Aus einer neuen Analyse der Vereinten Nationen sticht heraus, dass die Klimaschutzpläne der Länder weit davon entfernt sind, um das 1,5 Grad Ziel zu erreichen. Generalsekretär Guterres reagiert besorgt.**
 
 
 Die Welt bekommt die Klimakrise nicht in den Griff. Das ist die Nachricht, die aus dem jüngsten Bericht der UN heraussticht. Die Länder der Erde seien weiterhin weit davon entfernt, die Klimakatastrophe zu verhindern. Die Einhaltung des 1,5 Grad Ziels sei dabei essenziell. Vorgelegte Konzepte der Nationen würden das Ziel meilenweit verfehlen und stimmten mit der Wissenschaft nicht überein.
