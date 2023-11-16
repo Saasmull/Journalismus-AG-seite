@@ -12,7 +12,7 @@ So stagnierten die Ambitionen im Hinblick auf den Klimaschutz im vergangenen Jah
 
 ## "Es ist Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor."
 
-Der UN-Generalsekretär schlägt Alarm. Die Vereinten Nationen seien nun in der Pflicht. Dabei sei ein "zentimeterweiser Fortschritt" bei Weitem nicht genügend. Nun sei es "Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor." Industriestätten müssten, laut Guterres, dem Ziel der Klimaneutralität bis 2040 so nah wie möglich kommen. Schwellenländer bis 2050. Nötig sei dabei ein zügiger Ausstieg aus fossilen Brennstoffen, sowie der beschleunigte Ausbau der Erneuerbaren Energien.
+Der UN-Generalsekretär schlägt Alarm. Die Vereinten Nationen seien nun in der Pflicht. Dabei sei ein "zentimeterweiser Fortschritt" bei Weitem nicht genügend. Nun sei es "Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor." Industriestaaten müssten, laut Guterres, dem Ziel der Klimaneutralität bis 2040 so nah wie möglich kommen. Schwellenländer bis 2050. Nötig sei dabei ein zügiger Ausstieg aus fossilen Brennstoffen, sowie der beschleunigte Ausbau der Erneuerbaren Energien.
 
 ## Klimagipfel in Dubai
 
