@@ -8,7 +8,7 @@ Die Welt bekommt die Klimakrise nicht in den Griff. Das ist die Nachricht, die a
 
 So stagnierten die Ambitionen im Hinblick auf den Klimaschutz im vergangenen Jahr. Die im Bericht vorhandene Prognose besagt, dass die weltweiten Treibhausgase bis 2030 um 9% im Vergleich zu 2010 steigen werden. Laut Wissenschaft müssen die Emissionen bis zum Ende des Jahrzehnts allerdings um 45% sinken, im Vergleich zu 2010. Im Hinblick darauf würden vorgelegte Konzepte krachend scheitern. Die Konsequenzen seien bereits jetzt spürbar. So würden Überschwemmungen, Brände und Dürren immer heftiger werden.
 
-![Sitz der Vereinten Nationen in Genf](https://bilder.deutschlandfunk.de/07/37/2f/d1/07372fd1-a800-46f4-b711-62b6f59a2bf4/uno-genf-100-1920x1080.jpg?t=1684245653138)
+![ehemaliger Patz der Vereinten Nationen in Bonn](https://upload.wikimedia.org/wikipedia/commons/4/41/Bonn-ehemaliger-platz-der-vereinten-nationen-08.jpg)
 
 ## "Es ist Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor."
 
@@ -24,3 +24,4 @@ Deutschland ist ein Symbolbild der Klimakatastrophe. Während in einem Lager der
 
 Quelle: Synthesis Bericht der UN
 Bannerbild: [live.staticflickr.com](https://live.staticflickr.com/8162/7704334292_9141528c8a_b.jpg)
+Bildquelle: [wikipedia](https://upload.wikimedia.org/wikipedia/commons/4/41/Bonn-ehemaliger-platz-der-vereinten-nationen-08.jpg)
