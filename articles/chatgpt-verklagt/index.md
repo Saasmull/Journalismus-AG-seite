@@ -4,7 +4,7 @@
 
 Insgesamt sind es 17 Schriftsteller:innen, welche dem Unternehmen „systematischen Diebstahl im großen Stil“ vorwerfen. Der Zusammenschluss, der sich „Authors Guild“ nennt, sei besorgt davon, dass ihre Werke ohne Erlaubnis genutzt wurden. Die Firma OpenAI veröffentlichte in ihrem Statement, dass sie die Rechte jener Kläger:innen respektieren, jedoch auch von KI-Technologie profitieren sollten. 
 
-![The New York Times](https://media.npr.org/assets/img/2023/02/15/ap21126651872636_custom-7be771a4c194c468e0eb461db37377d7da56cc1d.jpg)
+![The New York Times / Quelle: https://live.staticflickr.com/65535/48193462432_a8a175d66a_b.jpg](https://live.staticflickr.com/65535/48193462432_a8a175d66a_b.jpg)
 
 ## Auch New York Times klagt bereits 
 
