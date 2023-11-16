@@ -42,6 +42,7 @@ iframe.yt-player{
 }
 
 figure figcaption{
+    display: block;
     text-align: center;
     font-style: italic;
     width: 65%;
