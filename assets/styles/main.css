@@ -360,7 +360,8 @@ article.card .card-content>h3 {
 
 article.card .card-content>p {
     -webkit-line-clamp: 3;
-    height: 4.2rem;
+    height: 3.7rem;
+    line-height: 1.2;
 }
 
 article.card:hover{
