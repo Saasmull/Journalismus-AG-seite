@@ -17,4 +17,4 @@ Außerdem stichelte Nagelsmann gegen seinen Ex-Verein, den FC Bayern München. A
 
 Quelle: DFB
 Bannerbild: [wikipedia](https://upload.wikimedia.org/wikipedia/commons/3/3b/2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3204_by_Stepro.jpg)
-Bildquelle:
+
