@@ -355,11 +355,12 @@ article.card .card-content>h3 {
 
 article.card .card-content>h3 {
     -webkit-line-clamp: 2;
-    min-height: 4.2ch;
+    height: 3.1rem;
 }
 
 article.card .card-content>p {
     -webkit-line-clamp: 3;
+    height: 4.2rem;
 }
 
 article.card:hover{
