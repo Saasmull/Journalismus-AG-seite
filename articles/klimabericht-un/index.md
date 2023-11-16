@@ -23,3 +23,4 @@ Der Klimagipfel COP28 in Dubai soll bei der Bewältigung der Klimakrise der ents
 Deutschland ist ein Symbolbild der Klimakatastrophe. Während in einem Lager der menschengemachte Klimawandel geleugnet wird, wird er in anderen Parteien verharmlost. Rechte Parolen nehmen dabei überhand. Dazu wird auf heilsbringende Zukunftstechnologien gewartet, jedoch wird dabei nicht realisiert, dass es jetzt Zeit zum Handeln ist. Auch die aktuelle angebliche "Migrationskrise" wird in Zukunft vom Klimawandel befeuert werden. Viele Menschen werden dabei ihr Land wegen zu hohen Temperaturen verlassen müssen. Diese werden schlussendlich in Europa landen. Doch anstatt endlich zu handeln, nimmt der Rechtspopulismus in Deutschland immer weiter zu.
 
 Quelle: Synthesis Bericht der UN
+Bannerbild: [live.staticflickr.com](https://live.staticflickr.com/8162/7704334292_9141528c8a_b.jpg)
