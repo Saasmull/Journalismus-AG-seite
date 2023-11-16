@@ -1,4 +1,4 @@
-**Aus einer neuen Analyse der Vereinten Nationen sticht heraus, dass die Klimaschutzpläne der Länder weit davon entfernt sind, um das 1,5 Grad Ziel zu erreichen. Generalsekretär Guterres reagiert besorgt.**
+**Aus einer neuen Analyse der Vereinten Nationen sticht heraus, dass die Klimaschutzpläne der Länder weit davon entfernt sind, um das 1,5-Grad-Ziel zu erreichen. Generalsekretär Guterres reagiert besorgt.**
 
 
 Die Welt bekommt die Klimakrise nicht in den Griff. Das ist die Nachricht, die aus dem jüngsten Bericht der UN heraussticht. Die Länder der Erde seien weiterhin weit davon entfernt, die Klimakatastrophe zu verhindern. Die Einhaltung des 1,5 Grad Ziels sei dabei essenziell. Vorgelegte Konzepte der Nationen würden das Ziel meilenweit verfehlen und stimmten mit der Wissenschaft nicht überein.
@@ -12,7 +12,7 @@ So stagnierten die Ambitionen im Hinblick auf den Klimaschutz im vergangenen Jah
 
 ## "Es ist Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor."
 
-Der UN-Generalsekretär schlägt Alarm. Die Vereinten Nationen seien nun in der Pflicht. Dabei sei ein "zentimeterweiser Fortschritt" bei Weitem nicht genügend. Nun sei es "Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor." Industriestatten müssten, laut Guterres, dem Ziel der Klimaneutralität bis 2040 so nah wie möglich kommen. Schwellenländer bis 2050. Nötig sei dabei ein zügiger Ausstieg aus fossilen Brennstoffen, sowie der beschleunigte Ausbau der Erneuerbaren Energien.
+Der UN-Generalsekretär schlägt Alarm. Die Vereinten Nationen seien nun in der Pflicht. Dabei sei ein "zentimeterweiser Fortschritt" bei Weitem nicht genügend. Nun sei es "Zeit für eine Supernova mit Klimaambitionen in jedem Land, jeder Stadt und jedem Sektor." Industriestätten müssten, laut Guterres, dem Ziel der Klimaneutralität bis 2040 so nah wie möglich kommen. Schwellenländer bis 2050. Nötig sei dabei ein zügiger Ausstieg aus fossilen Brennstoffen, sowie der beschleunigte Ausbau der Erneuerbaren Energien.
 
 ## Klimagipfel in Dubai
 
