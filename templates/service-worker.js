@@ -1,4 +1,4 @@
-if(!(["localhost","127.0.0.1"].includes(location.hostname))){
+if(true || !(["localhost","127.0.0.1"].includes(location.hostname))){
 var localStorage = {};
 var mainWindowId = 0;
 
@@ -32,6 +32,12 @@ self.addEventListener("activate", function(event){
                 })
             );
         })
+    );
+    event.waitUntil(
+        caches.delete("static-test")
+    );
+    event.waitUntil(
+        self.clients.claim()
     );
 });
 
