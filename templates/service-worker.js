@@ -17,6 +17,14 @@ self.addEventListener("install", function (event){
                 "/assets/scripts/layout.js",
                 "/assets/scripts/graph.js"
             ]);
+        }).then(function(){
+            navigator.serviceWorker.getRegistrations().then((registrations) => {
+                for (const registration of registrations) {
+                  if (registration.active && registration !== navigator.serviceWorker.controller) {
+                    registration.unregister();
+                  }
+                }
+            });
         })
     );
 })
@@ -31,13 +39,11 @@ self.addEventListener("activate", function(event){
                     }
                 })
             );
+        }).then(function(){
+            caches.delete("static-test").then(function(){
+                self.clients.claim();
+            });
         })
-    );
-    event.waitUntil(
-        caches.delete("static-test")
-    );
-    event.waitUntil(
-        self.clients.claim()
     );
 });
 
