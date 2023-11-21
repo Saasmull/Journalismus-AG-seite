@@ -169,6 +169,19 @@ header>a {
     color: var(--text-color-1);
 }
 
+header>a>svg{
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    fill: var(--text-color-1);
+    margin: 0;
+    margin-right: 2px;
+}
+
+header>a>svg *{
+    fill: var(--text-color-1);
+}
+
 .nav-link {
     padding: 5px 15px;
     text-decoration: none;
