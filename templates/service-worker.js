@@ -2,7 +2,7 @@ if(true || !(["localhost","127.0.0.1"].includes(location.hostname))){
 var localStorage = {};
 var mainWindowId = 0;
 
-var cacheVersion = "1.0.0";
+var cacheVersion = "1.0.1";
 
 self.addEventListener("install", function (event){
     event.waitUntil(
@@ -17,14 +17,6 @@ self.addEventListener("install", function (event){
                 "/assets/scripts/layout.js",
                 "/assets/scripts/graph.js"
             ]);
-        }).then(function(){
-            navigator.serviceWorker.getRegistrations().then((registrations) => {
-                for (const registration of registrations) {
-                  if (registration.active && registration !== navigator.serviceWorker.controller) {
-                    registration.unregister();
-                  }
-                }
-            });
         })
     );
 })
