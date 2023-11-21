@@ -2,24 +2,37 @@ if(!(["localhost","127.0.0.1"].includes(location.hostname))){
 var localStorage = {};
 var mainWindowId = 0;
 
+var cacheVersion = "1.0.0";
+
 self.addEventListener("install", function (event){
     event.waitUntil(
-        //Add here all the files which are needed that your PWA can run offline:
-        caches.open("static-test").then(function(cache){
+        caches.open(cacheVersion).then(function(cache){
             return cache.addAll([
+                "",
+                "/",
                 "/index.html",
                 "/assets/styles/article.css",
                 "/assets/styles/main.css",
                 "/assets/scripts/audio-player.js",
                 "/assets/scripts/layout.js",
-                "/assets/scripts/graph.js",
+                "/assets/scripts/graph.js"
             ]);
         })
     );
 })
 
 self.addEventListener("activate", function(event){
-    event.waitUntil(self.clients.claim());
+    event.waitUntil(
+        caches.keys().then(function(cacheNames){
+            return Promise.all(
+                cacheNames.map(function(cacheName){
+                    if(cacheName !== cacheVersion){
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
 });
 
 self.addEventListener("fetch", function (event){
