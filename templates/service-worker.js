@@ -31,10 +31,6 @@ self.addEventListener("activate", function(event){
                     }
                 })
             );
-        }).then(function(){
-            caches.delete("static-test").then(function(){
-                self.clients.claim();
-            });
         })
     );
 });

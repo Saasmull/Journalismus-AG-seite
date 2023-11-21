@@ -107,7 +107,7 @@ if ("serviceWorker" in navigator) {
                 sW.active.postMessage({
                     "type":"localStorageData",
                     "data":eval("{...localStorage}")
-                })
+                });
             }else if(event.data.type === "setLocalStorageKey"){
                 localStorage.setItem(event.data.data.key,event.data.data.value);
                 sW.active.postMessage({
@@ -116,7 +116,7 @@ if ("serviceWorker" in navigator) {
                         "key":event.data.data.key,
                         "value":event.data.data.value
                     }
-                })
+                });
             }else if(event.data.type === "getLocalStorageKey"){
                 sW.active.postMessage({
                     "type":"getLocalStorageKeyB",
@@ -124,10 +124,17 @@ if ("serviceWorker" in navigator) {
                         "key":event.data.data.key,
                         "value":localStorage.getItem(event.data.data.key)
                     }
-                })
+                });
             }
-        })
-    })
+        });
+    });
+    navigator.serviceWorker.getRegistrations().then(function(registrations){
+        for(var i = 0;i < registrations.length;i++) {
+            if (registrations[i].active && registrations[i] !== navigator.serviceWorker.controller) {
+                registrations[i].unregister();
+            }
+        }
+    });
 }
 
 if("querySelector" in document){
