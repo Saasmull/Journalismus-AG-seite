@@ -9,7 +9,6 @@ const sec = require("express-basic-auth");
 const child_process = require("child_process");
 const si = require("systeminformation");
 const favicon = require("serve-favicon");
-const v = Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10)+"."+Math.floor(Math.random()*10);
 const pino = require("pino");
 const pinoHttp = require("pino-http");
 const compression = require("compression");
@@ -59,7 +58,7 @@ function startServer(){
         serverData = {
             versions:{
                 node:process.versions.node,
-                jag:v
+                jag:CONFIG.VERSION
             },
             stats:{
                 platform:process.platform,
@@ -79,7 +78,7 @@ function startServer(){
     setInterval(updateServerData,500);
     app.use("/",function(req,res,next){
         app.disable("x-powered-by");
-        res.setHeader("X-Powered-By","CMS "+CONFIG.SITE_NAME+" "+v);
+        res.setHeader("X-Powered-By","CMS "+CONFIG.SITE_NAME+" "+CONFIG.VERSION);
         next();
     })
     if(CONFIG.ADMIN_BACKEND){

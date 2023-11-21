@@ -128,7 +128,8 @@ async function setupRootDir(){
         }
         await copyFiles("api/","root/api","Kopiere API-Dateien...");
         await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
-        fs.cpSync("templates/service-worker.js","root/service-worker.js",{recursive:true});
+        var sw = fs.readFileSync("templates/service-worker.js","utf8");
+        fs.writeFileSync("root/service-worker.js",sw.replace("<!--VERSION-->",CONFIG.VERSION),"utf8");
         await setSpinnerText("Kompiliere CSS-Dateien...");
         if(CONFIG.MINIFY){
             await setSpinnerText("Komprimiere CSS-Dateien...");

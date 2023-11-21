@@ -1,8 +1,8 @@
-if(true || !(["localhost","127.0.0.1"].includes(location.hostname))){
+if(!(["localhost","127.0.0.1"].includes(location.hostname))){
 var localStorage = {};
 var mainWindowId = 0;
 
-var cacheVersion = "1.0.1";
+var cacheVersion = "<!--VERSION-->";
 
 self.addEventListener("install", function (event){
     event.waitUntil(

@@ -47,7 +47,9 @@ const CONFIG = module.exports = {
     /** @type {string} */
     BREAK:"\n",
     /** @type {string} */
-    INDENT:"   "
+    INDENT:"   ",
+    /** @type {string} Die Version dieses Codes. */
+    VERSION:"1.0.0",
 };
 
 if(CONFIG.MINIFY){
