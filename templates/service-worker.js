@@ -55,12 +55,11 @@ self.addEventListener("activate", function(event){
 });
 
 self.addEventListener("fetch", function(event){
-    console.log(event.request);
     event.respondWith(
         caches.match(event.request).then(function(response){
             return (function(){
                 var isHtmlDoc = event.request.method === "GET" && (event.request.headers.get("accept").includes("text/html") || event.request.url.endsWith(".html"));
-                console.log(event.request, isHtmlDoc, response);
+                //console.log(event.request, isHtmlDoc, response);
                 if(navigator.onLine === false || (navigator.connection && navigator.connection.rtt === 0)){
                     if(isHtmlDoc && !response){
                         return caches.match("/offline.html");
