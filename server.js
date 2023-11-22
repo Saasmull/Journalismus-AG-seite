@@ -23,7 +23,7 @@ const httpLogger = pinoHttp({
 });
 
 app.use(httpLogger);
-app.use(favicon("assets/images/logo.ico"));
+app.use(favicon("assets/images/logo/favicon.ico"));
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

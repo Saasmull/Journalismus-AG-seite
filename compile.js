@@ -262,16 +262,21 @@ setupRootDir().then(async function(){
             "id":"/index.html",
             "display":"standalone",
             "display_override":["window-controls-overlay"],
-            "icons":[
+            "icons": [
                 {
-                    "src":"/assets/images/icon.png",
-                    "type":"image/png",
-                    "sizes":"512x512",
+                    "src": "/assets/images/logo/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "/assets/images/logo/android-chrome-512x512.png",
+                    "sizes": "512x512",
+                    "type": "image/png",
                     "purpose": "any"
                 }
             ],
-            "background_color": "#000000",
-            "theme_color": "#000000"
+            "theme_color": "#0078d4",
+            "background_color": "#0078d4"
         },null,CONFIG.INDENT),"utf8");
     }
 
