@@ -43,7 +43,7 @@ self.addEventListener("activate", function(event){
             return Promise.all(
                 cacheNames.map(function(cacheName){
                     if(newestVersions(cacheVersion,cacheName) !== cacheVersion){
-                        return caches.delete(cacheName);
+                        //return caches.delete(cacheName);
                     }
                 })
             );
