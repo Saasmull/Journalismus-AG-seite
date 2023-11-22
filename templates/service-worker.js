@@ -59,7 +59,7 @@ self.addEventListener("fetch", function(event){
     event.respondWith(
         caches.match(event.request).then(function(response){
             return (function(){
-                var isHtmlDoc = event.request.method === "GET" && event.request.headers.get("accept").includes("text/html");
+                var isHtmlDoc = event.request.method === "GET" && (event.request.headers.get("accept").includes("text/html") || event.request.url.endsWith(".html"));
                 console.log(event.request, isHtmlDoc, response);
                 if(navigator.onLine === false || (navigator.connection && navigator.connection.rtt === 0)){
                     if(isHtmlDoc && !response){
