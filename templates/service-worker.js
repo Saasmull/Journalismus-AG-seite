@@ -57,10 +57,10 @@ self.addEventListener("activate", function(event){
 self.addEventListener("fetch", function(event){
     event.respondWith(
         caches.match(event.request).then(function(response){
-            return response || (function(){
+            return (function(){
                 var isHtmlDoc = event.request.method === "GET" && event.request.headers.get("accept").includes("text/html");
                 if(navigator.onLine === false || (navigator.connection && navigator.connection.rtt === 0)){
-                    if(isHtmlDoc){
+                    if(isHtmlDoc && !response){
                         return caches.match("/offline.html");
                     }
                     const controller = new AbortController();
