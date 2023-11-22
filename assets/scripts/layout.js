@@ -263,7 +263,7 @@ if("querySelector" in document){
                         }
                     }
                     event.preventDefault();
-                    document.querySelector("progress").style.height = "4px";
+                    document.querySelector("progress").style.display = "block";
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", targetURL, true);
                     xhr.onprogress = function(ev){
@@ -273,6 +273,7 @@ if("querySelector" in document){
                     xhr.onload = function(){
                         document.querySelector("progress").value = 100;
                         setTimeout(function(){
+                            document.querySelector("progress").style.display = "none";
                             window.location.href = targetURL;
                         },200);
                     }
