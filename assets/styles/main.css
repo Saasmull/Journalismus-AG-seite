@@ -593,6 +593,7 @@ button{
 .site-loading-bar{
     display: none;
     width:100vw;
+    height: 4px;
     top:0;
     left:0;
     right:0;
