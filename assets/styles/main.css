@@ -599,6 +599,7 @@ button{
     position:fixed;
     z-index:500;
     background-color: transparent;
+    transition: all 200ms ease;
 }
 
 .site-loading-bar::-webkit-progress-bar{
