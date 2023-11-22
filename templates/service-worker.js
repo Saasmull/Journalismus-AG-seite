@@ -54,7 +54,7 @@ self.addEventListener("activate", function(event){
     );
 });
 
-self.addEventListener("fetch", function (event){
+self.addEventListener("fetch", function(event){
     event.respondWith(
         caches.match(event.request).then(function(response){
             return response || fetch(event.request).then(function(fetchResponse){
@@ -62,6 +62,18 @@ self.addEventListener("fetch", function (event){
                     cache.put(event.request, fetchResponse.clone());
                     return fetchResponse;
                 });
+            }).catch(function(error){
+                if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                    var res = new Response(`
+                    <html>
+                        <head></head>
+                        <body>
+                            <h1>Offline</h1>
+                        </body>
+                    </html>
+                    `);
+                    return res;
+                }
             });
         })
     );
