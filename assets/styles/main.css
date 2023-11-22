@@ -590,6 +590,20 @@ button{
     /* Firefox */
 }
 
+.site-loading-bar{
+    height:0;
+    width:100vw;
+    top:0;
+    left:0;
+    right:0;
+    position:fixed;
+    z-index:500;
+    background-color: transparent;
+}
+
+.site-loading-bar::-webkit-progress-bar{
+    background-color: transparent;
+}
 
 @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
     main>#intro{

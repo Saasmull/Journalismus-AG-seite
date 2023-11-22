@@ -255,13 +255,19 @@ if("querySelector" in document){
             var aLinks = document.querySelectorAll("a");
             for(var i = 0;i < aLinks.length;i++){
                 aLinks[i].addEventListener("click",function(event){
-                    var targetURL = event.target.href || "";
+                    var targetURL = "";
+                    for(var i = 0;i < aLinks.length;i++){
+                        if(aLinks[i].contains(event.target)){
+                            targetURL = aLinks[i].href;
+                            break;
+                        }
+                    }
                     event.preventDefault();
                     document.querySelector("progress").style.height = "8px";
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", targetURL, true);
                     xhr.onprogress = function(ev){
-                        var progress = (ev.loaded/ev.total) * 100;
+                        var progress = (ev.loaded/(ev.total||20000)) * 100;
                         document.querySelector("progress").value = progress;
                     }
                     xhr.onload = function(){
