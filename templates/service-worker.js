@@ -71,7 +71,11 @@ self.addEventListener("fetch", function(event){
                             <h1>Offline</h1>
                         </body>
                     </html>
-                    `);
+                    `,{
+                        headers:{
+                            "Content-Type": "text/html; charset=utf-8"
+                        }
+                    });
                     return res;
                 }
             });
