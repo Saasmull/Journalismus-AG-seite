@@ -3,6 +3,21 @@ var localStorage = {};
 var mainWindowId = 0;
 
 var cacheVersion = "<!--VERSION-->";
+function newestVersions(v1,v2){
+    v1Arr = v1.split(".");
+    v2Arr = v2.split(".");
+    for(var i = 0;i < 3;i++){
+        var v1Part = Number(v1Arr[i]);
+        var v2Part = Number(v2Arr[i]);
+        if(v1Part > v2Part){
+            return v1;
+        }
+        if(v1Part < v2Part){
+            return v2;
+        }
+    }
+    return v1;
+}
 
 self.addEventListener("install", function (event){
     event.waitUntil(
@@ -26,13 +41,16 @@ self.addEventListener("activate", function(event){
         caches.keys().then(function(cacheNames){
             return Promise.all(
                 cacheNames.map(function(cacheName){
-                    if(cacheName !== cacheVersion){
+                    if(newestVersions(cacheVersion,cacheName) !== cacheVersion){
                         return caches.delete(cacheName);
                     }
                 })
             );
         })
     );
+    event.waitUntil(
+        self.clients.claim();
+    )
 });
 
 self.addEventListener("fetch", function (event){
