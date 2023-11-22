@@ -60,6 +60,7 @@ self.addEventListener("fetch", function(event){
             return (function(){
                 var isHtmlDoc = event.request.method === "GET" && event.request.headers.get("accept").includes("text/html");
                 if(navigator.onLine === false || (navigator.connection && navigator.connection.rtt === 0)){
+                    console.log(event.request, isHtmlDoc, response)
                     if(isHtmlDoc && !response){
                         return caches.match("/offline.html");
                     }
