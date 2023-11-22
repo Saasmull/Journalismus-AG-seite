@@ -58,28 +58,35 @@ self.addEventListener("fetch", function(event){
     event.respondWith(
         caches.match(event.request).then(function(response){
             return response || (function(){
-                if(navigator.connection && navigator.connection.rtt === 0){
-                    if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                var isHtmlDoc = event.request.method === "GET" && event.request.headers.get("accept").includes("text/html");
+                if(navigator.onLine === false || (navigator.connection && navigator.connection.rtt === 0)){
+                    if(isHtmlDoc){
                         return caches.match("/offline.html");
                     }
-                    return response || fetch(event.request).then(function(fetchResponse){
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 500);
+                    return response || fetch(event.request, {signal:(isHtmlDoc?controller.signal:undefined)}).then(function(fetchResponse){
+                        clearTimeout(timeoutId);
                         return caches.open(cacheVersion).then(function(cache){
                             cache.put(event.request, fetchResponse.clone());
                             return fetchResponse;
                         });
                     }).catch(function(error){
-                        if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                        if(isHtmlDoc){
                             return caches.match("/offline.html");
                         }
                     });
                 }
-                return fetch(event.request).then(function(fetchResponse){
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 500);
+                return fetch(event.request, {signal:(isHtmlDoc?controller.signal:undefined)}).then(function(fetchResponse){
+                    clearTimeout(timeoutId);
                     return caches.open(cacheVersion).then(function(cache){
                         cache.put(event.request, fetchResponse.clone());
                         return fetchResponse;
                     });
                 }).catch(function(error){
-                    if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                    if(isHtmlDoc){
                         return caches.match("/offline.html");
                     }
                 });
