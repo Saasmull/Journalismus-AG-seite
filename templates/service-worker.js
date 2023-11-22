@@ -23,8 +23,8 @@ self.addEventListener("install", function (event){
     event.waitUntil(
         caches.open(cacheVersion).then(function(cache){
             return cache.addAll([
-                "",
                 "/",
+                "/offline.html",
                 "/index.html",
                 "/assets/styles/article.css",
                 "/assets/styles/main.css",
@@ -64,21 +64,7 @@ self.addEventListener("fetch", function(event){
                 });
             }).catch(function(error){
                 if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
-                    var res = new Response(`
-                    <html>
-                        <head>
-                            <meta charset="UTF-8">
-                        </head>
-                        <body>
-                            <h1>Offline</h1>
-                        </body>
-                    </html>
-                    `,{
-                        headers:{
-                            "Content-Type": "text/html"
-                        }
-                    });
-                    return res;
+                    return caches.match("/offline.html");
                 }
             });
         })

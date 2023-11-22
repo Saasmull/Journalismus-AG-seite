@@ -81,6 +81,7 @@ const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
 const ErrorPage = require("./utils/ErrorPage");
 const ImprintPage = require("./utils/ImprintPage");
+const OfflinePage = require("./utils/OfflinePage");
 const PrivacyPolicyPage = require("./utils/PrivacyPolicyPage");
 const RssFeed = require("./utils/RssFeed");
 const Sitemap = require("./utils/Sitemap");
@@ -247,6 +248,8 @@ setupRootDir().then(async function(){
         fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf8");
         await setSpinnerText("Rendere Impressum...");
         fs.writeFileSync("root/imprint.html",(new ImprintPage()).render(),"utf8");
+        await setSpinnerText("Rendere Offlineseite...");
+        fs.writeFileSync("root/offline.html",(new OfflinePage()).render(),"utf8");
         await setSpinnerText("Rendere Datenschutzerklärung...");
         fs.writeFileSync("root/privacy-policy.html",(new PrivacyPolicyPage()).render(),"utf8");
         await setSpinnerText("Rendere Webmanifest...");
