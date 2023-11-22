@@ -251,6 +251,25 @@ if("querySelector" in document){
                 pwa = ev.matches;
             });
         }
+        if(pwa){
+            var aLinks = document.querySelectorAll("a");
+            for(var i = 0;i < aLinks.length;i++){
+                aLinks[i].addEventListener("click",function(event){
+                    event.preventDefault();
+                    document.querySelector("progress").style.height = "8px";
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", event.target.href, true);
+                    xhr.onprogress = function(ev){
+                        var progress = (ev.loaded/ev.total) * 100;
+                        document.querySelector("progress").value = progress;
+                    }
+                    xhr.onload = function(){
+                        window.location.href = event.target.href;
+                    }
+                    xhr.send();
+                });
+            }
+        }
         var bgImages = document.querySelectorAll("[data-bg-img]");
         /*for(var i = 0;i < bgImages.length;i++){
             var b = new Image();
