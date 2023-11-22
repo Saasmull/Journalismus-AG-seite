@@ -49,8 +49,8 @@ self.addEventListener("activate", function(event){
         })
     );
     event.waitUntil(
-        self.clients.claim();
-    )
+        self.clients.claim()
+    );
 });
 
 self.addEventListener("fetch", function (event){
