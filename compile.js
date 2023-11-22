@@ -275,7 +275,7 @@ setupRootDir().then(async function(){
                     "purpose": "any"
                 }
             ],
-            "theme_color": "#0078d4",
+            "theme_color": "#121212",
             "background_color": "#0078d4"
         },null,CONFIG.INDENT),"utf8");
     }

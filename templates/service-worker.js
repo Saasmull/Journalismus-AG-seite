@@ -64,7 +64,7 @@ self.addEventListener("fetch", function(event){
                         return caches.match("/offline.html");
                     }
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 500);
+                    const timeoutId = setTimeout(() => controller.abort(), 1200);
                     return response || fetch(event.request, {signal:(isHtmlDoc?controller.signal:undefined)}).then(function(fetchResponse){
                         clearTimeout(timeoutId);
                         return caches.open(cacheVersion).then(function(cache){
@@ -78,7 +78,7 @@ self.addEventListener("fetch", function(event){
                     });
                 }
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 500);
+                const timeoutId = setTimeout(() => controller.abort(), 1200);
                 return fetch(event.request, {signal:(isHtmlDoc?controller.signal:undefined)}).then(function(fetchResponse){
                     clearTimeout(timeoutId);
                     return caches.open(cacheVersion).then(function(cache){
