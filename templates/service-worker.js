@@ -66,14 +66,16 @@ self.addEventListener("fetch", function(event){
                 if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
                     var res = new Response(`
                     <html>
-                        <head></head>
+                        <head>
+                            <meta charset="UTF-8">
+                        </head>
                         <body>
                             <h1>Offline</h1>
                         </body>
                     </html>
                     `,{
                         headers:{
-                            "Content-Type": "text/html; charset=utf-8"
+                            "Content-Type": "text/html"
                         }
                     });
                     return res;
