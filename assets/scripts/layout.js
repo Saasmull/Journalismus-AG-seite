@@ -255,16 +255,17 @@ if("querySelector" in document){
             var aLinks = document.querySelectorAll("a");
             for(var i = 0;i < aLinks.length;i++){
                 aLinks[i].addEventListener("click",function(event){
+                    var targetURL = event.target.href;
                     event.preventDefault();
                     document.querySelector("progress").style.height = "8px";
                     var xhr = new XMLHttpRequest();
-                    xhr.open("GET", event.target.href, true);
+                    xhr.open("GET", targetURL, true);
                     xhr.onprogress = function(ev){
                         var progress = (ev.loaded/ev.total) * 100;
                         document.querySelector("progress").value = progress;
                     }
                     xhr.onload = function(){
-                        window.location.href = event.target.href;
+                        window.location.href = targetURL;
                     }
                     xhr.send();
                 });
