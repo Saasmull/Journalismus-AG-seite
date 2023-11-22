@@ -61,17 +61,17 @@ self.addEventListener("fetch", function(event){
                 if(navigator.connection && navigator.connection.rtt === 0 && event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
                     return caches.match("/offline.html");
                 }
-                return false;
-            })() || fetch(event.request).then(function(fetchResponse){
-                return caches.open(cacheVersion).then(function(cache){
-                    cache.put(event.request, fetchResponse.clone());
-                    return fetchResponse;
+                return fetch(event.request).then(function(fetchResponse){
+                    return caches.open(cacheVersion).then(function(cache){
+                        cache.put(event.request, fetchResponse.clone());
+                        return fetchResponse;
+                    });
+                }).catch(function(error){
+                    if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                        return caches.match("/offline.html");
+                    }
                 });
-            }).catch(function(error){
-                if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
-                    return caches.match("/offline.html");
-                }
-            });
+            })()
         })
     );
 })
