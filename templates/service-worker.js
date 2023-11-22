@@ -58,8 +58,20 @@ self.addEventListener("fetch", function(event){
     event.respondWith(
         caches.match(event.request).then(function(response){
             return response || (function(){
-                if(navigator.connection && navigator.connection.rtt === 0 && event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
-                    return caches.match("/offline.html");
+                if(navigator.connection && navigator.connection.rtt === 0){
+                    if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                        return caches.match("/offline.html");
+                    }
+                    return response || fetch(event.request).then(function(fetchResponse){
+                        return caches.open(cacheVersion).then(function(cache){
+                            cache.put(event.request, fetchResponse.clone());
+                            return fetchResponse;
+                        });
+                    }).catch(function(error){
+                        if(event.request.method === "GET" && event.request.headers.get("accept").includes("text/html")){
+                            return caches.match("/offline.html");
+                        }
+                    });
                 }
                 return fetch(event.request).then(function(fetchResponse){
                     return caches.open(cacheVersion).then(function(cache){
