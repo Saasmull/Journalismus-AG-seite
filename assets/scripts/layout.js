@@ -302,6 +302,9 @@ if("querySelector" in document){
             var imgTs = {};
             for(var i = 0;i < bgImages.length;i++){
                 if(!imgTs[bgImages[i].dataset.bgImg]){
+                    if(bgImages[i].clientWidth < 720 && bgImages[i].dataset.bgImg.startsWith("/assets/images/")){
+                        bgImages[i].dataset.bgImg = bgImages[i].dataset.bgImg.replace("/images/","/images/mobile/");
+                    }
                     imgTs[bgImages[i].dataset.bgImg] = new Image();
                     imgTs[bgImages[i].dataset.bgImg].decoding = "async";
                     imgTs[bgImages[i].dataset.bgImg].src = bgImages[i].dataset.bgImg;

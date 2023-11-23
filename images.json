@@ -1,11 +1,43 @@
 [
     {
+        "file":"braunschweig.webp",
+        "url":"local"
+    },
+    {
+        "file":"einsatzleitung-entschärfung.jpg",
+        "url":"local"
+    },
+    {
+        "file":"plenarsaal.jpg",
+        "url":"local"
+    },
+    {
+        "file":"fiber_optics.jpg",
+        "url":"local"
+    },
+    {
+        "file":"hilbers-rede.jpg",
+        "url":"local"
+    },
+    {
+        "file":"wir-mit-frau-schütze.webp",
+        "url":"local"
+    },
+    {
+        "file":"fritzboxen.jpg",
+        "url":"https://www.dslweb.de/public/resources/images/hardware/avm-fritzbox-uebersicht.jpg"
+    },
+    {
+        "file":"osiris-rex-landung.jpg",
+        "url":"https://www.nasa.gov/wp-content/uploads/2023/09/53158965091-aeb5064b60-k.jpg"
+    },
+    {
         "file":"antonio-guterres.jpg",
         "url":"https://live.staticflickr.com/8162/7704334292_9141528c8a_b.jpg"
     },
     {
-        "file":"braunschweig.webp",
-        "url":"local"
+        "file":"raspberry-pi5.png",
+        "url":"https://www.raspberrypi.com/app/uploads/2023/09/45e129f7-036b-42e3-bb8c-7c7d87195956.png"
     },
     {
         "file":"Bonn-ehemaliger-platz-der-vereinten-nationen-08.jpg",
