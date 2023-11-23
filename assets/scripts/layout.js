@@ -300,10 +300,47 @@ if("querySelector" in document){
         }*/
         if("Image" in window && "dataset" in HTMLElement.prototype){
             var imgTs = {};
+            function loadImg(bgImg,i){
+                if(i >= 5){
+                    setTimeout(function(){
+                        loadImg(bgImg, 0)
+                    },2000);
+                    return;
+                }
+                imgTs[bgImg.dataset.bgImg] = new Image();
+                imgTs[bgImg.dataset.bgImg].decoding = "async";
+                imgTs[bgImg.dataset.bgImg].src = bgImg.dataset.bgImg;
+                imgTs[bgImg.dataset.bgImg].dataset.bgImg = bgImg.dataset.bgImg;
+                imgTs[bgImg.dataset.bgImg].onload = function(e){
+                    var loadedImgs = document.querySelectorAll("[data-bg-img=\""+e.target.dataset.bgImg+"\"]");
+                    for(var i = 0;i < loadedImgs.length;i++){
+                        loadedImgs[i].style.opacity = 1;
+                        loadedImgs[i].style.backdropFilter = "invert(0)";
+                        loadedImgs[i].style.backgroundImage = "url('" + e.target.dataset.bgImg + "')";
+                    }
+                }
+            }
             for(var i = 0;i < bgImages.length;i++){
                 if(!imgTs[bgImages[i].dataset.bgImg]){
                     if(bgImages[i].clientWidth < 720 && bgImages[i].dataset.bgImg.startsWith("/assets/images/")){
                         bgImages[i].dataset.bgImg = bgImages[i].dataset.bgImg.replace("/images/","/images/mobile/");
+                    }
+                    /*if(i >= 5){
+                        setTimeout(function(){
+                            imgTs[bgImages[i].dataset.bgImg] = new Image();
+                            imgTs[bgImages[i].dataset.bgImg].decoding = "async";
+                            imgTs[bgImages[i].dataset.bgImg].src = bgImages[i].dataset.bgImg;
+                            imgTs[bgImages[i].dataset.bgImg].dataset.bgImg = bgImages[i].dataset.bgImg;
+                            imgTs[bgImages[i].dataset.bgImg].onload = function(e){
+                                var loadedImgs = document.querySelectorAll("[data-bg-img=\""+e.target.dataset.bgImg+"\"]");
+                                for(var i = 0;i < loadedImgs.length;i++){
+                                    loadedImgs[i].style.opacity = 1;
+                                    loadedImgs[i].style.backdropFilter = "invert(0)";
+                                    loadedImgs[i].style.backgroundImage = "url('" + e.target.dataset.bgImg + "')";
+                                }
+                            }
+                        },2000);
+                        continue;
                     }
                     imgTs[bgImages[i].dataset.bgImg] = new Image();
                     imgTs[bgImages[i].dataset.bgImg].decoding = "async";
@@ -316,7 +353,8 @@ if("querySelector" in document){
                             loadedImgs[i].style.backdropFilter = "invert(0)";
                             loadedImgs[i].style.backgroundImage = "url('" + e.target.dataset.bgImg + "')";
                         }
-                    }
+                    }*/
+                    loadImg(bgImages[i], i);
                 }
             }
         }else{
