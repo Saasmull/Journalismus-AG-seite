@@ -304,7 +304,7 @@ if("querySelector" in document){
                 if(i >= 5){
                     setTimeout(function(){
                         loadImg(bgImg, 0)
-                    },200);
+                    },700);
                     return;
                 }
                 imgTs[bgImg.dataset.bgImg] = new Image();
