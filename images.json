@@ -22,5 +22,13 @@
     {
         "file":"wagenknecht.jpg",
         "url":"https://live.staticflickr.com/65535/51403882539_48cdc2edb7_b.jpg"
+    },
+    {
+        "file":"ny-times.jpg",
+        "url":"https://live.staticflickr.com/65535/48193462432_a8a175d66a_b.jpg"
+    },
+    {
+        "file":"chat-gpt.jpg",
+        "url":"https://images.pexels.com/photos/16107930/pexels-photo-16107930.jpeg?cs=srgb&dl=pexels-mojahid-mottakin-16107930.jpg&fm=jpg"
     }
 ]
