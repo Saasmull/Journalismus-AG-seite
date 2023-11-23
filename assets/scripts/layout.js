@@ -244,7 +244,7 @@ if("querySelector" in document){
         }
     });
 
-    window.addEventListener("DOMContentLoaded",function(){
+    window.addEventListener("load",function(){
         pwa = matchMedia("(display-mode: standalone)").matches;
         if("MediaQueryListEvent" in window){
             matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
