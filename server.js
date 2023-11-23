@@ -27,7 +27,7 @@ app.use(favicon("assets/images/logo/favicon.ico"));
 app.use(cookieParser({}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-//app.use(compression());
+app.use(compression());
 
 function compile(onlyUpdate){
     return child_process.exec("node ./compile.js"+(onlyUpdate?" --only-update":""),{
