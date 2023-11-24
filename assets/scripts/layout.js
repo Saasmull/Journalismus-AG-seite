@@ -244,7 +244,7 @@ if("querySelector" in document){
         }
     });
 
-    window.addEventListener("load",function(){
+    window.addEventListener("DOMContentLoaded",function(){
         pwa = matchMedia("(display-mode: standalone)").matches;
         if("MediaQueryListEvent" in window){
             matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
@@ -263,27 +263,30 @@ if("querySelector" in document){
                         }
                     }
                     event.preventDefault();
-                    document.querySelector("progress").style.display = "block";
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", targetURL, true);
-                    xhr.onprogress = function(ev){
-                        var progress = (ev.loaded/(ev.total||20000)) * 100;
-                        document.querySelector("progress").value = progress;
+                    if(!document.startViewTransition){
+                        document.querySelector("progress").style.display = "block";
+                        xhr.onprogress = function(ev){
+                            var progress = (ev.loaded/(ev.total||20000)) * 100;
+                            document.querySelector("progress").value = progress;
+                        }
                     }
-                    xhr.onload = function(){
-                        document.querySelector("progress").value = 100;
-                        if(document.startViewTransition) {
+                    xhr.onload = function(ev){
+                        if(document.startViewTransition){
                             var viewTransition = document.startViewTransition();
                             viewTransition.ready.finally(function(){
+                                setTimeout(function(){
+                                    window.location.href = targetURL;
+                                },1000);
+                            });
+                        }else{
+                            document.querySelector("progress").value = 100;
+                            setTimeout(function(){
                                 document.querySelector("progress").style.display = "none";
                                 window.location.href = targetURL;
-                            })
-                            return;
+                            },200);
                         }
-                        setTimeout(function(){
-                            document.querySelector("progress").style.display = "none";
-                            window.location.href = targetURL;
-                        },200);
                     }
                     xhr.send();
                 });
