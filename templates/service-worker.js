@@ -74,8 +74,9 @@ self.addEventListener("fetch", function(event){
                         });
                     }).catch(function(error){
                         if(isHtmlDoc){
-                            return caches.match("/offline.html");
+                            return response || caches.match("/offline.html");
                         }
+                        return response;
                     });
                 }
                 const controller = new AbortController();
@@ -88,8 +89,9 @@ self.addEventListener("fetch", function(event){
                     });
                 }).catch(function(error){
                     if(isHtmlDoc){
-                        return caches.match("/offline.html");
+                        return response || caches.match("/offline.html");
                     }
+                    return response;
                 });
             })()
         })
