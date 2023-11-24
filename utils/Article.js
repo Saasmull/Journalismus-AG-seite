@@ -98,7 +98,7 @@ module.exports = class Article{
         metaString += utils.rmvEntities(JSON.stringify(jsonLD)) + "\n";
         metaString += "</script>\n";
         //stylesheet
-        metaString += "<link rel=\"stylesheet\" href=\"/assets/styles/article.css\">";
+        metaString += "<link class=\"articleStyles\" rel=\"stylesheet\" href=\"/assets/styles/article.css\">";
         metaString += "<script defer src=\"/assets/scripts/audio-player.js\"></script>";
         return metaString;
     }
