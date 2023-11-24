@@ -262,6 +262,9 @@ if("querySelector" in document){
                             break;
                         }
                     }
+                    if(URL && (new URL(targetURL).hostname !== location.hostname)){
+                        return;
+                    }
                     event.preventDefault();
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", targetURL, true);
@@ -274,12 +277,13 @@ if("querySelector" in document){
                     }
                     xhr.onload = function(ev){
                         if(document.startViewTransition){
-                            var viewTransition = document.startViewTransition();
-                            viewTransition.ready.finally(function(){
-                                setTimeout(function(){
-                                    window.location.href = targetURL;
-                                },1000);
+                            var viewTransition = document.startViewTransition(function(){
+                                window.location.href = targetURL;
                             });
+                            viewTransition.ready.finally(function(){
+                                /*setTimeout(function(){
+                                    window.location.href = targetURL;
+                                },1000);*/});
                         }else{
                             document.querySelector("progress").value = 100;
                             setTimeout(function(){
