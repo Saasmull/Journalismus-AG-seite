@@ -272,6 +272,14 @@ if("querySelector" in document){
                     }
                     xhr.onload = function(){
                         document.querySelector("progress").value = 100;
+                        if(document.startViewTransition) {
+                            var viewTransition = document.startViewTransition();
+                            viewTransition.ready.finally(function(){
+                                document.querySelector("progress").style.display = "none";
+                                window.location.href = targetURL;
+                            })
+                            return;
+                        }
                         setTimeout(function(){
                             document.querySelector("progress").style.display = "none";
                             window.location.href = targetURL;
