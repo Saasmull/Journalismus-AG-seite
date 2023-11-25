@@ -325,7 +325,7 @@ function main(firstLoad){
                     pwa = ev.matches;
                 });
             }
-            if(pwa){
+            if(false && pwa){
                 var aLinks = document.querySelectorAll("a");
                 for(var i = 0;i < aLinks.length;i++){
                     aLinks[i].addEventListener("click",function(event){
