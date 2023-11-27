@@ -19,7 +19,14 @@ h2,h3,h4,h5,h6{
 h2>a,h3>a,h4>a,h5>a,h6>a{
     width: 24px;
     color: var(--text-color-1);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
     text-decoration: none !important;
+}
+
+h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
+    opacity: ;
+    color: var(--text-color-1);
 }
 
 h2>span,h3>span,h4>span,h5>span,h6>span{
