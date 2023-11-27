@@ -245,40 +245,6 @@ function main(firstLoad){
             }
         });
 
-    window.addEventListener("DOMContentLoaded",function(){
-        pwa = matchMedia("(display-mode: standalone) or (display-mode:window-controls-overlay)").matches;
-        if("MediaQueryListEvent" in window){
-            matchMedia("(display-mode: standalone) or (display-mode:window-controls-overlay)").addEventListener("change",function(ev){
-                pwa = ev.matches;
-            });
-        }
-        if(pwa){
-            var aLinks = document.querySelectorAll("a");
-            for(var i = 0;i < aLinks.length;i++){
-                aLinks[i].addEventListener("click",function(event){
-                    var targetURL = "";
-                    for(var i = 0;i < aLinks.length;i++){
-                        if(aLinks[i].contains(event.target)){
-                            targetURL = aLinks[i].href;
-                            break;
-                        }
-                    }
-                    if(URL && (new URL(targetURL).hostname !== location.hostname)){
-                        return;
-                    }
-                    event.preventDefault();
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", targetURL, true);
-                    if(!document.startViewTransition){
-                        document.querySelector("progress").style.display = "block";
-                        xhr.onprogress = function(ev){
-                            var progress = (ev.loaded/(ev.total||20000)) * 100;
-                            document.querySelector("progress").value = progress;
-                        }
-                    }
-                    xhr.onload = function(ev){
-                        if(document.startViewTransition){
-                            var viewTransition = document.startViewTransition(function(){
         function init(){
             function navigateTo(targetURL,isBack){
                 console.log(targetURL)
@@ -353,9 +319,9 @@ function main(firstLoad){
                 }
                 xhr.send();
             }
-            pwa = matchMedia("(display-mode: standalone)").matches;
+            pwa = matchMedia("(display-mode: standalone) or (display-mode: window-controls-overlay)").matches;
             if("MediaQueryListEvent" in window){
-                matchMedia("(display-mode: standalone)").addEventListener("change",function(ev){
+                matchMedia("(display-mode: standalone) or (display-mode: window-controls-overlay)").addEventListener("change",function(ev){
                     pwa = ev.matches;
                 });
             }

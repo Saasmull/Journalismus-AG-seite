@@ -13,6 +13,17 @@ h1{
 
 h2,h3,h4,h5,h6{
     margin-top: 50px;
+    margin-left: -20px;
+}
+
+h2>a,h3>a,h4>a,h5>a,h6>a{
+    width: 24px;
+    color: var(--text-color-1);
+    text-decoration: none !important;
+}
+
+h2>span,h3>span,h4>span,h5>span,h6>span{
+    text-decoration: underline 2px var(--text-color-1);
 }
 
 img.banner-image{
