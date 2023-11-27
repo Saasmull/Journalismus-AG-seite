@@ -5,18 +5,18 @@ main>article{
     background-image: linear-gradient(transparent 0%, var(--bg-color-1) 2em);
 }*/
 
-h1{
+#content h1{
     width: 100%;
     font-size: 2.8em;
     text-align: center;
 }
 
-h2,h3,h4,h5,h6{
+#content h2,h3,h4,h5,h6{
     margin-top: 50px;
     margin-left: -20px;
 }
 
-h2>a,h3>a,h4>a,h5>a,h6>a{
+#content h2>a,h3>a,h4>a,h5>a,h6>a{
     width: 24px;
     color: var(--text-color-1);
     opacity: 0;
@@ -24,22 +24,22 @@ h2>a,h3>a,h4>a,h5>a,h6>a{
     text-decoration: none !important;
 }
 
-h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
+#content h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
     opacity: 1;
     color: var(--text-color-1);
 }
 
-img.banner-image{
+#content img.banner-image{
     width: 100vw;
     max-height: 50vh;
     object-fit: cover;
 }
 
-p video{
+#content p video{
     width: 100%;
 }
 
-p img,p video,p iframe,figure img{
+#content p img,p video,p iframe,figure img{
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -47,15 +47,15 @@ p img,p video,p iframe,figure img{
     max-height: 70vh;
 }
 
-p iframe{
+#content p iframe{
     width: 100%;
 }
 
-iframe.yt-player{
+#content iframe.yt-player{
     max-height: unset;
 }
 
-figure figcaption{
+#content figure figcaption{
     display: block;
     text-align: center;
     font-style: italic;
@@ -65,7 +65,7 @@ figure figcaption{
 }
 
 
-p .audio-player,p audio[controls]{
+#content p .audio-player,p audio[controls]{
     display: block;
     min-width: 250px;
     width: 50%;
@@ -84,7 +84,7 @@ p .audio-player,p audio[controls]{
 }
 
 
-code{
+#content code{
     font-family: "Lucida Console", "Courier New", Courier, monospace;
     display: inline-block;
     white-space: pre;
