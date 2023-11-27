@@ -25,7 +25,7 @@ h2>a,h3>a,h4>a,h5>a,h6>a{
 }
 
 h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
-    opacity: ;
+    opacity: 1;
     color: var(--text-color-1);
 }
 
