@@ -1,4 +1,16 @@
 User-agent: *
-
-Allow: /
+Disallow: /feed.xml
+Allow: /feed.xml (Googlebot-News)
 Sitemap https://journalismus.ag/feed.xml
+
+User-agent: GoogleProducer
+Allow: /feed.xml
+
+User-agent: Mediapartners-Google
+Allow: /feed.xml
+
+User-agent: Feed
+Allow: /feed.xml
+
+User-agent: News
+Allow: /feed.xml
