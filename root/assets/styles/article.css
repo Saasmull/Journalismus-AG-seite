@@ -29,10 +29,6 @@ h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
     color: var(--text-color-1);
 }
 
-h2>span,h3>span,h4>span,h5>span,h6>span{
-    text-decoration: underline 2px var(--text-color-1);
-}
-
 img.banner-image{
     width: 100vw;
     max-height: 50vh;
