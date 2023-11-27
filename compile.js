@@ -132,6 +132,7 @@ async function setupRootDir(){
                 await copyFiles(from,to,statusText);
             }
         }
+        fs.copyFileSync("templates/robots.txt","root/robots.txt");
         await copyFiles("api/","root/api","Kopiere API-Dateien...");
         await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
         var sw = fs.readFileSync("templates/service-worker.js","utf8");
