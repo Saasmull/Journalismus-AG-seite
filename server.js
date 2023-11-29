@@ -1,4 +1,5 @@
 const CONFIG = require("./utils/config");
+const Search = require("./utils/search");
 const fs = require("fs");
 const os = require("os");
 const crypto = require("crypto");
@@ -213,8 +214,6 @@ function startServer(){
     }
     app.use("/search.html",function(req,res){
         if(req.query.q){
-            console.log(req.query.q);
-            const Search = require("./utils/search");
             var search = new Search(req.query.q);
             res.send(search.render());
         }else{

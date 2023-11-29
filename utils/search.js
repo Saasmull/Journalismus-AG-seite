@@ -7,7 +7,6 @@ module.exports = class Search{
     constructor(query){
         this.query = query;
         this.results = this.evaluate();
-        console.log(this.results);
     }
     #findGermanNouns(text){
         var nouns = [];
