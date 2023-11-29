@@ -5,29 +5,36 @@ main>article{
     background-image: linear-gradient(transparent 0%, var(--bg-color-1) 2em);
 }*/
 
-#content h1{
+#content h1,article h1{
     width: 100%;
     font-size: 2.8em;
     text-align: center;
 }
 
-#content h2,h3,h4,h5,h6{
+#content h2,#content h3,#content h4,#content h5,#content h6{
     margin-top: 50px;
-    margin-left: -20px;
 }
 
-#content h2>a,h3>a,h4>a,h5>a,h6>a{
+#content h2>a,#content h3>a,#content h4>a,#content h5>a,#content h6>a{
+    opacity: 0.5;
     width: 24px;
     color: var(--text-color-1);
-    opacity: 0;
+    /*opacity: 0;*/
     transition: opacity 0.2s ease-in-out;
     text-decoration: none !important;
 }
 
-#content h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{
+#content h2>span,#content h3>span,#content h4>span,#content h5>span,#content h6>span{
+    position: relative;
+    left: 24px;
+    margin-left: -24px;
+}
+
+/*
+#content h2:hover>a,#content h3:hover>a,#content h4:hover>a,#content h5:hover>a,#content h6:hover>a{
     opacity: 1;
     color: var(--text-color-1);
-}
+}*/
 
 #content img.banner-image{
     width: 100vw;
