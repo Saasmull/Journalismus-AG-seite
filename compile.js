@@ -146,8 +146,21 @@ async function setupRootDir(){
             from:undefined
         }).then(function(res){
             var css = res.css;
-            //console.log(css);
             fs.writeFileSync("root/assets/styles/main.css",
+            css,"utf8");
+        });
+        postcss(plugins).process(fs.readFileSync("root/assets/styles/article.css","utf8"),{
+            from:undefined
+        }).then(function(res){
+            var css = res.css;
+            fs.writeFileSync("root/assets/styles/article.css",
+            css,"utf8");
+        });
+        postcss(plugins).process(fs.readFileSync("root/assets/styles/search.css","utf8"),{
+            from:undefined
+        }).then(function(res){
+            var css = res.css;
+            fs.writeFileSync("root/assets/styles/search.css",
             css,"utf8");
         });
         if(CONFIG.MINIFY){

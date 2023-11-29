@@ -3,6 +3,7 @@
     "description":"7 Jahre nach dem Start - Die Proben von Bennu sind nun auf der Erde gelandet.",
     "banner":"/assets/images/osiris-rex-landung.jpg",
     "published":"27.09.2023",
-    "categories":["technik"], 
+    "categories":["technik"],
+    "synonyms":["NASA","Raumsonde","Landung","Probe"],
     "authors":["cnr"]
 }

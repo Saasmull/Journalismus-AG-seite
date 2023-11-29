@@ -4,5 +4,6 @@
     "banner":"/assets/images/fritzboxen.jpg",
     "published":"25.09.2023",
     "categories":["technik"],
+    "synonyms":["FritzBox","Netzwerk","Internet","Fritz!Box","WLAN","DSL","Modem","Multifunktionsrouter"],
     "authors":["sml"]
 }

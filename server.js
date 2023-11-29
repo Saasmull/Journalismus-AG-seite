@@ -214,10 +214,12 @@ function startServer(){
     app.use("/search.html",function(req,res){
         if(req.query.q){
             console.log(req.query.q);
-            const search = require("./utils/search");
-            console.log(search(req.query.q));
+            const Search = require("./utils/search");
+            var search = new Search(req.query.q);
+            res.send(search.render());
+        }else{
+            res.sendFile(__dirname+"/root/search.html");
         }
-        res.sendFile(__dirname+"/root/search.html");
     });
     app.use("/",express.static(__dirname+"/root"));
     app.use("/",function(err,req,res,next){
