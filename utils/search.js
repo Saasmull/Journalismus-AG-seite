@@ -80,7 +80,7 @@ module.exports = class Search{
         }
         score += this.#average(this.#distanceToArray(query, this.#findGermanNouns(utils.rmvEntities(title)))) * 0.1;
         score += Math.min(...this.#distanceToArray(query, this.#findGermanNouns(utils.rmvEntities(title)))) * 0.1;
-        score -= (utils.rmvEntities(title) + description).toLowerCase().includes(query.toLowerCase()) * 10;
+        score -= (utils.rmvEntities(title) + description).toLowerCase().includes(query.toLowerCase()) * 30;
         return score;
     }
     evaluate(){
