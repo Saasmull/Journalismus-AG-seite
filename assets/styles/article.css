@@ -84,6 +84,19 @@ main>article{
     box-shadow: var(--card-shadow);
 }
 
+#content dl{
+    margin: 2rem;
+    background-color: var(--bg-color-1-5);
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    border-radius: var(--border-radi-card);
+}
+
+#content dl>dt{
+    font-weight: bold;
+    font-size: 24px;
+}
+
 @media screen and (max-width: 780px) {
     #content{
         width: 90vw !important;
