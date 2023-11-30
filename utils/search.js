@@ -3,6 +3,8 @@ const fs = require("fs");
 
 const utils = require("./functions");
 
+const articlesFolders = fs.readdirSync("articles");
+
 module.exports = class Search{
     constructor(query){
         this.query = query;
@@ -79,9 +81,8 @@ module.exports = class Search{
     evaluate(){
         var query = this.query;
         var results = [];
-        var articles = fs.readdirSync("articles");
-        for(var i = 0;i < articles.length;i++){
-            var article = articles[i];
+        for(var i = 0;i < articlesFolders.length;i++){
+            var article = articlesFolders[i];
             var metadata = JSON.parse(fs.readFileSync("articles/"+article+"/meta.json","utf-8"));
             var distance = this.#score(query, metadata.title, metadata.description, metadata.synonyms);
             results.push({
@@ -100,12 +101,12 @@ module.exports = class Search{
         var page = fs.readFileSync("root/search.html","utf8")
             .replace("value=\"\"", "value=\"" + this.query.replaceAll("\"","&quot;") + "\"")
             .replace("<title>Suche</title>","<title>Suche nach \"" + this.query.replaceAll("<","&lt;").replaceAll(">","&gt;") + "\"</title>");
-        var results = "";
+        var results = "<div id=\"content\">";
         for(var i = 0;i < this.results.length;i++){
             var result = this.results[i];
             results += "<div class=\"result\"><a href=\"/article/" + result.path + ".html\"><h3>" + result.title + "</h3></a><p>" + result.description + "</p></div>";
         }
-        return page.replace("<!--RESULTS-->",results);
+        return page.replace("<!--RESULTS-->",results+"</div>");
     }
 
 }

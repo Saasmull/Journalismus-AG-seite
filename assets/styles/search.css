@@ -77,7 +77,7 @@ p img,
 
 
 form {
-    padding-top: 24px;
+    padding: 24px 6px;
 }
 
 form>div{
@@ -85,6 +85,9 @@ form>div{
     max-width: 400px;
     margin: 5px auto;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: var(--border-radi-card);
 }
 
 input[type="text"] {
@@ -94,15 +97,33 @@ input[type="text"] {
     border-radius: var(--border-radi-card) 0 0 var(--border-radi-card);
     color: var(--text-color-1);
     background-color: var(--bg-color-1-5);
-    font-size: 1.2em;
+    font-size: 18px;
+    width: 100%;
 }
-input[type="submit"] {
+
+form input[type="text"]:focus-visible{
+    outline: none;
+}
+
+form>div:focus-within{
+    outline: solid 2px var(--focus-ring-color);
+    outline: solid 2px Highlight;
+    outline: solid 2px -webkit-focus-ring-color;
+}
+
+button[type="submit"] {
     padding: 10px;
     border: none;
     border-left: none;
     border-radius: 0 var(--border-radi-card) var(--border-radi-card) 0;
-    font-size: 1.2em;
+    font-size: 18px;
     color: #fff;
     background-color: var(--color-primary);
     cursor: pointer;
+}
+
+@media screen and (max-width: 780px) {
+    #content{
+        width: 90vw !important;
+    }
 }

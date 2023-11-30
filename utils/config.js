@@ -49,7 +49,7 @@ const CONFIG = module.exports = {
     /** @type {string} */
     INDENT:"   ",
     /** @type {string} Die Version dieses Codes. */
-    VERSION:"1.1.1",
+    VERSION:"1.2.0",
 };
 
 if(CONFIG.MINIFY){
