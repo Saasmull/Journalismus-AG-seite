@@ -8,16 +8,10 @@ module.exports = class Search{
         this.query = query;
         this.results = this.evaluate();
     }
-    #findGermanNouns(text){
-        var nouns = [];
-        var words = text.split(" ");
-        for(var i = 0;i < words.length;i++){
-            var word = words[i];
-            if(word[0] === word[0].toUpperCase()){
-                nouns.push(word);
-            }
-        }
-        return nouns;
+    #findGermanNouns(text) {
+        return text
+            .split(" ")
+            .filter(word => word[0] === word[0].toUpperCase());
     }
     #levensteinDistance(a, b){
         var m = a.length,
@@ -103,7 +97,9 @@ module.exports = class Search{
         return results.slice(0, 50);
     }
     render(){
-        var page = fs.readFileSync("root/search.html","utf8").replace("value=\"\"", "value=\"" + this.query.replaceAll("\"","&quot;") + "\"");
+        var page = fs.readFileSync("root/search.html","utf8")
+            .replace("value=\"\"", "value=\"" + this.query.replaceAll("\"","&quot;") + "\"")
+            .replace("<title>Suche</title>","<title>Suche nach \"" + this.query.replaceAll("<","&lt;").replaceAll(">","&gt;") + "\"</title>");
         var results = "";
         for(var i = 0;i < this.results.length;i++){
             var result = this.results[i];
