@@ -16,3 +16,5 @@ Laut BMWK (Bundesministerium für Wirtschaft und Klimaschutz) wurden allein im e
 
 ![Ausbau der Solarenergie im ersten Halbjahr dieses Jahres](/assets/images/ausbau-der-solarenergie-dieses-jahr.jpg)
 
+Quellen: [Bundesregierung]([tagesschau.de](https://www.bundesregierung.de/breg-de/schwerpunkte/klimaschutz/faq-energiewende-2067498)https://www.bundesregierung.de/breg-de/schwerpunkte/klimaschutz/faq-energiewende-2067498) , [BMWK](https://www.bmwk.de/Redaktion/DE/Dossier/erneuerbare-energien.html) , [Statistisches Bundesamt](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2023/PD23_25_p002.html)
+ 
