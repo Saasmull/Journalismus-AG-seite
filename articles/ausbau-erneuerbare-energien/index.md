@@ -1,4 +1,4 @@
-** Der Ausbau der erneuerbaren Energieträger ist maßgeblich verantwortlich für das Erreichen der Klimaziele in Deutschland sowie auch auf der ganzen Welt. Der Ausbau dieser stieg in den letzten Jahren rasant an, jedoch muss das Tempo, um die Klimaziele zu erreichen, weiter angezogen werden**
+**Der Ausbau der erneuerbaren Energieträger ist maßgeblich verantwortlich für das Erreichen der Klimaziele in Deutschland sowie auch auf der ganzen Welt. Der Ausbau dieser stieg in den letzten Jahren rasant an, jedoch muss das Tempo, um die Klimaziele zu erreichen, weiter angezogen werden**
 
 Das Ziel der Bundesregierung ist bis 2045 klimaneutral zu werden. Dabei sollen bis 2030 bereits 80% des Stromverbrauchs von Erneuerbaren Energien gedeckt sein. Im ersten Halbjahr dieses Jahres lag der Anteil der Erneuerbaren am Bruttostromverbrauch bei ca. 52%. In den nächsten sieben Jahren müsste dieser Anteil noch um 28% steigen, um das Ziel bis 2030 zu erreichen.
 
