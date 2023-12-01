@@ -342,6 +342,29 @@ function main(firstLoad){
                     navigateTo(ev.destination.url,false);
                 });
             }*/
+            window.addEventListener("contextmenu", function(event){
+                if(false && pwa){
+                    event.preventDefault();
+                    document.querySelector(".context-menu").style.display = "block";
+                    document.querySelector(".context-menu").style.left = event.clientX + "px";
+                    document.querySelector(".context-menu").style.top = event.clientY + "px";
+                    console.log(event,window.getSelection(),event.target.contains(window.getSelection().focusNode));
+                    var selectedText = window.getSelection().toString();
+                    var selection = getSelection();
+      
+                    if (selection.rangeCount > 0) {
+                        var range = selection.getRangeAt(0);
+                        
+                        // Check if the click coordinates are within the bounds of the selected text
+                        if (range.getBoundingClientRect().left <= event.clientX &&
+                            range.getBoundingClientRect().right >= event.clientX &&
+                            range.getBoundingClientRect().top <= event.clientY &&
+                            range.getBoundingClientRect().bottom >= event.clientY) {
+                            //
+                        }
+                    }
+                }
+            });
             var bgImages = document.querySelectorAll("[data-bg-img]");
             if("Image" in window && "dataset" in HTMLElement.prototype){
                 var imgTs = {};
