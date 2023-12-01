@@ -66,5 +66,13 @@
     {
         "file":"chat-gpt.jpg",
         "url":"https://images.pexels.com/photos/16107930/pexels-photo-16107930.jpeg?cs=srgb&dl=pexels-mojahid-mottakin-16107930.jpg&fm=jpg"
+    },
+    {
+        "file":"ausbau-der-erneuerbaren-seit-2000.jpg",
+        "url":"https://www.bundesregierung.de/resource/image/2171242/16x9/990/557/93697be478db0a77057668c76d493f00/RJ/2023-03-15-grafik-erneuerbare.png"
+    },
+    {
+        "file":"ausbau-der-solarenergie-dieses-jahr.jpg",
+        "url":"https://www.bmwk.de/Redaktion/DE/Infografiken/Social-Media/ausbau-ee-bild-1.png"
     }
 ]
