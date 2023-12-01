@@ -22,6 +22,14 @@ class HomepageMetadata{
             "url":CONFIG.SITE_ROOT,
             "name":CONFIG.SITE_NAME,
             "description":CONFIG.DESCRIPTION,
+            "potentialAction":{
+                "@type":"SearchAction",
+                "target":CONFIG.SITE_ROOT+"/search.html?q={search_term_string}",
+                "query-input":"required name=search_term_string"
+            },
+            "inLanguage":"de-DE",
+            "isFamilyFriendly":true,
+            "image":CONFIG.LOGO,
             "publisher":{
                 "@type": "NewsMediaOrganization",
                 "@id":CONFIG.SITE_ROOT+"/index.html",
