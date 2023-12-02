@@ -12,6 +12,10 @@ Die Wück-Elf kam von Anfang an gut ins Spiel und wurde nach einer guten halben 
 
 Allerdings blieb der Vorsprung nicht lange bei zwei Toren, denn im direkten Gegenzug schoss Frankreich in Person von Saimon Bouabre den Anschluss. Eine Viertelstunde später kam es jedoch noch dicker: Mittelfeldspieler Winners Osawe sah nach unnötigem Einsteigen die Ampelkarte. Somit war die deutsche Nationalmannschaft 20 Minuten vor Schluss nur noch zu zehnt. Fünf Minuten vor Schluss hielt die Elf um Superstar Paris Brunner dem Druck dann nicht mehr stand. Nach einer scharfen Hereingabe der Franzosen, muss Mathis Amougou nur noch über die Linie drücken. Dann passierte bis zum Schlusspfiff nicht mehr viel.
 
+
+![U17-WM-Pokal](/assets/images/u17-wm-pokal.jpg)
+
+
 ## Kabar behält die Nerven 
 
 Das Elfmeterschießen begann denkbar schlecht für die deutsche Auswahl. Nachdem Kapitän Joachim Kayi Sanda den ersten Strafstoß für die Franzosen verwandelte, ließ Eric da Silva Moreira die Möglichkeit zum Ausgleich liegen. Der Vorsprung hielt allerdings nicht lange an, nachdem der dritte französische Schütze die Nerven verlor und den Elfmeter in den indonesischen Nachthimmel jagte.
