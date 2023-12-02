@@ -21,6 +21,7 @@ for(var i = 0;i < images.length;i++){
     if(typeof images[i].url !== "string"){
         console.log("ERR NSTR");
     }
+    console.log(images[i].url);
     if(images[i].url !== "local" || images[i].url.startsWith("http")){
         try{
         await downloadImage(images[i].url,"assets/images/"+images[i].file);

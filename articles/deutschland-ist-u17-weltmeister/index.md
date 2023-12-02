@@ -5,7 +5,7 @@
 
 Die Deutsche U17-Nationalmannschaft der Männer ist trotz spätem Platzverweis Weltmeister. Das Endspiel in Jakarta entschied die DFB-Elf nach Elfmeterschießen gegen Frankreich für sich. Torhüter Konstantin Heide wurde dabei zum Helden. Trainer Christian Wück fehlten im Interview mit dem DFB die Worte.
 
-## Frankreich schockt DFB-Elf spät
+## Frank&shy;reich schockt DFB-Elf spät
 
 Die Wück-Elf kam von Anfang an gut ins Spiel und wurde nach einer guten halben Stunde mit einem Strafstoß belohnt. Superstar Paris Brunner verwandelte den Elfmeter eiskalt, indem er in den gegnerischen Keeper in die falsche Ecke schickte. Kurz nach der Pause legten die Deutschen direkt nach. Nach einem Konter vollendete Kapitän Noah Darvich vom FC Barcelona sehenswert. 
 
