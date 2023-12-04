@@ -21,4 +21,4 @@ Das Elfmeterschießen begann denkbar schlecht für die deutsche Auswahl. Nachdem
 Danach folgte der große Auftritt des Konstantin Heide, indem er den Elfmeter des vierten Franzosen parierte. Beim Zwischenstand von 3:3 kam es dann zum vorläufig Letzen Schützen, Paris Brunner. Dieser verlor allerdings die Nerven und verschoss. Somit ging es in die Verlängerung des Elfmeterschießens. Dort hielt der Hachinger Heide allerdings den nächsten Strafstoß, woraufhin Almugera Kabar die Nerven behielt und die U17-Elf zum Weltmeister machte.
 
 
-Quellen: [DFB](https://www.dfb.de/news/detail/u-17-junioren-kroenen-sich-zum-weltmeister-257402/)
+Quellen: [DFB](https://www.dfb.de/news/detail/u-17-junioren-kroenen-sich-zum-weltmeister-257402/) , [ccnull.de](https://img.ccnull.de/1030000/preview/1030083_ef28de2a33205c763873ad3d7c519362.jpg)
