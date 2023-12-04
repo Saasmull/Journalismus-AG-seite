@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /feed.xml
 Allow: /feed.xml (Googlebot-News)
-Sitemap: /sitemap.xml
+Sitemap: https://journalismus.ag/sitemap.xml
 
 User-agent: GoogleProducer
 Allow: /feed.xml
