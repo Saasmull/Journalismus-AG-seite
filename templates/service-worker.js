@@ -68,10 +68,11 @@ self.addEventListener("fetch", function(event){
                     const timeoutId = setTimeout(() => controller.abort(), 1200);
                     return response || fetch(event.request, {signal:(isHtmlDoc?controller.signal:undefined)}).then(function(fetchResponse){
                         clearTimeout(timeoutId);
-                        return caches.open(cacheVersion).then(function(cache){
-                            cache.put(event.request, fetchResponse.clone());
-                            return fetchResponse;
+                        caches.open(cacheVersion).then(function(cache){
+                            cache.put(event.request, fetchResponse);
+                            fetchResponse;
                         });
+                        return fetchResponse.clone();
                     }).catch(function(error){
                         if(isHtmlDoc){
                             return response || caches.match("/offline.html");
