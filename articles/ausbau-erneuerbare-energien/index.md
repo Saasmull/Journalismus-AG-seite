@@ -11,7 +11,7 @@ Um die Klimaziele bis 2030 zu erreichen, würde dies zwar noch nicht ausreichen,
 
 ## Photo&shy;voltaik geht voran
 
-Laut dem statistischen Bundesamt nahm der Anteil von Photovoltaik auf Grundstücken und Dächern im März dieses Jahres im Vergleich zum Vorjahr um 16% zu. Insgesamt sind ca. 2,6 Millionen Photovoltaikanlagen auf Dächern und Grundstücken in Deutschland installiert (stand: März 2023). In den vergangenen fünf Jahren liegt der Anstieg bei fast einer Million. Die sogenannten „Balkonkraftwerke werden in der Statistik nicht erfasst. 
+Laut dem statistischen Bundesamt nahm der Anteil von Photovoltaik auf Grundstücken und Dächern im März dieses Jahres im Vergleich zum Vorjahr um 16% zu. Insgesamt sind ca. 2,6 Millionen Photovoltaikanlagen auf Dächern und Grundstücken in Deutschland installiert (stand: März 2023). In den vergangenen fünf Jahren liegt der Anstieg bei fast einer Million. Balkonkraftwerke werden in der Statistik nicht erfasst. 
 Laut BMWK (Bundesministerium für Wirtschaft und Klimaschutz) wurden allein im ersten Halbjahr insgesamt 481.650 neu verbaut. Dies entspricht einem Leistungsanstieg von 6.270 Megawatt die allein im ersten Halbjahr dieses Jahres dazukamen. 
 
 ![Ausbau der Solarenergie im ersten Halbjahr dieses Jahres](/assets/images/ausbau-der-solarenergie-dieses-jahr.png)
