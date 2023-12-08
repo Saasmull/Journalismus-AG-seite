@@ -31,15 +31,13 @@ app.use(express.urlencoded({extended:true}));
 app.use(compression());
 
 function compile(onlyUpdate){
-    return child_process.exec("node ./compile.js"+(onlyUpdate?" --only-update":""),{
+    return child_process.execSync("node ./compile.js --child "+(onlyUpdate?" --only-update":""),{
         windowsHide:true
-    },function(err,stdout,stderr){
-        console.log(err,stdout,stderr);
     });
 }
-compile().on("exit",function(){
-    startServer();
-})
+
+console.log(compile().toString());
+startServer();
 
 
 function createAuthSite(errorMessage){
@@ -54,35 +52,35 @@ function createAuthSite(errorMessage){
 }
 
 function startServer(){
-    var serverData = updateServerData();
-    async function updateServerData(){
-        serverData = {
-            versions:{
-                node:process.versions.node,
-                jag:CONFIG.VERSION
-            },
-            stats:{
-                platform:process.platform,
-                arch:os.arch(),
-                type:os.type(),
-                uptime:os.uptime(),
-                hostname:os.hostname(),
-                //cpus:os.cpus(),
-                //mem:await si.mem(),
-                cpuLoad:(await si.currentLoad()).currentLoad,
-                memoryTotal:os.totalmem(),
-                memoryFree:os.freemem(),
-                memoryUsage:process.memoryUsage(),
-            }
-        };
-    };
-    setInterval(updateServerData,500);
     app.use("/",function(req,res,next){
         app.disable("x-powered-by");
         res.setHeader("X-Powered-By","CMS "+CONFIG.SITE_NAME+" "+CONFIG.VERSION);
         next();
     })
     if(CONFIG.ADMIN_BACKEND){
+        var serverData = updateServerData();
+        async function updateServerData(){
+            serverData = {
+                versions:{
+                    node:process.versions.node,
+                    jag:CONFIG.VERSION
+                },
+                stats:{
+                    platform:process.platform,
+                    arch:os.arch(),
+                    type:os.type(),
+                    uptime:os.uptime(),
+                    hostname:os.hostname(),
+                    //cpus:os.cpus(),
+                    //mem:await si.mem(),
+                    cpuLoad:(await si.currentLoad()).currentLoad,
+                    memoryTotal:os.totalmem(),
+                    memoryFree:os.freemem(),
+                    memoryUsage:process.memoryUsage(),
+                }
+            };
+        };
+        setInterval(updateServerData,500);
         let sessions = [];
         try{
             sessions = fs.readFileSync(".sessions","utf8").split("\n");

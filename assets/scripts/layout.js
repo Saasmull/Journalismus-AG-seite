@@ -162,7 +162,7 @@ if("querySelector" in document){
 function main(firstLoad){
     var PATH = location.pathname.substr(8,location.pathname.length-13);
 
-    function supportsWebp(){
+    supportsWebp = function supportsWebp(){
         var can = document.createElement("canvas");
         if(!!(can.getContext && can.getContext("2d") && can.toDataURL)){
             return can.toDataURL("image/webp").indexOf("data:image/webp") == 0;
@@ -182,7 +182,7 @@ function main(firstLoad){
         }catch(e){}
     }
 
-    function subscribeAuthor(path){
+    subscribeAuthor = function subscribeAuthor(path){
         var subs = JSON.parse(localStorage.getItem("subs"))||[];
         if(subs.indexOf(path) === -1){
             subs.push(path);
@@ -199,12 +199,12 @@ function main(firstLoad){
             });
         }
     }
-    function unsubsscribeAuthor(path){
+    unsubsscribeAuthor = function unsubsscribeAuthor(path){
         var subs = JSON.parse(localStorage.getItem("subs"))||[];
         subs.splice(subs.indexOf(path),1);
         localStorage.setItem("subs",JSON.stringify(subs));
     }
-    function toggleSub(element){
+    toggleSub = function toggleSub(element){
         if(element.classList.contains("subscribed")){
             element.classList.remove("subscribed");
             element.innerHTML = "Abonnieren";
@@ -223,7 +223,7 @@ function main(firstLoad){
         if(localStorage.getItem("lum")!==null){
             currentTheme = localStorage.getItem("lum")==="on";
         }
-        function setLum(state,set){
+        setLum = function setLum(state,set){
             currentTheme = state;
             if(state){
                 document.documentElement.classList.add("lum");

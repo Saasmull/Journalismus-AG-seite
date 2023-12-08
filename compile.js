@@ -6,6 +6,8 @@ const postcss = require("postcss");
 const UglifyJS = require("uglify-js");
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+const onlyUpdate = process.argv.includes("--only-update");
+
 
 var Log = require("./utils/StatusLog");
 var log = new Log();
@@ -13,7 +15,6 @@ async function setSpinnerText(text){
     await log.setSpinnerText(text);
 }
 
-const onlyUpdate = process.argv.includes("--only-update");
 
 const plugins = [
     require("postcss-custom-properties")({
@@ -80,6 +81,7 @@ marked.use({
     }
 });
 
+const API = require("./utils/API");
 const Article = require("./utils/Article");
 const Author = require("./utils/Author");
 const Category = require("./utils/Category");
@@ -134,7 +136,6 @@ async function setupRootDir(){
             }
         }
         fs.copyFileSync("templates/robots.txt","root/robots.txt");
-        await copyFiles("api/","root/api","Kopiere API-Dateien...");
         await copyFiles("assets/","root/assets","Kopiere Asset-Dateien...");
         var sw = fs.readFileSync("templates/service-worker.js","utf8");
         fs.writeFileSync("root/service-worker.js",sw.replace("<!--VERSION-->",CONFIG.VERSION),"utf8");
@@ -256,9 +257,12 @@ setupRootDir().then(async function(){
         fs.writeFileSync("root/category/"+categories[categoriesDir[i]].path+".html",categories[categoriesDir[i]].renderCategoryPage(),"utf8");
     }
     
+    await setSpinnerText("Generiere API-Dateien...");
+    var api = new API();
+    api.writeAPI();
+
     await setSpinnerText("Rendere Sitemap...");
     fs.writeFileSync("root/sitemap.xml",sitemap.renderSitemap(),"utf8");
-
     await setSpinnerText("Rendere RSS-Feed...");
     fs.writeFileSync("root/feed.xml",rssFeed.renderFeed(),"utf8");
     await setSpinnerText("Rendere Homepage...");

@@ -1,11 +1,16 @@
 const rdl = require("readline");
 const CONFIG = require("./config");
 
+const isChildProcess = process.argv.includes("--child");
+
 module.exports = class StatusLog{
     constructor(){
         //this.rl = rdl.createInterface()
         this.lineBuffer = [];
         this.msg = "";
+        if(isChildProcess){
+            return;
+        }
         this.spinnerStates = ['◜','◠','◝','◞','◡','◟'];
         this.spinnerState = 0;
         var self = this;
@@ -31,7 +36,7 @@ module.exports = class StatusLog{
         rdl.moveCursor(process.stdout, 0, -this.lineBuffer.length+1);
     }
     warn(text){
-        if(CONFIG.DEBUG){
+        if(CONFIG.DEBUG || isChildProcess){
             console.warn("\x1b[93m[WARNUNG]\x1b[0m",text);
             return;
         }
@@ -41,7 +46,7 @@ module.exports = class StatusLog{
         this.writeLineBuffer();
     }
     error(text){
-        if(CONFIG.DEBUG){
+        if(CONFIG.DEBUG || isChildProcess){
             console.error("\x1b[91m[FEHLER]\x1b[0m",text);
             return;
         }
@@ -56,7 +61,7 @@ module.exports = class StatusLog{
             this.lineBuffer[this.lineBuffer.length-1] = this.msg;
         }
         this.msg = text;
-        if(CONFIG.DEBUG){
+        if(CONFIG.DEBUG || isChildProcess){
             console.log(text);
             return;
         }
@@ -68,6 +73,9 @@ module.exports = class StatusLog{
         }
     }
     stop(){
+        if(CONFIG.DEBUG){
+            return;
+        }
         clearInterval(this.spinnerInterval);
         rdl.moveCursor(process.stdout, 0, this.lineBuffer.length+2);
         process.stdout.write("\x1b[?25h");

@@ -165,7 +165,7 @@ function getLocalStorageKey(key){
 
 async function hideNotifications(){
     try{
-        var response = await fetch("/api/articles.json");
+        var response = await fetch("/api/authorArticles.json");
         var data = await response.json();
         setLocalStorageKey("prevs", JSON.stringify(data));
         //localStorage["prevs"] = JSON.stringify(data);
@@ -184,7 +184,7 @@ function showArticleNotification(article){
 
 async function fetchArticles(){
     try{
-        var response = await fetch("/api/articles.json");
+        var response = await fetch("/api/authorArticles.json");
         var data = await response.json();
         var subs = [];
         try{
