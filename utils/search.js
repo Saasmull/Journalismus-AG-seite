@@ -10,11 +10,22 @@ module.exports = class Search{
         this.query = query;
         this.results = this.evaluate();
     }
-    #findGermanNouns(text) {
+    /**
+     * Gibt alle Nomen in einem deutschen Text zurück.
+     * @param {string} text Ein deutschsprachiger Text
+     * @returns {string[]} Alle Nomen im Text
+     */
+    #findGermanNouns(text){
         return text
             .split(" ")
             .filter(word => word[0] === word[0].toUpperCase());
     }
+    /**
+     * Gibt die Levenstein-Distanz zwischen zwei Strings zurück.
+     * @param {string} a Erster String
+     * @param {string} b Zweiter String
+     * @returns {number} Levenstein-Distanz zwischen a und b
+     */
     #levensteinDistance(a, b){
         var m = a.length,
             n = b.length,
@@ -54,6 +65,11 @@ module.exports = class Search{
         }
         return distance;
     }
+    /**
+     * Berechnet den Durchschnitt aller Zahlen in einem Array.
+     * @param {number[]} array Ein Array mit Zahlen
+     * @returns {number} Der Durchschnitt aller Zahlen in dem Array
+     */
     #average(array){
         var sum = 0;
         for(var i = 0;i < array.length;i++){
@@ -109,32 +125,4 @@ module.exports = class Search{
         return page.replace("<!--RESULTS-->",results+"</div>");
     }
 
-}
-
-function search(query){
-    var results = [];
-    const fs = require("fs");
-    var articles = fs.readdirSync("articles");
-    for(var i = 0;i < articles.length;i++){
-        var article = articles[i];
-        var metadata = JSON.parse(fs.readFileSync("articles/"+article+"/meta.json","utf-8"));
-        var distance = Math.max(0,
-            (
-                Math.min(...distanceToArray(query, findGermanNouns(utils.rmvEntities(metadata.title)))) +
-                levensteinDistance(query,utils.rmvEntities(metadata.title)) +
-                levensteinDistance(query, metadata.description)
-            ) -
-            ((metadata.title + metadata.description).toLowerCase().includes(query.toLowerCase()) * 100)
-        );
-        results.push({
-            title: metadata.title,
-            description: metadata.description,
-            path: article,
-            distance: distance
-        });
-    }
-    results.sort((a,b) => {
-        return a.distance - b.distance;
-    });
-    return results.slice(0, 50);
 }
