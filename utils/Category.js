@@ -68,7 +68,7 @@ module.exports = class Category{
         var categoryHead = "<div class=\"category-head\">\n";
         categoryHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
         categoryHead += "<h1>" + this.metadata.title + "</h1>\n";
-        categoryHead += "<p>" + this.metadata.description + "</p>\n";
+        categoryHead += "<p style=\"text-align:center;\">" + this.metadata.description + "</p>\n";
         categoryHead += "</div>\n";
         var articleCards = "<div class=\"category-items\">\n";
         for(var i = 0;i < this.articles.length;i++){
