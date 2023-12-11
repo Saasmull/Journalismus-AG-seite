@@ -27,7 +27,7 @@
             <div class="p" id="p"></div>
         </div>
         <span style="text-align:center;display:block;">Du bist offline!</span><br>
-        <a class="button-p" href="#">Neu laden</a>
+        <button class="button-p" onclick="location.reload();">Neu laden</button>
     </div>
     <div class="camera"><div></div></div>
 </div>
@@ -154,3 +154,4 @@
         border-radius: 50%;
     }
 </style>
+<script>setInterval(function(){location.reload();},2000);</script>
