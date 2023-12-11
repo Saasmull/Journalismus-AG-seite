@@ -7,6 +7,11 @@ const Category = require("./Category");
 const Article = require("./Article");
 
 class HomepageMetadata{
+    /**
+     * 
+     * @param {string} title Der Titel der Seite
+     * @param {string} description Die Beschreibung der Seite
+     */
     constructor(title,description){
         this.title = title;
         this.description = description;
@@ -14,6 +19,10 @@ class HomepageMetadata{
         this.articles = [];
         this.authors = [];
     }
+    /**
+     * Generiert den JSON-LD-Code der Seite.
+     * @returns {Object} Der JSON-LD-Code der Seite 
+     */
     renderJsonLd(){
         var jsonLD = {
             "@context": "http://schema.org",

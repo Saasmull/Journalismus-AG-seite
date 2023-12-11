@@ -34,6 +34,10 @@ module.exports = class Category{
         this.articles = utils.sortArticles(this.articles);
     }
 
+    /**
+     * Generiert den HTML-Code für die Kategorie-Metatags.
+     * @returns {string} HTML-Code der Kategorie-Metatags
+     */
     renderMetaTags(){
         var metaString = "";
         //title
@@ -53,6 +57,11 @@ module.exports = class Category{
         metaString += "</script>\n";*/
         return metaString;
     }
+
+    /**
+     * Generiert den HTML-Code für die Kategorie-Übersicht.
+     * @returns {string} HTML-Code der Kategorie-Übersicht
+     */
     renderCategorySection(){
         var section = "<section class=\"category\">\n";
         section += "<h2><a href=\"/category/" + this.path + ".html\">" + this.metadata.title + "&nbsp;<i class=\"chevron-right\"></i></a></h2>\n";
@@ -64,6 +73,10 @@ module.exports = class Category{
         return section;
     }
 
+    /**
+     * Generiert die HTML-Seite der Kategorie.
+     * @returns {string} HTML-Code der Kategorie
+     */
     renderCategoryPage(){
         var categoryHead = "<div class=\"category-head\">\n";
         categoryHead += "<div class=\"banner-image\" style=\"background-image:url('" + this.metadata.banner + "');\"></div>\n";
