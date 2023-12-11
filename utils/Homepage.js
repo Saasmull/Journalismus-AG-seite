@@ -4,13 +4,14 @@ const {marked} = require("marked");
 const CONFIG = require("./config");
 const utils = require("./functions");
 const Category = require("./Category");
+const Author = require("./Author");
 const Article = require("./Article");
 
 class HomepageMetadata{
     /**
      * 
-     * @param {string} title Der Titel der Seite
-     * @param {string} description Die Beschreibung der Seite
+     * @param {string} title Der Titel der Homepage
+     * @param {string} description Die Beschreibung der Homepage
      */
     constructor(title,description){
         this.title = title;
@@ -20,8 +21,8 @@ class HomepageMetadata{
         this.authors = [];
     }
     /**
-     * Generiert den JSON-LD-Code der Seite.
-     * @returns {Object} Der JSON-LD-Code der Seite 
+     * Generiert den JSON-LD-Code der Homepage.
+     * @returns {Object} Der JSON-LD-Code der Homepage 
      */
     renderJsonLd(){
         var jsonLD = {
@@ -56,6 +57,10 @@ class HomepageMetadata{
         }
         return jsonLD;
     }
+    /**
+     * Generiert den HTML-Code für die Homepage-Metatags.
+     * @returns {string} HTML-Code der Homepage-Metatags
+     */
     renderMetaTags(){
         var metaString = "<meta name=\"google-site-verification\" content=\"HFT40NWeuYNZW3VWHz6SN6CtrmF9_Jk05t5OI1lzhGc\" />\n";
         //title
@@ -85,25 +90,41 @@ module.exports = class Homepage{
      * 
      */
     constructor(){
+        /** @type {HomepageMetadata} Metadaten der Homepage */
         this.metaTags = new HomepageMetadata(CONFIG.SITE_NAME,CONFIG.DESCRIPTION);
         this.categories = [];
         this.articles = [];
         this.authors = [];
     }
 
+    /**
+     * Fügt der Homepage eine Kategorie hinzu.
+     * @param {Category} category 
+     */
     addCategory(category){
         this.categories.push(category);
         this.metaTags.categories = this.categories;
     }
+    /**
+     * Fügt der Homepage einen Artikel hinzu.
+     * @param {Article} article 
+     */
     addArticle(article){
         this.articles.push(article);
         this.metaTags.articles = this.articles;
     }
+    /**
+     * Fügt der Homepage einen Autor hinzu.
+     * @param {Author} author 
+     */
     addAuthor(author){
         this.authors.push(author);
         this.metaTags.authors = this.authors;
     }
-
+    /**
+     * Generiert den HTML-Code für die Homepage.
+     * @returns {string} HTML-Code der Homepage
+     */
     renderHomepage(){
         var categorySections = "<div id=\"content\" class=\"no-select no-drag category-container\">\n";
         for(var i = 0;i < this.categories.length;i++){
