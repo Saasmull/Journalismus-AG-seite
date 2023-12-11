@@ -33,6 +33,26 @@ module.exports = class Category{
         this.articles.push(article);
         this.articles = utils.sortArticles(this.articles);
     }
+
+    renderMetaTags(){
+        var metaString = "";
+        //title
+        metaString += "<title>" + utils.rmvEntities(this.metadata.title) + "</title>\n";
+        metaString += "<meta name=\"title\" content=\"" + utils.rmvEntities(this.metadata.title) + "\">\n";
+        metaString += "<meta property=\"og:title\" content=\"" + utils.rmvEntities(this.metadata.title) + "\">\n";
+        //description
+        metaString += "<meta name=\"description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
+        metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
+        //banner
+        metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
+        //logo
+        metaString += "<link rel=\"icon\" type=\"image/png\" href=\"" + CONFIG.LOGO + "\">";
+        //json-ld
+        /*metaString += "<script type=\"application/ld+json\">\n";
+        metaString += utils.rmvEntities(JSON.stringify(this.renderJsonLd())) + "\n";
+        metaString += "</script>\n";*/
+        return metaString;
+    }
     renderCategorySection(){
         var section = "<section class=\"category\">\n";
         section += "<h2><a href=\"/category/" + this.path + ".html\">" + this.metadata.title + "&nbsp;<i class=\"chevron-right\"></i></a></h2>\n";
@@ -56,6 +76,7 @@ module.exports = class Category{
         }
         articleCards += "</div>\n";
         var page = CONFIG.BASIC_TEMPLATE
+            .replace("<!--METADATA-->",this.renderMetaTags())
             .replace("<!--CONTENT-->",categoryHead+articleCards);
         return page;
     }
