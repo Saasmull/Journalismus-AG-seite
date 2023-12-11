@@ -70,7 +70,7 @@
         }
     </script>
     <script defer src="/assets/scripts/layout.js"></script>
-    <title>Suchen</title><link rel="icon" type="image/png" href="/assets/images/icon.png">
+    <title>Suchen | Journalismus-AG</title><meta name="description" content="Durchsuche alle Artikel der Journalismus-AG mit unserer Suchfunktion zu den Themen Politik, Umwelt & etc."><link rel="icon" type="image/png" href="/assets/images/icon.png">
 </head>
 <body style="font-family: sans-serif;">
     <header class="disabled-no-select no-drag">
@@ -170,9 +170,9 @@
     <!--progress class="site-loading-bar" value="0" max="100"></progress-->
     <main>
         <link rel="stylesheet" href="/assets/styles/search.css">
-<form action="/search.html">
+<form action="/search.html" itemscope itemtype="http://schema.org/SearchAction">
     <div role="search">
-        <input type="text" role="searchbox" name="q" aria-label="Suchbegriff" placeholder="Suchbegriff" value="">
+        <input type="text" role="searchbox" name="q" aria-label="Suchbegriff" placeholder="Suchbegriff" value="" itemprop="query-input">
         <button type="submit" aria-label="Suchen">Suchen</button>
     </div>
 </form>
