@@ -345,6 +345,7 @@ function main(firstLoad){
                 });
             }*/
             window.addEventListener("contextmenu", function(event){
+                //TODO: Add context menu
                 if(false && pwa){
                     event.preventDefault();
                     document.querySelector(".context-menu").style.display = "block";
@@ -429,15 +430,36 @@ function main(firstLoad){
         updateCardElements();
         window.addEventListener("resize",updateCardElements);
 
+        var scrollBox = document.querySelector(".scroll-box");
         try {
             var bannerImage = document.querySelector(".banner-image");
             if(bannerImage) {
-                window.addEventListener("scroll",function(){
-                    var scrolled = window.scrollY || window.pageYOffset;
+                scrollBox.addEventListener("scroll",function(event){
+                    var scrolled = scrollBox.scrollTop;
                     bannerImage.style.backgroundPositionY = "calc(45% + " + (scrolled / 3) + "px)";
                 });
             }
         } catch(e) {}
+
+        scrollBox.addEventListener("scroll",function(event){
+            if(false && pwa){
+                //TODO: Add rubberband effect
+                function createRubberband(){
+                    var rubberband = document.createElement("div");
+                    rubberband.style.position = "fixed";
+                    rubberband.style.backgroundColor = "rgba(0,0,0,0.5)";
+                    rubberband.style.width = "100%";
+                    rubberband.style.height = "100%";
+                    return rubberband;
+                }
+                if(event.target.scrollTop <= 0){
+                    var rubberband = createRubberband();
+                    rubberband.style.top = "0";
+                    event.target.appendChild(rubberband);
+                    console.log("top");
+                }
+            }
+        });
 
         function addHoverEffect(element){
             element.addEventListener("mousemove",function(event){
