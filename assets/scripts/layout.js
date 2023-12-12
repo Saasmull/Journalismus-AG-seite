@@ -318,6 +318,7 @@ function main(firstLoad){
             if("MediaQueryListEvent" in window){
                 matchMedia("(display-mode: standalone) or (display-mode: window-controls-overlay)").addEventListener("change",function(ev){
                     pwa = ev.matches;
+                    document.documentElement.style.overscrollBehavior = pwa?"contain":"auto";
                 });
             }
             /*if(pwa){
