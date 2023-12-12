@@ -86,11 +86,14 @@ const Article = require("./utils/Article");
 const Author = require("./utils/Author");
 const Category = require("./utils/Category");
 const Homepage = require("./utils/Homepage");
+
+const AboutPage = require("./utils/AboutPage");
 const ErrorPage = require("./utils/ErrorPage");
 const ImprintPage = require("./utils/ImprintPage");
 const OfflinePage = require("./utils/OfflinePage");
 const PrivacyPolicyPage = require("./utils/PrivacyPolicyPage");
 const SearchPage = require("./utils/SearchPage");
+
 const RssFeed = require("./utils/RssFeed");
 const Sitemap = require("./utils/Sitemap");
 
@@ -268,6 +271,8 @@ setupRootDir().then(async function(){
     await setSpinnerText("Rendere Homepage...");
     fs.writeFileSync("root/index.html",homepage.renderHomepage(),"utf8");
     if(!onlyUpdate){
+        await setSpinnerText("Rendere Über-Seite...");
+        fs.writeFileSync("root/about.html",(new AboutPage()).render(),"utf8");
         await setSpinnerText("Rendere Fehlerseite...");
         fs.writeFileSync("root/error404.html",(new ErrorPage()).render(),"utf8");
         await setSpinnerText("Rendere Impressum...");

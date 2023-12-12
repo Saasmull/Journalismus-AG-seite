@@ -30,6 +30,10 @@ main>article{
     margin-left: -24px;
 }
 
+#content summary>h2{
+    display: inline;
+}
+
 /*
 #content h2:hover>a,#content h3:hover>a,#content h4:hover>a,#content h5:hover>a,#content h6:hover>a{
     opacity: 1;
