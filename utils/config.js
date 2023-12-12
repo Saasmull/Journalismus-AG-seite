@@ -9,7 +9,7 @@ const CONFIG = module.exports = {
     /** @type {string} Der Website-Name */
     SITE_NAME:"Journalismus-AG",
     /**@type {string} Die Beschreibung der Website. Sie wird in den `<meta>`-Tags und im JSON-LD fürs SEO genutzt.*/
-    DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule von der Journalismus AG!",
+    DESCRIPTION:"Wir sind die Journalismus-AG der Heinrich-Büssing-Schule aus Braunschweig. Entdecke spannende Beiträge über Technik, Politik, Sport, Umwelt und unsere Schule!",
     /** @type {string} Das Logo der Website */
     LOGO:"/assets/images/icon.png",
     /** @type {string} Der URL-Pfad zur Homepage. Ohne Schrägstrich am Ende */

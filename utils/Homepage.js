@@ -63,6 +63,8 @@ class HomepageMetadata{
      */
     renderMetaTags(){
         var metaString = "<meta name=\"google-site-verification\" content=\"HFT40NWeuYNZW3VWHz6SN6CtrmF9_Jk05t5OI1lzhGc\" />\n";
+        // site name
+        metaString += "<meta property=\"og:site_name\" content=\"" + CONFIG.SITE_NAME + "\">\n";
         //title
         metaString += "<title>" + utils.rmvEntities(this.title) + "</title>\n";
         metaString += "<meta name=\"title\" content=\"" + utils.rmvEntities(this.title) + "\">\n";
