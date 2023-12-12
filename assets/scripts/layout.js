@@ -315,6 +315,7 @@ function main(firstLoad){
                 xhr.send();
             }
             pwa = matchMedia("(display-mode: standalone) or (display-mode: window-controls-overlay)").matches;
+            document.documentElement.style.overscrollBehavior = pwa?"contain":"auto";
             if("MediaQueryListEvent" in window){
                 matchMedia("(display-mode: standalone) or (display-mode: window-controls-overlay)").addEventListener("change",function(ev){
                     pwa = ev.matches;
