@@ -25,6 +25,7 @@
     --focus-ring-color: var(--color-primary);
     outline: 0;
     outline-color: var(--focus-ring-color) !important;
+    color-scheme: dark;
 }
 
 :focus-visible{
@@ -73,6 +74,7 @@ p img,
     --color-primary: #0078D4;
     --link-color: #00508e;
     filter: unset;
+    color-scheme: light;
 }
 
 .no-select,.no-select *{
@@ -93,18 +95,33 @@ html{
     scroll-padding-top: 60px;
 }
 
-body {
+body{
     background-color: var(--bg-color-1);
     color: var(--text-color-1);
     margin: 0;
-    margin-top: 60px;
-    min-height: calc(100vh - 4rem);
-    /*overflow-x: hidden;*/
     touch-action: manipulation;
     user-scalable: no;
     -ms-touch-action: manipulation;
     height: 100%;
+    overflow: hidden;
 }
+
+.scroll-box{
+    margin-top: 60px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/*
+@media (display-mode: window-controls-overlay) or (display-mode: standalone) {
+    html,body{
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+        overscroll-behavior: none;
+    }
+}*/
 
 a{
     color: var(--link-color);

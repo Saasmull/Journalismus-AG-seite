@@ -102,13 +102,13 @@ if("querySelector" in document){
 
     function pointerUp(event) {
         if(isDrawerDragging) {
-            if(drawerOffset >= drawer.clientWidth / -2) {
+            if(drawerOffset >= drawer.clientWidth / -2){
                 drawerOffset = 0;
                 drawer.classList.add("open");
                 drawer.classList.remove("closed");
                 drawer.style.left = "0px";
                 drawerScrim.style.display = "block";
-            } else if(drawerOffset < drawer.clientWidth / -2) {
+            }else if(drawerOffset < drawer.clientWidth / -2){
                 drawerOffset = -drawer.clientWidth;
                 drawer.classList.remove("open");
                 drawer.classList.add("closed");
@@ -130,7 +130,7 @@ if("querySelector" in document){
                 drawer.classList.remove("closed");
                 drawer.style.left = "0px";
                 drawerScrim.style.display = "block";
-        } else {
+        }else{
             drawerOffset = -drawer.clientWidth;
             drawer.style.left = -drawer.clientWidth + "px";
             drawerScrim.style.display = "none";
