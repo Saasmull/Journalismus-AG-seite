@@ -264,7 +264,8 @@ iframe {
 footer {
     font-size: 18px;
     position: sticky;
-    top: 100%;
+    /* https://bugzilla.mozilla.org/show_bug.cgi?id=1434265 */
+    top: calc(100% - 120px);
     background-color: var(--bg-color-1);
 }
 
