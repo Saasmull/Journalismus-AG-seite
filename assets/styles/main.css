@@ -265,7 +265,7 @@ footer {
     font-size: 18px;
     position: sticky;
     /* https://bugzilla.mozilla.org/show_bug.cgi?id=1434265 */
-    top: calc(100% - 120px);
+    top: calc(100% - 100vh);
     background-color: var(--bg-color-1);
 }
 
