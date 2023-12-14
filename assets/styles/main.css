@@ -264,10 +264,17 @@ iframe {
 footer {
     font-size: 18px;
     position: sticky;
-    /* https://bugzilla.mozilla.org/show_bug.cgi?id=1434265 */
-    top: calc(100% - 100vh);
+    top: 100%;
+    padding-bottom: 8px;
     background-color: var(--bg-color-1);
 }
+
+/* https://bugzilla.mozilla.org/show_bug.cgi?id=1434265
+@media screen and (min--moz-device-pixel-ratio:0) {
+    footer {
+        position: static;
+    }
+}*/
 
 footer>*{
     text-align: center;
