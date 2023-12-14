@@ -57,6 +57,8 @@ module.exports = class Article{
      */
     renderMetaTags(){
         var metaString = "";
+        //url
+        metaString += "<meta property=\"og:url\" content=\"" + CONFIG.SITE_ROOT + "/article/" + this.path + ".html\">\n";
         //title
         metaString += "<title>" + utils.rmvEntities(this.metadata.title) + "</title>\n";
         metaString += "<meta name=\"title\" content=\"" + utils.rmvEntities(this.metadata.title) + "\">\n";
@@ -65,7 +67,7 @@ module.exports = class Article{
         metaString += "<meta name=\"description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
         metaString += "<meta property=\"og:description\" content=\"" + utils.rmvEntities(this.metadata.description) + "\">\n";
         //banner
-        metaString += "<meta property=\"og:image\" content=\"" + this.metadata.banner + "\">";
+        metaString += "<meta property=\"og:image\" content=\"" + CONFIG.SITE_ROOT + this.metadata.banner + "\">";
         //logo
         metaString += "<link rel=\"icon\" type=\"image/png\" href=\"" + CONFIG.LOGO + "\">";
         //json-ld
