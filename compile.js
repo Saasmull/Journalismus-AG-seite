@@ -306,6 +306,20 @@ setupRootDir().then(async function(){
                     "purpose": "any"
                 }
             ],
+            "screenshots":[
+                {
+                    "src":"/assets/images/screenshots/screenshot-mobile.png",
+                    "type":"image/png",
+                    "sizes":"478x913",
+                    "form_factor":"narrow"
+                },
+                {
+                    "src":"/assets/images/screenshots/screenshot-desktop.png",
+                    "type":"image/png",
+                    "sizes":"1920x913",
+                    "form_factor":"wide"
+                }
+            ],
             "theme_color": "#121212",
             "background_color": "#0078d4"
         },null,CONFIG.INDENT),"utf8");
