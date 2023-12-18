@@ -1,7 +1,7 @@
 
 **Rekuperation (Rückgewinnung) ist eine Technik, die uns möglich macht, besonders energieeffizient mit dem E-Auto oder auch mit der Bahn zu fahren. Dies wird vor allem in der Zukunft immer bedeutsamer werden.**
 
-Bei herkömmlichen Autos wird beim Bremsen die Bewegungsenergie in ungenutzte Wärmeenergie umgewandelt, was einen hohen Energieverlust darstellt. Bei E-Autos kann der Motor beim Bremsvorgang jedoch auch als Stromgenerator genutzt werden, um einen Teil der Bewegungsenergie wieder in elektrische Energie zurück zuwandeln. Dabei wird der Akku des Autos wieder ein bisschen aufgeladen. Hierdurch kann ein E-Auto bis zu 20 Prozent länger fahren.
+Bei herkömmlichen Autos wird beim Bremsen die Bewegungsenergie in ungenutzte Wärmeenergie umgewandelt, was einen hohen Energieverlust darstellt. Bei E-Autos kann der Motor beim Bremsvorgang jedoch auch als Stromgenerator genutzt werden, um einen Teil der Bewegungsenergie wieder in elektrische Energie zurück zuwandeln. Dabei wird der Akku des Autos wieder ein bisschen aufgeladen. Hierdurch kann ein E-Auto bis zu 20 Prozent länger fahren. Auch Züge nutzen heutzutage diese Technik, wobei der zurückgewonnene Strom in die Oberleitung zurückgespeist und von einem anderen Zug wieder genutzt werden kann.
 
 ![mögliche Energierückgewinnung durch Rekuperation](/assets/images/mögliche-Energierückgewinnung-durch-Rekuperation.jpg)
 
