@@ -4,9 +4,12 @@ const {marked} = require("marked");
 const CONFIG = require("./config");
 const utils = require("./functions");
 const Category = require("./Category");
+const Author = require("./Author");
 
 /**
  * @param {string} path Pfad des Artikels
+ * @param {Author[]} authors Autoren, die den Artikel verfasst haben
+ * @param {Boolean} index Ob der Artikel indexiert werden soll
  * @param {Object} metadata Die Metadaten des Artikels
  * @param {string} content Der Markdowninhalt
  * @param {string} htmlContent Der konvertierte Markdowninhalt
@@ -19,11 +22,17 @@ module.exports = class Article{
     constructor(path){
         this.path = path;
         this.authors = [];
+        this.index = true;
         if(fs.existsSync("articles/"+path+"/meta.json")){
             this.metadata = JSON.parse(fs.readFileSync("articles/"+path+"/meta.json","utf-8"));
         }
         if(!this.metadata.banner){
             this.metadata.banner = "/assets/images/default-banner-comp.webp";
+        }
+        if(typeof this.metadata.visible === "string"){
+            if(this.metadata.visible === "hidden"){
+                this.index = false;
+            }
         }
         if(fs.existsSync("articles/"+path+"/index.md")){
             this.content = fs.readFileSync("articles/"+path+"/index.md","utf-8");
