@@ -13,9 +13,13 @@ Grund des Auftrages war eine Erhöhung der aktuellen Transportkapazitäten auf d
 ## Investition (in die Zukunft)
 <q>„Die enno-Züge sind in der Region inzwischen gut bekannt und erfreuen sich bei den Fahrgästen großer Beliebtheit“</q>, weiß Verbandsdirektor Ralf Sygusch. <q>„Mit den zusätzlichen fünf Triebwagen kommen wir einem Meilenstein unseres Zukunftskonzepts für den Bahnverkehr in der Region ein weiteres Stück näher: Dem Halbstundentakt zwischen den Oberzentren. Wir schaffen die Voraussetzung, zukünftig noch mehr Angebot auf die Schiene zu bringen und mehr Fahrgäste befördern zu können.“</q> Das Land Niedersachsen finanziert den Auftrag in Höhe von mehr als 44 Millionen Euro.
 
-<dl>
-    <dt>Über enno</dt>
-    <dd>enno ist eine Marke der metronom Eisenbahngesellschaft und steht für <b>E</b>lektro-<b>N</b>etz <b>N</b>iedersachsen-<b>O</b>st. Das Untermehmen betreibt seit 2014 die Strecken Hannover - Wolfsburg und Hildesheim - Wolfsburg mit Zügen, die der Regionalverband Großraum Braunschweig zur Verfügung stellt. <br>Die vierteiligen Züge vom Typ Alstom Coradia Continental bieten 235 Sitzplätze und 275 Stehplätze sowie kostenloses WLAN, Steckdosen, eine barrierefreie Toilette und ein Fahrgastinformationssystem und haben eine Maximalgeschwindigkeit von 160km/h.</dd>
+<dl itemscope itemtype="https://schema.org/FAQPage">
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <dt itemprop="name">Was ist enno?</dt>
+        <dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <div itemprop="text">enno ist eine Marke der metronom Eisenbahngesellschaft und steht für <b>E</b>lektro-<b>N</b>etz <b>N</b>iedersachsen-<b>O</b>st. Das Untermehmen betreibt seit 2014 die Strecken Hannover - Wolfsburg und Hildesheim - Wolfsburg mit Zügen, die der Regionalverband Großraum Braunschweig zur Verfügung stellt. <br>Die vierteiligen Züge vom Typ Alstom Coradia Continental bieten 235 Sitzplätze und 275 Stehplätze sowie kostenloses WLAN, Steckdosen, eine barrierefreie Toilette und ein Fahrgastinformationssystem und haben eine Maximalgeschwindigkeit von 160km/h.</div>
+        </dd>
+    </div>
 </dl>
 
 Quellen: [Pressemitteilung des Regionalverbandes Großraum Braunschweig](https://www.regionalverband-braunschweig.de/aktuelles/nachrichtenuebersicht/nachricht/news/detail/News/regionalverband-grossraum-braunschweig-bestellt-fuenf-enno-zuege-bei-alstom/), [Pressemitteilung von Alstom](https://www.alstom.com/de/press-releases-news/2023/9/regionalverband-grossraum-braunschweig-bestellt-fuenf-enno-zuege-bei-alstom)

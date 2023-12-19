@@ -96,7 +96,7 @@ main>article{
     border-radius: var(--border-radi-card);
 }
 
-#content dl>dt{
+#content dl dt{
     font-weight: bold;
     font-size: 24px;
 }
