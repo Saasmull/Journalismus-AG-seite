@@ -37,4 +37,4 @@ Des weiteren ist die Wärmepumpe, bei Nutzung von Erneuerbaren Energien, CO2-Neu
  
 Außerdem ist die Wärmepumpe, je nachdem wie gut gedämmt das Haus ist, deutlich effizienter als fossile Heizungen. Sie benötigt deutlich weniger Leistung, um den Rum warm zu machen und lässt deutlich weniger Wärme bei diesem Vorgang verloren gehen als die Gasheizung oder die Ölheizung. 
 
-Quellen: [NDR](https://www.ndr.de/ratgeber/verbraucher/Mit-Waermepumpen-heizen-Kosten-Technik-Vor-und-Nachteile,waermepumpen106.html), [Umweltbundesamt](https://www.umweltbundesamt.de/umwelttipps-fuer-den-alltag/heizen-bauen/heizen-raumtemperatur )
+Quellen: [NDR](https://www.ndr.de/ratgeber/verbraucher/Mit-Waermepumpen-heizen-Kosten-Technik-Vor-und-Nachteile,waermepumpen106.html), [Umweltbundesamt](https://www.umweltbundesamt.de/umwelttipps-fuer-den-alltag/heizen-bauen/heizen-raumtemperatur ), [Bannerbild:ccnull](https://ccnull.de/foto/waermepumpe-und-energieausweis/1088853)
