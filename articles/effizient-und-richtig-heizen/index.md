@@ -29,12 +29,12 @@ Wenn man aktuell jedoch, wie die meisten Haushalte, auf das fossile Heizen setzt
 ## Wärmepumpen - die Zukunft des Heizens 
 
  
-Die Wärmepumpe ist zwar aktuell noch nicht günstiger als beispielsweise eine neue Gasheizung, wird es in Zukunft aber werden. Jedoch wird vor allem durch Fördermittel der Bundesregierung der Preis der Wärmepumpe um einiges erschwinglicher. So sind die aktuellen kosten zwischen 12.000 und 35.000 Euro. Durch die Förderung können allerdings zwischen 30 und 70 Prozent der Kosten übernommen werden. Dazu wird in Zukunft nicht nur der Gaspreis massiv einsteigen, sondern auch der CO2 Preis wird in den Himmel schnellen. 
+Die Wärmepumpe ist zwar aktuell noch nicht günstiger als beispielsweise eine neue Gasheizung, wird es in Zukunft aber werden. Jedoch wird vor allem durch Fördermittel der Bundesregierung der Preis der Wärmepumpe um einiges erschwinglicher. So sind die aktuellen Kosten zwischen 12.000 und 35.000 Euro. Durch die Förderung können allerdings zwischen 30 und 70 Prozent der Kosten übernommen werden. Dazu wird in Zukunft nicht nur der Gaspreis massiv einsteigen, sondern auch der CO2 Preis wird in den Himmel schnellen. 
 
  
 Des weiteren ist die Wärmepumpe, bei Nutzung von Erneuerbaren Energien, CO2-Neutral. Dadurch, dass die Wärmepumpe mit Strom läuft, werden also keine Treibhausgase ausgestoßen. Allerdings sind selbst Haushalte, die ihren Strom aus fossilen Energieträgern gewinnen mit der Wärmepumpe klimafreundlicher unterwegs als mit der Verbrennung von Öl oder Gas. 
 
  
-Außerdem ist die Wärmepumpe, je nachdem wie gut gedämmt das Haus ist, deutlich effizienter als fossile Heizungen. Sie benötigt deutlich weniger Leistung, um den Rum warm zu machen und lässt deutlich weniger Wärme bei diesem Vorgang verloren gehen als die Gasheizung oder die Ölheizung. 
+Außerdem ist die Wärmepumpe, je nachdem wie gut gedämmt das Haus ist, deutlich effizienter als fossile Heizungen. Sie benötigt deutlich weniger Leistung, um den Raum warm zu machen und lässt deutlich weniger Wärme bei diesem Vorgang verloren gehen als die Gasheizung oder die Ölheizung. 
 
 Quellen: [NDR](https://www.ndr.de/ratgeber/verbraucher/Mit-Waermepumpen-heizen-Kosten-Technik-Vor-und-Nachteile,waermepumpen106.html), [Umweltbundesamt](https://www.umweltbundesamt.de/umwelttipps-fuer-den-alltag/heizen-bauen/heizen-raumtemperatur ), [Bannerbild:ccnull](https://ccnull.de/foto/waermepumpe-und-energieausweis/1088853)
