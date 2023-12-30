@@ -8,7 +8,7 @@ Im Jahr 1984 übernahm er seinen ersten Regierungsposten als Bundesminister für
 
 ## Rücktritt
 
-Schäuble räumte am 10. Jannuar 2000 ein 100.000 D-Mark vom Waffenhändler Karlheinz Schreiber für die CDU entgegen genommen zu haben. Infolgedessen gab er den Parteivorsitz kurz nach der Jahrtausendwende auf und zog sich auch von der Spitze der Fraktion zurück.
+Schäuble räumte am 10. Januar 2000 ein, 100.000 D-Mark vom Waffenhändler Karlheinz Schreiber für die CDU entgegen genommen zu haben. Infolgedessen gab er den Parteivorsitz kurz nach der Jahrtausendwende auf und zog sich auch von der Spitze der Fraktion zurück.
 
 Unter der Bundekanzlerin Angela Merkel wurde Schäuble erneut Innenminister, 2009 wechselte er auf den Posten als Bundesfinanzminister. 2017 bis 2021 diente er als Bundestagspräsident.
 
