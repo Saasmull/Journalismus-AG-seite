@@ -16,5 +16,5 @@ Unter der Bundekanzlerin Angela Merkel wurde Schäuble erneut Innenminister, 200
 
 Für sein politisches Engagement wurde Schäuble mit zahlreichen Auszeichnungen geehrt, darunter 1984 das Große Bundesverdienstkreuz und 1998 den Konrad-Adenauer-Preis.
 
-Quellen: [tagesschau.de](https://www.tagesschau.de/inland/tod-schaeuble-100.html), [wikipedia.org](https://de.wikipedia.org/wiki/Wolfgang_Sch%C3%A4uble)
+Quellen: [tagesschau.de](https://www.tagesschau.de/inland/tod-schaeuble-100.html), [wikipedia.org](https://de.wikipedia.org/wiki/Wolfgang_Sch%C3%A4uble)<br>
 Bildquelle: © Oliver Mark / [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
