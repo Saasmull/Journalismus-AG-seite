@@ -1,4 +1,4 @@
-**Der CDU-Chef und ehemalige Bundepräsident Wolfgang Schäuble ist am 26. Dezember im Alter von 81 Jahren gestorben. Seine Familie teilte mit, dass er im Kreise seiner Familie friedlich eingeschlafen sei.**
+**Der CDU-Chef und ehemalige Bundestagspräsident Wolfgang Schäuble ist am 26. Dezember im Alter von 81 Jahren gestorben. Seine Familie teilte mit, dass er im Kreise seiner Familie friedlich eingeschlafen sei.**
 
 Schäuble wurde am 18. September 1942 in Freiburg im Breisgau geboren. 1961 trat er in die Junge Union (JU) und 1965 in die CDU ein. 6 Jahre später promovierte er zum Doktor der Rechte.
 
