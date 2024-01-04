@@ -26,6 +26,13 @@ Im Jahr 2020 stellte Airbus vier Konzeptflugzeuge vor unter dem Codenamen n „Z
 > 
 > *<cite>Guillaume Faury, CEO von Airbus</cite>*
 
+## Vorteile von Wasserstoffflugzeugen
+
+Wasserstoffflugzeuge haben viele Vorteile gegenüber herkömmlichen Flugzeugen: Sie können leiser als herkömmliche Flugzeuge sein, wenn sie mit Brennstoffzellen und Elektromotoren angetrieben werden. Sie können auch klimaneutral sein, wenn der Wasserstoff mit erneuerbaren Energien hergestellt wird. Zudem verbrennt es ohne Emissionen von Kohlendioxid, Kohlenmonoxid und Kohlenwasserstoffen. Es wird nur Wasserdampf ausgestoßen. Gegenüber Elektroflugzeugen haben sie den Vorteil, dass sie keinen schweren Akku benötigen, der viel Platz wegnimmt und viel wiegt. Außerdem können sie eine größere Reichweite haben als Elektroflugzeuge.
+
+## Nachteile von Wasserstoffflugzeugen
+Es werden größere Tanks als für herkömmliches Kerosin benötigt, da Wasserstoff eine geringere Energiedichte hat. Das bedeutet, dass die Flugzeuge mehr Treibstoff verbrauchen und somit auch mehr Wasserstoff mitnehmen müssen. Das erhöht das Gewicht des Flugzeugs und verringert die Reichweite. Zudem ist Wasserstoff schwerer zu lagern als Kerosin. Es muss entweder verflüssigt oder unter hohem Druck gespeichert werden. Beides ist aufwendig und teuer. Zudem ist Wasserstoff sehr leicht entzündlich und explosiv. Das bedeutet, dass die Tanks sehr stabil sein müssen, um ein Leck zu verhindern. Zudem ist die Herstellung von Wasserstoff sehr energieintensiv und nur mit erneuerbaren Energien klimaneutral.
+
 Quellen:
 - [wikipedia.org](https://de.wikipedia.org/wiki/Wasserstoffflugzeug)
 - [airbus.com (englisch)](https://www.airbus.com/en/innovation/low-carbon-aviation/hydrogen/zeroe)
