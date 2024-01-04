@@ -24,6 +24,34 @@
         "url":"local"
     },
     {
+        "file":"zeroe.jpg",
+        "url":"local"
+    },
+    {
+        "file":"antares.jpg",
+        "url":"https://upload.wikimedia.org/wikipedia/commons/d/d4/Antares_bei_der_Flugdemonstration_-_Antares_during_a_flight_demonstration_%2814237241514%29.jpg"
+    },
+    {
+        "file":"hy4.jpg",
+        "url":"https://upload.wikimedia.org/wikipedia/commons/3/3b/HY4_2016-09-29_ueber_Flughafen_Stuttgart.jpg"
+    },
+    {
+        "file":"zeroe-turbofan.webp",
+        "url":"https://mediarenditions.airbus.com/MANa-gzoGRGk_eTZT5vk1xRsC8vcqkTXsJjq2flaYCg/resize?src=kpkp://airbus/38/570/570913-yi9y5f1v94.jpg&w=608&h=608&t=fit&f=webp"
+    },
+    {
+        "file":"zeroe-turboprop.webp",
+        "url":"https://mediarenditions.airbus.com/x4o1XCyHKWL_0FTYTuup8M9IfmauyT4EuAREnoGpx_c/resize?src=kpkp://airbus/38/527/527329-kxi3kelgr0.jpg&w=608&h=608&t=fit&f=webp"
+    },
+    {
+        "file":"zeroe-bwb.webp",
+        "url":"https://mediarenditions.airbus.com/oInNjxoLV_A9ZHSoNaEHXormaqE8xY58Jk6g4bp2npA/resize?src=kpkp://airbus/38/529/529759-ph3nt279wv.jpg&w=608&h=608&t=fit&f=webp"
+    },
+    {
+        "file":"zeroe-electrical.webp",
+        "url":"https://mediarenditions.airbus.com/Xt2QG5DJpWlE34OpextBOejELWdGfmxPevz1P6YdhqA/resize?src=kpkp://airbus/38/623/623391-kfc629bqqj.jpg&w=608&h=608&t=fit&f=webp"
+    },
+    {
         "file":"schäuble.jpg",
         "url":"https://upload.wikimedia.org/wikipedia/commons/9/93/Oliver_Mark_-_Wolfgang_Sch%C3%A4uble%2C_Berlin_2007.jpg"
     },
