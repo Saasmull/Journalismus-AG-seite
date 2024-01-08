@@ -10,7 +10,7 @@ Am 12. Oktober 2015 wurde das Konzeptflugzeug HY4 vorgestellt. Es ist das weltwe
 
 ## ZEROe Konzeptflugzeuge
 
-Im Jahr 2020 stellte Airbus vier Konzeptflugzeuge vor unter dem Codenamen n „ZEROe“ vor, die mit Wasserstoff betrieben werden sollen:
+Im Jahr 2020 stellte Airbus vier Konzeptflugzeuge vor unter dem Codenamen „ZEROe“ vor, die mit Wasserstoff betrieben werden sollen:
 
 - **Turbofan**<br>Das erste Konzeptflugzeug ist ein Turbofan, das bis zu 200 Passagiere befördern kann. Es hat eine Reichweite von 3700 Kilometern. Es ist für Interkontinentalflüge gedacht. Angetrieben wird es von einem modifizierten Gasturbinentriebwerk, das mit Wasserstoff betrieben wird. Dieser wird in Tanks hinter dem hinteren Druckkörper verflüssigt gespeichert. ![ZEROe Turbofan](/assets/images/zeroe-turbofan.webp)
 
