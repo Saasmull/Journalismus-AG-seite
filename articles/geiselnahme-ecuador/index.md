@@ -10,7 +10,7 @@ In der Übertragung war ebenfalls zu hören, wie teile der Geiseln schrien. Dazu
 Gestorben ist bei dem Angriff keine der Geiseln, zwei waren jedoch verletzt. 
 
  
-![DanielNoboa, Präsident Ecuadors](/assets/images/daniel-noboa.jpg)
+![Daniel Noboa, Präsident Ecuadors](/assets/images/daniel-noboa.jpg)
 
  
 ## Weiterer Terror in Ecuador 
