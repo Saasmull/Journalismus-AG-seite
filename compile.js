@@ -33,7 +33,7 @@ const graphExt = {
     name:"graph",
     level:"block",
     start(src){
-        return src.match(/graph/)?.index;
+        return src.match(/graph\[/)?.index;
     },
     tokenizer(src, tokens){
         var rule = /^graph(\["[A-z0-9.,\- ]+",([0-9.]+,)*[0-9.]+\])/;

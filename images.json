@@ -28,6 +28,10 @@
         "url":"local"
     },
     {
+        "file":"flagge-de.png",
+        "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png"
+    },
+    {
         "file":"antares.jpg",
         "url":"https://upload.wikimedia.org/wikipedia/commons/d/d4/Antares_bei_der_Flugdemonstration_-_Antares_during_a_flight_demonstration_%2814237241514%29.jpg"
     },
