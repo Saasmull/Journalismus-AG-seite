@@ -2,7 +2,7 @@
 
 Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestellt. Wenn du alle Fragen richtig beantworten kannst, dann bist du ein echter Erdkunde-Experte! Für jede der 10 Fragen gibt es 4 Antwortmöglichkeiten. Nur eine davon ist richtig. Die Gewinnwahrscheinlichkeit liegt bei 1:1048576 (ca. 0,000095%). Viel Glück!
 
-<form action="#" method="post" id="quiz-form" itemscope itemtype="https://schema.org/Quiz">
+<form action="#" method="post" id="quiz-form" autocomplete="off" itemscope itemtype="https://schema.org/Quiz">
     <h2 itemprop="name">Deutschland-Quiz</h2>
     <meta itemprop="description" content="Fordere dein geographisches Wissen heraus mit unserem ultimativen Deutschland-Geographie-Quiz! Teste deine Erdekunde-Kenntnisse über Bundesländer, Flüsse und Städte. Dieses Quiz ist fast unmöglich zu lösen!">
     <ol>
@@ -178,7 +178,7 @@ Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestel
         </li>
     </ol>
 </form>
-<button id="quiz-form-eval">Auswerten</button>
+<button id="quiz-form-eval" class="button-p">Auswerten</button>
 <script>
     var quizForm = document.getElementById("quiz-form");
     var quizFormEval = document.getElementById("quiz-form-eval");
@@ -209,7 +209,7 @@ Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestel
                 score++;
                 if(quizForm[i].checked){
                     value++;
-                    quizForm[i].parentElement.parentElement.parentElement.style.background = "#00ff00";
+                    quizForm[i].parentElement.parentElement.style.color = "green";
                 }
             }
         }

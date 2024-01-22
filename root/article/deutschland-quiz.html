@@ -181,7 +181,7 @@
     <main>
         <div class="banner-image" data-bg-img="/assets/images/flagge-de.png"></div><article itemscope itemtype="http://schema.org/Article"><h1 itemprop="headline">Deutsch&shy;land-Geographie-Quiz - Schwierigkeits&shy;stufe sehr extrem schwierig</h1><div id="content"><span itemprop="author" itemscope itemtype="http://schema.org/Person">Von <a href="/author/sml.html" itemprop="name">Samuel</a></span>&nbsp;&nbsp;<time itemprop="datePublished" datetime="2024-01-16">Veröffentlicht am 16.01.2024</time><br><br><br><div itemprop="articleBody"><p><strong>Fordere dein geographisches Wissen heraus mit unserem ultimativen Deutschland-Geographie-Quiz! Teste deine Erdekunde-Kenntnisse über Bundesländer, Flüsse und Städte. Dieses Quiz ist fast unmöglich zu lösen!</strong></p>
 <p>Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestellt. Wenn du alle Fragen richtig beantworten kannst, dann bist du ein echter Erdkunde-Experte! Für jede der 10 Fragen gibt es 4 Antwortmöglichkeiten. Nur eine davon ist richtig. Die Gewinnwahrscheinlichkeit liegt bei 1:1048576 (ca. 0,000095%). Viel Glück!</p>
-<form action="#" method="post" id="quiz-form" itemscope itemtype="https://schema.org/Quiz">
+<form action="#" method="post" id="quiz-form" autocomplete="off" itemscope itemtype="https://schema.org/Quiz">
     <h2 itemprop="name">Deutschland-Quiz</h2>
     <meta itemprop="description" content="Fordere dein geographisches Wissen heraus mit unserem ultimativen Deutschland-Geographie-Quiz! Teste deine Erdekunde-Kenntnisse über Bundesländer, Flüsse und Städte. Dieses Quiz ist fast unmöglich zu lösen!">
     <ol>
@@ -357,7 +357,7 @@
         </li>
     </ol>
 </form>
-<button id="quiz-form-eval">Auswerten</button>
+<button id="quiz-form-eval" class="button-p">Auswerten</button>
 <script>
     var quizForm = document.getElementById("quiz-form");
     var quizFormEval = document.getElementById("quiz-form-eval");
@@ -388,7 +388,7 @@
                 score++;
                 if(quizForm[i].checked){
                     value++;
-                    quizForm[i].parentElement.parentElement.parentElement.style.background = "#00ff00";
+                    quizForm[i].parentElement.parentElement.style.color = "green";
                 }
             }
         }
