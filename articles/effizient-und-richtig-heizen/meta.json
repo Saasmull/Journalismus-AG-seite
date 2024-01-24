@@ -5,5 +5,6 @@
     "published":"21.12.2023",
     "categories":["umwelt"],
     "synonyms":["Heizung", "Klimaschutz", "heizen", "Energieeffizienz","Wärmepumpe", "Strom","Gasheizung","Ölheizung","Zukunft","Klimawandel"],
-    "authors":["jnp"]
+    "authors":["jnp"],
+    "visible":"hidden"
 }
