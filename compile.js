@@ -241,10 +241,10 @@ setupRootDir().then(async function(){
                     log.warn("Die Kategorie \""+articles[i].metadata.categories[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
                 }
             }
-            fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
         }else{
             fs.writeFileSync("to-view/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
         }
+        fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
     }
 
     await setSpinnerText("Rendere Autor-Seiten...");
