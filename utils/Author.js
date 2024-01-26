@@ -53,7 +53,9 @@ module.exports = class Author {
         authorHead += "</div>\n";
         var articleCards = "<div class=\"category-items\">\n";
         for(var i = 0;i < this.articles.length;i++){
-            articleCards += this.articles[i].renderCard();
+            if(this.articles[i].metadata.visible !== "hidden"){
+                articleCards += this.articles[i].renderCard();
+            }
         }
         articleCards += "</div>\n";
         var page = CONFIG.BASIC_TEMPLATE

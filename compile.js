@@ -227,13 +227,15 @@ setupRootDir().then(async function(){
         if(articles[articles.length-1].index){
             sitemap.addSite("/article/"+articlesDir[i]+".html");
             rssFeed.articles.push(articles[i]);
-            for(var j = 0;j < articles[i].metadata.authors.length;j++){
-                if(articles[i].metadata.authors[j] in authors){
-                    authors[articles[i].metadata.authors[j]].registerArticle(articles[i]);
-                }else{
-                    log.warn("Der Autor \""+articles[i].metadata.authors[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
-                }
+        }
+        for(var j = 0;j < articles[i].metadata.authors.length;j++){
+            if(articles[i].metadata.authors[j] in authors){
+                authors[articles[i].metadata.authors[j]].registerArticle(articles[i]);
+            }else{
+                log.warn("Der Autor \""+articles[i].metadata.authors[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
             }
+        }
+        if(articles[articles.length-1].index){
             for(var j = 0;j < articles[i].metadata.categories.length;j++){
                 if(articles[i].metadata.categories[j] in categories){
                     categories[articles[i].metadata.categories[j]].registerArticle(articles[i]);
@@ -241,8 +243,8 @@ setupRootDir().then(async function(){
                     log.warn("Die Kategorie \""+articles[i].metadata.categories[j]+"\" existiert nicht, wurde aber im Artikel \""+articles[i].path+"\" zugewiesen.");
                 }
             }
-        }else{
-            fs.writeFileSync("to-view/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
+        }else if(!CONFIG.IS_SERVER){
+            fs.writeFileSync("to-view/"+articles[i].path+".html",articles[i].renderArticlePage(true),"utf8");
         }
         fs.writeFileSync("root/article/"+articles[i].path+".html",articles[i].renderArticlePage(),"utf8");
     }

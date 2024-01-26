@@ -62,9 +62,10 @@ module.exports = class Article{
     }
     /**
      * Rendert die Metatags des Artikels
+     * @param {Boolean} preview Ob die Seite im Vorschaumodus gerendert werden soll
      * @returns {string} Quellcode der Metatags
      */
-    renderMetaTags(){
+    renderMetaTags(preview = false){
         var metaString = "";
         //url
         metaString += "<meta property=\"og:url\" content=\"" + CONFIG.SITE_ROOT + "/article/" + this.path + ".html\">\n";
@@ -109,26 +110,52 @@ module.exports = class Article{
         metaString += utils.rmvEntities(JSON.stringify(jsonLD)) + "\n";
         metaString += "</script>\n";
         //stylesheet
-        metaString += "<link class=\"articleStyles\" rel=\"stylesheet\" href=\"/assets/styles/article.css\">";
+        if(preview){
+            metaString += "<style>"+fs.readFileSync("assets/styles/article.css","utf-8")+"</style>";
+        }else{
+            metaString += "<link class=\"articleStyles\" rel=\"stylesheet\" href=\"/assets/styles/article.css\">";
+        }
         metaString += "<script defer src=\"/assets/scripts/audio-player.js\"></script>";
         return metaString;
     }
     /**
      * Rendert die Artikelseite
+     * @param {Boolean} preview Ob die Seite im Vorschaumodus gerendert werden soll
      * @returns {string} Quellcode der Artikelseite
      */
-    renderArticlePage(){
+    renderArticlePage(preview = false){
         var authorArray = [];
         for(var i = 0;i < this.authors.length;i++){
             authorArray.push("<a href=\"/author/" + this.authors[i].path + ".html\" itemprop=\"name\">" + this.authors[i].metadata.name + "</a>");
         }
-        var page = CONFIG.BASIC_TEMPLATE
-            .replace("<!--METADATA-->",this.renderMetaTags())
+        var template = CONFIG.BASIC_TEMPLATE;
+        if(preview){
+            template = template.replace("<link rel=\"stylesheet\" href=\"/assets/styles/main.css\">",
+                "<style>" + fs.readFileSync("assets/styles/main.css","utf-8") + "</style>"
+            );
+        }
+        var page = template
+            .replace("<!--METADATA-->",this.renderMetaTags(preview))
             .replace("<!--CONTENT-->","<div class=\"banner-image\" data-bg-img=\"" + this.metadata.banner +
                 "\"></div><article itemscope itemtype=\"http://schema.org/Article\"><h1 itemprop=\"headline\">" +
                 this.metadata.title + "</h1><div id=\"content\"><span itemprop=\"author\" itemscope itemtype=\"http://schema.org/Person\">Von " + authorArray.join(", ") +
                 "</span>&nbsp;&nbsp;<time itemprop=\"datePublished\" datetime=\"" + utils.date2ISO(this.metadata.published) +
                 "\">Veröffentlicht am "+this.metadata.published+"</time><br><br><br><div itemprop=\"articleBody\">"+this.htmlContent+"</div></div></article>");
+        if(preview){
+            const {JSDOM} = require("jsdom");
+            const dom = new JSDOM(page);
+            let images = dom.window.document.querySelectorAll("img");
+            for(var i = 0;i < images.length;i++){
+                if(images[i].src.startsWith("/")){
+                    try{
+                        images[i].src = utils.img2base64("." + images[i].src);
+                    }catch(e){
+                        console.log(e);
+                    }
+                }
+            }
+            page = dom.serialize();
+        }
         return page;
     }
 }
