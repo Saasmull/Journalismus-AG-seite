@@ -1,6 +1,6 @@
-**Fordere dein geographisches Wissen heraus mit unserem ultimativen Deutschland-Geographie-Quiz! Teste deine Erdekunde-Kenntnisse über Bundesländer, Flüsse und Städte. Dieses Quiz ist fast unmöglich zu lösen!**
+**Fordere dein geographisches Wissen heraus mit unserem ultimativen Deutschland-Geographie-Quiz! Teste deine Erdkunde-Kenntnisse über Bundesländer, Flüsse und Städte. Dieses Quiz ist fast unmöglich zu lösen!**
 
-Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestellt. Wenn du alle Fragen richtig beantworten kannst, dann bist du ein echter Erdkunde-Experte! Für jede der 10 Fragen gibt es 4 Antwortmöglichkeiten. Nur eine davon ist richtig. Die Gewinnwahrscheinlichkeit liegt bei 1:1048576 (ca. 0,000095%). Viel Glück!
+Wir haben für Dich die 10 schwierigsten Fragen über Deutschlands Geographie zusammengestellt. Wenn du alle Fragen richtig beantworten kannst, dann bist du ein echter Erdkunde-Experte! Für jede der 10 Fragen gibt es 4 Antwortmöglichkeiten. Nur eine davon ist richtig. Die Gewinnwahrscheinlichkeit liegt bei 1:1048576 (ca. 0,000095%). Viel Glück!
 
 <form action="#" method="post" id="quiz-form" autocomplete="off" itemscope itemtype="https://schema.org/Quiz">
     <h2 itemprop="name">Deutschland-Quiz</h2>
@@ -178,6 +178,63 @@ Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestel
         </li>
     </ol>
 </form>
+<div id="sources" style="display:none;">
+    <h2>Quellen</h2>
+    <ol>
+        <li>
+            <ul>
+                <li><a href="https://www.nationalpark-wattenmeer.de/hh/">www.nationalpark-wattenmeer.de/hh/</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Mellum">de.wikipedia.org/wiki/Mellum</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/Helgoland">de.wikipedia.org/wiki/Helgoland</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/B%C3%BCsingen_am_Hochrhein">de.wikipedia.org/wiki/B%C3%BCsingen_am_Hochrhein</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/Vogtland">de.wikipedia.org/wiki/Vogtland</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/Ilm_(Saale)">de.wikipedia.org/wiki/Ilm_(Saale)</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://www.redbull.com/de-de/die-tiefsten-seen-deutschlands">www.redbull.com/de-de/die-tiefsten-seen-deutschlands</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://weites.land/grenzuebergang-ellund-froslev-e45-a7-grenzroute-daenemark-deutschland/">weites.land/grenzuebergang-ellund-froslev-e45-a7-grenzroute-daenemark-deutschland/</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://arnis.de/">arnis.de/</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://www.bpb.de/kurz-knapp/lexika/das-junge-politik-lexikon/320325/freistaat/">www.bpb.de/kurz-knapp/lexika/das-junge-politik-lexikon/320325/freistaat/</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/M%C3%B6hren_(Treuchtlingen)">de.wikipedia.org/wiki/M%C3%B6hren_(Treuchtlingen)</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Kuchen_(Gemeinde)">de.wikipedia.org/wiki/Kuchen_(Gemeinde)</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Fisch_(Saargau)">de.wikipedia.org/wiki/Fisch_(Saargau)</a></li>
+            </ul>
+        </li>
+</div>
 <button id="quiz-form-eval" class="button-p">Auswerten</button>
 <script>
     var quizForm = document.getElementById("quiz-form");
@@ -214,6 +271,8 @@ Wir haben für euch die 10 schwierigsten Fragen über Deutschland zusammengestel
             }
         }
         alert("Du hast " + value + " von " + score + " Fragen richtig beantwortet!");
+        var sources = document.getElementById("sources");
+        sources.style.display = "block";
     }
     initQuiz();
     quizFormEval.addEventListener("click",evalQuiz);

@@ -72,7 +72,7 @@ marked.use({
     renderer:{
         heading: function(text, level, raw){
             var id = text.replaceAll(/[^A-z0-9äöüß\?\!]/gi, "-").toLowerCase();
-            var anchorTag = level<2?"":"<a href=\"#" + id + "\">#</a> ";
+            var anchorTag = level<2?"":"<a href=\"#" + id + "\"  aria-hidden=\"true\">#</a> ";
             return "<h" + level + " id=\"" + id + "\">" + anchorTag + "<span>" + text + "</span></h" + level + ">";
         },
         image:function(href,title,text){
