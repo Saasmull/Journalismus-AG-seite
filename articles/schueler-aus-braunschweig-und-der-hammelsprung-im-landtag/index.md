@@ -7,7 +7,7 @@ Später stößt Laura Wüstefeld vom Besucherdienst der Landtagsverwaltung zu un
 
 Neugierig geworden erkundigen wir uns nach den Türen im Plenarsaal, die mit den Aufschriften "Ja", "Enthaltung" und "Nein" versehen sind. Wir erfahren, dass diese Türen Teil des sogenannten Hammelsprungverfahrens sind, das angewendet wird, wenn eine Abstimmung nicht eindeutig ausfällt. Hierbei gehen alle Politiker aus dem Plenarsaal und betreten diesen dann durch die jeweilige Tür. Es ist interessant zu sehen, wie bestimmte Verfahren im politischen Alltag ihren Platz finden.
 
-Anschließend besuchen wir kurz den Raum der Landespressekonferenz. Wir können nur kurz reinschnuppern, denn in ein paar Minunten beginnt hier eine Pressekonferenz zu einer Personalie der Klosterkammer.
+Anschließend besuchen wir kurz den Raum der Landespressekonferenz. Wir können nur kurz reinschnuppern, denn in ein paar Minuten beginnt hier eine Pressekonferenz zu einer Personalie der Klosterkammer.
 
 Ein paar Minuten vor Beginn der Sitzung schaut unsere Patin Annette Schütze vorbei. Sie nimmt die ersten Namen der Wunsch-Interviewpartnerinnen und -partner mit ins Plenum.
 

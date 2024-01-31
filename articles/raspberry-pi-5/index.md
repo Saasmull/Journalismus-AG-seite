@@ -2,7 +2,7 @@
 
 ## Vorstellung
 
-Der Mitbegründer von der Raspverry Pi Foundation Eben Upton hat vorgestern den Raspberry Pi 5 angekündigt. Er soll im Oktober diesen Jahres erscheinen. Der Preis beträgt 60 US-Dollar für die 4-GB-Variante und 80 US-Dollar für die 8-GB-Version (zzgl. lokaler Steuern).
+Der Mitbegründer von der Raspberry Pi Foundation Eben Upton hat vorgestern den Raspberry Pi 5 angekündigt. Er soll im Oktober diesen Jahres erscheinen. Der Preis beträgt 60 US-Dollar für die 4-GB-Variante und 80 US-Dollar für die 8-GB-Version (zzgl. lokaler Steuern).
 
 <iframe src="https://www.youtube-nocookie.com/embed/yul4gq_LrOI?si=xAwbgxR-VpITNA-D&amp;controls=0" title="Vorstellungsvideo Raspberry Pi 5" class="yt-player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -20,7 +20,7 @@ Der Pi 5 soll zudem einen 2,4GHz-Vierkern-Prozessor bekommen. Die Fertigungsgrö
 
 ### Der schnellere Arbeits&shy;speicher
 
-Durch den neuen BCM2712 Chip wird jetzt LPDDRX 4 unterstützt, wodurch eine höhere Arbeitsspeicherfrequenz von 4267GHz unterszützt wird. Vom Raspberry Pi 5 soll eine 4GB- und eine 8GB-Variante geben. Eine 1GB- und 2GB-Variante wie beim Pi 4 soll es nicht geben.
+Durch den neuen BCM2712 Chip wird jetzt LPDDRX 4 unterstützt, wodurch eine höhere Arbeitsspeicherfrequenz von 4267GHz unterstützt wird. Vom Raspberry Pi 5 soll eine 4GB- und eine 8GB-Variante geben. Eine 1GB- und 2GB-Variante wie beim Pi 4 soll es nicht geben.
 
 ### Bessere Grafik&shy;karte
 
@@ -40,7 +40,7 @@ Es werden durch die neue Grafikkarte beim Raspberry Pi 5 zwei 4k-Monitore mit je
 
 ### Änderungen der Anschlüsse
 
-Der Raspberry Pi 5 wird keinen AUX-Anschluss für z.B. Kopfhörer haben, weil der durch einen CAM/DISP-Steckplatz ersetzt wurde. Der Ethernet-Anschluss wurde mit dem <span title="Power over Ethernet">PoE</span>-HAT wurde nach unten links gebracht. Es soll beime Pi 5 eine <span title="Echtzeit-Uhr">Real time clock</span> geben. Zusätzlich soll es nun einen ARM debug- und einen UART-, einen RTC-Batterie und einen PWM-Anchluss geben.
+Der Raspberry Pi 5 wird keinen AUX-Anschluss für z.B. Kopfhörer haben, weil der durch einen CAM/DISP-Steckplatz ersetzt wurde. Der Ethernet-Anschluss wurde mit dem <span title="Power over Ethernet">PoE</span>-HAT wurde nach unten links gebracht. Es soll beim Pi 5 eine <span title="Echtzeit-Uhr">Real time clock</span> geben. Zusätzlich soll es nun einen ARM debug- und einen UART-, einen RTC-Batterie und einen PWM-Anschluss geben.
 
 ![Wo beim Pi 4 der AUX-Anschluss war ist jetzt der CAM/DISP-0-Steckplatz](https://www.raspberrypi.com/app/uploads/2023/09/58f150c0-bd72-4e42-a77f-6be0890c8a80.png)
 

@@ -2,7 +2,7 @@
 
 ## Erstes bemanntes Wasserstoffflugzeug der Welt
 
-Im Jahr 2009 wurde das erste bemannte Wasserstoffflugzeug der Welt, die Antares DLR-H2, vorgestellt. Das Flugzeug wurde von der DLR (Deutsches Zentrum für Luft- und Raumfahrt) entwickelt und von der Firma Lange Aviation gebaut. Drei Monate später wurde ein Hohenrekord von 2558 Metern erreicht. Das Flugzeug wurde mit Wasserstoff betrieben, der in einer Brennstoffzelle in elektrische Energie umgewandelt wurde. Die Gesamteffizienz zwischen Wasserstofftank und dem Elektroantrieb beträgt rund 44 Prozent. ![Antares DLR-H2](/assets/images/antares.jpg)
+Im Jahr 2009 wurde das erste bemannte Wasserstoffflugzeug der Welt, die Antares DLR-H2, vorgestellt. Das Flugzeug wurde von der DLR (Deutsches Zentrum für Luft- und Raumfahrt) entwickelt und von der Firma Lange Aviation gebaut. Drei Monate später wurde ein Höhenrekord von 2558 Metern erreicht. Das Flugzeug wurde mit Wasserstoff betrieben, der in einer Brennstoffzelle in elektrische Energie umgewandelt wurde. Die Gesamteffizienz zwischen Wasserstofftank und dem Elektroantrieb beträgt rund 44 Prozent. ![Antares DLR-H2](/assets/images/antares.jpg)
 
 ## Das Passagierflugzeug HY4
 
