@@ -22,6 +22,7 @@ main>article{
     /*opacity: 0;*/
     transition: opacity 0.2s ease-in-out;
     text-decoration: none !important;
+    user-select: none;
 }
 
 #content h2>span,#content h3>span,#content h4>span,#content h5>span,#content h6>span{
