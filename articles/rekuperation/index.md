@@ -1,5 +1,5 @@
 
-**Rekuperation (Rückgewinnung) ist eine Technik, die uns möglich macht, besonders energieeffizient mit dem E-Auto oder auch mit der Bahn zu fahren. Dies wird vor allem in der Zukunft immer bedeutsamer werden.**
+**Rekuperation (Rückgewinnung) ist eine Technik, die uns möglich macht, besonders energieeffizient mit dem E-Auto oder auch mit der Bahn zu fahren. Solche energiesparende Techniken werden in der Zukunft immer bedeutsamer.**
 
 <dl itemscope itemtype="https://schema.org/FAQPage">
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -10,11 +10,11 @@
     </div>
 </dl>
 
-![mögliche Energierückgewinnung durch Rekuperation](/assets/images/mögliche-Energierückgewinnung-durch-Rekuperation.jpg)
-
 ## Rekuperation ist vielseitig nutzbar
 
 Nicht nur die E-Autos verwenden die Rekuperation. Auch Lüftungen und Heizungen arbeiten mit dieser Technik energieeffizient. Dabei wird sie als Wärmetauscher angewandt. Jedoch ist vor allem die Bahn ein populärer Nutzer der Rekuperation. Ähnlich wie beim Elektroauto wird auch dort beim Bremsen die kinetische Energie in elektrische Energie umgewandelt. Bei den Zügen wird der Strom dann nicht im Akku gespeichert, sondern wird über die Oberleitungen wieder eingespeist und kann schließlich von anderen Zügen genutzt werden. Laut der Deutschen Bahn sind allein durch Rekuperation bei den Zügen 1.500 Gigawatt Strom wieder eingespeist worden. Dies sei so viel, wie rund 363.000 Vier-Personen-Haushalte jährlich verbrauchen.
+
+![mögliche Energierückgewinnung durch Rekuperation](/assets/images/mögliche-Energierückgewinnung-durch-Rekuperation.jpg)
 
 ## Fazit
 
