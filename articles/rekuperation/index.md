@@ -1,5 +1,5 @@
 
-**Rekuperation (Rückgewinnung) ist eine Technik, die uns möglich macht, besonders energieeffizient mit dem E-Auto oder auch mit der Bahn zu fahren. Solche energiesparende Techniken werden in der Zukunft immer bedeutsamer.**
+**Rekuperation (Rückgewinnung) ist eine Technik, die uns möglich macht, besonders energieeffizient mit dem E-Auto oder auch mit der Bahn zu fahren. Das wird vor allem in der Zukunft immer bedeutsamer werden.**
 
 <dl itemscope itemtype="https://schema.org/FAQPage">
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
