@@ -2,11 +2,15 @@
 
 ## Erstes bemanntes Wasserstoffflugzeug der Welt
 
-Im Jahr 2009 wurde das erste bemannte Wasserstoffflugzeug der Welt, die Antares DLR-H2, vorgestellt. Das Flugzeug wurde von der DLR (Deutsches Zentrum für Luft- und Raumfahrt) entwickelt und von der Firma Lange Aviation gebaut. Drei Monate später wurde ein Höhenrekord von 2558 Metern erreicht. Das Flugzeug wurde mit Wasserstoff betrieben, der in einer Brennstoffzelle in elektrische Energie umgewandelt wurde. Die Gesamteffizienz zwischen Wasserstofftank und dem Elektroantrieb beträgt rund 44 Prozent. ![Antares DLR-H2](/assets/images/antares.jpg)
+Im Jahr 2009 wurde das erste bemannte Wasserstoffflugzeug der Welt, die Antares DLR-H2, vorgestellt. Das Flugzeug wurde von der DLR (Deutsches Zentrum für Luft- und Raumfahrt) entwickelt und von der Firma Lange Aviation gebaut. Drei Monate später konnte ein Höhenrekord von 2558 Metern erreicht werden. Das Flugzeug lief mit Wasserstoff, der in einer Brennstoffzelle in elektrische Energie umgewandelt wurde. Die Gesamteffizienz zwischen Wasserstofftank und dem Elektroantrieb beträgt rund 44 Prozent.
+
+![Antares DLR-H2](/assets/images/antares.jpg)
 
 ## Das Passagierflugzeug HY4
 
-Am 12. Oktober 2015 wurde das Konzeptflugzeug HY4 vorgestellt. Es ist das weltweit erste viersitzige Passagierflugzeug, das mit Wasserstoff betrieben wird. Es hat eine Reichweite von bis zu 1500 Kilometern und eine Höchstgeschwindigkeit von 165 km/h. Im September 2016 gelang der Erstflug des HY4 über dem Flughafen Stuttgart. Letztes Jahr glückte der Flug mit flüssigem Wasserstoff. Flüssiger Wasserstoff besitzt eine höhere Dichte, wodurch mehr Wasserstoff in den Tank passt. Das Flugzeug kann dadurch eine größere Reichweite erreichen. ![HY4](/assets/images/hy4.jpg)
+Am 12. Oktober 2015 wurde das Konzeptflugzeug HY4 vorgestellt. Es ist das weltweit erste viersitzige Passagierflugzeug, das mit Wasserstoff betrieben wird. Es hat eine Reichweite von bis zu 1500 Kilometern und eine Höchstgeschwindigkeit von 165 km/h. Im September 2016 gelang der Erstflug des HY4 über dem Flughafen Stuttgart. Vergangenes Jahr glückte der Flug mit flüssigem Wasserstoff. Flüssiger Wasserstoff besitzt eine höhere Dichte, wodurch mehr Wasserstoff in den Tank passt. Das Flugzeug kann dadurch eine größere Reichweite erreichen.
+
+![HY4](/assets/images/hy4.jpg)
 
 ## ZEROe Konzeptflugzeuge
 
@@ -28,10 +32,10 @@ Im Jahr 2020 stellte Airbus vier Konzeptflugzeuge vor unter dem Codenamen „ZER
 
 ## Vorteile von Wasserstoffflugzeugen
 
-Wasserstoffflugzeuge haben viele Vorteile gegenüber herkömmlichen Flugzeugen: Sie können leiser als herkömmliche Flugzeuge sein, wenn sie mit Brennstoffzellen und Elektromotoren angetrieben werden. Sie können auch klimaneutral sein, wenn der Wasserstoff mit erneuerbaren Energien hergestellt wird. Zudem verbrennt es ohne Emissionen von Kohlendioxid, Kohlenmonoxid und Kohlenwasserstoffen. Es wird nur Wasserdampf ausgestoßen. Gegenüber Elektroflugzeugen haben sie den Vorteil, dass sie keinen schweren Akku benötigen, der viel Platz wegnimmt und viel wiegt. Außerdem können sie eine größere Reichweite haben als Elektroflugzeuge.
+Wasserstoffflugzeuge haben viele Vorteile gegenüber herkömmlichen Flugzeugen: Sie können leiser sein, wenn sie mit Brennstoffzellen und Elektromotoren angetrieben werden. Sie können auch klimaneutral sein, wenn der Wasserstoff mit erneuerbaren Energien hergestellt wird. Zudem verbrennt es ohne Emissionen von Kohlendioxid, Kohlenmonoxid und Kohlenwasserstoffen. Es wird lediglich Wasserdampf ausgestoßen. Gegenüber Elektroflugzeugen haben sie den Vorteil, dass sie keinen schweren Akku benötigen, der viel Platz wegnimmt. Außerdem können sie eine größere Reichweite haben als Elektroflugzeuge.
 
 ## Nachteile von Wasserstoffflugzeugen
-Es werden größere Tanks als für herkömmliches Kerosin benötigt, da Wasserstoff eine geringere Energiedichte hat. Das bedeutet, dass die Flugzeuge mehr Treibstoff verbrauchen und somit auch mehr Wasserstoff mitnehmen müssen. Das erhöht das Gewicht des Flugzeugs und verringert die Reichweite. Zudem ist Wasserstoff schwerer zu lagern als Kerosin. Es muss entweder verflüssigt oder unter hohem Druck gespeichert werden. Beides ist aufwendig und teuer. Zudem ist Wasserstoff sehr leicht entzündlich und explosiv. Das bedeutet, dass die Tanks sehr stabil sein müssen, um ein Leck zu verhindern. Zudem ist die Herstellung von Wasserstoff sehr energieintensiv und nur mit erneuerbaren Energien klimaneutral.
+Es werden größere Tanks als für herkömmliches Kerosin benötigt, da Wasserstoff eine geringere Energiedichte hat. Das bedeutet, dass die Flugzeuge mehr Treibstoff verbrauchen und somit auch mehr Wasserstoff mitnehmen müssen. Das erhöht das Gewicht des Flugzeugs und verringert die Reichweite. Zudem ist Wasserstoff schwerer zu lagern als Kerosin. Es muss entweder verflüssigt oder unter hohem Druck gespeichert werden. Beides ist aufwendig und teuer. Außerdem ist Wasserstoff sehr leicht entzündlich und explosiv. Das bedeutet, dass die Tanks sehr stabil sein müssen, um ein Leck zu verhindern. Zudem ist die Herstellung von Wasserstoff sehr energieintensiv und nur mit erneuerbaren Energien klimaneutral.
 
 Quellen:
 - [wikipedia.org](https://de.wikipedia.org/wiki/Wasserstoffflugzeug)
