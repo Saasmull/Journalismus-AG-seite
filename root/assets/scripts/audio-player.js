@@ -37,7 +37,7 @@ function AudioPlayer(audio){
     })
 }
 
-var audioTags = document.querySelectorAll("audio");
+var audioTags = document.querySelectorAll("audio.new-ui");
 for(var i = 0;i < audioTags.length;i++){
     if(!audioTags[i].controls){
         new AudioPlayer(audioTags[i]);

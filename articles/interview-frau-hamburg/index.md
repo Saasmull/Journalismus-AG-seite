@@ -10,4 +10,4 @@ Die Schülerinnen und Schüler wünschten sich dabei, dass das aktuelle politisc
 ## Interview mit der Kultusministerin
 Zum Abschluss hatten wir noch die kurze Gelegenheit die Kultusministerin zu interviewen. Wir haben sie gefragt, warum das Grundgesetz so wichtig war und ist und was das Grundgesetz für sie persönlich ausmacht. 
 Hier hört ihr das Interview in voller Länge. Es führte Jonas Peters:
-<audio src="https://buessing.schule/fileadmin/Medien/Allgemein/Medien/KM_Hamburg/240416_KM_Hamburg_barcamp.mp3"></audio>
+<audio controls src="https://buessing.schule/fileadmin/Medien/Allgemein/Medien/KM_Hamburg/240416_KM_Hamburg_barcamp.mp3"></audio>
